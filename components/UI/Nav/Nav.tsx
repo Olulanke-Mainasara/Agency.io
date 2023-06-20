@@ -2,7 +2,7 @@
 import Link from "next/link";
 
 import React from "react";
-import { FaBars, FaChevronRight } from "react-icons/fa";
+import { FaBars, FaChevronRight, FaPlane } from "react-icons/fa";
 
 import useNavigationBar from "./useNavigationBar";
 
@@ -49,24 +49,24 @@ const Nav = () => {
   return (
     <>
       <nav
-        className={`fixed inset-0 z-30 h-16 w-screen text-black bg-white flex justify-between xl:px-6`}
+        className={`fixed inset-0 z-30 h-16 xl:h-20 w-screen text-black bg-white dark:text-white dark:bg-[#111111] flex justify-between px-5 xl:px-6`}
       >
         <Link
             href="/"
             className={`flex items-center text-2xl xs:text-lg`}
           >
-            <span>The Agency</span>
+             The&nbsp;<span className="text-[#389c96] dark:text-[#6fcbc6]">Agency</span>&nbsp;<FaPlane/>
           </Link>
 
           <ul
             className={`flex absolute xl:static top-0 h-screen xl:h-auto w-full xl:w-auto justify-end xl:justify-center xl:px-0 duration-500 xl:bg-transparent xl:backdrop-blur-none bg-gray-800/0 backdrop-blur-lg ${navMenu}`}
           >
-            <div className="relative px-6 w-4/5 min-w-[240px] max-w-[320px] xl:min-w-full xl:max-w-full flex justify-center xl:items-center items-start sm:gap-14 xl:flex-row flex-col gap-10 xs:gap-8">
+            <div className="relative xl:px-0 px-6 w-4/5 min-w-[240px] max-w-[320px] xl:min-w-fit xl:max-w-fit flex justify-center xl:items-center items-start sm:gap-14 xl:flex-row flex-col gap-10 xs:gap-8">
               {links.map((link) => (
                 <li key={link.id}>
                   <Link
                     href={link.href}
-                    className="duration-500 md:text-2xl xl:text-base hover:opacity-50"
+                    className="duration-300 md:text-2xl xl:text-base hover:text-[#389c96]"
                   >
                     {link.title}
                   </Link>
@@ -86,14 +86,14 @@ const Nav = () => {
               <div className="flex items-center gap-2 xs:flex-col xs:w-full xs:gap-5 md:hidden">
                 <Link
                   href={"/categories"}
-                  className="px-5 py-3 text-lg text-white transition-colors duration-300 bg-black sm:text-3xl rounded-3xl xs:w-full"
+                  className="px-5 py-3 text-lg text-white transition-colors duration-300 bg-[#389c96] sm:text-3xl rounded-3xl xs:w-full"
                 >
                   Start reading
                 </Link>
 
                 <Link
                   href={"/login"}
-                  className="flex items-center justify-center gap-1 py-2 pl-3 text-lg text-black md:text-2xl"
+                  className="flex items-center justify-center gap-1 py-2 pl-3 text-lg text-black dark:text-white md:text-2xl"
                 >
                   Log in <FaChevronRight />
                 </Link>
@@ -101,12 +101,21 @@ const Nav = () => {
             </div>
           </ul>
 
-          <div className="flex items-center gap-6 allEMT:hidden">
+          <div className="items-center hidden gap-6 xl:flex">
             {(renderThemeToggler as Function)()}
 
             <Link
+              href={"/sign-up"}
+              className="dark:text-white w-fit xl:flex duration-500 hover:text-[#389c96]"
+            >
+              Signup
+            </Link>
+
+            |
+
+            <Link
               href={"/login"}
-              className="flex items-center justify-center w-full gap-1 px-6 py-2 text-white duration-500 bg-black border border-black rounded-full dark:text-black dark:bg-white dark:hover:text-white dark:hover:bg-black"
+              className="flex items-center justify-center w-full gap-1 px-6 py-2 dark:text-white duration-500 border border-[#389c96] dark:border-[#6fcbc6] rounded-full"
             >
               Log in <FaChevronRight />
             </Link>
