@@ -12,6 +12,10 @@ module.exports = {
         xs: { max: "320px" },
         "2xl": { min: "1536px" },
       },
+      colors: {
+        brandDark: "#389c96",
+        brandLight: "#6fcbc6",
+      },
     },
   },
   plugins: [],
