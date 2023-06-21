@@ -5,7 +5,6 @@ import { useLocalStorage } from "react-use";
 
 function useNavigationBar() {
   const [navMenu, setMenu] = useState("-right-full");
-  const [mounted, setMounted] = useState(false);
   const [theme, setTheme] = useLocalStorage("theme");
 
   function openMenu() {
@@ -17,20 +16,6 @@ function useNavigationBar() {
   }
 
   useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  useEffect(() => {
-    if (!theme) {
-      const matchMedia = window.matchMedia("(prefers-color-scheme: dark)");
-
-      if (matchMedia.matches) {
-        setTheme("dark");
-      } else {
-        setTheme("light");
-      }
-    }
-
     if (theme === "dark") {
       document.documentElement.classList.remove("light");
       document.documentElement.classList.add("dark");
@@ -41,8 +26,6 @@ function useNavigationBar() {
   }, [theme]);
 
   function renderThemeToggler() {
-    if (!mounted) return null;
-
     if (theme === "dark") {
       return (
         <button
@@ -67,8 +50,6 @@ function useNavigationBar() {
   }
 
   function renderMobileThemeToggler() {
-    if (!mounted) return null;
-
     if (theme === "dark") {
       return (
         <button

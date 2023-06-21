@@ -1,7 +1,5 @@
 import { Inter } from "next/font/google";
 
-import Nav from "@/components/UI/Nav/Nav";
-
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -18,10 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className + " dark:bg-[#111111]"}>
-        <Nav />
-        {children}
-      </body>
+      <body className={inter.className + " dark:bg-[#111111]"}>{children}</body>
     </html>
   );
 }
