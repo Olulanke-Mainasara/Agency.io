@@ -48,7 +48,7 @@ const Nav = () => {
   return (
     <>
       <nav
-        className={`fixed inset-0 z-30 h-16 xl:h-20 w-screen text-black bg-white dark:text-white dark:bg-[#111111] flex justify-between px-5 xl:px-6`}
+        className={`fixed inset-0 xl:static h-16 w-screen text-black bg-white dark:text-white dark:bg-[#111111] flex justify-between px-5 xl:px-6`}
       >
         <Link href="/" className={`flex items-center text-2xl xs:text-lg`}>
           Agency
