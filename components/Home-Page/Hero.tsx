@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import React from "react";
 
 import { images } from "../../static-data/images";
-import ImageCardSm from "../UI/ImageCardSm";
+import ImageCardSm from "../UI/Cards/ImageCardSm";
 import Nav from "../UI/Nav/Nav";
 
 const Hero = () => {

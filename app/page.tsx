@@ -2,6 +2,7 @@
 
 import Hero from "@/components/Home-Page/Hero";
 import Section1 from "@/components/Home-Page/Section1";
+import Section2 from "@/components/Home-Page/Section2";
 import Splash from "@/components/UI/Splash/Splash";
 import { useEffect, useState } from "react";
 import { useLocalStorage } from "react-use";
@@ -33,6 +34,7 @@ export default function Home() {
       <Hero />
       <main className="w-screen">
         <Section1 />
+        <Section2 />
       </main>
     </>
   );
