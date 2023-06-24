@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { FaMoon, FaSun } from "react-icons/fa";
 import { useLocalStorage } from "react-use";
 
-
 function useNavigationBar() {
   const [navMenu, setMenu] = useState("w-0 h-0 rounded-bl-full opacity-0");
   const [theme, setTheme] = useLocalStorage("theme");
