@@ -5,11 +5,12 @@ import Section1 from "@/components/Home-Page/Section1";
 import Section2 from "@/components/Home-Page/Section2";
 import Splash from "@/components/UI/Splash/Splash";
 import { useEffect, useState } from "react";
-import { useLocalStorage } from "react-use";
+import { useLocalStorage, useSessionStorage } from "react-use";
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
   const [theme, setTheme] = useLocalStorage("theme");
+  const [splashed, setSplashed] = useSessionStorage("splashed");
 
   useEffect(() => {
     if (!theme) {
@@ -23,19 +24,27 @@ export default function Home() {
     }
 
     setMounted(true);
+
+    const timeOut = setTimeout(() => setSplashed("true"), 2900);
+    window.addEventListener("beforeunload", () => setSplashed(""));
+
+    return () => {
+      clearTimeout(timeOut);
+      window.removeEventListener("beforeunload", () => setSplashed(""));
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (!mounted) return null;
 
   return (
-    <>
-      <Splash />
+    <div className={`${splashed !== "true" ? "h-screen overflow-hidden" : ""}`}>
+      {splashed !== "true" ? <Splash /> : null}
       <Hero />
       <main className="w-screen">
         <Section1 />
         <Section2 />
       </main>
-    </>
+    </div>
   );
 }

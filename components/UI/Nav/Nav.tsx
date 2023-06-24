@@ -1,8 +1,10 @@
 import Link from "next/link";
 
 import React from "react";
-import { FaBars, FaChevronRight, FaPlane } from "react-icons/fa";
+import { FaArrowRight, FaBars, FaChevronRight, FaPlane } from "react-icons/fa";
 
+import FBgButtons from "../Buttons/FBgButtons";
+import TBgButtons from "../Buttons/TBgButtons";
 import useNavigationBar from "./useNavigationBar";
 
 const links = [
@@ -47,8 +49,8 @@ const Nav = () => {
 
   return (
     <>
-      <nav
-        className={`fixed inset-0 xl:static h-16 w-screen text-black bg-white dark:text-white dark:bg-[#111111] flex justify-between px-5 xl:px-6`}
+      <header
+        className={`fixed top-0 z-30 xl:static h-16 lg:h-20 w-screen text-black bg-white dark:text-white dark:bg-[#111111] flex justify-between px-5 xl:px-6`}
       >
         <Link href="/" className={`flex items-center text-2xl xs:text-lg`}>
           Agency
@@ -58,49 +60,42 @@ const Nav = () => {
         </Link>
 
         <ul
-          className={`flex absolute xl:static top-0 h-screen xl:h-auto w-full xl:w-auto justify-end xl:justify-center xl:px-0 duration-500 xl:duration-0 xl:bg-transparent xl:backdrop-blur-none bg-gray-800/0 backdrop-blur-lg ${navMenu}`}
+          className={`sm:gap-14 gap-10 xs:gap-8 flex absolute xl:static items-center top-0 xl:h-auto xl:w-auto px-6 xl:px-0 justify-center flex-col xl:flex-row duration-500 xl:duration-0 bg-white dark:bg-[#111111] right-0 overflow-hidden ${navMenu}`}
         >
-          <div className="relative xl:px-0 px-6 w-4/5 min-w-[240px] max-w-[320px] xl:min-w-fit xl:max-w-fit flex justify-center xl:items-center items-start sm:gap-14 xl:flex-row flex-col gap-10 xs:gap-8">
-            {links.map((link) => (
-              <li key={link.id}>
-                <Link
-                  href={link.href}
-                  className="duration-300 md:text-2xl xl:text-base hover:text-brandDark"
-                >
-                  {link.title}
-                </Link>
-              </li>
-            ))}
+          {links.map((link) => (
+            <li key={link.id}>
+              <Link
+                href={link.href}
+                className="duration-300 md:text-2xl dark:text-white xl:text-base hover:text-brandDark"
+              >
+                {link.title}
+              </Link>
+            </li>
+          ))}
 
-            <button
-              title="Close navigation menu"
-              onClick={handleCloseMenu}
-              className="absolute text-5xl rotate-45 top-5 right-5 xl:hidden"
+          <button
+            title="Close navigation menu"
+            onClick={handleCloseMenu}
+            className="absolute text-5xl text-black rotate-45 dark:text-white top-5 right-5 xl:hidden"
+          >
+            +
+          </button>
+
+          {(renderMobileThemeToggler as Function)()}
+
+          <div className="flex items-center gap-2 xs:flex-col xs:w-full xs:gap-5 lg:hidden">
+            <FBgButtons />
+
+            <Link
+              href={"/login"}
+              className="flex items-center justify-center gap-1 py-2 pl-3 text-lg text-black dark:text-white md:text-2xl"
             >
-              +
-            </button>
-
-            {(renderMobileThemeToggler as Function)()}
-
-            <div className="flex items-center gap-2 xs:flex-col xs:w-full xs:gap-5 md:hidden">
-              <Link
-                href={"/categories"}
-                className="px-5 py-3 text-lg text-white transition-colors duration-300 bg-brandDark sm:text-3xl rounded-3xl xs:w-full"
-              >
-                Start reading
-              </Link>
-
-              <Link
-                href={"/login"}
-                className="flex items-center justify-center gap-1 py-2 pl-3 text-lg text-black dark:text-white md:text-2xl"
-              >
-                Log in <FaChevronRight />
-              </Link>
-            </div>
+              Log in <FaChevronRight />
+            </Link>
           </div>
         </ul>
 
-        <div className="items-center hidden gap-6 xl:flex">
+        <div className="items-center hidden gap-6 lg:flex">
           {(renderThemeToggler as Function)()}
           <Link
             href={"/sign-up"}
@@ -109,12 +104,9 @@ const Nav = () => {
             Signup
           </Link>
           |
-          <Link
-            href={"/login"}
-            className="flex items-center justify-center w-full gap-1 px-6 py-2 duration-300 border rounded-full hover:bg-black hover:text-white hover:border-black dark:text-white border-brandDark dark:border-brandLight dark:hover:bg-white dark:hover:text-black dark:hover:border-white"
-          >
-            Log in <FaChevronRight />
-          </Link>
+          <TBgButtons xPaddingAndText="px-6" yPadding="py-2" href="/login">
+            Log in <FaArrowRight />
+          </TBgButtons>
         </div>
 
         <button
@@ -124,7 +116,7 @@ const Nav = () => {
         >
           <FaBars />
         </button>
-      </nav>
+      </header>
     </>
   );
 };

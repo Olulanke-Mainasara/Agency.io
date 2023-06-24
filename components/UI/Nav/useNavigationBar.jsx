@@ -3,16 +3,17 @@ import { useEffect, useState } from "react";
 import { FaMoon, FaSun } from "react-icons/fa";
 import { useLocalStorage } from "react-use";
 
+
 function useNavigationBar() {
-  const [navMenu, setMenu] = useState("-right-full");
+  const [navMenu, setMenu] = useState("w-0 h-0 rounded-bl-full opacity-0");
   const [theme, setTheme] = useLocalStorage("theme");
 
   function openMenu() {
-    setMenu("right-0");
+    setMenu("w-full h-screen rounded-bl-0 opacity-100");
   }
 
   function closeMenu() {
-    setMenu("-right-full");
+    setMenu("w-0 h-0 rounded-bl-full opacity-0");
   }
 
   useEffect(() => {
@@ -55,7 +56,7 @@ function useNavigationBar() {
         <button
           title="Toggle theme"
           onClick={() => setTheme("light")}
-          className="absolute flex items-center justify-center w-10 h-10 text-xl text-black bg-white rounded-full top-7 left-6 md:hidden"
+          className="absolute flex items-center justify-center w-10 h-10 text-xl text-black bg-white rounded-full top-7 left-6 lg:hidden"
         >
           <FaSun />
         </button>
@@ -65,7 +66,7 @@ function useNavigationBar() {
         <button
           title="Toggle theme"
           onClick={() => setTheme("dark")}
-          className="absolute flex items-center justify-center w-10 h-10 text-xl text-white bg-black rounded-full top-7 left-6 md:hidden"
+          className="absolute flex items-center justify-center w-10 h-10 text-xl text-white bg-black rounded-full top-7 left-6 lg:hidden"
         >
           <FaMoon />
         </button>

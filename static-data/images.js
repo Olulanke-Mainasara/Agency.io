@@ -30,7 +30,6 @@ export const images = [
 export const carouselSections = [
   {
     id: 1,
-    imgsrc: Carousel1,
     mainText: "Set Sail on a Luxury Cruise",
     subText: "Experience Unmatched Comfort and Adventure",
     description:
@@ -38,7 +37,6 @@ export const carouselSections = [
   },
   {
     id: 2,
-    imgsrc: Carousel2,
     mainText: "Indulge in Tranquil Spa Retreats",
     subText: "Revitalize Your Mind, Body, and Soul",
     description:
@@ -46,7 +44,6 @@ export const carouselSections = [
   },
   {
     id: 3,
-    imgsrc: Carousel3,
     mainText: "Embrace the Thrill of Skydiving",
     subText: "Soar Above the Clouds and Feel Alive",
     description:
@@ -54,7 +51,6 @@ export const carouselSections = [
   },
   {
     id: 4,
-    imgsrc: Carousel4,
     mainText: "Unwind on Secluded Beaches",
     subText: "Escape to Tranquility Under the Moonlight",
     description:
@@ -62,7 +58,6 @@ export const carouselSections = [
   },
   {
     id: 5,
-    imgsrc: Carousel5,
     mainText: "Conquer Majestic Peaks",
     subText: "Reach New Heights, Unleash Your Adventure",
     description:
