@@ -1,108 +1,58 @@
-import { carouselSections } from "@/static-data/images";
+import { services } from "@/static-data/services";
 import { motion } from "framer-motion";
 import React, { useState } from "react";
-import { FaArrowRight } from "react-icons/fa";
 
-import LeftArrow from "../UI/Carousel/LeftArrow";
-import RightArrow from "../UI/Carousel/RightArrow";
+import NBgButtons from "../UI/Buttons/NBgButtons";
 
 const Section2 = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [next, setNext] = useState(true);
-
-  const variants = {
-    hidden: {
-      x: next ? 200 : -200,
-      opacity: 0,
-    },
-    visible: {
-      x: 0,
-      opacity: 1,
-    },
-  };
-
-  function nextSlide() {
-    setNext(true);
-
-    setCurrentSlide((prevSlide) => (prevSlide + 1) % carouselSections.length);
-  }
-
-  function prevSlide() {
-    setNext(false);
-
-    setCurrentSlide(
-      (prevSlide) =>
-        (carouselSections.length + prevSlide - 1) % carouselSections.length
-    );
-  }
-
+  const [hasViewed, setHasViewed] = useState(false);
   return (
-    <section className="relative w-full h-screen p-8 overflow-scroll">
-      {currentSlide > 0 ? <LeftArrow onclick={prevSlide} /> : null}
-
-      <motion.div
-        initial={{ y: 100, opacity: 0 }}
-        whileInView={{
-          y: 0,
-          opacity: 1,
-          transition: {
-            duration: 0.7,
-          },
-        }}
-        className="h-full"
-      >
-        <motion.div
-          key={carouselSections[currentSlide].id}
-          variants={variants}
-          initial="hidden"
-          animate="visible"
-          className="relative w-full h-full overflow-hidden text-white border rounded-xl"
+    <section className=" w-full flex items-center pb-0 md:pb-8 p-8 xl:h-screen md:h-[900px] mb-40 gap-8">
+      <div className="flex flex-col gap-12 lg:basis-3/4 dark:text-white">
+        <motion.h1
+          initial={hasViewed ? { x: 0, opacity: 1 } : { x: -100, opacity: 0 }}
+          whileInView={{
+            x: 0,
+            opacity: 1,
+            transition: {
+              duration: 0.7,
+            },
+          }}
+          onAnimationComplete={() => setHasViewed(true)}
+          className="text-5xl"
         >
-          <div
-            className={`relative w-full h-full ${
-              currentSlide == 0
-                ? "bg-[url('/Carousel/Carousel1.jpg')]"
-                : currentSlide == 1
-                ? "bg-[url('/Carousel/Carousel2.jpg')]"
-                : currentSlide == 2
-                ? "bg-[url('/Carousel/Carousel3.jpg')]"
-                : currentSlide == 3
-                ? "bg-[url('/Carousel/Carousel4.jpg')]"
-                : currentSlide == 4
-                ? "bg-[url('/Carousel/Carousel5.jpg')]"
-                : ""
-            }  bg-center bg-cover`}
-          ></div>
-
-          <div className="absolute inset-0 pt-8 pl-3 sm:pl-5 backdrop-brightness-50">
-            <div className="space-y-3">
-              <p className="opacity-75 md:text-2xl">
-                {carouselSections[currentSlide].subText}
-              </p>
-              <h1 className="max-w-3xl text-3xl md:text-7xl">
-                {carouselSections[currentSlide].mainText}
-              </h1>
-            </div>
-
-            <div className="absolute max-w-lg space-y-5 bottom-8 sm:right-5">
-              <p className="md:text-lg">
-                {carouselSections[currentSlide].description}
-              </p>
-
-              <button className="flex items-center gap-x-2">
-                Build your trip
-                <span className="text-brandLight">
-                  <FaArrowRight />
-                </span>
-              </button>
-            </div>
-          </div>
-        </motion.div>
-      </motion.div>
-
-      {currentSlide < carouselSections.length - 1 ? (
-        <RightArrow onclick={nextSlide} />
-      ) : null}
+          What do we offer?
+        </motion.h1>
+        <div className="grid md:grid-cols-2 gap-x-10 gap-y-12 h-fit">
+          {services.map((service) => {
+            return (
+              <motion.div
+                initial={
+                  hasViewed ? { x: 0, opacity: 1 } : { x: -100, opacity: 0 }
+                }
+                whileInView={{
+                  x: 0,
+                  opacity: 1,
+                  transition: {
+                    duration: 0.7,
+                    delay: 0.2,
+                  },
+                }}
+                className="flex flex-col justify-center w-full gap-y-5"
+                key={service.id}
+              >
+                <h1 className="flex items-center gap-2 text-2xl">
+                  <span className="text-brandLight">{service.icon}</span>
+                  {service.topic}
+                </h1>
+                <p className="opacity-70">{service.text}</p>
+                <NBgButtons prompt="Learn more" />
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+      <div className="hidden h-full border border-black dark:border-white basis-1/2 rounded-xl lg:block"></div>
     </section>
   );
 };

@@ -1,7 +1,13 @@
 import Link from "next/link";
 
 import React from "react";
-import { FaArrowRight, FaBars, FaChevronRight, FaPlane } from "react-icons/fa";
+import {
+  FaArrowRight,
+  FaBars,
+  FaChevronRight,
+  FaPlane,
+  FaTimes,
+} from "react-icons/fa";
 
 import FBgButtons from "../Buttons/FBgButtons";
 import TBgButtons from "../Buttons/TBgButtons";
@@ -60,7 +66,7 @@ const Nav = () => {
         </Link>
 
         <ul
-          className={`sm:gap-14 gap-10 xs:gap-8 flex absolute xl:static items-center top-0 xl:h-auto xl:w-auto px-6 xl:px-0 justify-center flex-col xl:flex-row duration-500 xl:duration-0 bg-white dark:bg-[#111111] right-0 overflow-hidden ${navMenu}`}
+          className={`sm:gap-14 gap-10 xs:gap-8 flex absolute xl:opacity-100 xl:static items-center top-0 xl:h-auto xl:w-auto px-6 xl:px-0 xl:rounded-none justify-center flex-col xl:flex-row duration-500 xl:duration-0 bg-white dark:bg-[#111111] right-0 overflow-hidden ${navMenu}`}
         >
           {links.map((link) => (
             <li key={link.id}>
@@ -76,9 +82,9 @@ const Nav = () => {
           <button
             title="Close navigation menu"
             onClick={handleCloseMenu}
-            className="absolute text-5xl text-black rotate-45 dark:text-white top-5 right-5 xl:hidden"
+            className="absolute text-4xl text-black dark:text-white top-8 right-5 xl:hidden"
           >
-            +
+            <FaTimes />
           </button>
 
           {(renderMobileThemeToggler as Function)()}

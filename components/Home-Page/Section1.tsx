@@ -1,13 +1,15 @@
 import { motion } from "framer-motion";
-import React from "react";
+import React, { useState } from "react";
 
 import FBgButtons from "../UI/Buttons/FBgButtons";
 
 const Section1 = () => {
+  const [hasViewed, setHasViewed] = useState(false);
+
   return (
     <section className="relative flex flex-col w-full min-h-screen gap-8 pb-0 xl:pb-8 p-8 my-40 overflow-hidden md:grid md:grid-rows-3 md:grid-cols-4 dark:text-white md:min-h-fit md:max-h-[728px]">
       <motion.div
-        initial={{ x: -100, opacity: 0 }}
+        initial={hasViewed ? { x: 0, opacity: 1 } : { x: -100, opacity: 0 }}
         whileInView={{
           x: 0,
           opacity: 1,
@@ -15,11 +17,12 @@ const Section1 = () => {
             duration: 0.7,
           },
         }}
+        onAnimationComplete={() => setHasViewed(true)}
         className="col-span-2 row-span-3 border border-black dark:border-white rounded-xl min-h-[300px]"
       ></motion.div>
 
       <motion.div
-        initial={{ x: 100, opacity: 0 }}
+        initial={hasViewed ? { x: 0, opacity: 1 } : { x: 100, opacity: 0 }}
         whileInView={{
           x: 0,
           opacity: 1,
@@ -38,7 +41,7 @@ const Section1 = () => {
       </motion.div>
 
       <motion.div
-        initial={{ y: 100, opacity: 0 }}
+        initial={hasViewed ? { y: 0, opacity: 1 } : { y: 100, opacity: 0 }}
         whileInView={{
           y: 0,
           opacity: 1,
