@@ -7,7 +7,7 @@ const Section1 = () => {
   const [hasViewed, setHasViewed] = useState(false);
 
   return (
-    <section className="relative flex flex-col w-full min-h-screen gap-8 pb-0 xl:pb-8 p-8 my-40 overflow-hidden md:grid md:grid-rows-3 md:grid-cols-4 dark:text-white md:min-h-fit md:max-h-[728px]">
+    <section className="relative flex flex-col w-full min-h-screen gap-8 p-8 pb-0 my-40 overflow-hidden xl:pb-8 md:grid md:grid-rows-3 md:grid-cols-4 dark:text-white md:min-h-fit xl:min-h-screen">
       <motion.div
         initial={hasViewed ? { x: 0, opacity: 1 } : { x: -100, opacity: 0 }}
         whileInView={{

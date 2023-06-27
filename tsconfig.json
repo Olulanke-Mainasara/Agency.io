@@ -29,6 +29,6 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "components/UI/Nav/useNavigationBar.jsx"
-  ],
+, "static-data/images.js", "static-data/services.js", "static-data/destinations.js"  ],
   "exclude": ["node_modules"]
 }

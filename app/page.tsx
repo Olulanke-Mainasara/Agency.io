@@ -4,6 +4,7 @@ import Hero from "@/components/Home-Page/Hero";
 import Section1 from "@/components/Home-Page/Section1";
 import Section2 from "@/components/Home-Page/Section2";
 import Section3 from "@/components/Home-Page/Section3";
+import Section4 from "@/components/Home-Page/Section4";
 import Splash from "@/components/UI/Splash/Splash";
 import { useEffect, useState } from "react";
 import { useLocalStorage, useSessionStorage } from "react-use";
@@ -46,6 +47,7 @@ export default function Home() {
         <Section1 />
         <Section2 />
         <Section3 />
+        <Section4 />
       </main>
     </div>
   );

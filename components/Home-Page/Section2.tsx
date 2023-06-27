@@ -1,58 +1,75 @@
-import { services } from "@/static-data/services";
+import Image from "next/image";
+
+import { destinations } from "@/static-data/destinations";
 import { motion } from "framer-motion";
 import React, { useState } from "react";
 
 import NBgButtons from "../UI/Buttons/NBgButtons";
 
 const Section2 = () => {
-  const [hasViewed, setHasViewed] = useState(false);
+  const [card, setCard] = useState(0);
+
+  const handleClick = (index: number) => {
+    setCard(index);
+  };
+
+  const animationVariants = {
+    initial: { width: 200 },
+    clicked: { flexGrow: 1 },
+  };
+
   return (
-    <section className=" w-full flex items-center pb-0 md:pb-8 p-8 xl:h-screen md:h-[900px] mb-40 gap-8">
-      <div className="flex flex-col gap-12 lg:basis-3/4 dark:text-white">
-        <motion.h1
-          initial={hasViewed ? { x: 0, opacity: 1 } : { x: -100, opacity: 0 }}
-          whileInView={{
-            x: 0,
-            opacity: 1,
-            transition: {
-              duration: 0.7,
-            },
-          }}
-          onAnimationComplete={() => setHasViewed(true)}
-          className="text-5xl"
-        >
-          What do we offer?
-        </motion.h1>
-        <div className="grid md:grid-cols-2 gap-x-10 gap-y-12 h-fit">
-          {services.map((service) => {
-            return (
-              <motion.div
-                initial={
-                  hasViewed ? { x: 0, opacity: 1 } : { x: -100, opacity: 0 }
-                }
-                whileInView={{
-                  x: 0,
-                  opacity: 1,
-                  transition: {
-                    duration: 0.7,
-                    delay: 0.2,
-                  },
-                }}
-                className="flex flex-col justify-center w-full gap-y-5"
-                key={service.id}
+    <section className="flex flex-col w-full min-h-screen gap-12 p-8 pb-0 text-white md:pb-8">
+      <h1 className="text-5xl">Featured Destinations</h1>
+      <div className="flex gap-8 grow">
+        {destinations.map((destination, index) => {
+          return (
+            <motion.div
+              initial="initial"
+              animate={card == index ? "clicked" : "initial"}
+              variants={animationVariants}
+              onClick={() => handleClick(index)}
+              className={`relative border rounded-xl overflow-hidden duration-100 ${
+                card !== index ? "hover:cursor-pointer" : ""
+              }`}
+              key={destination.id}
+            >
+              <div className="relative w-full h-full border">
+                <Image
+                  className="object-cover"
+                  src={destination.imgsrc}
+                  fill
+                  placeholder="blur"
+                  alt={destination.destination}
+                />
+              </div>
+
+              <div
+                className={`${
+                  card !== index
+                    ? "backdrop-brightness-50"
+                    : "backdrop-brightness-[80%]"
+                } duration-500 absolute inset-0 pt-5 pl-5`}
               >
-                <h1 className="flex items-center gap-2 text-2xl">
-                  <span className="text-brandLight">{service.icon}</span>
-                  {service.topic}
+                <h1
+                  className={`${
+                    card == index ? "text-5xl" : "text-xl"
+                  } duration-500`}
+                >
+                  {destination.destination}
+                  <span
+                    className={`${
+                      card == index ? "opacity-100" : "opacity-0"
+                    } text-base mt-2 duration-300`}
+                  >
+                    <NBgButtons prompt="view more" />
+                  </span>
                 </h1>
-                <p className="opacity-70">{service.text}</p>
-                <NBgButtons prompt="Learn more" />
-              </motion.div>
-            );
-          })}
-        </div>
+              </div>
+            </motion.div>
+          );
+        })}
       </div>
-      <div className="hidden h-full border border-black dark:border-white basis-1/2 rounded-xl lg:block"></div>
     </section>
   );
 };
