@@ -1,3 +1,10 @@
+import Carousel1 from "../public/Carousel/Carousel1.jpg";
+import Carousel2 from "../public/Carousel/Carousel2.jpg";
+import Carousel3 from "../public/Carousel/Carousel3.jpg";
+import Carousel4 from "../public/Carousel/Carousel4.jpg";
+import Carousel5 from "../public/Carousel/Carousel5.jpg";
+import Carousel6 from "../public/Carousel/Carousel6.webp";
+import Carousel7 from "../public/Carousel/Carousel7.jpg";
 import Section1 from "../public/Hero/Section1.jpeg";
 import Section2 from "../public/Hero/Section2.jpeg";
 import Section3 from "../public/Hero/Section3.jpeg";
@@ -29,6 +36,7 @@ export const carouselSections = [
     subText: "Revitalize Your Mind, Body, and Soul",
     description:
       "Escape to a world of serenity and relaxation with our rejuvenating spa retreats. Unwind amidst soothing ambiance, skilled therapists, and pampering treatments that will leave you feeling refreshed.",
+    imgsrc: Carousel1,
   },
   {
     id: 2,
@@ -36,6 +44,7 @@ export const carouselSections = [
     subText: "Experience Unmatched Comfort and Adventure",
     description:
       "Embark on a journey of a lifetime aboard our exquisite cruise ships. Enjoy luxurious amenities, breathtaking views, and a wide range of activities for an unforgettable vacation.",
+    imgsrc: Carousel2,
   },
   {
     id: 3,
@@ -43,6 +52,7 @@ export const carouselSections = [
     subText: "Soar Above the Clouds and Feel Alive",
     description:
       "Experience the ultimate adrenaline rush with our exhilarating skydiving adventures. Dive from high above, feel the rush of wind, and witness awe-inspiring views as you conquer the skies.",
+    imgsrc: Carousel3,
   },
   {
     id: 4,
@@ -50,6 +60,7 @@ export const carouselSections = [
     subText: "Escape to Tranquility Under the Moonlight",
     description:
       "Immerse yourself in the enchanting beauty of our secluded beaches. Take romantic strolls along the shoreline, bask in the gentle ocean breeze, and witness the mesmerizing spectacle of the night sky.",
+    imgsrc: Carousel4,
   },
   {
     id: 5,
@@ -57,6 +68,7 @@ export const carouselSections = [
     subText: "Reach New Heights, Unleash Your Adventure",
     description:
       "Embark on a thrilling mountain climbing expedition and conquer majestic peaks. Push your limits, revel in breathtaking vistas, and savor the sense of achievement at the pinnacle of the world.",
+    imgsrc: Carousel5,
   },
   {
     id: 6,
@@ -64,6 +76,7 @@ export const carouselSections = [
     subText: "Immerse Yourself in Nature's Wonders",
     description:
       "Explore the extraordinary realm of wildlife through an immersive expedition that transports you to nature's wonders. Witness majestic creatures thriving in their natural habitats, from graceful big cats to and elusive marine life.",
+    imgsrc: Carousel6,
   },
   {
     id: 7,
@@ -71,5 +84,6 @@ export const carouselSections = [
     subText: "Uncover the Pulse of Vibrant Cities",
     description:
       "Indulge in a captivating city escape and immerse yourself in the vibrant energy of bustling metropolises. Wander through historic streets, marvel at iconic landmarks, and discover hidden gems nestled amidst urban landscapes.",
+    imgsrc: Carousel7,
   },
 ];

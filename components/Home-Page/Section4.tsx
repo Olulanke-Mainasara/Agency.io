@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { carouselSections } from "@/static-data/images";
 import { motion } from "framer-motion";
 import React, { useState } from "react";
@@ -48,25 +50,15 @@ const Section4 = () => {
           animate={{ x: 0 }}
           className="relative w-full h-full overflow-hidden text-white border rounded-xl"
         >
-          <div
-            className={`relative w-full h-full ${
-              currentSlide == 0
-                ? "bg-[url('/Carousel/Carousel1.jpg')]"
-                : currentSlide == 1
-                ? "bg-[url('/Carousel/Carousel2.jpg')]"
-                : currentSlide == 2
-                ? "bg-[url('/Carousel/Carousel3.jpg')]"
-                : currentSlide == 3
-                ? "bg-[url('/Carousel/Carousel4.jpg')]"
-                : currentSlide == 4
-                ? "bg-[url('/Carousel/Carousel5.jpg')]"
-                : currentSlide == 5
-                ? "bg-[url('/Carousel/Carousel6.webp')]"
-                : currentSlide == 6
-                ? "bg-[url('/Carousel/Carousel7.jpg')]"
-                : ""
-            }  bg-center bg-cover`}
-          ></div>
+          <div className="relative w-full h-full">
+            <Image
+              src={carouselSections[currentSlide].imgsrc}
+              fill
+              placeholder="blur"
+              alt={carouselSections[currentSlide].mainText}
+              className="object-cover"
+            />
+          </div>
 
           <div className="absolute inset-0 pt-8 pl-3 sm:pl-5 backdrop-brightness-50">
             <div className="space-y-3">

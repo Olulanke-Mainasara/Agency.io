@@ -20,7 +20,7 @@ const Section2 = () => {
 
   return (
     <section className="flex flex-col w-full min-h-screen gap-12 p-8 pb-0 text-white md:pb-8">
-      <h1 className="text-5xl">Featured Destinations</h1>
+      <h1 className="text-5xl text-center">Featured Destinations</h1>
       <div className="flex gap-8 grow">
         {destinations.map((destination, index) => {
           return (
@@ -54,13 +54,13 @@ const Section2 = () => {
                 <h1
                   className={`${
                     card == index ? "text-5xl" : "text-xl"
-                  } duration-500`}
+                  } duration-300 flex flex-col gap-2`}
                 >
                   {destination.destination}
                   <span
                     className={`${
                       card == index ? "opacity-100" : "opacity-0"
-                    } text-base mt-2 duration-300`}
+                    } text-base duration-300`}
                   >
                     <NBgButtons prompt="view more" />
                   </span>
