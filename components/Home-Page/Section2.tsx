@@ -8,31 +8,36 @@ import NBgButtons from "../UI/Buttons/NBgButtons";
 
 const Section2 = () => {
   const [card, setCard] = useState(0);
+  const [hasViewed, setHasViewed] = useState(false);
 
   const handleClick = (index: number) => {
     setCard(index);
   };
 
-  const animationVariants = {
-    initial: { width: 200 },
-    clicked: { flexGrow: 1 },
-  };
-
   return (
-    <section className="flex flex-col w-full min-h-screen gap-12 p-8 pb-0 text-white md:pb-8">
+    <section className="flex flex-col w-full min-h-screen gap-12 p-8 pb-0 dark:text-white md:pb-8">
       <h1 className="text-5xl text-center">Featured Destinations</h1>
-      <div className="flex gap-8 grow">
+      <div className="flex gap-8 text-white grow">
         {destinations.map((destination, index) => {
           return (
             <motion.div
-              initial="initial"
-              animate={card == index ? "clicked" : "initial"}
-              variants={animationVariants}
+              initial={
+                hasViewed ? { y: 0, opacity: 1 } : { y: 100, opacity: 0 }
+              }
+              whileInView={{
+                y: 0,
+                opacity: 1,
+              }}
+              transition={{
+                duration: 0.7,
+                delay: 0.2 * index,
+              }}
               onClick={() => handleClick(index)}
-              className={`relative border rounded-xl overflow-hidden duration-100 ${
-                card !== index ? "hover:cursor-pointer" : ""
+              className={`relative border rounded-xl overflow-hidden duration-500 ease-out min-w-[200px] ${
+                card == index ? "grow" : "hover:cursor-pointer grow-0"
               }`}
               key={destination.id}
+              onAnimationComplete={() => setHasViewed(true)}
             >
               <div className="relative w-full h-full border">
                 <Image

@@ -1,3 +1,6 @@
+import Image from "next/image";
+
+import Offer from "@/public/Main/Offer.jpg";
 import { services } from "@/static-data/services";
 import { motion } from "framer-motion";
 import React, { useState } from "react";
@@ -52,7 +55,26 @@ const Section3 = () => {
           })}
         </div>
       </div>
-      <div className="hidden h-full border border-black dark:border-white basis-1/2 rounded-xl lg:block"></div>
+      <motion.div
+        initial={hasViewed ? { x: 0, opacity: 1 } : { x: 100, opacity: 0 }}
+        whileInView={{
+          x: 0,
+          opacity: 1,
+          transition: {
+            duration: 0.7,
+            delay: 0.2,
+          },
+        }}
+        className="relative hidden h-full overflow-hidden border border-black dark:border-white basis-1/2 rounded-xl lg:block"
+      >
+        <Image
+          src={Offer}
+          placeholder="blur"
+          fill
+          className="object-cover"
+          alt="Beach umbrella with two seats"
+        />
+      </motion.div>
     </section>
   );
 };

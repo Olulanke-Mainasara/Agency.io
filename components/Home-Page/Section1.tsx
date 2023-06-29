@@ -1,3 +1,7 @@
+import Image from "next/image";
+
+import About1 from "@/public/Main/About1.jpg";
+import About2 from "@/public/Main/About2.jpg";
 import { motion } from "framer-motion";
 import React, { useState } from "react";
 
@@ -18,8 +22,16 @@ const Section1 = () => {
           },
         }}
         onAnimationComplete={() => setHasViewed(true)}
-        className="col-span-2 row-span-3 border border-black dark:border-white rounded-xl min-h-[300px]"
-      ></motion.div>
+        className="col-span-2 relative row-span-3 border border-black dark:border-white rounded-xl min-h-[300px] overflow-hidden"
+      >
+        <Image
+          src={About1}
+          placeholder="blur"
+          fill
+          className="object-cover"
+          alt="Beach umbrella with two seats"
+        />
+      </motion.div>
 
       <motion.div
         initial={hasViewed ? { x: 0, opacity: 1 } : { x: 100, opacity: 0 }}
@@ -49,8 +61,16 @@ const Section1 = () => {
             duration: 0.7,
           },
         }}
-        className="col-span-2 col-start-3 row-span-2 border border-black rounded-xl dark:border-white min-h-[300px]"
-      ></motion.div>
+        className="col-span-2 relative col-start-3 row-span-2 border border-black rounded-xl dark:border-white min-h-[300px] overflow-hidden"
+      >
+        <Image
+          src={About2}
+          placeholder="blur"
+          fill
+          className="object-cover"
+          alt="Beach umbrella with two seats"
+        />
+      </motion.div>
     </section>
   );
 };
