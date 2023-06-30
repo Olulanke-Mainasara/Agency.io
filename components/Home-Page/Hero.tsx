@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import React from "react";
+import React, { useState } from "react";
 
 import { images } from "../../static-data/images";
 import FBgButtons from "../UI/Buttons/FBgButtons";
@@ -8,14 +8,15 @@ import ImageCardSm from "../UI/Cards/ImageCardSm";
 import Nav from "../UI/Nav/Nav";
 
 const Hero = () => {
+  const [hasViewed, setHasViewed] = useState(false);
   return (
-    <section className="flex flex-col w-screen pt-20 xl:min-h-screen lg:pt-24 min-h-fit xl:pt-0">
-      <Nav />
+    <section className="flex w-screen xl:min-h-screen min-h-fit">
       <div className="flex flex-col items-center overflow-hidden grow xl:gap-16 xl:flex-row">
         <motion.div
-          initial={{ opacity: 0, translateY: -30 }}
-          animate={{ opacity: 1, translateY: 0 }}
-          transition={{ duration: 0.7, delay: 2.6 }}
+          initial={hasViewed ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          onAnimationComplete={() => setHasViewed(true)}
           className="flex flex-col items-center justify-center gap-6 px-5 pb-10 text-center text-black xl:text-right xl:items-end xl:pr-0 basis-1/2 dark:text-white"
         >
           <h1 className="max-w-3xl text-5xl md:text-[90px] text-brandDark dark:text-brandLight">

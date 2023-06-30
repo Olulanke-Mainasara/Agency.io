@@ -17,7 +17,7 @@ const Section2 = () => {
   return (
     <section className="flex flex-col w-full min-h-screen gap-12 p-8 pb-0 dark:text-white md:pb-8">
       <h1 className="text-5xl text-center">Featured Destinations</h1>
-      <div className="flex gap-8 text-white grow">
+      <div className="flex gap-8 overflow-scroll text-white grow">
         {destinations.map((destination, index) => {
           return (
             <motion.div

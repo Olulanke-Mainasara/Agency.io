@@ -3,13 +3,13 @@ import { FaHistory } from "react-icons/fa";
 export const services = [
   {
     id: 1,
-    topic: "Tailored Travel Experiences",
+    topic: "Bespoke Travel Experiences",
     text: "Create your ideal vacation with our customizable travel experiences. Fine-tune your itinerary, select accommodations that match your preferences, and handpick activities that align with your interests. Our app empowers you to design a trip that perfectly suits your travel desires.",
     icon: <FaHistory />,
   },
   {
     id: 2,
-    topic: "Vast Destination Collection",
+    topic: "Vast Destination Portfolio",
     text: "Discover a vast collection of vacation ideas and destinations from around the world. Whether you're seeking a tropical beach paradise, a cultural immersion in historic cities, or an adventurous trek through breathtaking landscapes, our app provides a huge database to satisfy your wanderlust.",
     icon: <FaHistory />,
   },

@@ -1,10 +1,12 @@
 "use client";
 
 import Hero from "@/components/Home-Page/Hero";
+import Search from "@/components/Home-Page/Search";
 import Section1 from "@/components/Home-Page/Section1";
 import Section2 from "@/components/Home-Page/Section2";
 import Section3 from "@/components/Home-Page/Section3";
 import Section4 from "@/components/Home-Page/Section4";
+import Nav from "@/components/UI/Nav/Nav";
 import Splash from "@/components/UI/Splash/Splash";
 import { useEffect, useState } from "react";
 import { useLocalStorage, useSessionStorage } from "react-use";
@@ -42,6 +44,8 @@ export default function Home() {
   return (
     <div className={`${splashed !== "true" ? "h-screen overflow-hidden" : ""}`}>
       {splashed !== "true" ? <Splash /> : null}
+      <Nav />
+      <Search />
       <Hero />
       <main className="w-screen">
         <Section1 />

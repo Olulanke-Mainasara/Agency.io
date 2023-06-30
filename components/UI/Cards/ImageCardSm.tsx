@@ -1,7 +1,7 @@
 import Image, { StaticImageData } from "next/image";
 
 import { motion } from "framer-motion";
-import React from "react";
+import React, { useState } from "react";
 
 const ImageCardSm = ({
   imgsrc,
@@ -10,17 +10,16 @@ const ImageCardSm = ({
   imgsrc: StaticImageData;
   index: number;
 }) => {
-  const delayTime =
-    index == 0 ? index + 1 * 3.0 : index + 1 * 3.0 - 1.1 * index;
-
+  const [hasViewed, setHasViewed] = useState(false);
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
+      initial={hasViewed ? { opacity: 1 } : { opacity: 0 }}
+      whileInView={{ opacity: 1 }}
       transition={{
         duration: 0.3,
-        delay: delayTime,
+        delay: 0.2 * index,
       }}
+      onAnimationComplete={() => setHasViewed(true)}
       className={`w-72 aspect-square`}
     >
       <div className="relative w-full h-full overflow-hidden border border-black rounded-xl dark:border-white">
