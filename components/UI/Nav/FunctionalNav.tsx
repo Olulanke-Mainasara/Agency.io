@@ -12,7 +12,12 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/UI/ShadUI/navigation-menu";
 import { cn } from "@/lib/utils";
-import { company, experiences, locations, utils } from "@/static-data/navigation";
+import {
+  company,
+  experiences,
+  locations,
+  utils,
+} from "@/static-data/navigation";
 import React from "react";
 
 export function FunctionalNav() {
@@ -57,13 +62,6 @@ export function FunctionalNav() {
               ))}
             </ul>
           </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <Link href="/pricing" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Plans
-            </NavigationMenuLink>
-          </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
           <NavigationMenuTrigger>Utilities</NavigationMenuTrigger>
