@@ -1,22 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { FaMoon, FaSun } from "react-icons/fa";
 import { useLocalStorage } from "react-use";
 
-
 function useNavigationBar() {
-  const [navMenu, setMenu] = useState(
-    "h-0"
-  );
   const [theme, setTheme] = useLocalStorage("theme");
-
-  function openMenu() {
-    setMenu("h-screen");
-  }
-
-  function closeMenu() {
-    setMenu("h-0");
-  }
 
   useEffect(() => {
     if (theme === "dark") {
@@ -77,9 +65,6 @@ function useNavigationBar() {
   }
 
   return [
-    navMenu,
-    openMenu,
-    closeMenu,
     renderThemeToggler,
     renderMobileThemeToggler,
   ];

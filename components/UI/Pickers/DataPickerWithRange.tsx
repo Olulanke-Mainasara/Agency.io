@@ -10,7 +10,7 @@ import {
 import { cn } from "@/lib/utils";
 import { addDays, format } from "date-fns";
 import { Calendar as CalendarIcon } from "lucide-react";
-import * as React from "react";
+import React from "react";
 import { DateRange } from "react-day-picker";
 
 export function DatePickerWithRange({
@@ -29,7 +29,7 @@ export function DatePickerWithRange({
             id="date"
             variant={"outline"}
             className={cn(
-              "h-16 border-black rounded-xl font-normal text-lg dark:bg-transparent dark:text-white dark:border-white",
+              "h-16 border-black rounded-xl font-normal text-lg bg-transparent dark:bg-transparent dark:hover:bg-white dark:hover:text-black duration-300 dark:text-white dark:border-white",
               !date && "text-muted-foreground"
             )}
           >

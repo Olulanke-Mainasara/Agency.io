@@ -15,7 +15,7 @@ import {
 } from "@/components/UI/ShadUI/popover";
 import { cn } from "@/lib/utils";
 import { Check, ChevronsUpDown } from "lucide-react";
-import * as React from "react";
+import React from "react";
 
 const frameworks = [
   {
@@ -51,7 +51,7 @@ export function LocationComboBox() {
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="justify-between w-full h-16 text-lg font-normal border-black rounded-xl basis-1/2 dark:bg-transparent dark:text-white dark:border-white"
+          className="justify-between w-full h-16 text-lg font-normal duration-300 bg-transparent border-black rounded-xl basis-1/2 dark:bg-transparent dark:hover:bg-white dark:hover:text-black dark:text-white dark:border-white"
         >
           {value
             ? frameworks.find((framework) => framework.value === value)?.label

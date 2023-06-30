@@ -8,6 +8,7 @@ import React from "react";
 import TBgButtons from "../UI/Buttons/TBgButtons";
 import { DatePickerWithRange } from "../UI/Pickers/DataPickerWithRange";
 import { LocationComboBox } from "../UI/Pickers/LocationComboBox";
+import NBgButtons from "../UI/Buttons/NBgButtons";
 
 const Search = () => {
   return (
@@ -33,9 +34,9 @@ const Search = () => {
         initial={{ opacity: 0, translateY: 30 }}
         animate={{ opacity: 1, translateY: 0 }}
         transition={{ duration: 0.7, delay: 2.6 }}
-        className="flex flex-col w-full gap-8 pt-20 lg:pt-0 lg:justify-center lg:basis-1/2"
+        className="flex flex-col w-full gap-8 pt-16 lg:pt-0 lg:justify-center lg:basis-1/2"
       >
-        <div className="flex gap-5 overflow-scroll lg:flex-wrap">
+        <div className="flex gap-5 overflow-scroll dark:text-white md:flex-wrap activities">
           {activities.map((activity) => {
             return (
               <div key={activity.id}>
@@ -49,6 +50,7 @@ const Search = () => {
               </div>
             );
           })}
+          <NBgButtons prompt="View more" />
         </div>
         <h1 className="text-4xl md:text-5xl dark:text-white">
           Where to next, Mainasara?
