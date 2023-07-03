@@ -9,7 +9,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/UI/ShadUI/dropdown-menu";
-import Profile from "@/public/Hero/profile.jpg";
+import Profile from "@/public/Hero/profile.webp";
 import {
   Heart,
   LogOut,

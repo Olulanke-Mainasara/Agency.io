@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import Offer from "@/public/Main/Offer.jpg";
+import Offer from "@/public/Main/Offer.webp";
 import { services } from "@/static-data/services";
 import { motion } from "framer-motion";
 import React, { useState } from "react";

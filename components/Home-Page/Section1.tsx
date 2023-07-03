@@ -1,7 +1,7 @@
 import Image from "next/image";
 
-import About1 from "@/public/Main/About1.jpg";
-import About2 from "@/public/Main/About2.jpg";
+import About1 from "@/public/Main/About1.webp";
+import About2 from "@/public/Main/About2.webp";
 import { motion } from "framer-motion";
 import React, { useState } from "react";
 

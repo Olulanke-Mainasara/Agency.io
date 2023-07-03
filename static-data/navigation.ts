@@ -111,6 +111,12 @@ export const company: { title: string; href: string; description: string }[] = [
     description:
       "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
   },
+  {
+    title: "Contact us",
+    href: "/docs/primitives/progress",
+    description:
+      "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
+  },
 ];
 
 export const utils: { title: string; href: string; description: string }[] = [

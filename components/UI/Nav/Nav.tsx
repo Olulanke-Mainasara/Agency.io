@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import Profile from "@/public/Hero/profile.jpg";
+import Profile from "@/public/Hero/profile.webp";
 import { motion } from "framer-motion";
 import React, { useState } from "react";
 import {
