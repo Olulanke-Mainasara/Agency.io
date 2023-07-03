@@ -28,7 +28,10 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "components/UI/Nav/useNavigationBar.jsx"
-, "static-data/images.ts", "static-data/services.js", "static-data/destinations.ts"  ],
+    "components/UI/Nav/useNavigationBar.jsx",
+    "static-data/images.ts",
+    "static-data/services.js",
+    "static-data/destinations.ts"
+  ],
   "exclude": ["node_modules"]
 }

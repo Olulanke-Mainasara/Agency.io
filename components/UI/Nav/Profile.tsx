@@ -10,13 +10,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/UI/ShadUI/dropdown-menu";
 import Profile from "@/public/Hero/profile.webp";
-import {
-  Heart,
-  LogOut,
-  User,
-  BaggageClaim,
-  Wallet,
-} from "lucide-react";
+import { BaggageClaim, Heart, LogOut, User, Wallet } from "lucide-react";
 
 export function ProfileOps() {
   return (

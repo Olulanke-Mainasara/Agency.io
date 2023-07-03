@@ -64,10 +64,7 @@ function useNavigationBar() {
     }
   }
 
-  return [
-    renderThemeToggler,
-    renderMobileThemeToggler,
-  ];
+  return [renderThemeToggler, renderMobileThemeToggler];
 }
 
 export default useNavigationBar;

@@ -68,11 +68,7 @@ export function FunctionalNav() {
           <NavigationMenuContent>
             <ul className="grid w-full gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
               {utils.map((util) => (
-                <ListItem
-                  key={util.title}
-                  title={util.title}
-                  href={util.href}
-                >
+                <ListItem key={util.title} title={util.title} href={util.href}>
                   {util.description}
                 </ListItem>
               ))}

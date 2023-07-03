@@ -35,44 +35,45 @@ export const experiences: {
   },
 ];
 
-export const locations: { title: string; href: string; description: string }[] = [
-  {
-    title: "Africa",
-    href: "/continents/africa",
-    description:
-      "A continent located primarily in the Eastern Hemisphere, known for its diverse cultures, landscapes, and wildlife.",
-  },
-  {
-    title: "Asia",
-    href: "/continents/asia",
-    description:
-      "The largest continent, home to numerous countries and diverse cultures, stretching from the Middle East to the Pacific Islands.",
-  },
-  {
-    title: "Australia",
-    href: "/continents/australia",
-    description:
-      "A continent and country known for its unique wildlife, stunning landscapes, and vibrant cities.",
-  },
-  {
-    title: "Europe",
-    href: "/continents/europe",
-    description:
-      "A continent known for its rich history, diverse cultures, and architectural wonders, spanning from the Atlantic to the Urals.",
-  },
-  {
-    title: "North America",
-    href: "/continents/northAmerica",
-    description:
-      "A continent comprising countries such as the United States, Canada, and Mexico, known for its vast landscapes and cultural diversity.",
-  },
-  {
-    title: "South America",
-    href: "/continents/southAmerica",
-    description:
-      "A continent known for its Amazon rain forest, Andes Mountains, and vibrant Latin American cultures.",
-  },
-];
+export const locations: { title: string; href: string; description: string }[] =
+  [
+    {
+      title: "Africa",
+      href: "/continents/africa",
+      description:
+        "A continent located primarily in the Eastern Hemisphere, known for its diverse cultures, landscapes, and wildlife.",
+    },
+    {
+      title: "Asia",
+      href: "/continents/asia",
+      description:
+        "The largest continent, home to numerous countries and diverse cultures, stretching from the Middle East to the Pacific Islands.",
+    },
+    {
+      title: "Australia",
+      href: "/continents/australia",
+      description:
+        "A continent and country known for its unique wildlife, stunning landscapes, and vibrant cities.",
+    },
+    {
+      title: "Europe",
+      href: "/continents/europe",
+      description:
+        "A continent known for its rich history, diverse cultures, and architectural wonders, spanning from the Atlantic to the Urals.",
+    },
+    {
+      title: "North America",
+      href: "/continents/northAmerica",
+      description:
+        "A continent comprising countries such as the United States, Canada, and Mexico, known for its vast landscapes and cultural diversity.",
+    },
+    {
+      title: "South America",
+      href: "/continents/southAmerica",
+      description:
+        "A continent known for its Amazon rain forest, Andes Mountains, and vibrant Latin American cultures.",
+    },
+  ];
 
 export const company: { title: string; href: string; description: string }[] = [
   {
@@ -145,4 +146,3 @@ export const utils: { title: string; href: string; description: string }[] = [
       "Calculates and provides optimal routes between different locations, taking into account factors like distance, traffic, and directions.",
   },
 ];
-

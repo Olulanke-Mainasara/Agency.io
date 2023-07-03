@@ -5,10 +5,10 @@ import { activities } from "@/static-data/activities";
 import { motion } from "framer-motion";
 import React from "react";
 
+import NBgButtons from "../UI/Buttons/NBgButtons";
 import TBgButtons from "../UI/Buttons/TBgButtons";
 import { DatePickerWithRange } from "../UI/Pickers/DataPickerWithRange";
 import { LocationComboBox } from "../UI/Pickers/LocationComboBox";
-import NBgButtons from "../UI/Buttons/NBgButtons";
 
 const Search = () => {
   return (

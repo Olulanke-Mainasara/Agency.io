@@ -18,7 +18,7 @@ const LocationImageCard = ({
   return (
     <Link
       href={`/continents/${continent}/${country}`}
-      className={`relative min-h-[350px] text-xl ${
+      className={`relative min-h-[350px] border border-black dark:border-white rounded-xl overflow-hidden text-xl group ${
         rows == 1
           ? "row-span-1"
           : rows == 2
@@ -37,7 +37,7 @@ const LocationImageCard = ({
       }`}
     >
       <div className="w-full h-full">
-        <div className="relative w-full h-full">
+        <div className="relative w-full h-full duration-500 group-hover:scale-110">
           <Image
             src={Section1}
             fill
