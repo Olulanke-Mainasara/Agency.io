@@ -1,7 +1,7 @@
-import Image from "next/image";
+"use client";
+
 import Link from "next/link";
 
-import Profile from "@/public/Hero/profile.webp";
 import { motion } from "framer-motion";
 import React, { useState } from "react";
 import {
@@ -58,7 +58,11 @@ const Nav = () => {
           <div className="absolute flex items-center justify-between w-full px-6 lg:justify-end just top-8">
             {(renderMobileThemeToggler as Function)()}
 
-            {loggedIn ? <span className="lg:hidden"><Notifications size={30} /></span> : null}
+            {loggedIn ? (
+              <span className="lg:hidden">
+                <Notifications size={30} />
+              </span>
+            ) : null}
 
             <button
               title="Close navigation menu"

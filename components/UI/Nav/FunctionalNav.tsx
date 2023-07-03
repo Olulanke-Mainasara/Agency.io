@@ -51,13 +51,13 @@ export function FunctionalNav() {
           <NavigationMenuTrigger>Locations</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-full gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-              {locations.map((component) => (
+              {locations.map((location) => (
                 <ListItem
-                  key={component.title}
-                  title={component.title}
-                  href={component.href}
+                  key={location.title}
+                  title={location.title}
+                  href={location.href}
                 >
-                  {component.description}
+                  {location.description}
                 </ListItem>
               ))}
             </ul>
@@ -67,13 +67,13 @@ export function FunctionalNav() {
           <NavigationMenuTrigger>Utilities</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-full gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-              {utils.map((section) => (
+              {utils.map((util) => (
                 <ListItem
-                  key={section.title}
-                  title={section.title}
-                  href={section.href}
+                  key={util.title}
+                  title={util.title}
+                  href={util.href}
                 >
-                  {section.description}
+                  {util.description}
                 </ListItem>
               ))}
             </ul>
@@ -116,7 +116,7 @@ const ListItem = React.forwardRef<
           {...props}
         >
           <div className="text-sm font-medium leading-none">{title}</div>
-          <p className="text-sm leading-snug line-clamp-2 text-muted-foreground">
+          <p className="text-sm leading-snug line-clamp-3 text-muted-foreground">
             {children}
           </p>
         </a>

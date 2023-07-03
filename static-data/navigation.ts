@@ -35,87 +35,81 @@ export const experiences: {
   },
 ];
 
-export const locations: { title: string; href: string; description: string }[] =
-  [
-    {
-      title: "Africa",
-      href: "/docs/primitives/alert-dialog",
-      description:
-        "A modal dialog that interrupts the user with important content and expects a response.",
-    },
-    {
-      title: "Antarctica",
-      href: "/docs/primitives/hover-card",
-      description:
-        "For sighted users to preview content available behind a link.",
-    },
-    {
-      title: "Asia",
-      href: "/docs/primitives/progress",
-      description:
-        "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
-    },
-    {
-      title: "Australia",
-      href: "/docs/primitives/scroll-area",
-      description: "Visually or semantically separates content.",
-    },
-    {
-      title: "Europe",
-      href: "/docs/primitives/tabs",
-      description:
-        "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
-    },
-    {
-      title: "North America",
-      href: "/docs/primitives/tooltip",
-      description:
-        "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
-    },
-    {
-      title: "South America",
-      href: "/docs/primitives/tooltip",
-      description:
-        "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
-    },
-  ];
+export const locations: { title: string; href: string; description: string }[] = [
+  {
+    title: "Africa",
+    href: "/continents/africa",
+    description:
+      "A continent located primarily in the Eastern Hemisphere, known for its diverse cultures, landscapes, and wildlife.",
+  },
+  {
+    title: "Asia",
+    href: "/continents/asia",
+    description:
+      "The largest continent, home to numerous countries and diverse cultures, stretching from the Middle East to the Pacific Islands.",
+  },
+  {
+    title: "Australia",
+    href: "/continents/australia",
+    description:
+      "A continent and country known for its unique wildlife, stunning landscapes, and vibrant cities.",
+  },
+  {
+    title: "Europe",
+    href: "/continents/europe",
+    description:
+      "A continent known for its rich history, diverse cultures, and architectural wonders, spanning from the Atlantic to the Urals.",
+  },
+  {
+    title: "North America",
+    href: "/continents/northAmerica",
+    description:
+      "A continent comprising countries such as the United States, Canada, and Mexico, known for its vast landscapes and cultural diversity.",
+  },
+  {
+    title: "South America",
+    href: "/continents/southAmerica",
+    description:
+      "A continent known for its Amazon rain forest, Andes Mountains, and vibrant Latin American cultures.",
+  },
+];
 
 export const company: { title: string; href: string; description: string }[] = [
   {
     title: "About us",
     href: "/docs/primitives/alert-dialog",
     description:
-      "A modal dialog that interrupts the user with important content and expects a response.",
+      "Learn more about our company, our mission, and the values that drive us.",
   },
   {
     title: "Reviews",
     href: "/docs/primitives/hover-card",
     description:
-      "For sighted users to preview content available behind a link.",
+      "Read reviews and testimonials from our customers and partners.",
   },
   {
     title: "Blog",
     href: "/docs/primitives/progress",
     description:
-      "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
+      "Explore articles and insights on various topics related to our industry and expertise.",
   },
   {
     title: "Career",
     href: "/docs/primitives/progress",
     description:
-      "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
+      "Discover exciting career opportunities and join our talented team.",
   },
   {
     title: "FAQ",
     href: "/docs/primitives/progress",
     description:
-      "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
+      "Find answers to frequently asked questions about our products and services.",
   },
   {
     title: "Contact us",
     href: "/docs/primitives/progress",
     description:
-      "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
+      "Get in touch with our team for inquiries, support, or general questions.",
   },
 ];
 
@@ -124,30 +118,31 @@ export const utils: { title: string; href: string; description: string }[] = [
     title: "Calculator",
     href: "/docs/primitives/alert-dialog",
     description:
-      "A modal dialog that interrupts the user with important content and expects a response.",
+      "A tool for performing mathematical calculations, including basic arithmetic operations and more advanced functions.",
   },
   {
     title: "Currency converter",
     href: "/docs/primitives/hover-card",
     description:
-      "For sighted users to preview content available behind a link.",
+      "A utility that allows users to convert between different currencies and view exchange rates.",
   },
   {
     title: "Weather",
     href: "/docs/primitives/progress",
     description:
-      "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
+      "Provides current weather conditions, forecasts, and other meteorological information for specific locations.",
   },
   {
     title: "Map",
     href: "/docs/primitives/progress",
     description:
-      "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
+      "Displays geographical maps and allows users to explore locations, get directions, and view points of interest.",
   },
   {
     title: "Routing",
     href: "/docs/primitives/progress",
     description:
-      "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
+      "Calculates and provides optimal routes between different locations, taking into account factors like distance, traffic, and directions.",
   },
 ];
+
