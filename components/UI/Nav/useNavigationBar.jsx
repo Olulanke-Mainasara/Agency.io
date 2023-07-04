@@ -16,7 +16,7 @@ function useNavigationBar() {
       return (
         <button
           title="Toggle theme"
-          className="flex items-center justify-center w-10 h-10 text-xl bg-black border border-white rounded-full"
+          className="flex items-center justify-center w-10 h-10 text-xl border rounded-full"
         ></button>
       );
     }
@@ -51,7 +51,7 @@ function useNavigationBar() {
       return (
         <button
           title="Toggle theme"
-          className="flex items-center justify-center w-10 h-10 text-xl bg-black border border-white rounded-full"
+          className="flex items-center justify-center w-10 h-10 text-xl border rounded-full"
         ></button>
       );
     }
