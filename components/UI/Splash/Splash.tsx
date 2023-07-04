@@ -3,7 +3,8 @@ import React from "react";
 import { FaPlane } from "react-icons/fa";
 
 const Splash = () => {
-  const width = window.innerWidth;
+  const width = typeof window !== "undefined" ? window.innerWidth : 0;
+
   return (
     <motion.div animate={{ display: "none", transition: { delay: 2.8 } }}>
       <motion.div

@@ -1,23 +1,29 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect } from "react";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 import { FaMoon, FaSun } from "react-icons/fa";
-import { useLocalStorage } from "react-use";
 
 function useNavigationBar() {
-  const [theme, setTheme] = useLocalStorage("theme");
+  const [mounted, setMounted] = useState(false);
+  const { systemTheme, theme, setTheme } = useTheme();
 
   useEffect(() => {
-    if (theme === "dark") {
-      document.documentElement.classList.remove("light");
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      document.documentElement.classList.add("light");
-    }
-  }, [theme]);
+    setMounted(true);
+  }, []);
 
   function renderThemeToggler() {
-    if (theme === "dark") {
+    if (!mounted) {
+      return (
+        <button
+          title="Toggle theme"
+          className="flex items-center justify-center w-10 h-10 text-xl bg-black border border-white rounded-full"
+        ></button>
+      );
+    }
+
+    const currentTheme = theme === "system" ? systemTheme : theme;
+
+    if (currentTheme === "dark") {
       return (
         <button
           title="Toggle theme"
@@ -41,7 +47,18 @@ function useNavigationBar() {
   }
 
   function renderMobileThemeToggler() {
-    if (theme === "dark") {
+    if (!mounted) {
+      return (
+        <button
+          title="Toggle theme"
+          className="flex items-center justify-center w-10 h-10 text-xl bg-black border border-white rounded-full"
+        ></button>
+      );
+    }
+
+    const currentTheme = theme === "system" ? systemTheme : theme;
+
+    if (currentTheme === "dark") {
       return (
         <button
           title="Toggle theme"

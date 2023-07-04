@@ -1,7 +1,4 @@
-"use client";
-
 import LocationImageCard from "@/components/UI/Cards/LocationImageCard";
-import Nav from "@/components/UI/Nav/Nav";
 import {
   africa,
   asia,
@@ -10,19 +7,12 @@ import {
   northAmerica,
   southAmerica,
 } from "@/static-data/countries";
-import { useEffect, useState } from "react";
 
 export default function Page({
   params: { continent },
 }: {
   params: { continent: string };
 }) {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   let continentData;
 
   // Determine the location data based on the parameter in the URL
@@ -50,11 +40,8 @@ export default function Page({
       break;
   }
 
-  if (!mounted) return null;
-
   return (
     <>
-      <Nav />
       <div className="px-8 pt-24">
         <h1 className="text-center text-8xl dark:text-white">
           {continent == "northAmerica"

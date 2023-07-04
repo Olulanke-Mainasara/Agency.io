@@ -9,6 +9,7 @@ import NBgButtons from "../UI/Buttons/NBgButtons";
 
 const Section3 = () => {
   const [hasViewed, setHasViewed] = useState(false);
+  
   return (
     <section className=" w-full flex items-center pb-0 md:pb-8 p-8 xl:h-screen md:h-[900px] my-40 gap-8 overflow-hidden">
       <div className="flex flex-col gap-12 lg:basis-3/4 dark:text-white">

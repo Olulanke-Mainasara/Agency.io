@@ -5,10 +5,10 @@ import { images } from "../../static-data/images";
 import FBgButtons from "../UI/Buttons/FBgButtons";
 import TBgButtons from "../UI/Buttons/TBgButtons";
 import ImageCardSm from "../UI/Cards/ImageCardSm";
-import Nav from "../UI/Nav/Nav";
 
 const Hero = () => {
   const [hasViewed, setHasViewed] = useState(false);
+  
   return (
     <section className="flex w-screen xl:min-h-screen min-h-fit">
       <div className="flex flex-col items-center overflow-hidden grow xl:gap-16 xl:flex-row">

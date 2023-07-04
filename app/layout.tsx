@@ -1,5 +1,8 @@
 import { Inter } from "next/font/google";
 
+import Nav from "@/components/UI/Nav/Nav";
+
+import Providers from "./Providers";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -15,8 +18,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className + " dark:bg-[#111111]"}>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <body className={inter.className + " dark:bg-[#111111]"}>
+        <Providers>
+          <Nav />
+          {children}
+        </Providers>
+      </body>
     </html>
   );
 }
