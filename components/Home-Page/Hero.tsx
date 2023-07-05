@@ -8,7 +8,7 @@ import ImageCardSm from "../UI/Cards/ImageCardSm";
 
 const Hero = () => {
   const [hasViewed, setHasViewed] = useState(false);
-  
+
   return (
     <section className="flex w-screen xl:min-h-screen min-h-fit">
       <div className="flex flex-col items-center overflow-hidden grow xl:gap-16 xl:flex-row">
