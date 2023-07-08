@@ -5,14 +5,14 @@ import { services } from "@/static-data/services";
 import { motion } from "framer-motion";
 import React, { useState } from "react";
 
-import NBgButtons from "../UI/Buttons/NBgButtons";
+import NBgButtons from "../UI/Links/NBgLink";
 
 const Section3 = () => {
   const [hasViewed, setHasViewed] = useState(false);
-  
+
   return (
     <section className=" w-full flex items-center pb-0 md:pb-8 p-8 xl:h-screen md:h-[900px] my-40 gap-8 overflow-hidden">
-      <div className="flex flex-col gap-12 lg:basis-3/4 dark:text-white">
+      <div className="flex flex-col gap-8 lg:basis-3/4 dark:text-white">
         <motion.h1
           initial={hasViewed ? { x: 0, opacity: 1 } : { x: 100, opacity: 0 }}
           whileInView={{
@@ -46,7 +46,7 @@ const Section3 = () => {
                 key={service.id}
               >
                 <h1 className="flex items-center gap-2 text-2xl">
-                  <span className="text-brandLight">{service.icon}</span>
+                  <span className="text-brandDark dark:text-brandLight">{service.icon}</span>
                   {service.topic}
                 </h1>
                 <p className="opacity-70">{service.text}</p>

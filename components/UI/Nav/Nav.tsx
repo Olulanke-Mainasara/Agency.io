@@ -12,24 +12,22 @@ import {
   FaTimes,
 } from "react-icons/fa";
 
-import FBgButtons from "../Buttons/FBgButtons";
-import TBgButtons from "../Buttons/TBgButtons";
+import FBgButtons from "../Links/FBgLink";
+import TBgButtons from "../Links/TBgLink";
 import { FunctionalNav } from "./FunctionalNav";
 import { Notifications } from "./Notifications";
 import { ProfileOps } from "./Profile";
-import useNavigationBar from "./useNavigationBar";
+import { DesktopThemeToggler, MobileThemeToggler } from "./ThemeTogglers";
 
 const Nav = () => {
   const [clicked, setClicked] = useState(false);
 
   // Simulating a loggedIn state
-  const [loggedIn, setLoggedIn] = useState(true);
-
-  const [renderThemeToggler, renderMobileThemeToggler] = useNavigationBar();
+  const [loggedIn, setLoggedIn] = useState(false);
 
   return (
     <nav
-      className={`fixed top-0 left-0 z-30 h-16 lg:h-20 w-screen text-black bg-white dark:text-white dark:bg-[#111111] flex justify-between items-center px-5 xl:px-8`}
+      className={`fixed top-0 left-0 z-30 h-16 lg:h-20 w-screen text-black bg-white dark:text-white dark:bg-background flex justify-between items-center px-5 xl:px-8`}
     >
       <Link href="/" className={`flex items-center text-2xl xs:text-lg`}>
         Agency
@@ -48,7 +46,7 @@ const Nav = () => {
         transition={{
           duration: 0.5,
         }}
-        className={`w-full z-10 xl:w-fit absolute xl:static top-0 left-0 xl:h-auto xl:duration-0 bg-white dark:bg-[#111111] overflow-hidden  xl:hidden`}
+        className={`w-full z-10 xl:w-fit absolute xl:static top-0 left-0 xl:h-auto xl:duration-0 bg-white dark:bg-background overflow-hidden  xl:hidden`}
       >
         <div
           className={`relative h-screen sm:gap-14 gap-10 xs:gap-8 w-full xl:h-full flex items-center px-6 xl:px-0 justify-center flex-col xl:flex-row`}
@@ -56,7 +54,11 @@ const Nav = () => {
           <FunctionalNav />
 
           <div className="absolute flex items-center justify-between w-full px-6 lg:justify-end just top-8">
-            {(renderMobileThemeToggler as Function)()}
+            <MobileThemeToggler
+              defaultClass="flex items-center justify-center w-10 aspect-square border rounded-full"
+              lightClass="flex items-center justify-center w-10 aspect-square text-xl text-black bg-white rounded-full lg:hidden"
+              darkClass="flex items-center justify-center w-10 aspect-square text-xl text-black border border-black rounded-full lg:hidden"
+            />
 
             {loggedIn ? (
               <span className="lg:hidden">
@@ -96,7 +98,7 @@ const Nav = () => {
         ) : (
           <div className="flex items-center gap-6">
             <Link
-              href={"/sign-up"}
+              href={"/signup"}
               className="duration-300 dark:text-white w-fit xl:flex hover:text-brandDark dark:hover:text-brandDark"
             >
               Signup
@@ -110,7 +112,7 @@ const Nav = () => {
 
         <p>NGN</p>
 
-        {(renderThemeToggler as Function)()}
+        <DesktopThemeToggler />
       </div>
 
       {loggedIn ? (
