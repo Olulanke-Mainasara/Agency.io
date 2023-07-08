@@ -5,7 +5,7 @@ import About2 from "@/public/Main/About2.webp";
 import { motion } from "framer-motion";
 import React, { useState } from "react";
 
-import FBgButtons from "../UI/Buttons/FBgButtons";
+import FBgButtons from "../UI/Links/FBgLink";
 
 const Section1 = () => {
   const [hasViewed, setHasViewed] = useState(false);

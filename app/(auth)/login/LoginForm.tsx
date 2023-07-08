@@ -1,6 +1,7 @@
 "use client";
 
 import { Icons } from "@/components/Icons";
+import AltAuthLinks from "@/components/UI/Links/AltAuthLinks";
 import { Button } from "@/components/UI/ShadUI/button";
 import { Input } from "@/components/UI/ShadUI/input";
 import { Label } from "@/components/UI/ShadUI/label";
@@ -50,7 +51,7 @@ export function LoginForm({ className, ...props }: UserAuthFormProps) {
               disabled={isLoading}
             />
           </div>
-          <Button className="font-normal text-md" disabled={isLoading}>
+          <Button disabled={isLoading}>
             {isLoading && (
               <Icons.spinner className="w-5 h-5 mr-2 animate-spin" />
             )}
@@ -58,35 +59,8 @@ export function LoginForm({ className, ...props }: UserAuthFormProps) {
           </Button>
         </div>
       </form>
-      <div className="relative">
-        <div className="absolute inset-0 flex items-center">
-          <span className="w-full border-t border-black dark:border-white" />
-        </div>
-        <div className="relative flex justify-center uppercase text-md">
-          <span className="px-2 bg-white dark:bg-background text-muted-foreground">
-            Or
-          </span>
-        </div>
-      </div>
-      <div className="flex justify-center gap-2">
-        <Button
-          variant="outline"
-          type="button"
-          disabled={isLoading}
-          className="w-full text-black border-black dark:bg-white"
-        >
-          <Icons.google className="w-4 h-4 mr-2" /> Google
-        </Button>
 
-        <Button
-          variant="outline"
-          type="button"
-          disabled={isLoading}
-          className="w-full text-black border-black dark:bg-white"
-        >
-          <Icons.apple className="w-4 h-4 mr-2" /> Apple
-        </Button>
-      </div>
+      <AltAuthLinks isLoading={isLoading} />
     </div>
   );
 }

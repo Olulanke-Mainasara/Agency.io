@@ -7,7 +7,7 @@ import {
   europe,
   northAmerica,
   southAmerica,
-} from "@/static-data/countries";
+} from "@/static-data/continents";
 
 export default function Page({
   params: { continent },

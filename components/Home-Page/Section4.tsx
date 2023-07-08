@@ -4,9 +4,9 @@ import { carouselSections } from "@/static-data/images";
 import { motion } from "framer-motion";
 import React, { useState } from "react";
 
-import NBgButtons from "../UI/Buttons/NBgButtons";
 import LeftArrow from "../UI/Carousel/LeftArrow";
 import RightArrow from "../UI/Carousel/RightArrow";
+import NBgButtons from "../UI/Links/NBgLink";
 
 const Section4 = () => {
   const [hasViewed, setHasViewed] = useState(false);

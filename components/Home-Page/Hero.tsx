@@ -2,15 +2,15 @@ import { motion } from "framer-motion";
 import React, { useState } from "react";
 
 import { images } from "../../static-data/images";
-import FBgButtons from "../UI/Buttons/FBgButtons";
-import TBgButtons from "../UI/Buttons/TBgButtons";
 import ImageCardSm from "../UI/Cards/ImageCardSm";
+import FBgButtons from "../UI/Links/FBgLink";
+import TBgButtons from "../UI/Links/TBgLink";
 
 const Hero = () => {
   const [hasViewed, setHasViewed] = useState(false);
 
   return (
-    <section className="flex w-screen xl:min-h-screen min-h-fit">
+    <section className="flex w-screen py-8 min-h-fit">
       <div className="flex flex-col items-center overflow-hidden grow xl:gap-16 xl:flex-row">
         <motion.div
           initial={hasViewed ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}

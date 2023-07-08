@@ -5,8 +5,8 @@ import { activities } from "@/static-data/activities";
 import { motion } from "framer-motion";
 import React from "react";
 
-import NBgButtons from "../UI/Buttons/NBgButtons";
-import TBgButtons from "../UI/Buttons/TBgButtons";
+import NBgButtons from "../UI/Links/NBgLink";
+import TBgButtons from "../UI/Links/TBgLink";
 import { DatePickerWithRange } from "../UI/Pickers/DataPickerWithRange";
 import { LocationComboBox } from "../UI/Pickers/LocationComboBox";
 
