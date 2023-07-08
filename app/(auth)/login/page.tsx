@@ -23,7 +23,7 @@ export default function Page() {
           href="/signup"
           className={cn(
             buttonVariants({ variant: "default" }),
-            "absolute z-10 right-4 top-4 md:right-8 md:top-8 text-md font-normal"
+            "absolute z-10 right-4 top-4 md:right-8 md:top-8 rounded-full"
           )}
         >
           Sign up
@@ -65,7 +65,7 @@ export default function Page() {
         <div className="relative grid w-full h-full place-items-center">
           <MobileThemeToggler
             defaultClass="absolute top-4 -left-4 md:left-0 md:top-8 lg:left-8 w-10 aspect-square border text-xl grid place-items-center rounded-full"
-            lightClass="absolute top-4 -left-4 md:left-0 md:top-8 lg:left-8 w-10 aspect-square border text-xl grid place-items-center rounded-full text-black"
+            lightClass="absolute top-4 -left-4 md:left-0 md:top-8 lg:left-8 w-10 aspect-square border text-xl grid place-items-center rounded-full border-black text-black"
             darkClass="absolute top-4 -left-4 md:left-0 md:top-8 lg:left-8 w-10 aspect-square border text-xl grid place-items-center rounded-full text-white"
           />
 

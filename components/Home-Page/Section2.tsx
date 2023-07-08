@@ -4,7 +4,7 @@ import { destinations } from "@/static-data/images";
 import { motion } from "framer-motion";
 import React, { useState } from "react";
 
-import NBgButtons from "../UI/Buttons/NBgButtons";
+import NBgButtons from "../UI/Links/NBgLink";
 
 const Section2 = () => {
   const [card, setCard] = useState(0);
@@ -16,7 +16,7 @@ const Section2 = () => {
 
   return (
     <section className="flex flex-col w-full min-h-screen gap-12 p-8 pb-0 dark:text-white md:pb-8">
-      <h1 className="text-5xl text-center">Featured Destinations</h1>
+      <h1 className="text-5xl text-center">Top Featured Destinations</h1>
       <div className="flex gap-8 overflow-hidden text-white grow">
         {destinations.map((destination, index) => {
           return (
