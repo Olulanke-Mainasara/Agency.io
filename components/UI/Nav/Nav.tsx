@@ -12,8 +12,8 @@ import {
   FaTimes,
 } from "react-icons/fa";
 
-import FBgButtons from "../Buttons/FBgButtons";
-import TBgButtons from "../Buttons/TBgButtons";
+import FBgButtons from "../Links/FBgLink";
+import TBgButtons from "../Links/TBgLink";
 import { FunctionalNav } from "./FunctionalNav";
 import { Notifications } from "./Notifications";
 import { ProfileOps } from "./Profile";
