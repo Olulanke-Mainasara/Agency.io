@@ -28,6 +28,7 @@ const Section1 = () => {
           src={About1}
           placeholder="blur"
           fill
+          sizes="(min-width: 0px) 25vw"
           className="object-cover"
           alt="Beach umbrella with two seats"
         />
@@ -67,6 +68,7 @@ const Section1 = () => {
           src={About2}
           placeholder="blur"
           fill
+          sizes="(min-width: 0px) 25vw"
           className="object-cover"
           alt="Beach umbrella with two seats"
         />

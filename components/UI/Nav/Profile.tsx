@@ -9,10 +9,16 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/UI/ShadUI/dropdown-menu";
+import { auth } from "@/firebase/client.config";
 import Profile from "@/public/Hero/profile.webp";
+import { signOut } from "firebase/auth";
 import { BaggageClaim, Heart, LogOut, User, Wallet } from "lucide-react";
 
 export function ProfileOps() {
+  const handleSignOut = () => {
+    signOut(auth);
+  };
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -49,9 +55,9 @@ export function ProfileOps() {
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>
+        <DropdownMenuItem onClick={handleSignOut}>
           <LogOut className="w-4 h-4 mr-2" />
-          <span>Log out</span>
+          <span>Sign out</span>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

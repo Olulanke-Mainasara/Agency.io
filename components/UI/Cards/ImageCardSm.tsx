@@ -23,7 +23,7 @@ const ImageCardSm = ({
       className={`w-72 aspect-square`}
     >
       <div className="relative w-full h-full overflow-hidden border border-black rounded-xl dark:border-white">
-        <Image src={imgsrc} priority fill alt="" placeholder="blur" />
+        <Image src={imgsrc} fill alt="" placeholder="blur" />
       </div>
     </motion.div>
   );
