@@ -29,7 +29,7 @@ export default function Page() {
           Login
         </Link>
 
-        <div className="relative hidden h-full text-white dark:border-r lg:block">
+        <div className="relative hidden h-full text-white lg:block">
           <div className="absolute inset-0 z-10 flex flex-col p-10 backdrop-brightness-[60%]">
             <Link
               href={"/"}

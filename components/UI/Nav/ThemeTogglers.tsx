@@ -29,7 +29,7 @@ export const DesktopThemeToggler = () => {
       <button
         title="Toggle theme"
         onClick={() => setTheme("light")}
-        className="flex items-center justify-center w-10 h-10 text-xl text-white border rounded-full"
+        className="flex items-center justify-center w-10 h-10 text-xl text-white rounded-full"
       >
         <FaSun />
       </button>
@@ -39,7 +39,7 @@ export const DesktopThemeToggler = () => {
       <button
         title="Toggle theme"
         onClick={() => setTheme("dark")}
-        className="flex items-center justify-center w-10 h-10 text-xl text-black border border-black rounded-full"
+        className="flex items-center justify-center w-10 h-10 text-xl text-black rounded-full"
       >
         <FaMoon />
       </button>

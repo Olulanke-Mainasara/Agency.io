@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 
+import { auth } from "@/firebase/client.config";
+import { onAuthStateChanged } from "firebase/auth";
 import { motion } from "framer-motion";
 import React, { useState } from "react";
 import {
@@ -21,9 +23,17 @@ import { DesktopThemeToggler, MobileThemeToggler } from "./ThemeTogglers";
 
 const Nav = () => {
   const [clicked, setClicked] = useState(false);
-
-  // Simulating a loggedIn state
   const [loggedIn, setLoggedIn] = useState(false);
+
+  React.useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setLoggedIn(true);
+      } else {
+        setLoggedIn(false);
+      }
+    });
+  }, []);
 
   return (
     <nav
@@ -56,8 +66,8 @@ const Nav = () => {
           <div className="absolute flex items-center justify-between w-full px-6 lg:justify-end just top-8">
             <MobileThemeToggler
               defaultClass="flex items-center justify-center w-10 aspect-square border rounded-full"
-              lightClass="flex items-center justify-center w-10 aspect-square text-xl text-black bg-white rounded-full lg:hidden"
-              darkClass="flex items-center justify-center w-10 aspect-square text-xl text-black border border-black rounded-full lg:hidden"
+              lightClass="flex items-center justify-center w-10 aspect-square text-xl text-black border border-black bg-white rounded-full lg:hidden"
+              darkClass="flex items-center justify-center w-10 aspect-square text-xl text-white border rounded-full lg:hidden"
             />
 
             {loggedIn ? (

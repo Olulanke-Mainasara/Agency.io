@@ -10,9 +10,15 @@ import TBgButtons from "../UI/Links/TBgLink";
 import { DatePickerWithRange } from "../UI/Pickers/DataPickerWithRange";
 import { LocationComboBox } from "../UI/Pickers/LocationComboBox";
 
-const Search = () => {
+const Search = ({
+  loggedIn,
+  displayName,
+}: {
+  loggedIn: boolean;
+  displayName: string | null;
+}) => {
   return (
-    <section className="flex w-screen min-h-screen p-6 lg:p-8 lg:gap-8">
+    <section className="flex w-full min-h-screen p-6 lg:p-8 lg:gap-8">
       <div className="items-center justify-end hidden lg:flex lg:basis-1/2 ">
         <motion.div
           initial={{ opacity: 0, translateY: -30 }}
@@ -26,6 +32,7 @@ const Search = () => {
             placeholder="blur"
             fill
             alt="Plane taking off"
+            sizes="(min-width: 0px) 25vw"
             className="object-cover"
           />
         </motion.div>
@@ -53,7 +60,11 @@ const Search = () => {
           <NBgButtons prompt="View more" />
         </div>
         <h1 className="text-4xl md:text-5xl dark:text-white">
-          Where to next, Mainasara?
+          {loggedIn
+            ? `Where to next${
+                displayName ? ", " + displayName.split(" ")[0] : null
+              }?`
+            : "Discover your next trip"}
         </h1>
         <div className="flex flex-col gap-5 md:flex-row">
           <LocationComboBox />

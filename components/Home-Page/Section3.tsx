@@ -46,7 +46,9 @@ const Section3 = () => {
                 key={service.id}
               >
                 <h1 className="flex items-center gap-2 text-2xl">
-                  <span className="text-brandDark dark:text-brandLight">{service.icon}</span>
+                  <span className="text-brandDark dark:text-brandLight">
+                    {service.icon}
+                  </span>
                   {service.topic}
                 </h1>
                 <p className="opacity-70">{service.text}</p>

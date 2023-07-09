@@ -1,6 +1,8 @@
 "use client";
 
 import Splash from "@/components/UI/Splash/Splash";
+import { auth } from "@/firebase/client.config";
+import { onAuthStateChanged } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { useSessionStorage } from "react-use";
 
@@ -18,6 +20,8 @@ import Section8 from "./Section8";
 const Main = () => {
   const [splashed, setSplashed] = useSessionStorage("splashed", "");
   const [splashCount, setSplashCount] = useState(0);
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [displayName, setDisplayName] = useState<string | null>(null);
 
   useEffect(() => {
     if (splashed !== "") return; // Skip if already set
@@ -34,11 +38,27 @@ const Main = () => {
     };
   }, [splashed, setSplashed]);
 
+  React.useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setLoggedIn(true);
+
+        user.providerData.forEach((profile) =>
+          setDisplayName(profile.displayName)
+        );
+      } else {
+        setLoggedIn(false);
+        setDisplayName(null);
+      }
+    });
+  }, []);
+
   return (
     <div className={`${splashed !== "true" ? "h-screen overflow-hidden" : ""}`}>
       {splashed !== "true" && splashCount == 0 ? <Splash /> : null}
-      <Search />
-      <main className="w-screen">
+
+      <main className="w-screen max-w-[1440px] mx-auto">
+        <Search loggedIn={loggedIn} displayName={displayName} />
         <Section1 />
         <Section2 />
         <Section3 />
