@@ -11,7 +11,7 @@ import { FaPlane } from "react-icons/fa";
 import { LoginForm } from "./LoginForm";
 
 export const metadata: Metadata = {
-  title: "Authentication",
+  title: "Agency.io | Login",
   description: "Authentication forms built using the components.",
 };
 
@@ -29,7 +29,7 @@ export default function Page() {
           Sign up
         </Link>
 
-        <div className="relative hidden h-full text-white dark:border-r lg:block">
+        <div className="relative hidden h-full text-white lg:block">
           <div className="absolute inset-0 z-10 flex flex-col p-10 backdrop-brightness-[60%]">
             <Link
               href={"/"}

@@ -17,8 +17,12 @@ const Section6 = () => {
               className="p-6 space-y-5 duration-300 border hover:border-brandLight rounded-xl"
             >
               <div className="flex items-center gap-2 text-2xl">
-                <span className="text-brandDark dark:text-brandLight">{experience.icon}</span>
-                <h2 className="first-letter:uppercase">{experience.experience}</h2>
+                <span className="text-brandDark dark:text-brandLight">
+                  {experience.icon}
+                </span>
+                <h2 className="first-letter:uppercase">
+                  {experience.experience}
+                </h2>
               </div>
 
               <p className="text-lg opacity-70">{experience.description}</p>
