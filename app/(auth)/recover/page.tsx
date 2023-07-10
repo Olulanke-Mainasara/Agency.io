@@ -50,7 +50,7 @@ export default function Page() {
             </div>
           </div>
 
-          <div className="w-full h-full bg-white">
+          <div className="relative w-full h-full">
             <Image
               src={MaleTourist}
               placeholder="blur"

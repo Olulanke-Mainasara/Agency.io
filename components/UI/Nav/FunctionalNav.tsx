@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import {
   NavigationMenu,
@@ -21,12 +22,18 @@ import {
 import React from "react";
 
 export function FunctionalNav() {
+  const pathname = usePathname();
   return (
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <Link href="/" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+          <Link href="/" legacyBehavior className={``} passHref>
+            <NavigationMenuLink
+              className={
+                navigationMenuTriggerStyle() +
+                `${pathname == "/" ? " text-brandDark dark:text-brandLight" : ""}`
+              }
+            >
               Home
             </NavigationMenuLink>
           </Link>
@@ -106,7 +113,7 @@ const ListItem = React.forwardRef<
         <a
           ref={ref}
           className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-gray-100 hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
             className
           )}
           {...props}
