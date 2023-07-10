@@ -15,9 +15,11 @@ const Section2 = () => {
   };
 
   return (
-    <section className="flex flex-col w-full min-h-screen gap-12 p-8 pb-0 dark:text-white md:pb-8">
-      <h1 className="text-5xl text-center">Top Featured Destinations</h1>
-      <div className="flex gap-8 overflow-hidden text-white grow">
+    <section className="flex flex-col w-full xl:min-h-screen gap-12 h-[630px] md:h-[900px] p-8 py-0 dark:text-white xl:py-8">
+      <h1 className="text-4xl text-center md:text-5xl">
+        Top Featured Destinations
+      </h1>
+      <div className="flex w-full gap-8 overflow-x-scroll overflow-y-hidden text-white grow">
         {destinations.map((destination, index) => {
           return (
             <motion.div
@@ -33,7 +35,7 @@ const Section2 = () => {
                 delay: 0.2 * index,
               }}
               onClick={() => handleClick(index)}
-              className={`relative border rounded-xl overflow-hidden duration-500 ease-out min-w-[200px] ${
+              className={`relative border rounded-xl overflow-hidden duration-500 min-w-[60vw] ease-out xl:min-w-[200px] ${
                 card == index ? "grow" : "hover:cursor-pointer grow-0"
               }`}
               key={destination.id}
@@ -44,6 +46,8 @@ const Section2 = () => {
                   className="object-cover"
                   src={destination.imgsrc}
                   fill
+                  sizes="(max-width: 767px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  quality={90}
                   placeholder="blur"
                   alt={destination.destination}
                 />
@@ -52,19 +56,21 @@ const Section2 = () => {
               <div
                 className={`${
                   card !== index
-                    ? "backdrop-brightness-50"
+                    ? "backdrop-brightness-[80%] xl:backdrop-brightness-50"
                     : "backdrop-brightness-[80%]"
                 } duration-500 absolute inset-0 pt-5 pl-5`}
               >
                 <h1
                   className={`${
-                    card == index ? "text-5xl" : "text-xl"
+                    card == index
+                      ? "text-3xl md:text-5xl"
+                      : "text-3xl md:text-5xl xl:text-xl"
                   } duration-300 flex flex-col gap-2`}
                 >
                   {destination.destination}
                   <span
                     className={`${
-                      card == index ? "opacity-100" : "opacity-0"
+                      card == index ? "opacity-100" : "xl:opacity-0"
                     } text-base duration-300`}
                   >
                     <NBgButtons prompt="view more" />

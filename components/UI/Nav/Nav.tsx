@@ -71,7 +71,7 @@ const Nav = () => {
             />
 
             {loggedIn ? (
-              <span className="lg:hidden">
+              <span className="flex items-center lg:hidden">
                 <Notifications size={30} />
               </span>
             ) : null}
