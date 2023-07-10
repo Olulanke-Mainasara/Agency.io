@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 
 import Nav from "@/components/UI/Nav/Nav";
+import NextTopLoader from "nextjs-toploader";
 
 import Providers from "../components/Providers/NextThemeProvider";
 import "./globals.css";
@@ -18,10 +19,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={inter.className + " dark:bg-background"}>
-        <Providers>{children}</Providers>
-      </body>
-    </html>
+    <>
+      <html lang="en" suppressHydrationWarning>
+        <body className={inter.className + " dark:bg-background"}>
+          <NextTopLoader color="#6fcbc6" showSpinner={false} />
+          <Providers>
+            <Nav />
+            {children}
+          </Providers>
+        </body>
+      </html>
+    </>
   );
 }
