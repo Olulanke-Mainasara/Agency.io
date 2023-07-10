@@ -1,5 +1,4 @@
 import LocationImageCard from "@/components/UI/Cards/LocationImageCard";
-import Nav from "@/components/UI/Nav/Nav";
 import {
   africa,
   asia,
@@ -43,8 +42,7 @@ export default function Page({
 
   return (
     <>
-      <Nav />
-      <div className="px-8 pt-24">
+       <div className="px-8 pt-24">
         <h1 className="text-center text-8xl dark:text-white">
           {continent == "northAmerica"
             ? "NORTH AMERICA"
