@@ -6,10 +6,10 @@ import NBgButtons from "../UI/Links/NBgLink";
 
 const Section8 = () => {
   return (
-    <section className="min-h-screen p-8 mt-40 space-y-10">
-      <h1 className="text-5xl">Discover your next trip</h1>
+    <section className="min-h-screen p-8 py-0 mt-40 space-y-10 xl:py-8">
+      <h1 className="text-4xl md:text-5xl">Discover your next adventure</h1>
 
-      <div className="grid grid-cols-3 gap-10">
+      <div className="grid grid-cols-1 gap-10 xl:grid-cols-3 md:grid-cols-2">
         {blogs.map((blog) => {
           return (
             <div key={blog.id} className="h-full overflow-hidden rounded-xl">

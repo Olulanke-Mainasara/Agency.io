@@ -29,7 +29,7 @@ const Section4 = () => {
   }
 
   return (
-    <section className="relative w-full p-8 xl:h-screen md:h-[900px] h-[728px]">
+    <section className="relative w-full p-8 py-0 xl:py-8 xl:h-screen md:h-[900px] h-[728px]">
       {currentSlide > 0 ? <LeftArrow onclick={prevSlide} /> : null}
 
       <motion.div
@@ -54,6 +54,8 @@ const Section4 = () => {
             <Image
               src={carouselSections[currentSlide].imgsrc}
               fill
+              sizes="(max-width: 767px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              quality={90}
               placeholder="blur"
               alt={carouselSections[currentSlide].mainText}
               className="object-cover"

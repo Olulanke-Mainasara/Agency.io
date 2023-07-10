@@ -56,6 +56,7 @@ export default function Page() {
               src={FemaleTourist}
               placeholder="blur"
               fill
+              sizes="(max-width: 767px) 100vw, (max-width: 1200px) 50vw, 33vw"
               alt="Male Tourist"
               className="object-cover"
             />

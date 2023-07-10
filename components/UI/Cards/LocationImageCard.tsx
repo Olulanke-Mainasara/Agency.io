@@ -41,6 +41,7 @@ const LocationImageCard = ({
           <Image
             src={Section1}
             fill
+            sizes="(max-width: 767px) 100vw, (max-width: 1200px) 50vw, 33vw"
             placeholder="blur"
             className="object-cover"
             alt={country}

@@ -10,7 +10,7 @@ const Hero = () => {
   const [hasViewed, setHasViewed] = useState(false);
 
   return (
-    <section className="flex w-full py-8 min-h-fit">
+    <section className="flex w-full xl:py-8 min-h-fit">
       <div className="flex flex-col items-center overflow-hidden grow xl:gap-16 xl:flex-row">
         <motion.div
           initial={hasViewed ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
