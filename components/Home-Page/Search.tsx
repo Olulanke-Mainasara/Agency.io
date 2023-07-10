@@ -31,8 +31,9 @@ const Search = ({
             priority
             placeholder="blur"
             fill
+            sizes="(max-width: 767px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            quality={90}
             alt="Plane taking off"
-            sizes="(min-width: 0px) 25vw"
             className="object-cover"
           />
         </motion.div>
@@ -62,9 +63,9 @@ const Search = ({
         <h1 className="text-4xl md:text-5xl dark:text-white">
           {loggedIn
             ? `Where to next${
-                displayName ? ", " + displayName.split(" ")[0] : null
+                displayName ? ", " + displayName.split(" ")[0] : ""
               }?`
-            : "Discover your next trip"}
+            : "Discover your next adventure"}
         </h1>
         <div className="flex flex-col gap-5 md:flex-row">
           <LocationComboBox />

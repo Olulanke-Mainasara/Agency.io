@@ -25,7 +25,8 @@ export function ProfileOps() {
         <button className="relative w-10 overflow-hidden rounded-full aspect-square">
           <Image
             src={Profile}
-            fill
+            width={96}
+            height={96}
             placeholder="blur"
             priority
             alt="Profile picture"

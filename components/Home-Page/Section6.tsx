@@ -5,10 +5,10 @@ import React from "react";
 
 const Section6 = () => {
   return (
-    <section className="flex flex-col w-full gap-10 p-8">
-      <h1 className="text-5xl">Browse by experience type</h1>
+    <section className="flex flex-col w-full gap-10 p-8 py-0 xl:py-8">
+      <h1 className="text-4xl md:text-5xl ">Browse by experience type</h1>
 
-      <div className="grid grid-cols-4 gap-10 grow">
+      <div className="grid grid-cols-1 gap-10 md:grid-cols-2 xl:grid-cols-4 grow">
         {experiences.map((experience) => {
           return (
             <Link

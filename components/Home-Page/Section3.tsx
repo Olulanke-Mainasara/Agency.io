@@ -11,7 +11,7 @@ const Section3 = () => {
   const [hasViewed, setHasViewed] = useState(false);
 
   return (
-    <section className=" w-full flex items-center pb-0 md:pb-8 p-8 xl:h-screen md:h-[900px] my-40 gap-8 overflow-hidden">
+    <section className=" w-full flex items-center py-0 xl:py-8 p-8 xl:h-screen md:h-[900px] my-40 gap-8 overflow-hidden">
       <div className="flex flex-col gap-8 lg:basis-3/4 dark:text-white">
         <motion.h1
           initial={hasViewed ? { x: 0, opacity: 1 } : { x: 100, opacity: 0 }}
@@ -23,7 +23,7 @@ const Section3 = () => {
             },
           }}
           onAnimationComplete={() => setHasViewed(true)}
-          className="text-5xl"
+          className="text-4xl md:text-5xl"
         >
           What do we offer?
         </motion.h1>
@@ -74,6 +74,8 @@ const Section3 = () => {
           src={Offer}
           placeholder="blur"
           fill
+          sizes="(max-width: 767px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          quality={90}
           className="object-cover"
           alt="Beach umbrella with two seats"
         />
