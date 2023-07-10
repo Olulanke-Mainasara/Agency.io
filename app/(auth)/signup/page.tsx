@@ -52,7 +52,7 @@ export default function Page() {
             </div>
           </div>
 
-          <div className="relative w-full h-full bg-white">
+          <div className="relative w-full h-full">
             <Image
               src={MaleTourist2}
               placeholder="blur"

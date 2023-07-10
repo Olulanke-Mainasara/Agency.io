@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import { auth } from "@/firebase/client.config";
 import { onAuthStateChanged } from "firebase/auth";
@@ -24,6 +25,7 @@ import { DesktopThemeToggler, MobileThemeToggler } from "./ThemeTogglers";
 const Nav = () => {
   const [clicked, setClicked] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
+  const pathname = usePathname();
 
   React.useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -37,7 +39,15 @@ const Nav = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 z-30 h-16 lg:h-20 w-screen text-black bg-white dark:text-white dark:bg-background flex justify-between items-center px-5 xl:px-8`}
+      className={`fixed top-0 left-0 z-30 h-16 lg:h-20 w-screen text-black bg-white dark:text-white dark:bg-background ${
+        pathname == "/login"
+          ? "hidden"
+          : pathname == "/signup"
+          ? "hidden"
+          : pathname == "/recover"
+          ? "hidden"
+          : "flex"
+      } justify-between items-center px-5 xl:px-8`}
     >
       <Link href="/" className={`flex items-center text-2xl xs:text-lg`}>
         Agency
