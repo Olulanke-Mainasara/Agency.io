@@ -64,7 +64,7 @@ export default function Page() {
           </div>
         </div>
 
-        <div className="relative grid w-full h-full place-items-center">
+        <div className="relative w-full h-full grid place-items-center">
           <MobileThemeToggler
             defaultClass="absolute top-4 -left-4 md:left-0 md:top-8 lg:left-8 w-10 aspect-square border text-xl grid place-items-center rounded-full"
             lightClass="absolute top-4 -left-4 md:left-0 md:top-8 lg:left-8 w-10 aspect-square border text-xl grid place-items-center rounded-full border-black text-black"
@@ -73,7 +73,7 @@ export default function Page() {
 
           <div className="lg:p-8">
             <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[400px]">
-              <div className="flex flex-col space-y-2 text-center">
+              <div className="flex flex-col text-center space-y-2">
                 <h1 className="text-2xl tracking-tight sm:text-4xl">
                   Start Your Adventure
                 </h1>
