@@ -6,14 +6,9 @@ import { usePathname } from "next/navigation";
 import { auth } from "@/firebase/client.config";
 import { onAuthStateChanged } from "firebase/auth";
 import { motion } from "framer-motion";
+import { ArrowRight, Menu, Plane, X } from "lucide-react";
 import React, { useState } from "react";
-import {
-  FaArrowRight,
-  FaBars,
-  FaChevronRight,
-  FaPlane,
-  FaTimes,
-} from "react-icons/fa";
+import { FaPlane } from "react-icons/fa";
 
 import FBgButtons from "../Links/FBgLink";
 import TBgButtons from "../Links/TBgLink";
@@ -73,7 +68,7 @@ const Nav = () => {
         >
           <FunctionalNav />
 
-          <div className="absolute flex items-center justify-between w-full px-6 lg:justify-end just top-8">
+          <div className="absolute flex items-center justify-between w-full px-5 lg:justify-end just top-4">
             <MobileThemeToggler
               defaultClass="flex items-center justify-center w-10 aspect-square border rounded-full"
               lightClass="flex items-center justify-center w-10 aspect-square text-xl text-black border border-black bg-white rounded-full lg:hidden"
@@ -89,9 +84,9 @@ const Nav = () => {
             <button
               title="Close navigation menu"
               onClick={() => setClicked(false)}
-              className="text-4xl text-black dark:text-white xl:hidden"
+              className="text-black dark:text-white xl:hidden"
             >
-              <FaTimes />
+              <X size={30} />
             </button>
           </div>
 
@@ -101,9 +96,9 @@ const Nav = () => {
             {!loggedIn ? (
               <Link
                 href={"/login"}
-                className="flex items-center justify-center gap-1 py-2 pl-3 text-black text-md dark:text-white lg:hidden"
+                className="flex items-center justify-center py-2 pl-3 text-black gap-1 text-md dark:text-white lg:hidden"
               >
-                Log in <FaChevronRight />
+                Log in <ArrowRight size={20} />
               </Link>
             ) : null}
           </div>
@@ -125,7 +120,7 @@ const Nav = () => {
             </Link>
             |
             <TBgButtons xPaddingAndText="px-6" yPadding="py-2" href="/login">
-              Log in <FaArrowRight />
+              Log in <ArrowRight size={20} />
             </TBgButtons>
           </div>
         )}
@@ -136,7 +131,7 @@ const Nav = () => {
       </div>
 
       {loggedIn ? (
-        <span className="lg:hidden">
+        <span className="flex items-center lg:hidden">
           <ProfileOps />
         </span>
       ) : null}
@@ -146,7 +141,7 @@ const Nav = () => {
         onClick={() => setClicked(true)}
         className="text-2xl text-black xl:hidden dark:text-white xs:text-lg"
       >
-        <FaBars />
+        <Menu size={30} />
       </button>
     </nav>
   );

@@ -217,3 +217,36 @@ export const southAmerica = [
   { id: 11, name: "Uruguay" },
   { id: 12, name: "Venezuela" },
 ];
+
+export const allLocations = [
+  {
+    id: 1,
+    value: "africa",
+    label: "Africa",
+  },
+  {
+    id: 2,
+    value: "asia",
+    label: "Asia",
+  },
+  {
+    id: 3,
+    value: "australia",
+    label: "Australia",
+  },
+  {
+    id: 4,
+    value: "europe",
+    label: "Europe",
+  },
+  {
+    id: 5,
+    value: "north america",
+    label: "North America",
+  },
+  {
+    id: 6,
+    value: "south america",
+    label: "South America",
+  },
+];
