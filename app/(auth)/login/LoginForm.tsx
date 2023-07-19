@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 import { Icons } from "@/components/Icons";
@@ -30,6 +31,7 @@ export function LoginForm() {
 
   async function onSubmit(event: React.SyntheticEvent) {
     event.preventDefault();
+    setError(false);
     setIsLoading(true);
 
     try {
@@ -38,7 +40,22 @@ export function LoginForm() {
     } catch (error) {
       setIsLoading(false);
       setError(true);
-      setErrorMessage("Sign in error occurred, please retry.");
+      if (error instanceof Error) {
+        switch (error.message) {
+          case "Firebase: Error (auth/wrong-password).":
+            setErrorMessage("Invalid username or Password");
+            break;
+          case "Firebase: Error (auth/user-not-found).":
+            setErrorMessage("Invalid username or Password");
+            break;
+
+          default:
+            setErrorMessage("Sign in error occurred, please retry");
+            break;
+        }
+      } else {
+        setErrorMessage("Sign in error occurred, please contact support");
+      }
     }
   }
 
@@ -102,7 +119,15 @@ export function LoginForm() {
           </div>
 
           <div className="grid gap-2">
-            <Label htmlFor="password">Password</Label>
+            <Label htmlFor="password" className="flex justify-between">
+              Password
+              <Link
+                href={"/recover"}
+                className="text-center underline transition-opacity hover:opacity-70"
+              >
+                Forgot Password?
+              </Link>{" "}
+            </Label>
             <Input
               id="password"
               placeholder="Your password"

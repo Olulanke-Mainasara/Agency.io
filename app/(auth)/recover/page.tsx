@@ -62,7 +62,7 @@ export default function Page() {
           </div>
         </div>
 
-        <div className="relative grid w-full h-full place-items-center">
+        <div className="relative w-full h-full grid place-items-center">
           <MobileThemeToggler
             defaultClass="absolute top-4 -left-4 md:left-0 md:top-8 lg:left-8 w-10 aspect-square border text-xl grid place-items-center rounded-full"
             lightClass="absolute top-4 -left-4 md:left-0 md:top-8 lg:left-8 w-10 aspect-square border text-xl grid place-items-center rounded-full border-black text-black"
