@@ -1,5 +1,3 @@
-"use client";
-
 import { Button } from "@/components/UI/ShadUI/button";
 import { Calendar } from "@/components/UI/ShadUI/calendar";
 import {
@@ -8,29 +6,37 @@ import {
   PopoverTrigger,
 } from "@/components/UI/ShadUI/popover";
 import { cn } from "@/lib/utils";
-import { addDays, format } from "date-fns";
+import { format } from "date-fns";
 import { Calendar as CalendarIcon } from "lucide-react";
 import React from "react";
 import { DateRange } from "react-day-picker";
 
 export function DatePickerWithRange({
-  className,
-}: React.HTMLAttributes<HTMLDivElement>) {
-  const [date, setDate] = React.useState<DateRange | undefined>({
-    from: new Date(2022, 0, 20),
-    to: addDays(new Date(2022, 0, 20), 20),
-  });
+  handleDateRange,
+}: {
+  handleDateRange: Function;
+}) {
+  const [date, setDate] = React.useState<DateRange | undefined>();
+
+  React.useEffect(() => {
+    const range = date?.from
+      ? date.to
+        ? `${format(date.from, "LLL dd, y")} - ${format(date.to, "LLL dd, y")}`
+        : `${format(date.from, "LLL dd, y")} - `
+      : "";
+
+    handleDateRange(range);
+  }, [date, handleDateRange]);
 
   return (
-    <div className={cn("grid gap-2 w-full basis-1/2", className)}>
+    <div className={cn("grid gap-2 w-full basis-1/2")}>
       <Popover>
         <PopoverTrigger asChild>
           <Button
             id="date"
             variant={"outline"}
             className={cn(
-              "h-16 border-black rounded-xl font-normal text-lg bg-transparent dark:bg-transparent dark:hover:bg-white dark:hover:text-black duration-300 dark:text-white dark:border-white",
-              !date && "text-muted-foreground"
+              "h-16 border-black justify-start rounded-xl font-normal text-lg bg-transparent dark:bg-transparent dark:hover:bg-white dark:hover:text-black duration-300 dark:text-white dark:border-white"
             )}
           >
             <CalendarIcon className="w-4 h-4 mr-2" />
@@ -41,10 +47,10 @@ export function DatePickerWithRange({
                   {format(date.to, "LLL dd, y")}
                 </>
               ) : (
-                format(date.from, "LLL dd, y")
+                <>{format(date.from, "LLL dd, y")} - </>
               )
             ) : (
-              <span>Pick a date</span>
+              <span>Check in - Check out</span>
             )}
           </Button>
         </PopoverTrigger>
@@ -52,9 +58,8 @@ export function DatePickerWithRange({
           <Calendar
             initialFocus
             mode="range"
-            defaultMonth={date?.from}
             selected={date}
-            onSelect={setDate}
+            onSelect={(dateRange) => setDate(dateRange)}
             numberOfMonths={2}
           />
         </PopoverContent>

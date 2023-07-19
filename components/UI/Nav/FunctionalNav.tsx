@@ -13,13 +13,11 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/UI/ShadUI/navigation-menu";
 import { cn } from "@/lib/utils";
-import {
-  company,
-  experiences,
-  locations,
-  utils,
-} from "@/static-data/navigation";
+import { experiences } from "@/static-data/locationsAndExperiences";
+import { company, locations, utils } from "@/static-data/navigation";
 import React from "react";
+
+import NBgButtons from "../Links/NBgLink";
 
 export function FunctionalNav() {
   const pathname = usePathname();
@@ -31,7 +29,9 @@ export function FunctionalNav() {
             <NavigationMenuLink
               className={
                 navigationMenuTriggerStyle() +
-                `${pathname == "/" ? " text-brandDark dark:text-brandLight" : ""}`
+                `${
+                  pathname == "/" ? " text-brandDark dark:text-brandLight" : ""
+                }`
               }
             >
               Home
@@ -42,15 +42,18 @@ export function FunctionalNav() {
           <NavigationMenuTrigger>Experiences</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-full gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-              {experiences.map((section) => (
+              {experiences.slice(0, 5).map((section) => (
                 <ListItem
-                  key={section.title}
-                  title={section.title}
-                  href={section.href}
+                  key={section.id}
+                  title={section.experience}
+                  href={`/experience/${section.experience}`}
                 >
                   {section.description}
                 </ListItem>
               ))}
+              <div className="flex items-center pl-3">
+                <NBgButtons prompt="View more" />
+              </div>
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
@@ -118,7 +121,9 @@ const ListItem = React.forwardRef<
           )}
           {...props}
         >
-          <div className="text-sm font-medium leading-none">{title}</div>
+          <div className="text-base font-bold leading-none first-letter:uppercase">
+            {title}
+          </div>
           <p className="text-sm leading-snug line-clamp-3 text-muted-foreground">
             {children}
           </p>

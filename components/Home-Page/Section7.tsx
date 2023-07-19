@@ -3,12 +3,12 @@ import React from "react";
 
 const Section7 = () => {
   return (
-    <section className="flex flex-col w-full gap-10 p-8 py-0 my-40 xl:py-8 xl:min-h-screen">
+    <section className="flex flex-col w-full p-8 py-0 my-40 gap-10 xl:py-8 xl:min-h-screen">
       <h1 className="text-4xl text-right md:text-5xl">
         Experience Nigeria from all sides
       </h1>
 
-      <div className="grid h-full grid-cols-2 gap-10 md:grid-cols-3 lg:grid-cols-4 grow">
+      <div className="h-full grid grid-cols-2 gap-10 md:grid-cols-3 lg:grid-cols-4 grow">
         {cities.map((city) => {
           return (
             <div key={city.id} className="flex flex-col gap-5">

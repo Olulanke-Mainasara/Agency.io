@@ -1,9 +1,9 @@
 "use client";
 
+import { MoonStar, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import React from "react";
 import { useEffect, useState } from "react";
-import { FaMoon, FaSun } from "react-icons/fa";
 
 export const DesktopThemeToggler = () => {
   const [mounted, setMounted] = useState(false);
@@ -31,7 +31,7 @@ export const DesktopThemeToggler = () => {
         onClick={() => setTheme("light")}
         className="flex items-center justify-center w-10 h-10 text-xl text-white rounded-full"
       >
-        <FaSun />
+        <Sun fill="white" />
       </button>
     );
   } else {
@@ -41,7 +41,7 @@ export const DesktopThemeToggler = () => {
         onClick={() => setTheme("dark")}
         className="flex items-center justify-center w-10 h-10 text-xl text-black rounded-full"
       >
-        <FaMoon />
+        <MoonStar />
       </button>
     );
   }
@@ -76,7 +76,7 @@ export const MobileThemeToggler = ({
         onClick={() => setTheme("light")}
         className={darkClass}
       >
-        <FaSun />
+        <Sun fill="white" />
       </button>
     );
   } else {
@@ -86,7 +86,7 @@ export const MobileThemeToggler = ({
         onClick={() => setTheme("dark")}
         className={lightClass}
       >
-        <FaMoon />
+        <MoonStar />
       </button>
     );
   }

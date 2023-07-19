@@ -12,7 +12,7 @@ const Splash = () => {
           opacity: 0,
           transition: { duration: 0.7, delay: 2 },
         }}
-        className="absolute inset-0 w-screen h-screen bg-white dark:bg-background z-40 flex items-center justify-center"
+        className="absolute inset-0 z-40 flex items-center justify-center w-screen h-screen bg-white dark:bg-background"
       >
         <motion.div
           animate={{ opacity: 0, transition: { delay: 1.5 } }}

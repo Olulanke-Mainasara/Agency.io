@@ -26,3 +26,142 @@ export const services = [
     icon: <FaHistory />,
   },
 ];
+
+export const activities = [
+  {
+    id: 1,
+    text: "Hotels",
+    link: "#",
+  },
+  {
+    id: 2,
+    text: "Flights",
+    link: "#",
+  },
+  {
+    id: 3,
+    text: "Attractions",
+    link: "#",
+  },
+  {
+    id: 4,
+    text: "Rentals",
+    link: "#",
+  },
+  {
+    id: 5,
+    text: "Todos",
+    link: "#",
+  },
+  {
+    id: 6,
+    text: "Food",
+    link: "#",
+  },
+  {
+    id: 7,
+    text: "Cruises",
+    link: "#",
+  },
+  {
+    id: 8,
+    text: "Airlines",
+    link: "#",
+  },
+];
+
+export const notifications = [
+  {
+    title: "Your call has been confirmed.",
+    description: "1 hour ago",
+  },
+  {
+    title: "You have a new message!",
+    description: "1 hour ago",
+  },
+  {
+    title: "Your subscription is expiring soon!",
+    description: "2 hours ago",
+  },
+];
+
+export const departure = [
+  {
+    id: 1,
+    option: "No specific date/range",
+  },
+  {
+    id: 2,
+    option: "Specific date/range",
+  },
+];
+
+export const months = [
+  {
+    id: 1,
+    option: "January",
+  },
+  {
+    id: 2,
+    option: "February",
+  },
+  {
+    id: 3,
+    option: "March",
+  },
+  {
+    id: 4,
+    option: "April",
+  },
+  {
+    id: 5,
+    option: "May",
+  },
+  {
+    id: 6,
+    option: "June",
+  },
+  {
+    id: 7,
+    option: "July",
+  },
+  {
+    id: 8,
+    option: "August",
+  },
+  {
+    id: 9,
+    option: "September",
+  },
+  {
+    id: 10,
+    option: "October",
+  },
+  {
+    id: 11,
+    option: "November",
+  },
+  {
+    id: 12,
+    option: "December",
+  },
+];
+
+export const companions = [
+  {
+    id: 1,
+    option: "Solo",
+  },
+  {
+    id: 2,
+    option: "Partner",
+  },
+  {
+    id: 3,
+    option: "Friends",
+  },
+  {
+    id: 4,
+    option: "Family",
+  },
+];

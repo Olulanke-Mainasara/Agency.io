@@ -5,7 +5,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/UI/ShadUI/popover";
-import { notifications } from "@/static-data/notifications";
+import { notifications } from "@/static-data/services";
 import { BellRing } from "lucide-react";
 import React from "react";
 
