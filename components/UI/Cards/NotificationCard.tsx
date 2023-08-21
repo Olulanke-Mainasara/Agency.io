@@ -8,7 +8,7 @@ import {
   CardTitle,
 } from "@/components/UI/ShadUI/card";
 import { cn } from "@/lib/utils";
-import { notifications } from "@/static-data/notifications";
+import { notifications } from "@/static-data/services";
 import { Check } from "lucide-react";
 
 type CardProps = React.ComponentProps<typeof Card>;

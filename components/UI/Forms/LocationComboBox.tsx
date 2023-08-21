@@ -1,5 +1,3 @@
-"use client";
-
 import { Button } from "@/components/UI/ShadUI/button";
 import {
   Command,
@@ -14,33 +12,19 @@ import {
   PopoverTrigger,
 } from "@/components/UI/ShadUI/popover";
 import { cn } from "@/lib/utils";
+import { allLocations } from "@/static-data/continents";
 import { Check, ChevronsUpDown } from "lucide-react";
 import React from "react";
 
-const frameworks = [
-  {
-    value: "next.js",
-    label: "Next.js",
-  },
-  {
-    value: "sveltekit",
-    label: "SvelteKit",
-  },
-  {
-    value: "nuxt.js",
-    label: "Nuxt.js",
-  },
-  {
-    value: "remix",
-    label: "Remix",
-  },
-  {
-    value: "astro",
-    label: "Astro",
-  },
-];
-
-export function LocationComboBox() {
+export function LocationComboBox({
+  label,
+  width,
+  handleLocation,
+}: {
+  label: string;
+  width: string;
+  handleLocation: Function;
+}) {
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState("");
 
@@ -54,20 +38,21 @@ export function LocationComboBox() {
           className="justify-between w-full h-16 text-lg font-normal bg-transparent border-black duration-300 rounded-xl basis-1/2 dark:bg-transparent dark:hover:bg-white dark:hover:text-black dark:text-white dark:border-white"
         >
           {value
-            ? frameworks.find((framework) => framework.value === value)?.label
-            : "Select location..."}
+            ? allLocations.find((location) => location.value === value)?.label
+            : label}
           <ChevronsUpDown className="w-4 h-4 ml-2 opacity-50 shrink-0" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[330px] p-0">
+      <PopoverContent className={`${width} p-0`}>
         <Command>
-          <CommandInput placeholder="Search location..." />
+          <CommandInput placeholder={label} />
           <CommandEmpty>No location found.</CommandEmpty>
           <CommandGroup>
-            {frameworks.map((framework) => (
+            {allLocations.map((location) => (
               <CommandItem
-                key={framework.value}
-                onSelect={(currentValue) => {
+                key={location.value}
+                onSelect={(currentValue: string) => {
+                  handleLocation(currentValue === value ? "" : currentValue);
                   setValue(currentValue === value ? "" : currentValue);
                   setOpen(false);
                 }}
@@ -75,10 +60,10 @@ export function LocationComboBox() {
                 <Check
                   className={cn(
                     "mr-2 h-4 w-4",
-                    value === framework.value ? "opacity-100" : "opacity-0"
+                    value === location.value ? "opacity-100" : "opacity-0"
                   )}
                 />
-                {framework.label}
+                {location.label}
               </CommandItem>
             ))}
           </CommandGroup>
