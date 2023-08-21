@@ -14,7 +14,7 @@ const Section6 = () => {
             <Link
               href={`/experience/${experience.experience}`}
               key={experience.id}
-              className="p-6 space-y-5 duration-300 border hover:border-brandLight rounded-xl"
+              className="p-6 space-y-5 duration-300 border border-black dark:border-white hover:border-brandLight dark:hover:border-brandLight rounded-xl"
             >
               <div className="flex items-center gap-2 text-2xl">
                 <span className="text-brandDark dark:text-brandLight">

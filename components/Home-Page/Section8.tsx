@@ -1,4 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
+import Image from "next/image";
+
+import NextImg from "@/public/next.svg";
 import { blogs } from "@/static-data/locationsAndExperiences";
 import React from "react";
 
@@ -13,9 +16,11 @@ const Section8 = () => {
         {blogs.map((blog) => {
           return (
             <div key={blog.id} className="h-full overflow-hidden rounded-xl">
-              <img
+              <Image
+                width={432}
+                height={192}
                 className="object-cover object-center w-full lg:h-48 md:h-36"
-                src="https://dummyimage.com/720x400"
+                src={NextImg}
                 alt="blog"
               />
               <div className="p-6">
