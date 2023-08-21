@@ -42,7 +42,7 @@ export default function Page({
 
   return (
     <>
-       <div className="px-8 pt-24">
+      <div className="px-8 pt-24">
         <h1 className="text-center text-8xl dark:text-white">
           {continent == "northAmerica"
             ? "NORTH AMERICA"
@@ -50,7 +50,7 @@ export default function Page({
             ? "SOUTH AMERICA"
             : continent.toUpperCase()}
         </h1>
-        <div className="grid min-h-screen grid-flow-row-dense grid-cols-5 gap-8 py-8 text-white">
+        <div className="min-h-screen py-8 text-white grid grid-flow-row-dense grid-cols-5 gap-8">
           {continentData.map((country) => {
             const randomRows = Math.floor(Math.random() * 2) + 1;
             const randomCols = Math.floor(Math.random() * 2) + 1;

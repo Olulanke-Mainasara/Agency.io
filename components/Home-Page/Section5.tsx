@@ -5,7 +5,7 @@ import { Button } from "../UI/ShadUI/button";
 
 const Section5 = () => {
   return (
-    <section className="flex flex-col w-full gap-8 p-8 py-0 my-40 xl:py-8 xl:min-h-screen">
+    <section className="flex flex-col w-full p-8 py-0 my-40 gap-8 xl:py-8 xl:min-h-screen">
       <h1 className="text-4xl text-center md:text-5xl">Popular Destinations</h1>
 
       <div className="flex justify-center gap-4">
@@ -13,7 +13,7 @@ const Section5 = () => {
         <Button variant={"outline"}>By Season</Button>
       </div>
 
-      <div className="grid h-full grid-cols-2 gap-10 md:grid-cols-3 lg:grid-cols-4 grow">
+      <div className="h-full grid grid-cols-2 gap-10 md:grid-cols-3 lg:grid-cols-4 grow">
         {locations.map((location) => {
           return (
             <div key={location.id} className="flex flex-col gap-5">

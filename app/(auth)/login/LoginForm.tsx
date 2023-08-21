@@ -46,7 +46,7 @@ export function LoginForm() {
             setErrorMessage("Invalid username or Password");
             break;
           case "Firebase: Error (auth/user-not-found).":
-            setErrorMessage("Invalid username or Password");
+            setErrorMessage("No user exists with this email address");
             break;
 
           default:
@@ -150,7 +150,7 @@ export function LoginForm() {
           </Button>
 
           {(error || googleError || appleError) && (
-            <div className="text-center">{errorMessage}</div>
+            <div className="text-center text-red-500">{errorMessage}</div>
           )}
         </div>
       </form>

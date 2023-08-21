@@ -5,7 +5,7 @@ import React from "react";
 
 const Section6 = () => {
   return (
-    <section className="flex flex-col w-full gap-10 p-8 py-0 xl:py-8">
+    <section className="flex flex-col w-full p-8 py-0 gap-10 xl:py-8">
       <h1 className="text-4xl md:text-5xl ">Browse by experience type</h1>
 
       <div className="grid grid-cols-1 gap-10 md:grid-cols-2 xl:grid-cols-4 grow">
@@ -14,9 +14,9 @@ const Section6 = () => {
             <Link
               href={`/experience/${experience.experience}`}
               key={experience.id}
-              className="p-6 space-y-5 duration-300 border hover:border-brandLight rounded-xl"
+              className="p-6 border space-y-5 duration-300 hover:border-brandLight rounded-xl"
             >
-              <div className="flex items-center gap-2 text-2xl">
+              <div className="flex items-center text-2xl gap-2">
                 <span className="text-brandDark dark:text-brandLight">
                   {experience.icon}
                 </span>

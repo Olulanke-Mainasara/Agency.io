@@ -101,7 +101,7 @@ const Nav = () => {
             {!loggedIn ? (
               <Link
                 href={"/login"}
-                className="flex items-center justify-center gap-1 py-2 pl-3 text-black text-md dark:text-white lg:hidden"
+                className="flex items-center justify-center py-2 pl-3 text-black gap-1 text-md dark:text-white lg:hidden"
               >
                 Log in <FaChevronRight />
               </Link>

@@ -31,7 +31,9 @@ export function FunctionalNav() {
             <NavigationMenuLink
               className={
                 navigationMenuTriggerStyle() +
-                `${pathname == "/" ? " text-brandDark dark:text-brandLight" : ""}`
+                `${
+                  pathname == "/" ? " text-brandDark dark:text-brandLight" : ""
+                }`
               }
             >
               Home

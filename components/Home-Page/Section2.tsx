@@ -19,7 +19,7 @@ const Section2 = () => {
       <h1 className="text-4xl text-center md:text-5xl">
         Top Featured Destinations
       </h1>
-      <div className="flex w-full gap-8 overflow-x-scroll overflow-y-hidden text-white grow">
+      <div className="flex w-full overflow-x-scroll overflow-y-hidden text-white gap-8 grow">
         {destinations.map((destination, index) => {
           return (
             <motion.div
