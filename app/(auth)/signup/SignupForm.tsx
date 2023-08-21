@@ -34,6 +34,7 @@ export function SignupForm() {
 
   async function onSubmit(event: React.SyntheticEvent) {
     event.preventDefault();
+    setError(false);
     setIsLoading(true);
 
     try {
@@ -54,7 +55,27 @@ export function SignupForm() {
     } catch (error) {
       setIsLoading(false);
       setError(true);
-      setErrorMessage("Sign up error occurred, please retry.");
+      if (error instanceof Error) {
+        switch (error.message) {
+          case "Firebase: Error (auth/email-already-exists).":
+            setErrorMessage(
+              "An account already exists with this email address"
+            );
+            break;
+          case "Firebase: Error (auth/invalid-email).":
+            setErrorMessage("Invalid email address provided");
+            break;
+          case "Firebase: Error (auth/invalid-password	).":
+            setErrorMessage("Invalid password provided");
+            break;
+
+          default:
+            setErrorMessage("Sign up error occurred, please retry");
+            break;
+        }
+      } else {
+        setErrorMessage("Sign up error occurred, please contact support");
+      }
     }
   }
 
@@ -113,6 +134,8 @@ export function SignupForm() {
                 autoComplete="given-name"
                 autoCorrect="off"
                 disabled={isLoading || isGoogleLoading || isAppleLoading}
+                required
+                minLength={3}
                 onChange={(e) => setFname(e.target.value)}
               />
             </div>
@@ -127,6 +150,8 @@ export function SignupForm() {
                 autoComplete="family-name"
                 autoCorrect="off"
                 disabled={isLoading || isGoogleLoading || isAppleLoading}
+                required
+                minLength={3}
                 onChange={(e) => setLname(e.target.value)}
               />
             </div>
@@ -142,6 +167,7 @@ export function SignupForm() {
               autoComplete="email"
               autoCorrect="off"
               disabled={isLoading || isGoogleLoading || isAppleLoading}
+              required
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
@@ -156,6 +182,8 @@ export function SignupForm() {
               autoComplete="new-password"
               autoCorrect="off"
               disabled={isLoading || isGoogleLoading || isAppleLoading}
+              required
+              minLength={8}
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
@@ -169,7 +197,7 @@ export function SignupForm() {
           </Button>
 
           {(error || googleError || appleError) && (
-            <div className="text-center">{errorMessage}</div>
+            <div className="text-center text-red-500">{errorMessage}</div>
           )}
         </div>
       </form>
