@@ -2,9 +2,9 @@ import Image from "next/image";
 
 import SearchImg from "@/public/Main/Search.webp";
 import { activities } from "@/static-data/services";
-import { motion } from "framer-motion";
-import { useState } from "react";
+import React from "react";
 
+import { authContext } from "../Providers/Providers";
 import { AIGeneratedTripForm } from "../UI/Forms/AIGeneratedTripForm";
 import { BuildTripForm } from "../UI/Forms/BuildTripForm";
 import ExploreTheWorldForm from "../UI/Forms/ExploreTheWorldForm";
@@ -12,24 +12,24 @@ import NBgButtons from "../UI/Links/NBgLink";
 import TBgButtons from "../UI/Links/TBgLink";
 import { Button } from "../UI/ShadUI/button";
 
-const Search = ({
-  loggedIn,
-  displayName,
-}: {
-  loggedIn: boolean;
-  displayName: string | null;
-}) => {
-  const [plan, setPlan] = useState("build");
+const Search = () => {
+  const [plan, setPlan] = React.useState("build");
+  const user = React.useContext(authContext);
+
+  const buttonData = [
+    { id: 1, text: "Build your trip", plan: "build" },
+    { id: 2, text: "Explore the world", plan: "explore" },
+    {
+      id: 3,
+      text: user ? "No plan, use A.I" : "A.I Generated Trip",
+      plan: "generate",
+    },
+  ];
 
   return (
-    <section className="flex w-full min-h-screen p-6 lg:p-8 lg:gap-8">
+    <section className="flex w-full p-6 xl:h-screen lg:p-8 lg:gap-8">
       <div className="items-center justify-end hidden lg:flex lg:basis-1/2 ">
-        <motion.div
-          initial={{ opacity: 0, translateY: -30 }}
-          animate={{ opacity: 1, translateY: 0 }}
-          transition={{ duration: 0.7, delay: 2.6 }}
-          className="relative w-full overflow-hidden border border-black h-4/5 rounded-xl dark:border-white"
-        >
+        <div className="relative w-full overflow-hidden border border-black h-4/5 rounded-xl dark:border-white">
           <Image
             src={SearchImg}
             placeholder="blur"
@@ -38,16 +38,18 @@ const Search = ({
             alt="Plane taking off"
             className="object-cover"
           />
-        </motion.div>
+        </div>
       </div>
-      <motion.div
-        initial={{ opacity: 0, translateY: 30 }}
-        animate={{ opacity: 1, translateY: 0 }}
-        transition={{ duration: 0.7, delay: 2.6 }}
-        className="flex flex-col w-full pt-16 gap-8 lg:pt-0 lg:justify-center lg:basis-1/2"
-      >
+      <div className="flex flex-col w-full pt-16 gap-8 lg:pt-0 lg:justify-center lg:basis-1/2">
         <div className="flex overflow-scroll gap-5 dark:text-white md:flex-wrap activities">
-          {activities.map((activity) => {
+          <Button
+            variant={"outline"}
+            className="px-6 py-2 text-white bg-black border-black dark:bg-white dark:text-black dark:border-white"
+          >
+            All
+          </Button>
+
+          {activities.map((activity, index) => {
             return (
               <div key={activity.id}>
                 <TBgButtons
@@ -64,49 +66,28 @@ const Search = ({
         </div>
 
         <h1 className="text-4xl md:text-5xl dark:text-white">
-          {loggedIn
+          {user
             ? `What's the plan${
-                displayName ? ", " + displayName.split(" ")[0] : ""
+                user.displayName ? ", " + user.displayName.split(" ")[0] : ""
               }?`
             : "Discover your next adventure"}
         </h1>
 
         <div className="flex flex-wrap gap-4">
-          <Button
-            variant={"outline"}
-            className={`py-3 ${
-              plan === "build"
-                ? "bg-black text-white dark:bg-white dark:text-black border-black dark:border-white"
-                : ""
-            }`}
-            onClick={() => setPlan("build")}
-          >
-            Build your trip
-          </Button>
-
-          <Button
-            variant={"outline"}
-            className={`py-3 ${
-              plan === "explore"
-                ? "bg-black text-white border-white dark:bg-white dark:text-black dark:border-white"
-                : ""
-            }`}
-            onClick={() => setPlan("explore")}
-          >
-            Explore the world
-          </Button>
-
-          <Button
-            variant={"outline"}
-            className={`py-3 ${
-              plan === "generate"
-                ? "bg-black text-white dark:bg-white dark:text-black dark:border-white"
-                : ""
-            }`}
-            onClick={() => setPlan("generate")}
-          >
-            {loggedIn ? "No plan, use A.I" : "A.I Generated Trip"}
-          </Button>
+          {buttonData.map((button) => (
+            <Button
+              key={button.id}
+              variant={"outline"}
+              className={`py-3 ${
+                plan === button.plan
+                  ? "bg-black text-white dark:bg-white dark:text-black border-black dark:border-white"
+                  : ""
+              }`}
+              onClick={() => setPlan(button.plan)}
+            >
+              {button.text}
+            </Button>
+          ))}
         </div>
 
         {plan === "build" && <BuildTripForm />}
@@ -114,7 +95,7 @@ const Search = ({
         {plan === "explore" && <ExploreTheWorldForm />}
 
         {plan === "generate" && <AIGeneratedTripForm />}
-      </motion.div>
+      </div>
     </section>
   );
 };

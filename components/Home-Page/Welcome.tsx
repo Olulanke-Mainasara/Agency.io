@@ -4,14 +4,21 @@ import About1 from "@/public/Main/About1.webp";
 import About2 from "@/public/Main/About2.webp";
 import { motion } from "framer-motion";
 import React, { useState } from "react";
+import { useContext } from "react";
 
+import { authContext } from "../Providers/Providers";
 import FBgButtons from "../UI/Links/FBgLink";
 
-const Section1 = () => {
+const Welcome = () => {
   const [hasViewed, setHasViewed] = useState(false);
+  const user = useContext(authContext);
 
   return (
-    <section className="relative flex flex-col w-full min-h-screen p-8 py-0 my-24 mb-40 overflow-hidden gap-8 xl:py-8 md:grid md:grid-rows-3 md:grid-cols-4 dark:text-white md:min-h-fit xl:min-h-screen">
+    <section
+      className={`relative ${
+        user ? "hidden" : "flex md:grid"
+      }  flex-col w-full min-h-screen gap-8 p-8 py-0 overflow-hidden xl:py-8 md:grid-rows-3 md:grid-cols-4 dark:text-white md:min-h-fit xl:min-h-screen`}
+    >
       <motion.div
         initial={hasViewed ? { x: 0, opacity: 1 } : { x: -100, opacity: 0 }}
         whileInView={{
@@ -50,7 +57,9 @@ const Section1 = () => {
           travel experiences. We believe that every journey should be filled
           with wonder, excitement, and personalized attention.
         </h1>
-        <FBgButtons />
+        <div className="flex justify-end md:justify-start">
+          <FBgButtons />
+        </div>
       </motion.div>
 
       <motion.div
@@ -77,4 +86,4 @@ const Section1 = () => {
   );
 };
 
-export default Section1;
+export default Welcome;

@@ -4,14 +4,21 @@ import Offer from "@/public/Main/Offer.webp";
 import { services } from "@/static-data/services";
 import { motion } from "framer-motion";
 import React, { useState } from "react";
+import { useContext } from "react";
 
+import { authContext } from "../Providers/Providers";
 import NBgButtons from "../UI/Links/NBgLink";
 
-const Section3 = () => {
+const WhatWeOffer = () => {
   const [hasViewed, setHasViewed] = useState(false);
+  const user = useContext(authContext);
 
   return (
-    <section className=" w-full flex items-center py-0 xl:py-8 p-8 xl:h-screen md:h-[900px] my-40 gap-8 overflow-hidden">
+    <section
+      className={`w-full ${
+        user ? "hidden" : "flex"
+      } items-center py-0 xl:py-8 p-8 xl:h-screen md:h-[900px] gap-8 overflow-hidden`}
+    >
       <div className="flex flex-col gap-8 lg:basis-3/4 dark:text-white">
         <motion.h1
           initial={hasViewed ? { x: 0, opacity: 1 } : { x: 100, opacity: 0 }}
@@ -84,4 +91,4 @@ const Section3 = () => {
   );
 };
 
-export default Section3;
+export default WhatWeOffer;

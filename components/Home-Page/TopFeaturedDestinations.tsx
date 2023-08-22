@@ -6,7 +6,7 @@ import React, { useState } from "react";
 
 import NBgButtons from "../UI/Links/NBgLink";
 
-const Section2 = () => {
+const TopFeaturedDestinations = () => {
   const [card, setCard] = useState(0);
   const [hasViewed, setHasViewed] = useState(false);
 
@@ -15,7 +15,9 @@ const Section2 = () => {
   };
 
   return (
-    <section className="flex flex-col w-full xl:min-h-screen gap-12 h-[630px] md:h-[900px] p-8 py-0 dark:text-white xl:py-8">
+    <section
+      className={`flex flex-col w-full xl:min-h-screen gap-12 h-[630px] md:h-[900px] p-8 py-0 dark:text-white xl:py-8`}
+    >
       <h1 className="text-4xl text-center md:text-5xl">
         Top Featured Destinations
       </h1>
@@ -35,13 +37,13 @@ const Section2 = () => {
                 delay: 0.2 * index,
               }}
               onClick={() => handleClick(index)}
-              className={`relative border rounded-xl overflow-hidden duration-500 min-w-[60vw] ease-out xl:min-w-[200px] ${
+              className={`relative border border-black dark:border-white rounded-xl overflow-hidden duration-500 min-w-[60vw] ease-out xl:min-w-[200px] ${
                 card == index ? "grow" : "hover:cursor-pointer grow-0"
               }`}
               key={destination.id}
               onAnimationComplete={() => setHasViewed(true)}
             >
-              <div className="relative w-full h-full border">
+              <div className="relative w-full h-full">
                 <Image
                   className="object-cover"
                   src={destination.imgsrc}
@@ -85,4 +87,4 @@ const Section2 = () => {
   );
 };
 
-export default Section2;
+export default TopFeaturedDestinations;

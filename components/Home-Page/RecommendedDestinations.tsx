@@ -1,11 +1,11 @@
 import { cities } from "@/static-data/locationsAndExperiences";
 import React from "react";
 
-const Section7 = () => {
+const RecommendedDestinations = () => {
   return (
-    <section className="flex flex-col w-full p-8 py-0 my-40 gap-10 xl:py-8 xl:min-h-screen">
+    <section className="flex flex-col w-full p-8 py-0 gap-10 xl:py-8 xl:min-h-screen">
       <h1 className="text-4xl text-right md:text-5xl">
-        Experience Nigeria from all sides
+        Destinations we love and recommend
       </h1>
 
       <div className="h-full grid grid-cols-2 gap-10 md:grid-cols-3 lg:grid-cols-4 grow">
@@ -24,4 +24,4 @@ const Section7 = () => {
   );
 };
 
-export default Section7;
+export default RecommendedDestinations;
