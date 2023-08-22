@@ -39,7 +39,7 @@ export function DatePickerWithRange({
               "h-16 border-black justify-start rounded-xl font-normal text-lg bg-transparent dark:bg-transparent dark:hover:bg-white dark:hover:text-black duration-300 dark:text-white dark:border-white"
             )}
           >
-            <CalendarIcon className="w-4 h-4 mr-2" />
+            <CalendarIcon className="mr-2" />
             {date?.from ? (
               date.to ? (
                 <>

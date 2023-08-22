@@ -2,8 +2,10 @@ import { Icons } from "@/components/Icons";
 import { Button } from "@/components/UI/ShadUI/button";
 import { Input } from "@/components/UI/ShadUI/input";
 import { Label } from "@/components/UI/ShadUI/label";
+import { Home, User } from "lucide-react";
 import * as React from "react";
 import { DateRange } from "react-day-picker";
+import { FaChild } from "react-icons/fa";
 
 import { DatePickerWithRange } from "./DataPickerWithRange";
 import { LocationComboBox } from "./LocationComboBox";
@@ -45,8 +47,11 @@ export function BuildTripForm() {
         <DatePickerWithRange handleDateRange={handleDateRange} />
 
         <div className="flex items-center w-full h-16 px-3 overflow-hidden border border-black rounded-xl dark:border-white">
-          <Label htmlFor="adults" className="w-full text-lg">
-            No. of Adults
+          <Label
+            htmlFor="adults"
+            className="flex items-center w-full text-lg gap-2"
+          >
+            <User /> No. of Adults
           </Label>
           <Input
             id="adults"
@@ -60,8 +65,11 @@ export function BuildTripForm() {
         </div>
 
         <div className="flex items-center w-full h-16 px-3 overflow-hidden border border-black rounded-xl dark:border-white">
-          <Label htmlFor="children" className="w-full text-lg">
-            No. of Children
+          <Label
+            htmlFor="children"
+            className="flex items-center w-full min-w-[155px] gap-2 text-lg"
+          >
+            <FaChild /> No. of Children
           </Label>
           <Input
             id="children"
@@ -75,8 +83,11 @@ export function BuildTripForm() {
         </div>
 
         <div className="flex items-center w-full h-16 px-3 overflow-hidden border border-black rounded-xl dark:border-white">
-          <Label htmlFor="rooms" className="w-full text-lg">
-            No. of Rooms
+          <Label
+            htmlFor="rooms"
+            className="flex items-center w-full text-lg gap-2"
+          >
+            <Home /> No. of Rooms
           </Label>
           <Input
             id="rooms"

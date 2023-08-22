@@ -6,7 +6,7 @@ import ImageCardSm from "../UI/Cards/ImageCardSm";
 import FBgButtons from "../UI/Links/FBgLink";
 import TBgButtons from "../UI/Links/TBgLink";
 
-const Hero = () => {
+const CTA = () => {
   const [hasViewed, setHasViewed] = useState(false);
 
   return (
@@ -50,4 +50,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default CTA;

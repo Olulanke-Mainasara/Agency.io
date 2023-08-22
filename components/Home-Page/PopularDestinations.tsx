@@ -3,11 +3,11 @@ import React, { useState } from "react";
 
 import { Button } from "../UI/ShadUI/button";
 
-const Section5 = () => {
+const PopularDestinations = () => {
   const [by, setBy] = useState("month");
 
   return (
-    <section className="flex flex-col w-full p-8 py-0 my-40 gap-8 xl:py-8 xl:min-h-screen">
+    <section className="flex flex-col w-full p-8 py-0 gap-8 xl:py-8 xl:min-h-screen">
       <h1 className="text-4xl text-center md:text-5xl">Popular Destinations</h1>
 
       <div className="flex justify-center gap-4">
@@ -52,4 +52,4 @@ const Section5 = () => {
   );
 };
 
-export default Section5;
+export default PopularDestinations;

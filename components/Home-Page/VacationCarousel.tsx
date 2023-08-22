@@ -8,7 +8,7 @@ import LeftArrow from "../UI/Carousel/LeftArrow";
 import RightArrow from "../UI/Carousel/RightArrow";
 import NBgButtons from "../UI/Links/NBgLink";
 
-const Section4 = () => {
+const VacationCarousel = () => {
   const [hasViewed, setHasViewed] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [next, setNext] = useState(true);
@@ -90,4 +90,4 @@ const Section4 = () => {
   );
 };
 
-export default Section4;
+export default VacationCarousel;
