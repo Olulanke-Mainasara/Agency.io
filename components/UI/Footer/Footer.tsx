@@ -51,7 +51,7 @@ const Footer = () => {
   const pathname = usePathname();
   return (
     <footer
-      className={`mt-40 px-8 space-y-16 ${
+      className={`mt-40 px-8 space-y-8 ${
         pathname === "/login"
           ? "hidden"
           : pathname === "/signup"
@@ -61,22 +61,22 @@ const Footer = () => {
           : ""
       }`}
     >
-      <section>
-        <p className="text-6xl">
+      <section className="max-w-[1440px] mx-auto">
+        <p className="text-4xl md:text-6xl">
           Explore the{" "}
           <span className="text-brandDark dark:text-brandLight">World,</span>
         </p>
-        <p className="text-right text-9xl">
+        <p className="text-4xl md:text-right md:text-6xl lg:text-8xl xl:text-9xl">
           One Click at a{" "}
           <span className="text-brandDark dark:text-brandLight">Time!</span>
         </p>
       </section>
 
       <section className="flex flex-col">
-        <div className="flex items-center pb-8 gap-8">
+        <div className="flex flex-col items-center gap-8 pb-8 lg:flex-row">
           <Link
             href="/"
-            className={`flex items-center text-4xl xs:text-lg h-fit`}
+            className={`hidden lg:flex items-center text-4xl xs:text-lg h-fit`}
           >
             Agency
             <span className="text-brandDark dark:text-brandLight">.io</span>
@@ -84,7 +84,7 @@ const Footer = () => {
             <FaPlane />
           </Link>
 
-          <div className="flex justify-around grow">
+          <div className="flex flex-wrap justify-between w-full gap-8 md:justify-around lg:w-fit grow">
             {footerData.map((data) => (
               <div key={data.id} className="space-y-6">
                 <p className="text-brandDark dark:text-brandLight">
@@ -105,14 +105,14 @@ const Footer = () => {
             ))}
           </div>
 
-          <Button className="px-6 py-3 h-fit" variant={"outline"} asChild>
+          <Button className="hidden px-6 py-3 h-fit lg:block" variant={"outline"} asChild>
             <Link href={"/contactus"} className="text-xl">
               Contact Us
             </Link>
           </Button>
         </div>
 
-        <section className="flex flex-col-reverse items-center justify-between py-8 text-sm text-center border-t border-black gap-6 md:flex-row dark:border-white md:gap-0">
+        <section className="flex flex-col-reverse items-center justify-between gap-6 py-8 text-sm text-center border-t border-black md:flex-row dark:border-white md:gap-0">
           <p>© 2023 Agency.io Inc. All rights reserved.</p>
 
           <div className="flex text-2xl gap-7 dark:text-white xs:text-xl">

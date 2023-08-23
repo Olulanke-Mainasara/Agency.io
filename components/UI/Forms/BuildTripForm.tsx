@@ -36,7 +36,7 @@ export function BuildTripForm() {
   };
 
   return (
-    <form onSubmit={handleTripBuild} className="flex flex-col w-full gap-8">
+    <form onSubmit={handleTripBuild} className="flex flex-col w-full max-w-2xl gap-8">
       <div className="grid md:grid-cols-2 gap-x-4 gap-y-6">
         <LocationComboBox
           label="Search location..."
@@ -49,7 +49,7 @@ export function BuildTripForm() {
         <div className="flex items-center w-full h-16 px-3 overflow-hidden border border-black rounded-xl dark:border-white">
           <Label
             htmlFor="adults"
-            className="flex items-center w-full text-lg gap-2"
+            className="flex items-center w-full gap-2 text-lg"
           >
             <User /> No. of Adults
           </Label>
@@ -85,7 +85,7 @@ export function BuildTripForm() {
         <div className="flex items-center w-full h-16 px-3 overflow-hidden border border-black rounded-xl dark:border-white">
           <Label
             htmlFor="rooms"
-            className="flex items-center w-full text-lg gap-2"
+            className="flex items-center w-full gap-2 text-lg"
           >
             <Home /> No. of Rooms
           </Label>

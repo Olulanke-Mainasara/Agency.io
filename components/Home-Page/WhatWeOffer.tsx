@@ -17,7 +17,7 @@ const WhatWeOffer = () => {
     <section
       className={`w-full ${
         user ? "hidden" : "flex"
-      } items-center py-0 xl:py-8 p-8 xl:h-screen md:h-[900px] gap-8 overflow-hidden`}
+      } items-center py-0 xl:py-8 p-8 xl:h-screen lg:max-h-[900px] md:h-[900px] gap-8 overflow-hidden`}
     >
       <div className="flex flex-col gap-8 lg:basis-3/4 dark:text-white">
         <motion.h1
@@ -32,7 +32,7 @@ const WhatWeOffer = () => {
           onAnimationComplete={() => setHasViewed(true)}
           className="text-4xl md:text-5xl"
         >
-          What do we offer?
+          What do we <span className="text-brandDark dark:text-brandLight">offer</span>?
         </motion.h1>
         <div className="grid md:grid-cols-2 gap-x-10 gap-y-12 h-fit">
           {services.map((service) => {
@@ -52,7 +52,7 @@ const WhatWeOffer = () => {
                 className="flex flex-col justify-center w-full gap-y-5"
                 key={service.id}
               >
-                <h1 className="flex items-center text-2xl gap-2">
+                <h1 className="flex items-center gap-2 text-2xl">
                   <span className="text-brandDark dark:text-brandLight">
                     {service.icon}
                   </span>

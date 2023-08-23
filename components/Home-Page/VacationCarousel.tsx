@@ -29,7 +29,7 @@ const VacationCarousel = () => {
   }
 
   return (
-    <section className="relative w-full p-8 py-0 xl:py-8 xl:h-screen md:h-[900px] h-[728px]">
+    <section className="relative w-full p-8 py-0 xl:py-8 xl:h-screen lg:max-h-[900px] md:h-[900px] h-[728px]">
       {currentSlide > 0 ? <LeftArrow onclick={prevSlide} /> : null}
 
       <motion.div

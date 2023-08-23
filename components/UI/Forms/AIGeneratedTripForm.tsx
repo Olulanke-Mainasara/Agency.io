@@ -50,7 +50,7 @@ export function AIGeneratedTripForm() {
   }, []);
 
   return (
-    <form onSubmit={handleTripGenerate} className="flex flex-col w-full gap-8">
+    <form onSubmit={handleTripGenerate} className="flex flex-col w-full max-w-2xl gap-8">
       <div className="grid md:grid-cols-2 gap-x-4 gap-y-6">
         <LocationComboBox
           label="Where to?"

@@ -17,7 +17,7 @@ const Welcome = () => {
     <section
       className={`relative ${
         user ? "hidden" : "flex md:grid"
-      }  flex-col w-full min-h-screen gap-8 p-8 py-0 overflow-hidden xl:py-8 md:grid-rows-3 md:grid-cols-4 dark:text-white md:min-h-fit xl:min-h-screen`}
+      }  flex-col w-full min-h-screen gap-8 p-8 py-0 overflow-hidden xl:py-8 md:grid-rows-3 md:grid-cols-4 dark:text-white md:min-h-fit xl:h-screen lg:max-h-[900px]`}
     >
       <motion.div
         initial={hasViewed ? { x: 0, opacity: 1 } : { x: -100, opacity: 0 }}
