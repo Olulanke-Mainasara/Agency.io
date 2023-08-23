@@ -27,8 +27,8 @@ const Search = () => {
   ];
 
   return (
-    <section className="flex w-full p-6 xl:h-screen lg:p-8 lg:gap-8">
-      <div className="items-center justify-end hidden lg:flex lg:basis-1/2 ">
+    <section className="flex w-full p-6 pb-0 xl:h-screen lg:p-8 lg:pb-0 lg:gap-8">
+      <div className="items-center justify-end hidden xl:flex xl:basis-1/2 ">
         <div className="relative w-full overflow-hidden border border-black h-4/5 rounded-xl dark:border-white">
           <Image
             src={SearchImg}
@@ -40,8 +40,8 @@ const Search = () => {
           />
         </div>
       </div>
-      <div className="flex flex-col w-full pt-16 gap-8 lg:pt-0 lg:justify-center lg:basis-1/2">
-        <div className="flex overflow-scroll gap-5 dark:text-white md:flex-wrap activities">
+      <div className="flex flex-col w-full gap-8 pt-16 md:pt-28 md:items-center xl:pt-0 xl:items-start xl:justify-center xl:basis-1/2">
+        <div className="flex max-w-3xl gap-5 overflow-scroll md:justify-center xl:justify-start dark:text-white md:flex-wrap activities">
           <Button
             variant={"outline"}
             className="px-6 py-2 text-white bg-black border-black dark:bg-white dark:text-black dark:border-white"
@@ -49,9 +49,9 @@ const Search = () => {
             All
           </Button>
 
-          {activities.map((activity, index) => {
+          {activities.map((activity) => {
             return (
-              <div key={activity.id}>
+              <React.Fragment key={activity.id}>
                 <TBgButtons
                   xPaddingAndText="px-6"
                   yPadding="py-2"
@@ -59,19 +59,26 @@ const Search = () => {
                 >
                   {activity.text}
                 </TBgButtons>
-              </div>
+              </React.Fragment>
             );
           })}
+          
           <NBgButtons prompt="View more" />
         </div>
 
-        <h1 className="text-4xl md:text-5xl dark:text-white">
-          {user
-            ? `What's the plan${
-                user.displayName ? ", " + user.displayName.split(" ")[0] : ""
-              }?`
-            : "Discover your next adventure"}
-        </h1>
+        {user ? (
+          <h1 className="text-4xl md:text-5xl dark:text-white">
+            What&apos;s the{" "}
+            <span className="text-brandDark dark:text-brandLight">plan</span>
+            {user.displayName ? ", " + user.displayName.split(" ")[0] : ""}?
+          </h1>
+        ) : (
+          <h1 className="text-4xl md:text-5xl dark:text-white">
+            Discover your{" "}
+            <span className="text-brandDark dark:text-brandLight">next</span>{" "}
+            adventure
+          </h1>
+        )}
 
         <div className="flex flex-wrap gap-4">
           {buttonData.map((button) => (

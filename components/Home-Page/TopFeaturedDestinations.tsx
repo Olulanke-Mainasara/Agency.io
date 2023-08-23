@@ -16,12 +16,12 @@ const TopFeaturedDestinations = () => {
 
   return (
     <section
-      className={`flex flex-col w-full xl:min-h-screen gap-12 h-[630px] md:h-[900px] p-8 py-0 dark:text-white xl:py-8`}
+      className={`flex flex-col w-full xl:h-screen lg:max-h-[900px] gap-12 h-[630px] md:h-[900px] p-8 py-0 dark:text-white xl:py-8`}
     >
       <h1 className="text-4xl text-center md:text-5xl">
-        Top Featured Destinations
+        Top <span className="text-brandDark dark:text-brandLight">Featured</span> Destinations
       </h1>
-      <div className="flex w-full overflow-x-scroll overflow-y-hidden text-white gap-8 grow">
+      <div className="flex w-full gap-8 overflow-x-scroll overflow-y-hidden text-white grow">
         {destinations.map((destination, index) => {
           return (
             <motion.div

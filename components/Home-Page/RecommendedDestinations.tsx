@@ -3,12 +3,12 @@ import React from "react";
 
 const RecommendedDestinations = () => {
   return (
-    <section className="flex flex-col w-full p-8 py-0 gap-10 xl:py-8 xl:min-h-screen">
+    <section className="flex flex-col w-full gap-10 p-8 py-0 xl:py-8 xl:h-screen lg:max-h-[900px]">
       <h1 className="text-4xl text-right md:text-5xl">
-        Destinations we love and recommend
+        Destinations we <span className="text-brandDark dark:text-brandLight">love</span> and <span className="text-brandDark dark:text-brandLight">recommend</span>
       </h1>
 
-      <div className="h-full grid grid-cols-2 gap-10 md:grid-cols-3 lg:grid-cols-4 grow">
+      <div className="grid h-full grid-cols-2 gap-10 md:grid-cols-3 lg:grid-cols-4 grow">
         {cities.map((city) => {
           return (
             <div key={city.id} className="flex flex-col gap-5">
