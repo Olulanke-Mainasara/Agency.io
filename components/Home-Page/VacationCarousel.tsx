@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import { carouselSections } from "@/static-data/images";
 import React from "react";
-import { Navigation } from "swiper/modules";
+import { Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import LeftArrow from "../UI/Carousel/LeftArrow";
@@ -15,13 +15,16 @@ const VacationCarousel = () => {
       <Swiper
         slidesPerView={1}
         spaceBetween={32}
+        pagination={{
+          clickable: true,
+        }}
         navigation={{
           nextEl: ".button-swipe-next",
           prevEl: ".button-swipe-prev",
         }}
         allowTouchMove
-        modules={[Navigation]}
-        className="w-full px-6 xl:px-8 mySwiper"
+        modules={[Navigation, Pagination]}
+        className="w-full"
       >
         <LeftArrow />
 
@@ -41,7 +44,7 @@ const VacationCarousel = () => {
                   />
                 </div>
 
-                <div className="absolute inset-0 pt-8 pl-3 sm:pl-5 backdrop-brightness-50">
+                <div className="absolute inset-0 pt-8 pl-3 sm:pl-5 backdrop-brightness-50 rounded-xl">
                   <div className="space-y-3">
                     <p className="opacity-75 md:text-2xl">{carousel.subText}</p>
                     <h1 className="max-w-3xl text-3xl md:text-7xl">

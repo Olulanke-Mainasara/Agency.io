@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import { blogs } from "@/static-data/images";
 import React from "react";
-import { Navigation } from "swiper/modules";
+import { Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import LeftArrow from "../UI/Carousel/LeftArrow";
@@ -20,6 +20,9 @@ const Blog = () => {
 
       <Swiper
         spaceBetween={32}
+        pagination={{
+          clickable: true,
+        }}
         navigation={{
           nextEl: ".button-swipe-next",
           prevEl: ".button-swipe-prev",
@@ -43,8 +46,8 @@ const Blog = () => {
           },
         }}
         allowTouchMove
-        modules={[Navigation]}
-        className="w-full px-6 xl:px-8 mySwiper"
+        modules={[Navigation, Pagination]}
+        className="w-full"
       >
         <LeftArrow />
 
@@ -54,7 +57,7 @@ const Blog = () => {
               key={blog.id}
               className="h-full overflow-hidden rounded-xl"
             >
-              <div className="relative w-full h-44 xl:h-48">
+              <div className="relative w-full overflow-hidden h-44 xl:h-48">
                 <Image
                   src={blog.img}
                   fill

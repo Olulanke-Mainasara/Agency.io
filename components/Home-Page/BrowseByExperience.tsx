@@ -30,7 +30,7 @@ const BrowseByExperience = () => {
                 opacity: 1,
                 transition: {
                   duration: 0.1,
-                  delay: index * 0.15,
+                  delay: index * 0.1,
                 },
               }}
               onAnimationComplete={() => setHasViewed(true)}
@@ -69,7 +69,7 @@ const BrowseByExperience = () => {
                 opacity: 1,
                 transition: {
                   duration: 0.1,
-                  delay: index * 0.15,
+                  delay: index * 0.1,
                 },
               }}
               onAnimationComplete={() => setHasViewed(true)}
@@ -108,7 +108,7 @@ const BrowseByExperience = () => {
                 opacity: 1,
                 transition: {
                   duration: 0.1,
-                  delay: index * 0.15,
+                  delay: index * 0.1,
                 },
               }}
               onAnimationComplete={() => setHasViewed(true)}
@@ -136,7 +136,7 @@ const BrowseByExperience = () => {
       </div>
 
       <Button
-        className="px-6 py-3 mx-auto h-fit xl:hidden w-fit"
+        className="px-6 py-3 mx-auto text-white bg-black border-none dark:text-black dark:bg-white h-fit xl:hidden w-fit"
         variant={"outline"}
         asChild
       >
