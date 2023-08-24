@@ -4,6 +4,7 @@ import Splash from "@/components/UI/Splash/Splash";
 import React from "react";
 import { useSessionStorage } from "react-use";
 
+import Footer from "../UI/Footer/Footer";
 import Blog from "./Blog";
 import BrowseByExperience from "./BrowseByExperience";
 import CTA from "./CTA";
@@ -41,10 +42,10 @@ const Main = () => {
       {splashed !== "true" && splashCount == 0 ? <Splash /> : null}
 
       <main className="w-screen max-w-[1440px] mx-auto space-y-40">
-        <Search />
-        <Welcome />
-        <TopFeaturedDestinations />
-        <WhatWeOffer />
+        <div className="space-y-28">
+          <Search />
+          <TopFeaturedDestinations />
+        </div>
         <PopularDestinations />
         <VacationCarousel />
         <ExperienceYourLocal />
@@ -53,6 +54,7 @@ const Main = () => {
         <Blog />
         <CTA />
         <RecommendedDestinations />
+        <Footer />
       </main>
     </div>
   );

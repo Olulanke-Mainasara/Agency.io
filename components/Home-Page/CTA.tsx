@@ -15,9 +15,9 @@ const CTA = () => {
         <motion.div
           initial={hasViewed ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.5 }}
           onAnimationComplete={() => setHasViewed(true)}
-          className="flex flex-col items-center justify-center px-5 pb-10 text-center text-black gap-6 xl:text-right xl:items-end xl:pr-0 basis-1/2 dark:text-white"
+          className="flex flex-col items-center justify-center gap-6 px-5 pb-10 text-center text-black xl:text-right xl:items-end xl:pr-0 basis-1/2 dark:text-white"
         >
           <h1 className="max-w-3xl text-5xl md:text-[90px] text-brandDark dark:text-brandLight">
             Leave the planning to us

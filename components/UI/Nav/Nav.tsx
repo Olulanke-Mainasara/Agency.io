@@ -33,6 +33,12 @@ const Nav = () => {
           : "flex"
       } justify-between items-center px-5 xl:px-8`}
     >
+      {user ? (
+        <span className="flex items-center lg:hidden">
+          <ProfileOps />
+        </span>
+      ) : null}
+      
       <Link href="/" className={`flex items-center text-2xl xs:text-lg`}>
         Agency
         <span className="text-brandDark dark:text-brandLight">.io</span>
@@ -48,7 +54,7 @@ const Nav = () => {
         initial={{ height: 0 }}
         animate={clicked ? { height: "100dvh" } : { height: 0 }}
         transition={{
-          duration: 0.5,
+          duration: 0.3,
         }}
         className={`w-full z-10 xl:w-fit absolute xl:static top-0 left-0 xl:h-auto xl:duration-0 bg-white dark:bg-background overflow-hidden  xl:hidden`}
       >
@@ -85,7 +91,7 @@ const Nav = () => {
             {!user ? (
               <Link
                 href={"/login"}
-                className="flex items-center justify-center py-2 pl-3 text-black gap-1 text-md dark:text-white lg:hidden"
+                className="flex items-center justify-center gap-1 py-2 pl-3 text-black text-md dark:text-white lg:hidden"
               >
                 Log in <ArrowRight size={20} />
               </Link>
@@ -118,12 +124,6 @@ const Nav = () => {
 
         <DesktopThemeToggler />
       </div>
-
-      {user ? (
-        <span className="flex items-center lg:hidden">
-          <ProfileOps />
-        </span>
-      ) : null}
 
       <button
         title="Open navigation menu"

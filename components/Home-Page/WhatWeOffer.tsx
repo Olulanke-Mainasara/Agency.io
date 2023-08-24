@@ -26,13 +26,14 @@ const WhatWeOffer = () => {
             x: 0,
             opacity: 1,
             transition: {
-              duration: 0.7,
+              duration: 0.3,
             },
           }}
           onAnimationComplete={() => setHasViewed(true)}
           className="text-4xl md:text-5xl"
         >
-          What do we <span className="text-brandDark dark:text-brandLight">offer</span>?
+          What do we{" "}
+          <span className="text-brandDark dark:text-brandLight">offer</span>?
         </motion.h1>
         <div className="grid md:grid-cols-2 gap-x-10 gap-y-12 h-fit">
           {services.map((service) => {
@@ -45,7 +46,7 @@ const WhatWeOffer = () => {
                   x: 0,
                   opacity: 1,
                   transition: {
-                    duration: 0.7,
+                    duration: 0.3,
                     delay: 0.2,
                   },
                 }}
@@ -71,11 +72,11 @@ const WhatWeOffer = () => {
           x: 0,
           opacity: 1,
           transition: {
-            duration: 0.7,
+            duration: 0.3,
             delay: 0.2,
           },
         }}
-        className="relative hidden h-full overflow-hidden border border-black dark:border-white basis-1/2 rounded-xl lg:block"
+        className="relative hidden h-full overflow-hidden basis-1/2 rounded-xl lg:block"
       >
         <Image
           src={Offer}

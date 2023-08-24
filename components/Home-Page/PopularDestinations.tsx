@@ -1,53 +1,46 @@
-import { locations } from "@/static-data/locationsAndExperiences";
+import { locationsByMonth } from "@/static-data/images";
 import React, { useState } from "react";
 
+import Carousel from "../UI/Carousel/Carousel";
 import { Button } from "../UI/ShadUI/button";
+
+const buttonData = [
+  { id: 1, text: "By Month", by: "month" },
+  { id: 2, text: "By Season", by: "season" },
+];
 
 const PopularDestinations = () => {
   const [by, setBy] = useState("month");
 
   return (
-    <section className="flex flex-col w-full p-8 py-0 gap-8 xl:py-8 xl:h-screen lg:max-h-[900px]">
-      <h1 className="text-4xl text-center md:text-5xl">Popular <span className="text-brandDark dark:text-brandLight">Destinations</span></h1>
+    <section className="flex flex-col gap-8 xl:py-8">
+      <div className="flex flex-col gap-8 px-6 xl:px-8 lg:gap-4 lg:flex-row">
+        <h1 className="text-4xl md:text-5xl">
+          Popular{" "}
+          <span className="text-brandDark dark:text-brandLight">
+            Destinations
+          </span>
+        </h1>
 
-      <div className="flex justify-center gap-4">
-        <Button
-          variant={"outline"}
-          className={`${
-            by === "month"
-              ? "bg-black text-white border-black dark:bg-white dark:border-white dark:text-black"
-              : ""
-          }`}
-          onClick={() => setBy("month")}
-        >
-          By Month
-        </Button>
-        <Button
-          variant={"outline"}
-          className={`${
-            by === "season"
-              ? "bg-black text-white border-black dark:bg-white dark:border-white dark:text-black"
-              : ""
-          }`}
-          onClick={() => setBy("season")}
-        >
-          By Season
-        </Button>
+        <div className="flex gap-4">
+          {buttonData.map((button) => (
+            <Button
+              key={button.id}
+              variant={"outline"}
+              className={`${
+                by === button.by
+                  ? "bg-black text-white border-black dark:bg-white dark:border-white dark:text-black"
+                  : ""
+              }`}
+              onClick={() => setBy(button.by)}
+            >
+              {button.text}
+            </Button>
+          ))}
+        </div>
       </div>
 
-      <div className="grid h-full grid-cols-2 gap-10 md:grid-cols-3 lg:grid-cols-4 grow">
-        {locations.map((location) => {
-          return (
-            <div key={location.id} className="flex flex-col gap-5">
-              <div className="w-full h-full bg-black min-h-[120px] max-h-[120px] md:min-h-[190px] md:max-h-[190px] xl:max-h-full dark:bg-white rounded-xl grow bg-reserved-100"></div>
-              <div>
-                <p className="text-2xl">{location.month}</p>
-                <p>{location.destination}</p>
-              </div>
-            </div>
-          );
-        })}
-      </div>
+      <Carousel items={locationsByMonth} extra />
     </section>
   );
 };

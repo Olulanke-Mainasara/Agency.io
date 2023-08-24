@@ -29,7 +29,7 @@ const Search = () => {
   return (
     <section className="flex w-full p-6 pb-0 xl:h-screen lg:p-8 lg:pb-0 lg:gap-8">
       <div className="items-center justify-end hidden xl:flex xl:basis-1/2 ">
-        <div className="relative w-full overflow-hidden border border-black h-4/5 rounded-xl dark:border-white">
+        <div className="relative w-full overflow-hidden h-4/5 rounded-xl">
           <Image
             src={SearchImg}
             placeholder="blur"
