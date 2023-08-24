@@ -5,3 +5,32 @@
 .activities::-webkit-scrollbar {
   display: none;
 }
+
+.swiper {
+  padding: 1.5rem;
+  padding-top: 0;
+}
+
+@media screen and (min-width: 1440px) {
+  .swiper {
+    padding: 2rem;
+    padding-top: 0;
+  }
+}
+
+.swiper-pagination-fraction,
+.swiper-pagination-custom,
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  bottom: -6px;
+}
+
+.swiper-pagination-bullet-active,
+.swiper-pagination-bullet {
+  background: black;
+}
+
+.dark .swiper-pagination-bullet-active,
+.dark .swiper-pagination-bullet {
+  background: white;
+}

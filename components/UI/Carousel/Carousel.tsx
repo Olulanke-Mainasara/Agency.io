@@ -1,7 +1,7 @@
 import Image, { StaticImageData } from "next/image";
 
 import React from "react";
-import { Navigation } from "swiper/modules";
+import { Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import LeftArrow from "./LeftArrow";
@@ -18,6 +18,9 @@ const Carousel = ({
     <Swiper
       slidesPerView={4}
       spaceBetween={32}
+      pagination={{
+        clickable: true,
+      }}
       navigation={{
         nextEl: ".button-swipe-next",
         prevEl: ".button-swipe-prev",
@@ -41,17 +44,17 @@ const Carousel = ({
         },
       }}
       allowTouchMove
-      modules={[Navigation]}
-      className="w-full px-6 xl:px-8 mySwiper"
+      modules={[Navigation, Pagination]}
+      className="w-full"
     >
       <LeftArrow />
 
       {items.map((item) => {
         return (
-          <SwiperSlide key={item.id} className="flex flex-col gap-5">
-            <div className="relative h-[300px] rounded-xl overflow-hidden bg-white">
+          <SwiperSlide key={item.id} className="relative flex flex-col gap-5 overflow-hidden border-white rounded-xl">
+            <div className="h-[300px] bg-white">
               <Image
-                src={item.img}
+                src={item.img} 
                 width={314}
                 height={305}
                 placeholder="blur"
@@ -59,7 +62,7 @@ const Carousel = ({
                 alt={item.extra ? item.name + ", " + item.extra : item.name}
               />
             </div>
-            <div>
+            <div className="absolute bottom-0 w-full p-4 text-white backdrop-brightness-[25%] backdrop-blur-sm rounded-b-xl">
               <p className="text-2xl">{item.name}</p>
               {extra && <p>{item.extra}</p>}
             </div>
