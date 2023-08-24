@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import React from "react";
+import { motion } from "framer-motion";
+import React, { useState } from "react";
 import {
   FaGithub,
   FaInstagram,
@@ -17,22 +18,22 @@ import { Button } from "../ShadUI/button";
 const footerData = [
   {
     id: 1,
-    category: "Explore",
-    links: [
-      { text: "Destinations", url: "/destinations" },
-      { text: "Guided Tours", url: "/tours" },
-      { text: "Activities", url: "/activities" },
-      { text: "Travel Blog", url: "/blog" },
-    ],
-  },
-  {
-    id: 2,
     category: "Plan Your Trip",
     links: [
       { text: "Book Flights", url: "/flights" },
       { text: "Accommodations", url: "/accommodations" },
       { text: "Transportation", url: "/transport" },
       { text: "Travel Insurance", url: "/insurance" },
+    ],
+  },
+  {
+    id: 2,
+    category: "Explore",
+    links: [
+      { text: "Destinations", url: "/destinations" },
+      { text: "Guided Tours", url: "/tours" },
+      { text: "Activities", url: "/activities" },
+      { text: "Travel Blog", url: "/blog" },
     ],
   },
   {
@@ -48,10 +49,12 @@ const footerData = [
 ];
 
 const Footer = () => {
+  const [hasViewed, setHasViewed] = useState(false);
   const pathname = usePathname();
+
   return (
     <footer
-      className={`mt-40 px-8 space-y-8 ${
+      className={`mt-40 px-6 xl:px-8 space-y-8 ${
         pathname === "/login"
           ? "hidden"
           : pathname === "/signup"
@@ -61,15 +64,37 @@ const Footer = () => {
           : ""
       }`}
     >
-      <section className="max-w-[1440px] mx-auto">
-        <p className="text-4xl md:text-6xl">
+      <section className="max-w-[1440px] mx-auto overflow-hidden">
+        <motion.p
+          initial={hasViewed ? { x: 0, opacity: 1 } : { x: -100, opacity: 0 }}
+          whileInView={{
+            x: 0,
+            opacity: 1,
+            transition: {
+              duration: 0.3,
+            },
+          }}
+          onAnimationComplete={() => setHasViewed(true)}
+          className="text-4xl text-center md:text-left md:text-6xl"
+        >
           Explore the{" "}
           <span className="text-brandDark dark:text-brandLight">World,</span>
-        </p>
-        <p className="text-4xl md:text-right md:text-6xl lg:text-8xl xl:text-9xl">
+        </motion.p>
+        <motion.p
+          initial={hasViewed ? { x: 0, opacity: 1 } : { x: 100, opacity: 0 }}
+          whileInView={{
+            x: 0,
+            opacity: 1,
+            transition: {
+              duration: 0.3,
+            },
+          }}
+          onAnimationComplete={() => setHasViewed(true)}
+          className="text-4xl text-center md:text-right md:text-6xl lg:text-8xl xl:text-9xl"
+        >
           One Click at a{" "}
           <span className="text-brandDark dark:text-brandLight">Time!</span>
-        </p>
+        </motion.p>
       </section>
 
       <section className="flex flex-col">
@@ -84,7 +109,7 @@ const Footer = () => {
             <FaPlane />
           </Link>
 
-          <div className="flex flex-wrap justify-between w-full gap-8 md:justify-around lg:w-fit grow">
+          <div className="flex flex-wrap justify-between w-full gap-8 md: md:justify-around lg:w-fit grow">
             {footerData.map((data) => (
               <div key={data.id} className="space-y-6">
                 <p className="text-brandDark dark:text-brandLight">
@@ -105,7 +130,11 @@ const Footer = () => {
             ))}
           </div>
 
-          <Button className="hidden px-6 py-3 h-fit lg:block" variant={"outline"} asChild>
+          <Button
+            className="hidden px-6 py-3 text-white bg-black border-black dark:border-white dark:hover:bg-gray-300 h-fit lg:block dark:bg-white dark:text-black"
+            variant={"outline"}
+            asChild
+          >
             <Link href={"/contactus"} className="text-xl">
               Contact Us
             </Link>

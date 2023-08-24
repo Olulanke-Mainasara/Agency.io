@@ -1,82 +1,136 @@
 import Link from "next/link";
 
-import { experiences } from "@/static-data/locationsAndExperiences";
+import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import React from "react";
+import React, { useState } from "react";
+import { experiences } from "@/static-data/images";
 
-import NBgButtons from "../UI/Links/NBgLink";
 import { Button } from "../UI/ShadUI/button";
 
 const BrowseByExperience = () => {
+  const [hasViewed, setHasViewed] = useState(false);
+
   return (
-    <section className="flex flex-col w-full gap-10 p-8 py-0 xl:py-8">
-      <h1 className="text-4xl md:text-5xl ">Browse by <span className="text-brandDark dark:text-brandLight">experience</span> type</h1>
+    <section className="flex flex-col gap-8 px-6 xl:p-8">
+      <h1 className="text-4xl md:text-5xl ">
+        Browse by{" "}
+        <span className="text-brandDark dark:text-brandLight">experience</span>{" "}
+        type
+      </h1>
 
       <div className="hidden grid-cols-4 gap-10 xl:grid grow">
-        {experiences.map((experience) => {
+        {experiences.map((experience, index) => {
           return (
-            <Link
-              href={`/experience/${experience.experience}`}
+            <motion.div
+              initial={
+                hasViewed ? { y: 0, opacity: 1 } : { y: 100, opacity: 0 }
+              }
+              whileInView={{
+                y: 0,
+                opacity: 1,
+                transition: {
+                  duration: 0.1,
+                  delay: index * 0.15,
+                },
+              }}
+              onAnimationComplete={() => setHasViewed(true)}
               key={experience.id}
-              className="p-6 space-y-5 duration-300 border border-black dark:border-white hover:border-brandLight dark:hover:border-brandLight rounded-xl"
+              className="w-full h-full p-6 duration-300 border border-black dark:border-white hover:border-brandLight dark:hover:border-brandLight rounded-xl"
             >
-              <div className="flex items-center gap-2 text-2xl">
-                <span className="text-brandDark dark:text-brandLight">
-                  {experience.icon}
-                </span>
-                <h2 className="first-letter:uppercase">
-                  {experience.experience}
-                </h2>
-              </div>
+              <Link
+                href={`/experience/${experience.experience}`}
+                className="w-full h-full space-y-5"
+              >
+                <div className="flex items-center gap-2 text-2xl">
+                  <span className="text-brandDark dark:text-brandLight">
+                    {experience.icon}
+                  </span>
+                  <h2 className="first-letter:uppercase">
+                    {experience.experience}
+                  </h2>
+                </div>
 
-              <p className="text-lg opacity-70">{experience.description}</p>
-            </Link>
+                <p className="text-lg opacity-70">{experience.description}</p>
+              </Link>
+            </motion.div>
           );
         })}
       </div>
 
       <div className="hidden grid-cols-3 gap-10 lg:grid xl:hidden grow">
-        {experiences.slice(0, 9).map((experience) => {
+        {experiences.slice(0, 9).map((experience, index) => {
           return (
-            <Link
-              href={`/experience/${experience.experience}`}
+            <motion.div
+              initial={
+                hasViewed ? { y: 0, opacity: 1 } : { y: 100, opacity: 0 }
+              }
+              whileInView={{
+                y: 0,
+                opacity: 1,
+                transition: {
+                  duration: 0.1,
+                  delay: index * 0.15,
+                },
+              }}
+              onAnimationComplete={() => setHasViewed(true)}
               key={experience.id}
-              className="p-6 space-y-5 duration-300 border border-black dark:border-white hover:border-brandLight dark:hover:border-brandLight rounded-xl"
+              className="w-full h-full p-6 duration-300 border border-black dark:border-white hover:border-brandLight dark:hover:border-brandLight rounded-xl"
             >
-              <div className="flex items-center gap-2 text-2xl">
-                <span className="text-brandDark dark:text-brandLight">
-                  {experience.icon}
-                </span>
-                <h2 className="first-letter:uppercase">
-                  {experience.experience}
-                </h2>
-              </div>
+              <Link
+                href={`/experience/${experience.experience}`}
+                className="w-full h-full space-y-5"
+              >
+                <div className="flex items-center gap-2 text-2xl">
+                  <span className="text-brandDark dark:text-brandLight">
+                    {experience.icon}
+                  </span>
+                  <h2 className="first-letter:uppercase">
+                    {experience.experience}
+                  </h2>
+                </div>
 
-              <p className="text-lg opacity-70">{experience.description}</p>
-            </Link>
+                <p className="text-lg opacity-70">{experience.description}</p>
+              </Link>
+            </motion.div>
           );
         })}
       </div>
 
       <div className="grid grid-cols-1 gap-10 lg:hidden md:grid-cols-2 grow">
-        {experiences.slice(0, 6).map((experience) => {
+        {experiences.slice(0, 6).map((experience, index) => {
           return (
-            <Link
-              href={`/experience/${experience.experience}`}
+            <motion.div
+              initial={
+                hasViewed ? { y: 0, opacity: 1 } : { y: 100, opacity: 0 }
+              }
+              whileInView={{
+                y: 0,
+                opacity: 1,
+                transition: {
+                  duration: 0.1,
+                  delay: index * 0.15,
+                },
+              }}
+              onAnimationComplete={() => setHasViewed(true)}
               key={experience.id}
-              className="p-6 space-y-5 duration-300 border border-black dark:border-white hover:border-brandLight dark:hover:border-brandLight rounded-xl"
+              className="w-full h-full p-6 duration-300 border border-black dark:border-white hover:border-brandLight dark:hover:border-brandLight rounded-xl"
             >
-              <div className="flex items-center gap-2 text-2xl">
-                <span className="text-brandDark dark:text-brandLight">
-                  {experience.icon}
-                </span>
-                <h2 className="first-letter:uppercase">
-                  {experience.experience}
-                </h2>
-              </div>
+              <Link
+                href={`/experience/${experience.experience}`}
+                className="w-full h-full space-y-5"
+              >
+                <div className="flex items-center gap-2 text-2xl">
+                  <span className="text-brandDark dark:text-brandLight">
+                    {experience.icon}
+                  </span>
+                  <h2 className="first-letter:uppercase">
+                    {experience.experience}
+                  </h2>
+                </div>
 
-              <p className="text-lg opacity-70">{experience.description}</p>
-            </Link>
+                <p className="text-lg opacity-70">{experience.description}</p>
+              </Link>
+            </motion.div>
           );
         })}
       </div>

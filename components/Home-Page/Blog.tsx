@@ -1,29 +1,72 @@
 import Image from "next/image";
 
-import NextImg from "@/public/next.svg";
-import { blogs } from "@/static-data/locationsAndExperiences";
+import { blogs } from "@/static-data/images";
 import React from "react";
+import { Navigation } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 
+import LeftArrow from "../UI/Carousel/LeftArrow";
+import RightArrow from "../UI/Carousel/RightArrow";
 import NBgButtons from "../UI/Links/NBgLink";
 
 const Blog = () => {
   return (
-    <section className="min-h-screen p-8 py-0 space-y-10 xl:py-8">
-      <h1 className="text-4xl md:text-5xl">Discover <span className="text-brandDark dark:text-brandLight">your</span> next <span className="text-brandDark dark:text-brandLight">adventure</span></h1>
+    <section className="flex flex-col gap-8 xl:py-8">
+      <h1 className="px-6 text-4xl xl:px-8 md:text-5xl">
+        Discover{" "}
+        <span className="text-brandDark dark:text-brandLight">your</span> next{" "}
+        <span className="text-brandDark dark:text-brandLight">adventure</span>
+      </h1>
 
-      <div className="grid grid-cols-1 gap-14 xl:grid-cols-3 md:grid-cols-2">
+      <Swiper
+        spaceBetween={32}
+        navigation={{
+          nextEl: ".button-swipe-next",
+          prevEl: ".button-swipe-prev",
+        }}
+        breakpoints={{
+          // when window width is >= 0px
+          0: {
+            slidesPerView: 1,
+          },
+          // when window width is >= 640px
+          640: {
+            slidesPerView: 2,
+          },
+          // when window width is >= 1024px
+          1024: {
+            slidesPerView: 3,
+          },
+          1440: {
+            slidesPerView: 3,
+            spaceBetween: 56,
+          },
+        }}
+        allowTouchMove
+        modules={[Navigation]}
+        className="w-full px-6 xl:px-8 mySwiper"
+      >
+        <LeftArrow />
+
         {blogs.map((blog) => {
           return (
-            <div key={blog.id} className="h-full overflow-hidden rounded-xl">
-              <Image
-                width={432}
-                height={192}
-                className="object-cover object-center w-full lg:h-48 md:h-36"
-                src={NextImg}
-                alt="blog"
-              />
+            <SwiperSlide
+              key={blog.id}
+              className="h-full overflow-hidden rounded-xl"
+            >
+              <div className="relative w-full h-44 xl:h-48">
+                <Image
+                  src={blog.img}
+                  fill
+                  sizes="(max-width: 1200px) 50vw, 33vw"
+                  quality={50}
+                  className="object-cover"
+                  alt={blog.title}
+                />
+              </div>
+
               <div className="pt-6">
-                <h1 className="mb-3 text-lg font-medium dark:text-white title-font">
+                <h1 className="mb-3 text-lg font-bold dark:text-white title-font">
                   {blog.title}
                 </h1>
 
@@ -31,10 +74,12 @@ const Blog = () => {
 
                 <NBgButtons prompt="Read post" />
               </div>
-            </div>
+            </SwiperSlide>
           );
         })}
-      </div>
+
+        <RightArrow />
+      </Swiper>
     </section>
   );
 };

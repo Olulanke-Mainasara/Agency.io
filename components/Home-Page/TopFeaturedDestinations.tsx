@@ -15,12 +15,13 @@ const TopFeaturedDestinations = () => {
   };
 
   return (
-    <section
-      className={`flex flex-col w-full xl:h-screen lg:max-h-[900px] gap-12 h-[630px] md:h-[900px] p-8 py-0 dark:text-white xl:py-8`}
-    >
+    <section className="flex flex-col lg:h-[800px] gap-8 h-[600px] xl:h-[700px] md:h-[700px] px-6 xl:p-8 dark:text-white">
       <h1 className="text-4xl text-center md:text-5xl">
-        Top <span className="text-brandDark dark:text-brandLight">Featured</span> Destinations
+        Top{" "}
+        <span className="text-brandDark dark:text-brandLight">Featured</span>{" "}
+        Destinations
       </h1>
+
       <div className="flex w-full gap-8 overflow-x-scroll overflow-y-hidden text-white grow">
         {destinations.map((destination, index) => {
           return (
@@ -33,11 +34,11 @@ const TopFeaturedDestinations = () => {
                 opacity: 1,
               }}
               transition={{
-                duration: 0.7,
+                duration: 0.2,
                 delay: 0.2 * index,
               }}
               onClick={() => handleClick(index)}
-              className={`relative border border-black dark:border-white rounded-xl overflow-hidden duration-500 min-w-[60vw] ease-out xl:min-w-[200px] ${
+              className={`relative rounded-xl overflow-hidden duration-500 min-w-[60vw] ease-out xl:min-w-[200px] ${
                 card == index ? "grow" : "hover:cursor-pointer grow-0"
               }`}
               key={destination.id}

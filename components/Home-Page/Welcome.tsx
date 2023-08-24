@@ -25,17 +25,18 @@ const Welcome = () => {
           x: 0,
           opacity: 1,
           transition: {
-            duration: 0.7,
+            duration: 0.3,
           },
         }}
         onAnimationComplete={() => setHasViewed(true)}
-        className="col-span-2 relative row-span-3 border border-black dark:border-white rounded-xl min-h-[300px] overflow-hidden"
+        className="col-span-2 relative row-span-3 rounded-xl min-h-[300px] overflow-hidden"
       >
         <Image
           src={About1}
           placeholder="blur"
           fill
-          sizes="(max-width: 767px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          sizes="(max-width: 1200px) 50vw, 33vw"
+          quality={50}
           className="object-cover"
           alt="Beach umbrella with two seats"
         />
@@ -47,7 +48,7 @@ const Welcome = () => {
           x: 0,
           opacity: 1,
           transition: {
-            duration: 1,
+            duration: 0.5,
           },
         }}
         className="flex flex-col justify-center col-span-2 gap-y-5"
@@ -68,10 +69,10 @@ const Welcome = () => {
           y: 0,
           opacity: 1,
           transition: {
-            duration: 0.7,
+            duration: 0.3,
           },
         }}
-        className="col-span-2 relative col-start-3 row-span-2 border border-black rounded-xl dark:border-white min-h-[300px] overflow-hidden"
+        className="col-span-2 relative col-start-3 row-span-2 rounded-xl min-h-[300px] overflow-hidden"
       >
         <Image
           src={About2}

@@ -29,7 +29,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "components/UI/Nav/useNavigationBar.jsx",
-    "static-data/images.ts",
+    "static-data/images.js",
     "static-data/services.js",
     "static-data/destinations.ts"
   ],

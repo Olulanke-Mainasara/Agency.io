@@ -1,25 +1,18 @@
-import { cities } from "@/static-data/locationsAndExperiences";
+import { cities } from "@/static-data/images";
 import React from "react";
+
+import Carousel from "../UI/Carousel/Carousel";
 
 const RecommendedCitySpots = () => {
   return (
-    <section className="flex flex-col w-full p-8 py-0 gap-10 xl:py-8 xl:h-screen lg:max-h-[900px]">
-      <h1 className="text-4xl text-right md:text-5xl">
-        Recommended <span className="text-brandDark dark:text-brandLight">spots</span> in Lagos
+    <section className="flex flex-col gap-8 xl:py-8">
+      <h1 className="px-6 text-4xl text-right xl:px-8 md:text-5xl">
+        Recommended{" "}
+        <span className="text-brandDark dark:text-brandLight">spots</span> in
+        Lagos
       </h1>
 
-      <div className="grid h-full grid-cols-2 gap-10 md:grid-cols-3 lg:grid-cols-4 grow">
-        {cities.map((city) => {
-          return (
-            <div key={city.id} className="flex flex-col gap-5">
-              <div className="w-full h-full bg-black min-h-[120px] max-h-[120px] md:min-h-[190px] md:max-h-[190px] xl:max-h-full dark:bg-white rounded-xl grow bg-reserved-100"></div>
-              <div>
-                <p className="text-2xl">{city.name}</p>
-              </div>
-            </div>
-          );
-        })}
-      </div>
+      <Carousel items={cities} />
     </section>
   );
 };
