@@ -46,14 +46,14 @@ export default async function Page({
   return (
     <>
       <div className="px-8 pt-24">
-        <h1 className="text-4xl text-center md:text-7xl xl:text-8xl dark:text-white">
+        <h1 className="text-4xl text-center md:text-7xl dark:text-white">
           {continent == "northAmerica"
             ? "NORTH AMERICA"
             : continent == "southAmerica"
             ? "SOUTH AMERICA"
             : continent.toUpperCase()}
         </h1>
-        <div className="min-h-screen py-8 text-white grid grid-flow-row-dense gap-8 md:grid-cols-2 xl:grid-cols-5">
+        <div className="grid min-h-screen grid-flow-row-dense gap-8 py-8 text-white md:grid-cols-2 xl:grid-cols-5">
           {continentData.map((country, index) => {
             const randomRows = Math.floor(Math.random() * 2) + 1;
             const randomCols = Math.floor(Math.random() * 2) + 1;

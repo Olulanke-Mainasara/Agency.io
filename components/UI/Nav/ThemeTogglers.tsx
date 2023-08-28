@@ -17,7 +17,7 @@ export const DesktopThemeToggler = () => {
     return (
       <button
         title="Toggle theme"
-        className="flex items-center justify-center w-10 h-10 text-xl border rounded-full"
+        className="flex items-center justify-center w-10 h-10 text-xl bg-gray-400 rounded-full animate-pulse duration-[2000ms]"
       ></button>
     );
   }

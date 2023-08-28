@@ -5,8 +5,8 @@ import { usePathname } from "next/navigation";
 
 import { authContext } from "@/components/Providers/Providers";
 import { motion } from "framer-motion";
-import { ArrowRight, Menu, X } from "lucide-react";
-import React, { useState } from "react";
+import { ArrowRight, Menu, ShoppingCart, X } from "lucide-react";
+import React from "react";
 import { FaPlane } from "react-icons/fa";
 
 import FBgButtons from "../Links/FBgLink";
@@ -17,7 +17,7 @@ import { ProfileOps } from "./Profile";
 import { DesktopThemeToggler, MobileThemeToggler } from "./ThemeTogglers";
 
 const Nav = () => {
-  const [clicked, setClicked] = useState(false);
+  const [clicked, setClicked] = React.useState(false);
   const user = React.useContext(authContext);
   const pathname = usePathname();
 
@@ -38,7 +38,7 @@ const Nav = () => {
           <ProfileOps />
         </span>
       ) : null}
-      
+
       <Link href="/" className={`flex items-center text-2xl xs:text-lg`}>
         Agency
         <span className="text-brandDark dark:text-brandLight">.io</span>
@@ -101,23 +101,38 @@ const Nav = () => {
       </motion.ul>
 
       <div className="items-center hidden gap-6 lg:flex">
-        {user ? <Notifications size={20} /> : null}
-
-        {user ? (
-          <ProfileOps />
+        {user === undefined ? (
+          <div className="w-[203px] h-12 bg-gray-400 animate-pulse"></div>
         ) : (
-          <div className="flex items-center gap-6">
-            <Link
-              href={"/signup"}
-              className="duration-300 dark:text-white w-fit xl:flex hover:text-brandDark dark:hover:text-brandDark"
-            >
-              Signup
-            </Link>
+          <>
+            {user ? <Notifications size={20} /> : null}
 
-            <TBgButtons xPaddingAndText="px-6" yPadding="py-2" href="/login">
-              Log in <ArrowRight size={20} />
-            </TBgButtons>
-          </div>
+            {user ? (
+              <>
+                <ProfileOps />
+                <Link href={"#"}>
+                  <ShoppingCart />
+                </Link>
+              </>
+            ) : (
+              <div className="flex items-center gap-6">
+                <Link
+                  href={"/signup"}
+                  className="duration-300 dark:text-white w-fit xl:flex hover:text-brandDark dark:hover:text-brandDark"
+                >
+                  Signup
+                </Link>
+
+                <TBgButtons
+                  xPaddingAndText="px-6"
+                  yPadding="py-2"
+                  href="/login"
+                >
+                  Log in <ArrowRight size={20} />
+                </TBgButtons>
+              </div>
+            )}
+          </>
         )}
 
         <p>NGN</p>
