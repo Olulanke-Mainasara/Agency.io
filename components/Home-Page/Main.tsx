@@ -1,29 +1,28 @@
 "use client";
 
 import Splash from "@/components/UI/Splash/Splash";
-import { auth } from "@/firebase/client.config";
-import { onAuthStateChanged } from "firebase/auth";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useSessionStorage } from "react-use";
 
-import Hero from "./Hero";
+import Footer from "../UI/Footer/Footer";
+import Blog from "./Blog";
+import BrowseByExperience from "./BrowseByExperience";
+import CTA from "./CTA";
+import ExperienceYourLocal from "./ExperienceYourLocal";
+import PopularDestinations from "./PopularDestinations";
+import RecommendedCitySpots from "./RecommendedCitySpots";
+import RecommendedDestinations from "./RecommendedDestinations";
 import Search from "./Search";
-import Section1 from "./Section1";
-import Section2 from "./Section2";
-import Section3 from "./Section3";
-import Section4 from "./Section4";
-import Section5 from "./Section5";
-import Section6 from "./Section6";
-import Section7 from "./Section7";
-import Section8 from "./Section8";
+import TopFeaturedDestinations from "./TopFeaturedDestinations";
+import VacationCarousel from "./VacationCarousel";
+import Welcome from "./Welcome";
+import WhatWeOffer from "./WhatWeOffer";
 
 const Main = () => {
   const [splashed, setSplashed] = useSessionStorage("splashed", "");
-  const [splashCount, setSplashCount] = useState(0);
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [displayName, setDisplayName] = useState<string | null>(null);
+  const [splashCount, setSplashCount] = React.useState(0);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (splashed !== "") return; // Skip if already set
 
     const timeout = setTimeout(() => {
@@ -38,36 +37,24 @@ const Main = () => {
     };
   }, [splashed, setSplashed]);
 
-  React.useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setLoggedIn(true);
-
-        user.providerData.forEach((profile) =>
-          setDisplayName(profile.displayName)
-        );
-      } else {
-        setLoggedIn(false);
-        setDisplayName(null);
-      }
-    });
-  }, []);
-
   return (
     <div className={`${splashed !== "true" ? "h-screen overflow-hidden" : ""}`}>
       {splashed !== "true" && splashCount == 0 ? <Splash /> : null}
 
-      <main className="w-screen max-w-[1440px] mx-auto">
-        <Search loggedIn={loggedIn} displayName={displayName} />
-        <Section1 />
-        <Section2 />
-        <Section3 />
-        <Section4 />
-        <Section5 />
-        <Section6 />
-        <Section7 />
-        <Hero />
-        <Section8 />
+      <main className="w-screen max-w-[1440px] mx-auto space-y-40">
+        <div className="space-y-28">
+          <Search />
+          <TopFeaturedDestinations />
+        </div>
+        <PopularDestinations />
+        <VacationCarousel />
+        <ExperienceYourLocal />
+        <BrowseByExperience />
+        <RecommendedCitySpots />
+        <Blog />
+        <CTA />
+        <RecommendedDestinations />
+        <Footer />
       </main>
     </div>
   );

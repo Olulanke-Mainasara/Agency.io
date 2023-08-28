@@ -13,7 +13,7 @@ import {
 } from "@/components/UI/ShadUI/popover";
 import { cn } from "@/lib/utils";
 import { allLocations } from "@/static-data/continents";
-import { Check, ChevronsUpDown } from "lucide-react";
+import { Check, ChevronsUpDown, Map } from "lucide-react";
 import React from "react";
 
 export function LocationComboBox({
@@ -37,9 +37,13 @@ export function LocationComboBox({
           aria-expanded={open}
           className="justify-between w-full h-16 text-lg font-normal bg-transparent border-black duration-300 rounded-xl basis-1/2 dark:bg-transparent dark:hover:bg-white dark:hover:text-black dark:text-white dark:border-white"
         >
-          {value
-            ? allLocations.find((location) => location.value === value)?.label
-            : label}
+          <div className="flex items-center w-full gap-2">
+            <Map />
+            {value
+              ? allLocations.find((location) => location.value === value)?.label
+              : label}
+          </div>
+
           <ChevronsUpDown className="w-4 h-4 ml-2 opacity-50 shrink-0" />
         </Button>
       </PopoverTrigger>

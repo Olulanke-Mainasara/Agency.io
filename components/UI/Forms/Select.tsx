@@ -12,6 +12,7 @@ export function SelectOption({
   label,
   items,
   handleSelect,
+  icon,
 }: {
   label: string;
   items: Array<{
@@ -19,11 +20,14 @@ export function SelectOption({
     option: string;
   }>;
   handleSelect: Function;
+  icon: React.ReactNode;
 }) {
   return (
     <Select onValueChange={(value) => handleSelect(value)}>
       <SelectTrigger className="h-16 text-lg border-black dark:border-white rounded-xl">
-        <SelectValue placeholder={label} />
+        <div className="flex items-center w-full gap-2">
+          {icon} <SelectValue placeholder={label} />
+        </div>
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>

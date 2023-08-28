@@ -72,7 +72,7 @@ export const activities = [
 
 export const notifications = [
   {
-    title: "Your call has been confirmed.",
+    title: "Your trip has been confirmed.",
     description: "1 hour ago",
   },
   {

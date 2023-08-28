@@ -2,15 +2,19 @@ import { Inter } from "next/font/google";
 
 import Nav from "@/components/UI/Nav/Nav";
 import NextTopLoader from "nextjs-toploader";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
-import Providers from "../components/Providers/NextThemeProvider";
+import Providers from "../components/Providers/Providers";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Agency.io",
-  description: "The all in one vacation planning app",
+  title: "Agency.io: A Billion+ Reviews & Travel Insights",
+  description:
+    "Discover travel tips, reviews, and deals. Plan your stay, find activities, and dine at the finest restaurants.",
 };
 
 export default function RootLayout({

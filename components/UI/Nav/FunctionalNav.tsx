@@ -13,7 +13,7 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/UI/ShadUI/navigation-menu";
 import { cn } from "@/lib/utils";
-import { experiences } from "@/static-data/locationsAndExperiences";
+import { experiences } from "@/static-data/images";
 import { company, locations, utils } from "@/static-data/navigation";
 import React from "react";
 
