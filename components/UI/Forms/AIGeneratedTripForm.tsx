@@ -3,7 +3,9 @@ import { Button } from "@/components/UI/ShadUI/button";
 import { Input } from "@/components/UI/ShadUI/input";
 import { Label } from "@/components/UI/ShadUI/label";
 import { companions, departure, months } from "@/static-data/services";
+import { Calculator, Calendar, Clock } from "lucide-react";
 import * as React from "react";
+import { FaHandshake } from "react-icons/fa";
 
 import { DatePickerWithRange } from "./DataPickerWithRange";
 import { LocationComboBox } from "./LocationComboBox";
@@ -48,7 +50,7 @@ export function AIGeneratedTripForm() {
   }, []);
 
   return (
-    <form onSubmit={handleTripGenerate} className="flex flex-col w-full gap-8">
+    <form onSubmit={handleTripGenerate} className="flex flex-col w-full max-w-2xl gap-8">
       <div className="grid md:grid-cols-2 gap-x-4 gap-y-6">
         <LocationComboBox
           label="Where to?"
@@ -60,6 +62,7 @@ export function AIGeneratedTripForm() {
           label="When do you want to go?"
           items={departure}
           handleSelect={handleDeparture}
+          icon={<Clock />}
         />
 
         {departureTime === "Specific date/range" ? (
@@ -67,8 +70,11 @@ export function AIGeneratedTripForm() {
         ) : departureTime === "No specific date/range" ? (
           <>
             <div className="flex items-center w-full h-16 px-3 overflow-hidden border border-black dark:border-white rounded-xl">
-              <Label htmlFor="days" className="w-full text-lg">
-                No. of Days (max 7)
+              <Label
+                htmlFor="days"
+                className="flex items-center w-full gap-2 text-lg min-w-[230px]"
+              >
+                <Calculator /> No. of Days (max 7)
               </Label>
               <Input
                 id="days"
@@ -86,6 +92,7 @@ export function AIGeneratedTripForm() {
               label="Which month?"
               items={months}
               handleSelect={handleMonth}
+              icon={<Calendar />}
             />
           </>
         ) : (
@@ -96,6 +103,7 @@ export function AIGeneratedTripForm() {
           label="Who are you going with?"
           items={companions}
           handleSelect={handleCompanion}
+          icon={<FaHandshake size={25} />}
         />
 
         <Button disabled={isLoading} className="py-3 text-xl rounded-xl">

@@ -46,7 +46,7 @@ export default async function Page({
   return (
     <>
       <div className="px-8 pt-24">
-        <h1 className="text-4xl text-center md:text-7xl xl:text-8xl dark:text-white">
+        <h1 className="text-4xl text-center md:text-7xl dark:text-white">
           {continent == "northAmerica"
             ? "NORTH AMERICA"
             : continent == "southAmerica"

@@ -20,16 +20,16 @@ const ExploreTheWorldForm = () => {
   };
 
   return (
-    <form onSubmit={handleExploreTheWorld} className="grid gap-6">
+    <form onSubmit={handleExploreTheWorld} className="w-full max-w-2xl gap-6 space-y-6 md:space-y-0 md:flex md:justify-center xl:justify-start">
       <LocationComboBox
         label="Places to go, things to do..."
-        width="w-[675px]"
+        width="w-[338px]"
         handleLocation={handleLocation}
       />
 
       <Button
         disabled={isLoading}
-        className="w-1/2 py-3 text-xl md:h-16 rounded-xl"
+        className="px-10 py-3 text-xl md:h-16 rounded-xl w-fit"
       >
         {isLoading && <Icons.spinner className="w-5 h-5 mr-2 animate-spin" />}
 

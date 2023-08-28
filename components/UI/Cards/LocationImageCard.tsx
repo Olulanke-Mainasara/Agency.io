@@ -30,7 +30,7 @@ const LocationImageCard = ({
           delay: index < 7 ? index * 0.2 : 0.2,
         },
       }}
-      className={`min-h-[350px] border border-black dark:border-white rounded-xl overflow-hidden text-2xl xl:text-xl group ${
+      className={`h-[300px] border border-black dark:border-white rounded-xl overflow-hidden text-2xl xl:text-xl group ${
         rows == 1
           ? "xl:row-span-1"
           : rows == 2
