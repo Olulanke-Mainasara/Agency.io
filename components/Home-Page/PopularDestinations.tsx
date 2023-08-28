@@ -1,7 +1,7 @@
-import { locationsByMonth } from "@/static-data/images";
 import React, { useState } from "react";
 
-import Carousel from "../UI/Carousel/Carousel";
+import PopularDestinationsByMonth from "../UI/Sections/PopularDestinationsByMonth";
+import PopularDestinationsBySeason from "../UI/Sections/PopularDestinationsBySeason";
 import { Button } from "../UI/ShadUI/button";
 
 const buttonData = [
@@ -40,7 +40,11 @@ const PopularDestinations = () => {
         </div>
       </div>
 
-      <Carousel items={locationsByMonth} extra />
+      {by === "month" ? (
+        <PopularDestinationsByMonth />
+      ) : (
+        <PopularDestinationsBySeason />
+      )}
     </section>
   );
 };

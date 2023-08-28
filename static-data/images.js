@@ -3,17 +3,25 @@ import Blog2 from "@/public/Blog/Blog2.webp";
 import Blog3 from "@/public/Blog/Blog3.jpg";
 import Blog4 from "@/public/Blog/Blog4.webp";
 import Blog5 from "@/public/Blog/Blog5.jpg";
+import Amsterdam from "@/public/Destinations/Amsterdam.jpg";
 import Australia from "@/public/Destinations/Australia.jpg";
+import Bali from "@/public/Destinations/Bali.jpg";
+import Barcelona from "@/public/Destinations/Barcelona.jpg";
 import Brazil from "@/public/Destinations/Brazil.webp";
 import Greece from "@/public/Destinations/Greece.jpg";
 import Hawaii from "@/public/Destinations/Hawaii.jpg";
 import Iceland from "@/public/Destinations/Iceland.jpg";
 import Italy from "@/public/Destinations/Italy.jpg";
 import Japan from "@/public/Destinations/Japan.webp";
+import KyotoAutumn from "@/public/Destinations/KyotoAutumn.jpg";
+import KyotoSpring from "@/public/Destinations/KyotoSpring.jpg";
 import Mexico from "@/public/Destinations/Mexico.jpg";
+import NewEngland from "@/public/Destinations/NewEngland.jpg";
 import NewZealand from "@/public/Destinations/NewZealand.jpg";
+import Reykjavik from "@/public/Destinations/Reykjavik.jpg";
 import Spain from "@/public/Destinations/Spain.webp";
 import Thailand from "@/public/Destinations/Thailand.webp";
+import Zermatt from "@/public/Destinations/Zermatt.webp";
 import React from "react";
 import {
   FaBicycle,
@@ -62,6 +70,81 @@ export const locationsByMonth = [
     name: "August",
     extra: "Rio de Janeiro, Brazil",
     img: Brazil,
+  },
+  {
+    id: 9,
+    name: "September",
+    extra: "Machu Picchu, Peru",
+    img: Machu,
+  },
+  {
+    id: 10,
+    name: "October",
+    extra: "Maldives",
+    img: Maldives,
+  },
+  {
+    id: 11,
+    name: "November",
+    extra: "New Zealand",
+    img: NewZealand,
+  },
+  {
+    id: 12,
+    name: "December",
+    extra: "Thailand",
+    img: Thailand,
+  },
+];
+
+export const locationsBySeason = [
+  {
+    id: 1,
+    name: "Spring",
+    extra: "Kyoto, Japan",
+    img: KyotoSpring,
+  },
+  {
+    id: 2,
+    name: "Spring",
+    extra: "Amsterdam, Netherlands",
+    img: Amsterdam,
+  },
+  {
+    id: 3,
+    name: "Summer",
+    extra: "Bali, Indonesia",
+    img: Bali,
+  },
+  {
+    id: 4,
+    name: "Summer",
+    extra: "Barcelona, Spain",
+    img: Barcelona,
+  },
+  {
+    id: 5,
+    name: "Autumn (Fall)",
+    extra: "Kyoto, Japan",
+    img: KyotoAutumn,
+  },
+  {
+    id: 6,
+    name: "Autumn (Fall)",
+    extra: "New England, USA",
+    img: NewEngland,
+  },
+  {
+    id: 7,
+    name: "Winter",
+    extra: "Reykjavik, Iceland",
+    img: Reykjavik,
+  },
+  {
+    id: 8,
+    name: "Winter",
+    extra: "Zermatt, Switzerland",
+    img: Zermatt,
   },
 ];
 

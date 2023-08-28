@@ -62,11 +62,13 @@ const Search = () => {
               </React.Fragment>
             );
           })}
-          
+
           <NBgButtons prompt="View more" />
         </div>
 
-        {user ? (
+        {user === undefined ? (
+          <div className="md:w-[600px] w-80 h-16 md:h-12 bg-gray-400 animate-pulse"></div>
+        ) : user ? (
           <h1 className="text-4xl md:text-5xl dark:text-white">
             What&apos;s the{" "}
             <span className="text-brandDark dark:text-brandLight">plan</span>
@@ -88,6 +90,8 @@ const Search = () => {
               className={`py-3 ${
                 plan === button.plan
                   ? "bg-black text-white dark:bg-white dark:text-black border-black dark:border-white"
+                  : button.plan === "generate" && user === undefined
+                  ? "bg-gray-400 text-gray-400 dark:bg-gray-400 dark:text-gray-400 animate-pulse border-white dark:border-black duration-[2000ms]"
                   : ""
               }`}
               onClick={() => setPlan(button.plan)}
