@@ -1,9 +1,9 @@
 import Link from "next/link";
 
+import { experiences } from "@/static-data/images";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import React, { useState } from "react";
-import { experiences } from "@/static-data/images";
 
 import { Button } from "../UI/ShadUI/button";
 
@@ -11,7 +11,7 @@ const BrowseByExperience = () => {
   const [hasViewed, setHasViewed] = useState(false);
 
   return (
-    <section className="flex flex-col gap-8 px-6 xl:p-8">
+    <section className="flex flex-col px-6 gap-8 xl:p-8">
       <h1 className="text-4xl md:text-5xl ">
         Browse by{" "}
         <span className="text-brandDark dark:text-brandLight">experience</span>{" "}
@@ -35,13 +35,13 @@ const BrowseByExperience = () => {
               }}
               onAnimationComplete={() => setHasViewed(true)}
               key={experience.id}
-              className="w-full h-full p-6 duration-300 border border-black dark:border-white hover:border-brandLight dark:hover:border-brandLight rounded-xl"
+              className="w-full h-full p-6 border border-black duration-300 dark:border-white hover:border-brandLight dark:hover:border-brandLight rounded-xl"
             >
               <Link
                 href={`/experience/${experience.experience}`}
                 className="w-full h-full space-y-5"
               >
-                <div className="flex items-center gap-2 text-2xl">
+                <div className="flex items-center text-2xl gap-2">
                   <span className="text-brandDark dark:text-brandLight">
                     {experience.icon}
                   </span>
@@ -74,13 +74,13 @@ const BrowseByExperience = () => {
               }}
               onAnimationComplete={() => setHasViewed(true)}
               key={experience.id}
-              className="w-full h-full p-6 duration-300 border border-black dark:border-white hover:border-brandLight dark:hover:border-brandLight rounded-xl"
+              className="w-full h-full p-6 border border-black duration-300 dark:border-white hover:border-brandLight dark:hover:border-brandLight rounded-xl"
             >
               <Link
                 href={`/experience/${experience.experience}`}
                 className="w-full h-full space-y-5"
               >
-                <div className="flex items-center gap-2 text-2xl">
+                <div className="flex items-center text-2xl gap-2">
                   <span className="text-brandDark dark:text-brandLight">
                     {experience.icon}
                   </span>
@@ -113,13 +113,13 @@ const BrowseByExperience = () => {
               }}
               onAnimationComplete={() => setHasViewed(true)}
               key={experience.id}
-              className="w-full h-full p-6 duration-300 border border-black dark:border-white hover:border-brandLight dark:hover:border-brandLight rounded-xl"
+              className="w-full h-full p-6 border border-black duration-300 dark:border-white hover:border-brandLight dark:hover:border-brandLight rounded-xl"
             >
               <Link
                 href={`/experience/${experience.experience}`}
                 className="w-full h-full space-y-5"
               >
-                <div className="flex items-center gap-2 text-2xl">
+                <div className="flex items-center text-2xl gap-2">
                   <span className="text-brandDark dark:text-brandLight">
                     {experience.icon}
                   </span>

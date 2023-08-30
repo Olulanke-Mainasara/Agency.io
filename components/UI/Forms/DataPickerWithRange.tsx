@@ -36,7 +36,7 @@ export function DatePickerWithRange({
             id="date"
             variant={"outline"}
             className={cn(
-              "h-16 border-black justify-start rounded-xl font-normal text-lg bg-transparent dark:bg-transparent dark:hover:bg-white dark:hover:text-black duration-300 dark:text-white dark:border-white"
+              "h-14 md:h-16 border-black justify-start rounded-xl font-normal md:text-lg bg-transparent dark:bg-transparent dark:hover:bg-white dark:hover:text-black duration-300 dark:text-white dark:border-white px-3"
             )}
           >
             <CalendarIcon className="mr-2" />
