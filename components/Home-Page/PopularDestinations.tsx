@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import PopularDestinationsByMonth from "../UI/Sections/PopularDestinationsByMonth";
 import PopularDestinationsBySeason from "../UI/Sections/PopularDestinationsBySeason";
@@ -10,7 +10,7 @@ const buttonData = [
 ];
 
 const PopularDestinations = () => {
-  const [by, setBy] = useState("month");
+  const [by, setBy] = React.useState("month");
 
   return (
     <section className="flex flex-col gap-8 xl:py-8">

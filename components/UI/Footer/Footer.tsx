@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import { motion } from "framer-motion";
-import React, { useState } from "react";
+import React from "react";
 import {
   FaGithub,
   FaInstagram,
@@ -49,7 +49,7 @@ const footerData = [
 ];
 
 const Footer = () => {
-  const [hasViewed, setHasViewed] = useState(false);
+  const [hasViewed, setHasViewed] = React.useState(false);
   const pathname = usePathname();
 
   return (

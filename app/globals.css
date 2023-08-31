@@ -34,3 +34,7 @@
 .dark .swiper-pagination-bullet {
   background: white;
 }
+
+.skeleton {
+  animation-duration: 2000ms;
+}

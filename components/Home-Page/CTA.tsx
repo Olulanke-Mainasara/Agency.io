@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import React, { useState } from "react";
+import React from "react";
 
 import { images } from "../../static-data/images";
 import ImageCardSm from "../UI/Cards/ImageCardSm";
@@ -7,7 +7,7 @@ import FBgButtons from "../UI/Links/FBgLink";
 import TBgButtons from "../UI/Links/TBgLink";
 
 const CTA = () => {
-  const [hasViewed, setHasViewed] = useState(false);
+  const [hasViewed, setHasViewed] = React.useState(false);
 
   return (
     <section className="flex w-full xl:py-8 min-h-fit">

@@ -11,7 +11,7 @@ import { DatePickerWithRange } from "./DataPickerWithRange";
 import { LocationComboBox } from "./LocationComboBox";
 import { SelectOption } from "./Select";
 
-export function AIGeneratedTripForm() {
+export default function AIGeneratedTripForm() {
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [error, setError] = React.useState<boolean>(false);
   const [errorMessage, setErrorMessage] = React.useState<string>("");
@@ -50,7 +50,10 @@ export function AIGeneratedTripForm() {
   }, []);
 
   return (
-    <form onSubmit={handleTripGenerate} className="flex flex-col w-full max-w-2xl gap-8">
+    <form
+      onSubmit={handleTripGenerate}
+      className="flex flex-col w-full max-w-2xl gap-8"
+    >
       <div className="grid md:grid-cols-2 gap-x-4 gap-y-6">
         <LocationComboBox
           label="Where to?"
@@ -69,10 +72,10 @@ export function AIGeneratedTripForm() {
           <DatePickerWithRange handleDateRange={handleDateRange} />
         ) : departureTime === "No specific date/range" ? (
           <>
-            <div className="flex items-center w-full h-16 px-3 overflow-hidden border border-black dark:border-white rounded-xl">
+            <div className="flex items-center w-full px-3 overflow-hidden border border-black h-14 md:h-16 dark:border-white rounded-xl">
               <Label
                 htmlFor="days"
-                className="flex items-center w-full gap-2 text-lg min-w-[230px]"
+                className="flex items-center w-full gap-2 md:text-lg min-w-[230px]"
               >
                 <Calculator /> No. of Days (max 7)
               </Label>
@@ -106,7 +109,10 @@ export function AIGeneratedTripForm() {
           icon={<FaHandshake size={25} />}
         />
 
-        <Button disabled={isLoading} className="py-3 text-xl rounded-xl">
+        <Button
+          disabled={isLoading}
+          className="py-3 text-lg md:text-xl rounded-xl"
+        >
           {isLoading && <Icons.spinner className="w-5 h-5 mr-2 animate-spin" />}
 
           {error ? "Retry" : "Generate"}

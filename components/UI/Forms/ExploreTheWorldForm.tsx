@@ -20,7 +20,10 @@ const ExploreTheWorldForm = () => {
   };
 
   return (
-    <form onSubmit={handleExploreTheWorld} className="w-full max-w-2xl gap-6 space-y-6 md:space-y-0 md:flex md:justify-center xl:justify-start">
+    <form
+      onSubmit={handleExploreTheWorld}
+      className="w-full max-w-2xl gap-6 space-y-6 md:space-y-0 md:flex md:justify-center xl:justify-start"
+    >
       <LocationComboBox
         label="Places to go, things to do..."
         width="w-[338px]"
@@ -29,7 +32,7 @@ const ExploreTheWorldForm = () => {
 
       <Button
         disabled={isLoading}
-        className="px-10 py-3 text-xl md:h-16 rounded-xl w-fit"
+        className="w-full px-10 py-3 text-lg md:text-xl rounded-xl md:w-fit"
       >
         {isLoading && <Icons.spinner className="w-5 h-5 mr-2 animate-spin" />}
 

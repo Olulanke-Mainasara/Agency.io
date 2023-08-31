@@ -1,14 +1,14 @@
 import Link from "next/link";
 
+import { experiences } from "@/static-data/images";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import React, { useState } from "react";
-import { experiences } from "@/static-data/images";
+import React from "react";
 
 import { Button } from "../UI/ShadUI/button";
 
 const BrowseByExperience = () => {
-  const [hasViewed, setHasViewed] = useState(false);
+  const [hasViewed, setHasViewed] = React.useState(false);
 
   return (
     <section className="flex flex-col gap-8 px-6 xl:p-8">

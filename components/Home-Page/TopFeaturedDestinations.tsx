@@ -2,13 +2,13 @@ import Image from "next/image";
 
 import { destinations } from "@/static-data/images";
 import { motion } from "framer-motion";
-import React, { useState } from "react";
+import React from "react";
 
 import NBgButtons from "../UI/Links/NBgLink";
 
 const TopFeaturedDestinations = () => {
-  const [card, setCard] = useState(0);
-  const [hasViewed, setHasViewed] = useState(false);
+  const [card, setCard] = React.useState(0);
+  const [hasViewed, setHasViewed] = React.useState(false);
 
   const handleClick = (index: number) => {
     setCard(index);
