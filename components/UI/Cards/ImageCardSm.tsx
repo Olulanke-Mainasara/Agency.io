@@ -1,7 +1,7 @@
 import Image, { StaticImageData } from "next/image";
 
 import { motion } from "framer-motion";
-import React, { useState } from "react";
+import React from "react";
 
 const ImageCardSm = ({
   imgsrc,
@@ -10,7 +10,7 @@ const ImageCardSm = ({
   imgsrc: StaticImageData;
   index: number;
 }) => {
-  const [hasViewed, setHasViewed] = useState(false);
+  const [hasViewed, setHasViewed] = React.useState(false);
 
   return (
     <motion.div

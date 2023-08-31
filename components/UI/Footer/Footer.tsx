@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import { motion } from "framer-motion";
-import React, { useState } from "react";
+import React from "react";
 import {
   FaGithub,
   FaInstagram,
@@ -49,7 +49,7 @@ const footerData = [
 ];
 
 const Footer = () => {
-  const [hasViewed, setHasViewed] = useState(false);
+  const [hasViewed, setHasViewed] = React.useState(false);
   const pathname = usePathname();
 
   return (
@@ -98,7 +98,7 @@ const Footer = () => {
       </section>
 
       <section className="flex flex-col">
-        <div className="flex flex-col items-center pb-8 gap-8 lg:flex-row">
+        <div className="flex flex-col items-center gap-8 pb-8 lg:flex-row">
           <Link
             href="/"
             className={`hidden lg:flex items-center text-4xl xs:text-lg h-fit`}
@@ -141,7 +141,7 @@ const Footer = () => {
           </Button>
         </div>
 
-        <section className="flex flex-col-reverse items-center justify-between py-8 text-sm text-center border-t border-black gap-6 md:flex-row dark:border-white md:gap-0">
+        <section className="flex flex-col-reverse items-center justify-between gap-6 py-8 text-sm text-center border-t border-black md:flex-row dark:border-white md:gap-0">
           <p>© 2023 Agency.io Inc. All rights reserved.</p>
 
           <div className="flex text-2xl gap-7 dark:text-white xs:text-xl">

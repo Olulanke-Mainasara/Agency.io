@@ -3,16 +3,16 @@
 import { auth } from "@/firebase/client.config";
 import { User, onAuthStateChanged } from "firebase/auth";
 import { ThemeProvider } from "next-themes";
-import React, { createContext, useEffect, useState } from "react";
-import { useCookie } from "react-use";
+import React from "react";
+import { useCookie } from "react-use/";
 
-export const authContext = createContext<User | null | undefined>(null);
+export const authContext = React.createContext<User | null | undefined>(null);
 
 const Providers = ({ children }: { children: React.ReactNode }) => {
-  const [user, setUser] = useState<User | null | undefined>(undefined);
+  const [user, setUser] = React.useState<User | null | undefined>(undefined);
   const [cookieValue, setCookie, deleteCookie] = useCookie("isLoggedIn");
 
-  useEffect(() => {
+  React.useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setCookie("true");

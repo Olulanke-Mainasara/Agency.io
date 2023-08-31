@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 import { Icons } from "@/components/Icons";
+import { authContext } from "@/components/Providers/Providers";
 import AltAuthLinks from "@/components/UI/Links/AltAuthLinks";
 import { Button } from "@/components/UI/ShadUI/button";
 import { Input } from "@/components/UI/ShadUI/input";
@@ -11,11 +12,10 @@ import { Label } from "@/components/UI/ShadUI/label";
 import { auth } from "@/firebase/client.config";
 import {
   GoogleAuthProvider,
-  onAuthStateChanged,
   signInWithEmailAndPassword,
   signInWithRedirect,
 } from "firebase/auth";
-import * as React from "react";
+import React from "react";
 
 export function LoginForm() {
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
@@ -27,6 +27,7 @@ export function LoginForm() {
   const [errorMessage, setErrorMessage] = React.useState<string>("");
   const [email, setEmail] = React.useState<string>("");
   const [password, setPassword] = React.useState<string>("");
+  const user = React.useContext(authContext);
   const router = useRouter();
 
   async function onSubmit(event: React.SyntheticEvent) {
@@ -60,11 +61,12 @@ export function LoginForm() {
   }
 
   const handleGoogleSignIn = async () => {
+    setError(false);
+    setGoogleError(false);
+    setAppleError(false);
+    setIsGoogleLoading(true);
+
     try {
-      setError(false);
-      setGoogleError(false);
-      setAppleError(false);
-      setIsGoogleLoading(true);
       const provider = new GoogleAuthProvider();
       auth.languageCode = "it";
       await signInWithRedirect(auth, provider);
@@ -76,12 +78,12 @@ export function LoginForm() {
   };
 
   const handleAppleSignIn = async () => {
-    try {
-      setError(false);
-      setGoogleError(false);
-      setAppleError(false);
-      setIsAppleLoading(true);
+    setError(false);
+    setGoogleError(false);
+    setAppleError(false);
+    setIsAppleLoading(true);
 
+    try {
       setTimeout(() => {
         setIsAppleLoading(false);
         setAppleError(true);
@@ -91,13 +93,11 @@ export function LoginForm() {
   };
 
   React.useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setIsLoading(true);
-        router.push("/");
-      }
-    });
-  }, [router]);
+    if (user) {
+      setIsLoading(true);
+      router.push("/");
+    }
+  }, [router, user]);
 
   return (
     <div className="grid gap-6">

@@ -11,7 +11,7 @@ import { DatePickerWithRange } from "./DataPickerWithRange";
 import { LocationComboBox } from "./LocationComboBox";
 import { SelectOption } from "./Select";
 
-export function AIGeneratedTripForm() {
+export default function AIGeneratedTripForm() {
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [error, setError] = React.useState<boolean>(false);
   const [errorMessage, setErrorMessage] = React.useState<string>("");

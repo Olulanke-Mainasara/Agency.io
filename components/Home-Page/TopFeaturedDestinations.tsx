@@ -2,13 +2,13 @@ import Image from "next/image";
 
 import { destinations } from "@/static-data/images";
 import { motion } from "framer-motion";
-import React, { useState } from "react";
+import React from "react";
 
 import NBgButtons from "../UI/Links/NBgLink";
 
 const TopFeaturedDestinations = () => {
-  const [card, setCard] = useState(0);
-  const [hasViewed, setHasViewed] = useState(false);
+  const [card, setCard] = React.useState(0);
+  const [hasViewed, setHasViewed] = React.useState(false);
 
   const handleClick = (index: number) => {
     setCard(index);
@@ -22,7 +22,7 @@ const TopFeaturedDestinations = () => {
         Destinations
       </h1>
 
-      <div className="flex w-full overflow-x-scroll overflow-y-hidden text-white gap-8 grow">
+      <div className="flex w-full gap-8 overflow-x-scroll overflow-y-hidden text-white grow">
         {destinations.map((destination, index) => {
           return (
             <motion.div
