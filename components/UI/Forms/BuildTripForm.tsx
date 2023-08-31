@@ -10,7 +10,7 @@ import { FaChild } from "react-icons/fa";
 import { DatePickerWithRange } from "./DataPickerWithRange";
 import { LocationComboBox } from "./LocationComboBox";
 
-export function BuildTripForm() {
+export default function BuildTripForm() {
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [error, setError] = React.useState<boolean>(false);
   const [errorMessage, setErrorMessage] = React.useState<string>("");

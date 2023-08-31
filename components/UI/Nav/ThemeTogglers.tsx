@@ -3,10 +3,10 @@
 import { MoonStar, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import React from "react";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 export const DesktopThemeToggler = () => {
-  const [mounted, setMounted] = useState(false);
+  const [mounted, setMounted] = React.useState(false);
   const { systemTheme, theme, setTheme } = useTheme();
 
   useEffect(() => {
@@ -56,7 +56,7 @@ export const MobileThemeToggler = ({
   lightClass: string;
   darkClass: string;
 }) => {
-  const [mounted, setMounted] = useState(false);
+  const [mounted, setMounted] = React.useState(false);
   const { systemTheme, theme, setTheme } = useTheme();
 
   useEffect(() => {

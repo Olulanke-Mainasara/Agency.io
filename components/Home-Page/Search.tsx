@@ -1,3 +1,4 @@
+import dynamic from "next/dynamic";
 import Image from "next/image";
 
 import SearchImg from "@/public/Main/Search.webp";
@@ -5,12 +6,17 @@ import { activities } from "@/static-data/services";
 import React from "react";
 
 import { authContext } from "../Providers/Providers";
-import { AIGeneratedTripForm } from "../UI/Forms/AIGeneratedTripForm";
-import { BuildTripForm } from "../UI/Forms/BuildTripForm";
-import ExploreTheWorldForm from "../UI/Forms/ExploreTheWorldForm";
 import NBgButtons from "../UI/Links/NBgLink";
 import TBgButtons from "../UI/Links/TBgLink";
 import { Button } from "../UI/ShadUI/button";
+
+const BuildTripForm = dynamic(() => import("../UI/Forms/BuildTripForm"));
+const ExploreTheWorldForm = dynamic(
+  () => import("../UI/Forms/ExploreTheWorldForm")
+);
+const AIGeneratedTripForm = dynamic(
+  () => import("../UI/Forms/AIGeneratedTripForm")
+);
 
 const Search = () => {
   const [plan, setPlan] = React.useState("build");
