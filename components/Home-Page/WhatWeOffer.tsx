@@ -52,7 +52,7 @@ const WhatWeOffer = () => {
                 className="flex flex-col justify-center w-full gap-y-5"
                 key={service.id}
               >
-                <h1 className="flex items-center gap-2 text-2xl">
+                <h1 className="flex items-center text-2xl gap-2">
                   <span className="text-brandDark dark:text-brandLight">
                     {service.icon}
                   </span>
