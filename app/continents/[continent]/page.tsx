@@ -28,6 +28,8 @@ export default function Page({
 }: {
   params: { continent: string };
 }) {
+  await loadingTest(3000);
+
   let continentData;
 
   // Determine the location data based on the parameter in the URL
