@@ -3,15 +3,14 @@ import Image from "next/image";
 import About1 from "@/public/Main/About1.webp";
 import About2 from "@/public/Main/About2.webp";
 import { motion } from "framer-motion";
-import React, { useState } from "react";
-import { useContext } from "react";
+import React from "react";
 
 import { authContext } from "../Providers/Providers";
 import FBgButtons from "../UI/Links/FBgLink";
 
 const Welcome = () => {
-  const [hasViewed, setHasViewed] = useState(false);
-  const user = useContext(authContext);
+  const [hasViewed, setHasViewed] = React.useState(false);
+  const user = React.useContext(authContext);
 
   return (
     <section

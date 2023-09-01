@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import { motion } from "framer-motion";
-import React, { useState } from "react";
+import React from "react";
 import {
   FaGithub,
   FaInstagram,
@@ -40,21 +40,21 @@ const footerData = [
     id: 3,
     category: "Connect",
     links: [
-      { text: "Contact Us", url: "/contact" },
       { text: "About Us", url: "/about" },
       { text: "FAQ", url: "/faq" },
       { text: "Privacy Policy", url: "/privacy" },
+      { text: "Terms and Conditions", url: "/terms" },
     ],
   },
 ];
 
 const Footer = () => {
-  const [hasViewed, setHasViewed] = useState(false);
+  const [hasViewed, setHasViewed] = React.useState(false);
   const pathname = usePathname();
 
   return (
     <footer
-      className={`mt-40 px-6 xl:px-8 space-y-8 ${
+      className={`mt-8 px-6 xl:px-8 space-y-8 ${
         pathname === "/login"
           ? "hidden"
           : pathname === "/signup"
@@ -98,7 +98,7 @@ const Footer = () => {
       </section>
 
       <section className="flex flex-col">
-        <div className="flex flex-col items-center gap-8 pb-8 lg:flex-row">
+        <div className="flex flex-col items-center pb-8 gap-8 lg:flex-row">
           <Link
             href="/"
             className={`hidden lg:flex items-center text-4xl xs:text-lg h-fit`}
@@ -119,6 +119,7 @@ const Footer = () => {
                   {data.links.map((link, index) => (
                     <Link
                       href={link.url}
+                      prefetch={false}
                       key={index}
                       className="transition-colors hover:text-brandDark dark:hover:text-brandLight"
                     >
@@ -135,13 +136,13 @@ const Footer = () => {
             variant={"outline"}
             asChild
           >
-            <Link href={"/contactus"} className="text-xl">
+            <Link href={"/contactus"} prefetch={false} className="text-xl">
               Contact Us
             </Link>
           </Button>
         </div>
 
-        <section className="flex flex-col-reverse items-center justify-between gap-6 py-8 text-sm text-center border-t border-black md:flex-row dark:border-white md:gap-0">
+        <section className="flex flex-col-reverse items-center justify-between py-8 text-sm text-center border-t border-black gap-6 md:flex-row dark:border-white md:gap-0">
           <p>© 2023 Agency.io Inc. All rights reserved.</p>
 
           <div className="flex text-2xl gap-7 dark:text-white xs:text-xl">
@@ -170,7 +171,7 @@ const Footer = () => {
             </Link>
             <Link
               href={"#"}
-              aria-label="Instagram"
+              aria-label="Youtube"
               className="transition-colors hover:text-brandDark dark:hover:text-brandLight"
             >
               <FaYoutube />

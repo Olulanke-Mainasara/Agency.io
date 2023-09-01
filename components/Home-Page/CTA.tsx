@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import React, { useState } from "react";
+import React from "react";
 
 import { images } from "../../static-data/images";
 import ImageCardSm from "../UI/Cards/ImageCardSm";
@@ -7,7 +7,7 @@ import FBgButtons from "../UI/Links/FBgLink";
 import TBgButtons from "../UI/Links/TBgLink";
 
 const CTA = () => {
-  const [hasViewed, setHasViewed] = useState(false);
+  const [hasViewed, setHasViewed] = React.useState(false);
 
   return (
     <section className="flex w-full xl:py-8 min-h-fit">
@@ -17,7 +17,7 @@ const CTA = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           onAnimationComplete={() => setHasViewed(true)}
-          className="flex flex-col items-center justify-center gap-6 px-5 pb-10 text-center text-black xl:text-right xl:items-end xl:pr-0 basis-1/2 dark:text-white"
+          className="flex flex-col items-center justify-center px-5 pb-10 text-center text-black gap-6 xl:text-right xl:items-end xl:pr-0 basis-1/2 dark:text-white"
         >
           <h1 className="max-w-3xl text-5xl md:text-[90px] text-brandDark dark:text-brandLight">
             Leave the planning to us

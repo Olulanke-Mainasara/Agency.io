@@ -31,15 +31,15 @@ const Nav = () => {
           : pathname === "/recover"
           ? "hidden"
           : "flex"
-      } justify-between items-center px-5 xl:px-8`}
+      } justify-between items-center px-4 lg:px-8`}
     >
       {user ? (
-        <span className="flex items-center lg:hidden">
+        <span className="flex items-center md:hidden">
           <ProfileOps />
         </span>
       ) : null}
 
-      <Link href="/" className={`flex items-center text-2xl xs:text-lg`}>
+      <Link href="/" className={`flex items-center text-2xl`}>
         Agency
         <span className="text-brandDark dark:text-brandLight">.io</span>
         &nbsp;
@@ -56,23 +56,36 @@ const Nav = () => {
         transition={{
           duration: 0.3,
         }}
-        className={`w-full z-10 xl:w-fit absolute xl:static top-0 left-0 xl:h-auto xl:duration-0 bg-white dark:bg-background overflow-hidden  xl:hidden`}
+        className={`w-full z-10 xl:w-fit absolute xl:static top-0 left-0 xl:h-auto xl:duration-0 bg-white dark:bg-background overflow-hidden xl:hidden`}
       >
         <div
           className={`relative h-screen sm:gap-14 gap-10 xs:gap-8 w-full xl:h-full flex items-center px-6 xl:px-0 justify-center flex-col xl:flex-row`}
         >
           <FunctionalNav />
 
-          <div className="absolute flex items-center justify-between w-full px-5 lg:justify-end just top-4">
-            <MobileThemeToggler
-              defaultClass="flex items-center justify-center w-10 aspect-square border rounded-full"
-              lightClass="flex items-center justify-center w-10 aspect-square text-xl text-black border border-black bg-white rounded-full lg:hidden"
-              darkClass="flex items-center justify-center w-10 aspect-square text-xl text-white border rounded-full lg:hidden"
-            />
+          <div
+            className={`absolute flex items-center justify-between md:justify-end w-full px-4 ${
+              user ? "top-3" : "top-4"
+            }  lg:justify-end`}
+          >
+            {user ? (
+              <span className="flex items-center md:hidden">
+                <ProfileOps />
+              </span>
+            ) : null}
+
+            <Link href="/" className={`flex items-center md:hidden text-2xl`}>
+              Agency
+              <span className="text-brandDark dark:text-brandLight">.io</span>
+              &nbsp;
+              <FaPlane />
+            </Link>
 
             {user ? (
-              <span className="flex items-center lg:hidden">
-                <Notifications size={30} />
+              <span className="grid md:hidden place-items-center">
+                <Link href={"#"}>
+                  <ShoppingCart />
+                </Link>
               </span>
             ) : null}
 
@@ -81,9 +94,15 @@ const Nav = () => {
               onClick={() => setClicked(false)}
               className="text-black dark:text-white xl:hidden"
             >
-              <X size={30} />
+              <X size={26} />
             </button>
           </div>
+
+          <MobileThemeToggler
+            defaultClass="flex items-center justify-center w-10 aspect-square border rounded-full"
+            lightClass="flex items-center justify-center w-10 aspect-square text-xl text-black border border-black bg-white rounded-full md:hidden"
+            darkClass="flex items-center justify-center w-10 aspect-square text-xl text-white border absolute bottom-4 rounded-full md:hidden"
+          />
 
           <div className="flex items-center gap-2 xs:flex-col xs:w-full xs:gap-5 xl:hidden">
             <FBgButtons />
@@ -91,7 +110,7 @@ const Nav = () => {
             {!user ? (
               <Link
                 href={"/login"}
-                className="flex items-center justify-center gap-1 py-2 pl-3 text-black text-md dark:text-white lg:hidden"
+                className="flex items-center justify-center py-2 pl-3 text-black gap-1 text-md dark:text-white lg:hidden"
               >
                 Log in <ArrowRight size={20} />
               </Link>
@@ -100,16 +119,17 @@ const Nav = () => {
         </div>
       </motion.ul>
 
-      <div className="items-center hidden gap-6 lg:flex">
+      <div className="items-center hidden gap-6 md:flex">
         {user === undefined ? (
           <div className="w-[203px] h-12 bg-gray-400 animate-pulse"></div>
         ) : (
           <>
-            {user ? <Notifications size={20} /> : null}
-
             {user ? (
               <>
+                <Notifications size={20} />
+
                 <ProfileOps />
+
                 <Link href={"#"}>
                   <ShoppingCart />
                 </Link>
@@ -140,12 +160,18 @@ const Nav = () => {
         <DesktopThemeToggler />
       </div>
 
+      {user ? (
+        <span className="grid md:hidden place-items-center">
+          <Notifications size={24} />
+        </span>
+      ) : null}
+
       <button
         title="Open navigation menu"
         onClick={() => setClicked(true)}
-        className="text-2xl text-black xl:hidden dark:text-white xs:text-lg"
+        className="text-black xl:hidden dark:text-white"
       >
-        <Menu size={30} />
+        <Menu size={26} />
       </button>
     </nav>
   );

@@ -1,3 +1,5 @@
+"use client";
+
 import Image, { StaticImageData } from "next/image";
 
 import React from "react";
@@ -51,10 +53,13 @@ const Carousel = ({
 
       {items.map((item) => {
         return (
-          <SwiperSlide key={item.id} className="relative flex flex-col gap-5 overflow-hidden border-white rounded-xl">
+          <SwiperSlide
+            key={item.id}
+            className="relative flex flex-col overflow-hidden border-white gap-5 rounded-xl"
+          >
             <div className="h-[300px] bg-white">
               <Image
-                src={item.img} 
+                src={item.img}
                 width={314}
                 height={305}
                 placeholder="blur"
