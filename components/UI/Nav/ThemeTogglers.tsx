@@ -3,10 +3,10 @@
 import { MoonStar, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import React from "react";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 export const DesktopThemeToggler = () => {
-  const [mounted, setMounted] = useState(false);
+  const [mounted, setMounted] = React.useState(false);
   const { systemTheme, theme, setTheme } = useTheme();
 
   useEffect(() => {
@@ -17,7 +17,7 @@ export const DesktopThemeToggler = () => {
     return (
       <button
         title="Toggle theme"
-        className="flex items-center justify-center w-10 h-10 text-xl bg-gray-400 rounded-full animate-pulse duration-[2000ms]"
+        className="flex items-center justify-center w-10 h-10 text-xl bg-gray-400 rounded-full animate-pulse skeleton"
       ></button>
     );
   }
@@ -56,7 +56,7 @@ export const MobileThemeToggler = ({
   lightClass: string;
   darkClass: string;
 }) => {
-  const [mounted, setMounted] = useState(false);
+  const [mounted, setMounted] = React.useState(false);
   const { systemTheme, theme, setTheme } = useTheme();
 
   useEffect(() => {

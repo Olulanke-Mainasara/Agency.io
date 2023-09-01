@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 
 import { Icons } from "@/components/Icons";
+import { authContext } from "@/components/Providers/Providers";
 import AltAuthLinks from "@/components/UI/Links/AltAuthLinks";
 import { Button } from "@/components/UI/ShadUI/button";
 import { Input } from "@/components/UI/ShadUI/input";
@@ -11,12 +12,11 @@ import { auth } from "@/firebase/client.config";
 import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
-  onAuthStateChanged,
   sendEmailVerification,
   signInWithRedirect,
   updateProfile,
 } from "firebase/auth";
-import * as React from "react";
+import React from "react";
 
 export function SignupForm() {
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
@@ -28,6 +28,7 @@ export function SignupForm() {
   const [errorMessage, setErrorMessage] = React.useState<string>("");
   const [email, setEmail] = React.useState<string>("");
   const [password, setPassword] = React.useState<string>("");
+  const user = React.useContext(authContext);
   const router = useRouter();
   const [fname, setFname] = React.useState("");
   const [lname, setLname] = React.useState("");
@@ -80,11 +81,12 @@ export function SignupForm() {
   }
 
   const handleGoogleSignIn = async () => {
+    setError(false);
+    setGoogleError(false);
+    setAppleError(false);
+    setIsGoogleLoading(true);
+
     try {
-      setError(false);
-      setGoogleError(false);
-      setAppleError(false);
-      setIsGoogleLoading(true);
       const provider = new GoogleAuthProvider();
       auth.languageCode = "it";
       await signInWithRedirect(auth, provider);
@@ -96,12 +98,12 @@ export function SignupForm() {
   };
 
   const handleAppleSignIn = async () => {
-    try {
-      setError(false);
-      setGoogleError(false);
-      setAppleError(false);
-      setIsAppleLoading(true);
+    setError(false);
+    setGoogleError(false);
+    setAppleError(false);
+    setIsAppleLoading(true);
 
+    try {
       setTimeout(() => {
         setIsAppleLoading(false);
         setAppleError(true);
@@ -111,13 +113,11 @@ export function SignupForm() {
   };
 
   React.useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setIsLoading(true);
-        router.push("/");
-      }
-    });
-  }, [router]);
+    if (user) {
+      setIsLoading(true);
+      router.push("/");
+    }
+  }, [router, user]);
 
   return (
     <div className="grid gap-6">

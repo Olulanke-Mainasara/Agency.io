@@ -8,17 +8,13 @@ import Footer from "../UI/Footer/Footer";
 import Blog from "./Blog";
 import BrowseByExperience from "./BrowseByExperience";
 import CTA from "./CTA";
-import ExperienceYourLocal from "./ExperienceYourLocal";
 import PopularDestinations from "./PopularDestinations";
-import RecommendedCitySpots from "./RecommendedCitySpots";
 import RecommendedDestinations from "./RecommendedDestinations";
 import Search from "./Search";
 import TopFeaturedDestinations from "./TopFeaturedDestinations";
 import VacationCarousel from "./VacationCarousel";
-import Welcome from "./Welcome";
-import WhatWeOffer from "./WhatWeOffer";
 
-const Main = () => {
+const Main = ({ children }: { children: Array<React.ReactNode> }) => {
   const [splashed, setSplashed] = useSessionStorage("splashed", "");
   const [splashCount, setSplashCount] = React.useState(0);
 
@@ -48,9 +44,9 @@ const Main = () => {
         </div>
         <PopularDestinations />
         <VacationCarousel />
-        <ExperienceYourLocal />
+        {children[0]}
         <BrowseByExperience />
-        <RecommendedCitySpots />
+        {children[1]}
         <Blog />
         <CTA />
         <RecommendedDestinations />
