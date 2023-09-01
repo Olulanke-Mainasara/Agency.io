@@ -54,7 +54,7 @@ const Footer = () => {
 
   return (
     <footer
-      className={`mt-40 px-6 xl:px-8 space-y-8 ${
+      className={`mt-8 px-6 xl:px-8 space-y-8 ${
         pathname === "/login"
           ? "hidden"
           : pathname === "/signup"

@@ -18,7 +18,7 @@ const BrowseByExperience = () => {
         type
       </h1>
 
-      <div className="hidden grid-cols-4 gap-10 xl:grid grow">
+      <div className="hidden grid-cols-4 gap-10 overflow-hidden xl:grid grow">
         {experiences.map((experience, index) => {
           return (
             <motion.div
@@ -58,7 +58,7 @@ const BrowseByExperience = () => {
         })}
       </div>
 
-      <div className="hidden grid-cols-3 gap-10 lg:grid xl:hidden grow">
+      <div className="hidden grid-cols-3 gap-10 overflow-hidden lg:grid xl:hidden grow">
         {experiences.slice(0, 9).map((experience, index) => {
           return (
             <motion.div
@@ -98,7 +98,7 @@ const BrowseByExperience = () => {
         })}
       </div>
 
-      <div className="grid grid-cols-1 gap-10 lg:hidden md:grid-cols-2 grow">
+      <div className="grid grid-cols-1 gap-10 overflow-hidden lg:hidden md:grid-cols-2 grow">
         {experiences.slice(0, 6).map((experience, index) => {
           return (
             <motion.div
@@ -139,7 +139,7 @@ const BrowseByExperience = () => {
       </div>
 
       <Button
-        className="px-6 py-3 mx-auto text-white bg-black border-none dark:text-black dark:bg-white h-fit w-fit"
+        className="px-6 py-3 mx-auto text-white bg-black border-none dark:text-black dark:bg-white h-fit md:w-[300px]"
         variant={"outline"}
         asChild
       >

@@ -1,3 +1,4 @@
+import Footer from "@/components/UI/Footer/Footer";
 import {
   africa,
   asia,
@@ -7,7 +8,7 @@ import {
   southAmerica,
 } from "@/static-data/continents";
 
-export async function generateStaticParams({
+export function generateStaticParams({
   params: { continent },
 }: {
   params: { continent: string };
@@ -40,7 +41,7 @@ export async function generateStaticParams({
   }
 
   return continentData.map((country) => {
-    country.name.split(" ").join("-");
+    country;
   });
 }
 export default function Page({
@@ -50,27 +51,13 @@ export default function Page({
 }) {
   return (
     <>
-      <div className="px-8 pt-24">
-        <h1 className="text-4xl text-center md:text-7xl dark:text-white">
+      <div className="px-6 pt-24 space-y-8 xl:px-8 max-w-[1440px] mx-auto">
+        <h1 className="text-4xl md:text-7xl dark:text-white">
           {country.split("-").join(" ")}
         </h1>
-        <div className="grid min-h-screen grid-flow-row-dense gap-8 py-8 text-white md:grid-cols-2 xl:grid-cols-5">
-          {continentData.map((country, index) => {
-            const randomRows = Math.floor(Math.random() * 2) + 1;
-            const randomCols = Math.floor(Math.random() * 2) + 1;
-            return (
-              <LocationImageCard
-                key={country.id}
-                index={index}
-                continent={continent}
-                country={country.name}
-                rows={randomRows}
-                cols={randomCols}
-              />
-            );
-          })}
-        </div>
+        <div className="min-h-screen py-8 border border-black dark:border-white dark:text-white grow rounded-xl"></div>
       </div>
+      <Footer />
     </>
   );
 }

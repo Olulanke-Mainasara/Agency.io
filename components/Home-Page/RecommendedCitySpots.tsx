@@ -9,7 +9,7 @@ const RecommendedCitySpots = async () => {
     const ipData = await rawIpData.json();
     const ip = ipData.ip;
     const rawLocation = await fetch(
-      `http://api.ipstack.com/${ip}?access_key=799b770b8cb7ca0466d1bba46a972920`
+      `http://api.ipstack.com/${ip}?access_key=${process.env.IPSTACK_API_KEY}`
     );
     const location = await rawLocation.json();
 
