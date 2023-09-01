@@ -39,6 +39,7 @@ const BrowseByExperience = () => {
             >
               <Link
                 href={`/experience/${experience.experience}`}
+                prefetch={false}
                 className="w-full h-full space-y-5"
               >
                 <div className="flex items-center gap-2 text-2xl">
@@ -78,6 +79,7 @@ const BrowseByExperience = () => {
             >
               <Link
                 href={`/experience/${experience.experience}`}
+                prefetch={false}
                 className="w-full h-full space-y-5"
               >
                 <div className="flex items-center gap-2 text-2xl">
@@ -117,6 +119,7 @@ const BrowseByExperience = () => {
             >
               <Link
                 href={`/experience/${experience.experience}`}
+                prefetch={false}
                 className="w-full h-full space-y-5"
               >
                 <div className="flex items-center gap-2 text-2xl">
@@ -136,11 +139,11 @@ const BrowseByExperience = () => {
       </div>
 
       <Button
-        className="px-6 py-3 mx-auto text-white bg-black border-none dark:text-black dark:bg-white h-fit xl:hidden w-fit"
+        className="px-6 py-3 mx-auto text-white bg-black border-none dark:text-black dark:bg-white h-fit w-fit"
         variant={"outline"}
         asChild
       >
-        <Link href={"#"} className="text-xl">
+        <Link href={"#"} prefetch={false} className="text-xl">
           View more{" "}
           <span className="duration-300 text-brandLight group-hover:translate-x-1">
             <ArrowRight size={20} />

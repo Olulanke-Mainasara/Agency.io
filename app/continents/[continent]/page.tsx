@@ -1,5 +1,4 @@
 import LocationImageCard from "@/components/UI/Cards/LocationImageCard";
-import { loadingTest } from "@/lib/loadingTest";
 import {
   africa,
   asia,
@@ -9,13 +8,22 @@ import {
   southAmerica,
 } from "@/static-data/continents";
 
+export async function generateStaticParams() {
+  return [
+    { continent: "africa" },
+    { continent: "asia" },
+    { continent: "australia" },
+    { continent: "europe" },
+    { continent: "northAmerica" },
+    { continent: "southAmerica" },
+  ];
+}
+
 export default async function Page({
   params: { continent },
 }: {
   params: { continent: string };
 }) {
-  await loadingTest(3000);
-
   let continentData;
 
   // Determine the location data based on the parameter in the URL

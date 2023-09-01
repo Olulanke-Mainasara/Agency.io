@@ -18,6 +18,7 @@ const TBgButtons = ({
   return (
     <Link
       href={href}
+      prefetch={false}
       className={cn(
         buttonVariants({ variant: "outline" }),
         `${xPaddingAndText} ${yPadding} rounded-full`
