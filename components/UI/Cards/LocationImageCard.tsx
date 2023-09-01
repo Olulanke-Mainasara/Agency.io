@@ -10,15 +10,13 @@ import React from "react";
 const LocationImageCard = ({
   continent,
   country,
-  rows,
-  cols,
   index,
+  cols,
 }: {
   continent: string;
   country: string;
-  rows: number;
-  cols: number;
   index: number;
+  cols: number;
 }) => {
   return (
     <motion.div
@@ -27,39 +25,25 @@ const LocationImageCard = ({
         opacity: 1,
         transition: {
           duration: 0.5,
-          delay: index < 7 ? index * 0.2 : 0.2,
+          delay: 0.2,
         },
       }}
-      className={`h-[300px] border border-black dark:border-white rounded-xl overflow-hidden text-2xl xl:text-xl group ${
-        rows == 1
-          ? "xl:row-span-1"
-          : rows == 2
-          ? "xl:row-span-2"
-          : rows >= 3
-          ? "xl:row-span-3"
-          : ""
-      } ${
-        cols == 1
-          ? "xl:col-span-1"
-          : cols == 2
-          ? "xl:col-span-2"
-          : cols >= 3
-          ? "xl:col-span-3"
-          : ""
+      className={`h-[300px] border border-transparent dark:border-white rounded-xl overflow-hidden text-2xl xl:text-xl group ${
+        cols == 2 ? "lg:col-span-2" : cols == 3 ? "lg:col-span-3" : ""
       }`}
     >
       <Link
-        href={`/continents/${continent}/${country}`}
+        href={`/continents/${continent}/${country.split(" ").join("-")}`}
         className={`relative h-full`}
       >
         <div className="w-full h-full">
           <div className="relative w-full h-full duration-500 group-hover:scale-110">
             <Image
               src={Section1}
-              fill
-              sizes="(max-width: 767px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              width={314}
+              height={305}
               placeholder="blur"
-              className="object-cover"
+              className="object-cover w-full h-full"
               alt={country}
             />
           </div>
