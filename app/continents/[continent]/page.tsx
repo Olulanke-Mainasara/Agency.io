@@ -65,7 +65,7 @@ export default function Page({
             ? "SOUTH AMERICA"
             : continent.toUpperCase()}
         </h1>
-        <div className="grid min-h-screen grid-flow-row-dense gap-8 py-8 text-white md:grid-cols-2 lg:grid-cols-6">
+        <div className="min-h-screen py-8 text-white grid grid-flow-row-dense gap-8 md:grid-cols-2 lg:grid-cols-6">
           {continentData.map((country, index) => {
             return (
               <LocationImageCard
