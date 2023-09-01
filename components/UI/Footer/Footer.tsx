@@ -40,10 +40,10 @@ const footerData = [
     id: 3,
     category: "Connect",
     links: [
+      { text: "Contact Us", url: "/contact" },
       { text: "About Us", url: "/about" },
       { text: "FAQ", url: "/faq" },
       { text: "Privacy Policy", url: "/privacy" },
-      { text: "Terms and Conditions", url: "/terms" },
     ],
   },
 ];
@@ -119,7 +119,6 @@ const Footer = () => {
                   {data.links.map((link, index) => (
                     <Link
                       href={link.url}
-                      prefetch={false}
                       key={index}
                       className="transition-colors hover:text-brandDark dark:hover:text-brandLight"
                     >
@@ -136,7 +135,7 @@ const Footer = () => {
             variant={"outline"}
             asChild
           >
-            <Link href={"/contactus"} prefetch={false} className="text-xl">
+            <Link href={"/contactus"} className="text-xl">
               Contact Us
             </Link>
           </Button>
@@ -171,7 +170,7 @@ const Footer = () => {
             </Link>
             <Link
               href={"#"}
-              aria-label="Youtube"
+              aria-label="Instagram"
               className="transition-colors hover:text-brandDark dark:hover:text-brandLight"
             >
               <FaYoutube />

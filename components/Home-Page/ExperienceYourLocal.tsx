@@ -13,38 +13,20 @@ const ExperienceYourLocal = async () => {
     );
     const location = await rawLocation.json();
 
-    return (
-      <section className="flex flex-col gap-8 xl:py-8">
-        <h1 className="px-6 text-4xl text-right xl:px-8 md:text-5xl">
-          Experience{" "}
-          <span className="text-brandDark dark:text-brandLight">
-            {location.country_name}
-          </span>{" "}
-          from <span className="text-brandDark dark:text-brandLight">all</span>{" "}
-          sides
-        </h1>
+  return (
+    <section className="flex flex-col gap-8 xl:py-8">
+      <h1 className="px-6 text-4xl text-right xl:px-8 md:text-5xl">
+        Experience{" "}
+        <span className="text-brandDark dark:text-brandLight">
+          {location.country_name}
+        </span>{" "}
+        from <span className="text-brandDark dark:text-brandLight">all</span>{" "}
+        sides
+      </h1>
 
-        <Carousel items={cities} />
-      </section>
-    );
-  } catch (error) {
-    console.log(error);
-
-    return (
-      <section className="flex flex-col gap-8 xl:py-8">
-        <h1 className="px-6 text-4xl text-right xl:px-8 md:text-5xl">
-          Experience{" "}
-          <span className="text-brandDark dark:text-brandLight">
-            your local
-          </span>{" "}
-          from <span className="text-brandDark dark:text-brandLight">all</span>{" "}
-          sides
-        </h1>
-
-        <Carousel items={cities} />
-      </section>
-    );
-  }
+      <Carousel items={cities} />
+    </section>
+  );
 };
 
 export default ExperienceYourLocal;
