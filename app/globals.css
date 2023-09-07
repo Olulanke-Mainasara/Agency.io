@@ -38,3 +38,9 @@
 .skeleton {
   animation-duration: 2000ms;
 }
+
+@media screen and (max-height: 500px) {
+  .minHeight {
+    left: 1rem;
+  }
+}

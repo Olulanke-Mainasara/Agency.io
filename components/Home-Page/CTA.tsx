@@ -29,13 +29,7 @@ const CTA = () => {
           </p>
           <div className="flex justify-center w-full gap-5 xl:justify-end">
             <FBgButtons />
-            <TBgButtons
-              xPaddingAndText="px-6 xl:px-8 text-lg"
-              yPadding="py-3"
-              href="/experiences"
-            >
-              Get Inspired
-            </TBgButtons>
+            <TBgButtons href="/experiences">Get Inspired</TBgButtons>
           </div>
         </motion.div>
         <div className="relative flex items-center justify-center xl:justify-start basis-1/2 w-[612px]">

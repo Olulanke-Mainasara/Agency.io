@@ -40,7 +40,7 @@ const footerData = [
     id: 3,
     category: "Connect",
     links: [
-      { text: "About Us", url: "/about" },
+      { text: "About Us", url: "/aboutUs" },
       { text: "FAQ", url: "/faq" },
       { text: "Privacy Policy", url: "/privacy" },
       { text: "Terms and Conditions", url: "/terms" },
@@ -92,7 +92,7 @@ const Footer = () => {
           onAnimationComplete={() => setHasViewed(true)}
           className="text-4xl text-center md:text-right md:text-6xl lg:text-8xl xl:text-9xl"
         >
-          One Click at a{" "}
+          One click at a{" "}
           <span className="text-brandDark dark:text-brandLight">Time!</span>
         </motion.p>
       </section>
@@ -131,19 +131,21 @@ const Footer = () => {
             ))}
           </div>
 
-          <Button
-            className="hidden px-6 py-3 text-white bg-black border-black dark:border-white dark:hover:bg-gray-300 h-fit lg:block dark:bg-white dark:text-black"
-            variant={"outline"}
-            asChild
-          >
-            <Link href={"/contactus"} prefetch={false} className="text-xl">
+          <Button className="hidden lg:block" variant={"plain"} size={"sm"}>
+            <Link href={"/contactUs"} prefetch={false}>
               Contact Us
             </Link>
           </Button>
         </div>
 
         <section className="flex flex-col-reverse items-center justify-between py-8 text-sm text-center border-t border-black gap-6 md:flex-row dark:border-white md:gap-0">
-          <p>© 2023 Agency.io Inc. All rights reserved.</p>
+          <p>
+            © 2023 Agency
+            <span className="text-brandDark dark:text-brandLight">
+              .io
+            </span>{" "}
+            Inc. All rights reserved.
+          </p>
 
           <div className="flex text-2xl gap-7 dark:text-white xs:text-xl">
             <Link

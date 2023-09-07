@@ -76,7 +76,7 @@ const TopFeaturedDestinations = () => {
                       card == index ? "opacity-100" : "xl:opacity-0"
                     } text-base duration-300`}
                   >
-                    <NBgButtons prompt="view more" />
+                    <NBgButtons prompt="view more" href="#" />
                   </span>
                 </h1>
               </div>

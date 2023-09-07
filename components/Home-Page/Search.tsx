@@ -58,18 +58,14 @@ const Search = () => {
           {activities.map((activity) => {
             return (
               <React.Fragment key={activity.id}>
-                <TBgButtons
-                  xPaddingAndText="px-6"
-                  yPadding="py-2"
-                  href={activity.link}
-                >
+                <TBgButtons extraStyles="py-2" href={activity.link}>
                   {activity.text}
                 </TBgButtons>
               </React.Fragment>
             );
           })}
 
-          <NBgButtons prompt="View more" />
+          <NBgButtons prompt="View more" href="#" />
         </div>
 
         {user === undefined ? (
@@ -93,7 +89,8 @@ const Search = () => {
             <Button
               key={button.id}
               variant={"outline"}
-              className={`py-3 ${
+              size={"sm"}
+              className={`${
                 plan === button.plan
                   ? "bg-black text-white dark:bg-white dark:text-black border-black dark:border-white"
                   : button.plan === "generate" && user === undefined
@@ -104,7 +101,7 @@ const Search = () => {
             >
               <span className="md:hidden">
                 {button.plan === "generate"
-                  ? button.text
+                  ? "Build w/A.I"
                   : button.text.split(" ")[0]}
               </span>
               <span className="hidden md:block">{button.text}</span>

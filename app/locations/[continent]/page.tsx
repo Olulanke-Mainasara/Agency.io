@@ -1,3 +1,5 @@
+import { notFound } from "next/navigation";
+
 import LocationImageCard from "@/components/UI/Cards/LocationImageCard";
 import Footer from "@/components/UI/Footer/Footer";
 import {
@@ -11,6 +13,14 @@ import {
 
 const itemsPerSet = 5; // Define the number of items in each set
 const actionIndexes = [0, 1]; // Define the indexes at which to perform the action
+const continents = [
+  "africa",
+  "asia",
+  "australia",
+  "europe",
+  "northAmerica",
+  "southAmerica",
+];
 
 export function generateStaticParams() {
   return [
@@ -28,6 +38,10 @@ export default function Page({
 }: {
   params: { continent: string };
 }) {
+  if (!continents.includes(continent)) {
+    notFound();
+  }
+
   let continentData;
 
   // Determine the location data based on the parameter in the URL
@@ -57,7 +71,7 @@ export default function Page({
 
   return (
     <>
-      <div className="px-6 pt-24 xl:px-8 max-w-[1440px] mx-auto">
+      <div className="px-6 pt-20 md:pt-24 xl:px-8 max-w-[1440px] mx-auto">
         <h1 className="text-4xl text-center md:text-7xl dark:text-white">
           {continent == "northAmerica"
             ? "NORTH AMERICA"

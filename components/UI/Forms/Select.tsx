@@ -6,7 +6,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/UI/ShadUI/select";
-import * as React from "react";
+import React from "react";
 
 export function SelectOption({
   label,

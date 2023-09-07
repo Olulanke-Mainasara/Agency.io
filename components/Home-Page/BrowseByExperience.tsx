@@ -138,17 +138,13 @@ const BrowseByExperience = () => {
         })}
       </div>
 
-      <Button
-        className="px-6 py-3 mx-auto text-white bg-black border-none dark:text-black dark:bg-white h-fit md:w-[300px]"
-        variant={"outline"}
-        asChild
-      >
-        <Link href={"#"} prefetch={false} className="text-xl">
-          View more{" "}
-          <span className="duration-300 text-brandLight group-hover:translate-x-1">
-            <ArrowRight size={20} />
-          </span>
+      <Button className="mx-auto md:w-[300px]" variant={"plain"} size={"sm"}>
+        <Link href={"/experiences"} prefetch={false}>
+          View all
         </Link>
+        <span className="dark:text-brandDark text-brandLight">
+          <ArrowRight size={20} />
+        </span>
       </Button>
     </section>
   );

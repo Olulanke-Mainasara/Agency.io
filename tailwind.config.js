@@ -7,13 +7,6 @@ module.exports = {
     "./app/**/*.{ts,tsx}",
   ],
   theme: {
-    container: {
-      center: true,
-      padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
-    },
     extend: {
       keyframes: {
         "accordion-down": {
@@ -33,6 +26,10 @@ module.exports = {
         background: "#111111",
         brandDark: "#389c96",
         brandLight: "#6fcbc6",
+      },
+      screens: {
+        xs: { max: "320px" },
+        "2xl": "1920px",
       },
     },
   },

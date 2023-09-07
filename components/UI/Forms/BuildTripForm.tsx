@@ -3,7 +3,7 @@ import { Button } from "@/components/UI/ShadUI/button";
 import { Input } from "@/components/UI/ShadUI/input";
 import { Label } from "@/components/UI/ShadUI/label";
 import { Home, User } from "lucide-react";
-import * as React from "react";
+import React from "react";
 import { DateRange } from "react-day-picker";
 import { FaChild } from "react-icons/fa";
 
@@ -49,7 +49,7 @@ export default function BuildTripForm() {
 
         <DatePickerWithRange handleDateRange={handleDateRange} />
 
-        <div className="flex gap-2 md:col-span-2">
+        <div className="flex gap-4 md:col-span-2">
           <div className="flex items-center w-full px-3 overflow-hidden border border-black h-14 md:h-16 rounded-xl dark:border-white">
             <Label
               htmlFor="adults"
