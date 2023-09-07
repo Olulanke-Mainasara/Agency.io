@@ -4,12 +4,9 @@ import { Icons } from "@/components/Icons";
 import { Button } from "@/components/UI/ShadUI/button";
 import { Input } from "@/components/UI/ShadUI/input";
 import { Label } from "@/components/UI/ShadUI/label";
-import { cn } from "@/lib/utils";
-import * as React from "react";
+import React from "react";
 
-interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
-
-export function RecoverForm({ className, ...props }: UserAuthFormProps) {
+export function RecoverForm() {
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
 
   async function onSubmit(event: React.SyntheticEvent) {
@@ -22,7 +19,7 @@ export function RecoverForm({ className, ...props }: UserAuthFormProps) {
   }
 
   return (
-    <div className={cn("grid gap-6", className)} {...props}>
+    <div className="grid gap-6">
       <form onSubmit={onSubmit}>
         <div className="grid gap-6">
           <div className="grid gap-2">

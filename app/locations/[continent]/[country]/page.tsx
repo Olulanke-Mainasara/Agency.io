@@ -1,3 +1,5 @@
+import { notFound } from "next/navigation";
+
 import Footer from "@/components/UI/Footer/Footer";
 import {
   africa,
@@ -8,10 +10,14 @@ import {
   southAmerica,
 } from "@/static-data/continents";
 
-export function generateStaticParams({
-  params: { continent },
+export function generateStaticParams() {
+  return [];
+}
+
+export default function Page({
+  params: { continent, country },
 }: {
-  params: { continent: string };
+  params: { continent: string; country: string };
 }) {
   let continentData;
 
@@ -40,22 +46,22 @@ export function generateStaticParams({
       break;
   }
 
-  return continentData.map((country) => {
-    country;
-  });
-}
-export default function Page({
-  params: { country },
-}: {
-  params: { country: string };
-}) {
+  const existingCountry = continentData.find(
+    (countryObj) => countryObj.name.split(" ").join("-") === country
+  );
+
+  if (existingCountry === undefined) {
+    console.log(existingCountry, country);
+    notFound();
+  }
+
   return (
     <>
       <div className="px-6 pt-24 space-y-8 xl:px-8 max-w-[1440px] mx-auto">
         <h1 className="text-4xl md:text-7xl dark:text-white">
           {country.split("-").join(" ")}
         </h1>
-        <div className="min-h-screen py-8 border border-black dark:border-white dark:text-white grow rounded-xl"></div>
+        <div className="min-h-screen border border-black dark:border-white dark:text-white grow rounded-xl"></div>
       </div>
       <Footer />
     </>

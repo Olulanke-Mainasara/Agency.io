@@ -55,7 +55,7 @@ const VacationCarousel = () => {
                   <div className="absolute max-w-lg space-y-5 bottom-8 sm:right-5">
                     <p className="md:text-lg">{carousel.description}</p>
 
-                    <NBgButtons prompt="Build your trip" />
+                    <NBgButtons prompt="Build your trip" href="#" />
                   </div>
                 </div>
               </div>

@@ -17,9 +17,9 @@ import { experiences } from "@/static-data/images";
 import { company, locations, utils } from "@/static-data/navigation";
 import React from "react";
 
-import NBgButtons from "../Links/NBgLink";
+import NBgButtons from "../../Links/NBgLink";
 
-export function FunctionalNav() {
+export function DesktopNavLinks() {
   const pathname = usePathname();
   return (
     <NavigationMenu>
@@ -39,26 +39,58 @@ export function FunctionalNav() {
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Experiences</NavigationMenuTrigger>
+          <NavigationMenuTrigger>
+            <Link
+              href="/experiences"
+              className={
+                navigationMenuTriggerStyle() +
+                `${
+                  pathname == "/experiences"
+                    ? " text-brandDark dark:text-brandLight"
+                    : ""
+                }`
+              }
+              legacyBehavior
+              passHref
+            >
+              Experiences
+            </Link>
+          </NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-full gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
               {experiences.slice(0, 5).map((section) => (
                 <ListItem
                   key={section.id}
                   title={section.experience}
-                  href={`/experience/${section.experience}`}
+                  href={`/experiences/${section.experience}`}
                 >
                   {section.description}
                 </ListItem>
               ))}
               <div className="flex items-center pl-3">
-                <NBgButtons prompt="View more" />
+                <NBgButtons prompt="View all" href="/experiences" />
               </div>
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Locations</NavigationMenuTrigger>
+          <NavigationMenuTrigger>
+            <Link
+              href="/locations"
+              className={
+                navigationMenuTriggerStyle() +
+                `${
+                  pathname == "/locations"
+                    ? " text-brandDark dark:text-brandLight"
+                    : ""
+                }`
+              }
+              legacyBehavior
+              passHref
+            >
+              Locations
+            </Link>
+          </NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-full gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
               {locations.map((location) => (
@@ -74,7 +106,23 @@ export function FunctionalNav() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Utilities</NavigationMenuTrigger>
+          <NavigationMenuTrigger>
+            <Link
+              href="/utilities"
+              className={
+                navigationMenuTriggerStyle() +
+                `${
+                  pathname == "/utilities"
+                    ? " text-brandDark dark:text-brandLight"
+                    : ""
+                }`
+              }
+              legacyBehavior
+              passHref
+            >
+              Utilities
+            </Link>
+          </NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-full gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
               {utils.map((util) => (
@@ -86,7 +134,23 @@ export function FunctionalNav() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Company</NavigationMenuTrigger>
+          <NavigationMenuTrigger>
+            <Link
+              href="/company"
+              className={
+                navigationMenuTriggerStyle() +
+                `${
+                  pathname == "/company"
+                    ? " text-brandDark dark:text-brandLight"
+                    : ""
+                }`
+              }
+              legacyBehavior
+              passHref
+            >
+              Company
+            </Link>
+          </NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-full gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
               {company.map((section) => (

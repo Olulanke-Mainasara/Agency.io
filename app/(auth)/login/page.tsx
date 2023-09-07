@@ -2,9 +2,9 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
-import { MobileThemeToggler } from "@/components/UI/Nav/ThemeTogglers";
-import { buttonVariants } from "@/components/UI/ShadUI/button";
-import { cn } from "@/lib/utils";
+import BackLink from "@/components/UI/Links/BackLink";
+import { MobileThemeToggler } from "@/components/UI/Nav/Shared/ThemeTogglers";
+import { Button } from "@/components/UI/ShadUI/button";
 import FemaleTourist from "@/public/Auth/femaleTourist.webp";
 import { FaPlane } from "react-icons/fa";
 
@@ -18,24 +18,14 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <div className="container relative flex flex-col items-center justify-center h-screen lg:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
-        <Link
-          href="/signup"
-          className={cn(
-            buttonVariants({ variant: "default" }),
-            "absolute z-10 right-4 top-4 md:right-8 md:top-8 rounded-full"
-          )}
-        >
-          Sign up
-        </Link>
-
+      <div className="flex flex-col items-center justify-center h-screen lg:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
         <div className="relative hidden h-full text-white lg:block">
           <div className="absolute inset-0 z-10 flex flex-col p-10 backdrop-brightness-[60%]">
             <Link
               href={"/"}
               className="relative z-20 flex items-center text-3xl"
             >
-              Agency<span className="text-brandDark">.io</span>&nbsp;
+              Agency<span className="text-brandLight">.io</span>&nbsp;
               <FaPlane />
             </Link>
 
@@ -63,12 +53,20 @@ export default function Page() {
           </div>
         </div>
 
-        <div className="relative w-full h-full grid place-items-center">
-          <MobileThemeToggler
-            defaultClass="absolute top-4 -left-4 md:left-0 md:top-8 lg:left-8 w-10 aspect-square border text-xl grid place-items-center rounded-full"
-            lightClass="absolute top-4 -left-4 md:left-0 md:top-8 lg:left-8 w-10 aspect-square border text-xl grid place-items-center rounded-full border-black text-black"
-            darkClass="absolute top-4 -left-4 md:left-0 md:top-8 lg:left-8 w-10 aspect-square border text-xl grid place-items-center rounded-full text-white"
-          />
+        <div className="relative w-full h-full px-6 grid place-items-center">
+          <div className="absolute flex items-center justify-between w-full px-4 top-4 md:top-8 lg:px-8">
+            <BackLink />
+
+            <MobileThemeToggler
+              defaultClass="w-10 aspect-square text-xl grid place-items-center bg-gray-400 rounded-full animate-pulse skeleton"
+              lightClass="w-10 aspect-square border text-xl grid place-items-center rounded-full border-black text-black"
+              darkClass="w-10 aspect-square border text-xl grid place-items-center rounded-full text-white"
+            />
+
+            <Button className="rounded-full">
+              <Link href="/signup">Sign up</Link>
+            </Button>
+          </div>
 
           <div className="lg:p-8">
             <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[400px]">
