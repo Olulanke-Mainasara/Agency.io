@@ -3,15 +3,25 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import React from "react";
 
-const NBgButtons = ({ prompt }: { prompt: string }) => {
+import { Button } from "../ShadUI/button";
+
+const NBgLink = ({
+  prompt,
+  href,
+  extraStyles,
+}: {
+  prompt: string;
+  href: string;
+  extraStyles?: string;
+}) => {
   return (
-    <Link href={"#"} className="flex items-center gap-x-2 group">
-      {prompt}
-      <span className="duration-300 text-brandLight group-hover:translate-x-1">
+    <Button variant={"link"} className={`${extraStyles} p-0 min-w-[110px]`}>
+      <Link href={href}>{prompt}</Link>
+      <span className="duration-300 text-brandDark dark:text-brandLight group-hover:translate-x-1">
         <ArrowRight size={20} />
       </span>
-    </Link>
+    </Button>
   );
 };
 
-export default NBgButtons;
+export default NBgLink;

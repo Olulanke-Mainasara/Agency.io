@@ -9,7 +9,7 @@ import { notifications } from "@/static-data/services";
 import { BellRing } from "lucide-react";
 import React from "react";
 
-import { NotificationCard } from "../Cards/NotificationCard";
+import { NotificationCard } from "../../Cards/NotificationCard";
 
 export function Notifications({ size }: { size: number }) {
   const [open, setOpen] = React.useState(false);

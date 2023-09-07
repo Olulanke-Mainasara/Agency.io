@@ -1,5 +1,5 @@
 import { Icons } from "@/components/Icons";
-import * as React from "react";
+import React from "react";
 
 import { Button } from "../ShadUI/button";
 import { LocationComboBox } from "./LocationComboBox";

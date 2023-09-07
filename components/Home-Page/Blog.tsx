@@ -75,7 +75,7 @@ const Blog = () => {
 
                 <p className="mb-3 opacity-70">{blog.description}</p>
 
-                <NBgButtons prompt="Read post" />
+                <NBgButtons prompt="Read post" href="#" />
               </div>
             </SwiperSlide>
           );

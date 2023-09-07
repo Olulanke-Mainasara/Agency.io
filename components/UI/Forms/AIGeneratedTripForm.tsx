@@ -4,7 +4,7 @@ import { Input } from "@/components/UI/ShadUI/input";
 import { Label } from "@/components/UI/ShadUI/label";
 import { companions, departure, months } from "@/static-data/services";
 import { Calculator, Calendar, Clock } from "lucide-react";
-import * as React from "react";
+import React from "react";
 import { FaHandshake } from "react-icons/fa";
 
 import { DatePickerWithRange } from "./DataPickerWithRange";

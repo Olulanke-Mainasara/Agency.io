@@ -59,7 +59,7 @@ const WhatWeOffer = () => {
                   {service.topic}
                 </h1>
                 <p className="opacity-70">{service.text}</p>
-                <NBgButtons prompt="Learn more" />
+                <NBgButtons prompt="Learn more" href="#" />
               </motion.div>
             );
           })}
