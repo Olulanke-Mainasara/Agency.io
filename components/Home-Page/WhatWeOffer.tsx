@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 
 import Offer from "@/public/Main/Offer.webp";
@@ -52,7 +54,7 @@ const WhatWeOffer = () => {
                 className="flex flex-col justify-center w-full gap-y-5"
                 key={service.id}
               >
-                <h1 className="flex items-center text-2xl gap-2">
+                <h1 className="flex items-center gap-2 text-2xl">
                   <span className="text-brandDark dark:text-brandLight">
                     {service.icon}
                   </span>

@@ -25,17 +25,15 @@ export function DesktopNavLinks() {
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <Link href="/" legacyBehavior className={``} passHref>
-            <NavigationMenuLink
-              className={
-                navigationMenuTriggerStyle() +
-                `${
-                  pathname == "/" ? " text-brandDark dark:text-brandLight" : ""
-                }`
-              }
-            >
-              Home
-            </NavigationMenuLink>
+          <Link
+            href="/"
+            className={
+              navigationMenuTriggerStyle() +
+              `${pathname == "/" ? " text-brandDark dark:text-brandLight" : ""}`
+            }
+            prefetch={false}
+          >
+            Home
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
@@ -51,7 +49,7 @@ export function DesktopNavLinks() {
                 }`
               }
               legacyBehavior
-              passHref
+              prefetch={false}
             >
               Experiences
             </Link>
@@ -86,7 +84,7 @@ export function DesktopNavLinks() {
                 }`
               }
               legacyBehavior
-              passHref
+              prefetch={false}
             >
               Locations
             </Link>
@@ -118,7 +116,7 @@ export function DesktopNavLinks() {
                 }`
               }
               legacyBehavior
-              passHref
+              prefetch={false}
             >
               Utilities
             </Link>
@@ -146,7 +144,7 @@ export function DesktopNavLinks() {
                 }`
               }
               legacyBehavior
-              passHref
+              prefetch={false}
             >
               Company
             </Link>

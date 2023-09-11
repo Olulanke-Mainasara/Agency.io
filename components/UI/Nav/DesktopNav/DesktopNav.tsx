@@ -4,11 +4,11 @@ import { User } from "firebase/auth";
 import { ArrowRight, ShoppingCart } from "lucide-react";
 import React from "react";
 
+import { DesktopThemeToggler } from "../../Buttons/ThemeTogglers";
 import { Button } from "../../ShadUI/button";
 import Logo from "../Shared/Logo";
 import { Notifications } from "../Shared/Notifications";
 import { ProfileOps } from "../Shared/Profile";
-import { DesktopThemeToggler } from "../Shared/ThemeTogglers";
 import { DesktopNavLinks } from "./DesktopNavLinks";
 
 const DesktopNav = ({ user }: { user: User | null | undefined }) => {
@@ -37,12 +37,12 @@ const DesktopNav = ({ user }: { user: User | null | undefined }) => {
               <div className="flex items-center gap-6">
                 <Link
                   href={"/signup"}
-                  className="duration-300 dark:text-white w-fit xl:flex hover:text-brandDark dark:hover:text-brandDark"
+                  className="duration-300 dark:text-white w-fit xl:flex hover:text-brandDark dark:hover:text-brandLight"
                 >
                   Signup
                 </Link>
 
-                <Button className="px-6 text-base gap-1" variant={"plain"}>
+                <Button className="gap-1 px-6 text-base" variant={"plain"}>
                   <Link href={"/login"} prefetch={false}>
                     Log in
                   </Link>

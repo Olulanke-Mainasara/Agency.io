@@ -1,7 +1,7 @@
 import { cities } from "@/static-data/images";
 import React from "react";
 
-import Carousel from "../UI/Carousel/Carousel";
+import DefaultCarousel from "../UI/Carousel/DefaultCarousel";
 
 const ExperienceYourLocal = async () => {
   try {
@@ -24,7 +24,7 @@ const ExperienceYourLocal = async () => {
           sides
         </h1>
 
-        <Carousel items={cities} />
+        <DefaultCarousel items={cities} />
       </section>
     );
   } catch (error) {
@@ -41,7 +41,7 @@ const ExperienceYourLocal = async () => {
           sides
         </h1>
 
-        <Carousel items={cities} />
+        <DefaultCarousel items={cities} />
       </section>
     );
   }
