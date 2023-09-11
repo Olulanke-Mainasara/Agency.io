@@ -26,7 +26,7 @@ const ExploreTheWorldForm = () => {
     >
       <LocationComboBox
         label="Places to go, things to do..."
-        width="w-[338px]"
+        width="w-[451px]"
         handleLocation={handleLocation}
       />
 

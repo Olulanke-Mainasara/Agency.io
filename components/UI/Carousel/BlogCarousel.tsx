@@ -6,19 +6,20 @@ import React from "react";
 import { Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
+import NBgLink from "../Links/NBgLink";
 import LeftArrow from "./LeftArrow";
 import RightArrow from "./RightArrow";
 
-const Carousel = ({
-  items,
-  extra,
-}: {
-  items: { id: number; img: StaticImageData; name: string; extra?: string }[];
-  extra?: boolean;
-}) => {
+type Blog = {
+  id: number;
+  title: string;
+  description: string;
+  img: StaticImageData;
+}[];
+
+const BlogCarousel = ({ blogs }: { blogs: Blog }) => {
   return (
     <Swiper
-      slidesPerView={4}
       spaceBetween={32}
       pagination={{
         clickable: true,
@@ -40,9 +41,9 @@ const Carousel = ({
         1024: {
           slidesPerView: 3,
         },
-        // when window width is >= 1440px
         1440: {
-          slidesPerView: 4,
+          slidesPerView: 3,
+          spaceBetween: 56,
         },
       }}
       allowTouchMove
@@ -51,25 +52,31 @@ const Carousel = ({
     >
       <LeftArrow />
 
-      {items.map((item) => {
+      {blogs.map((blog) => {
         return (
           <SwiperSlide
-            key={item.id}
-            className="relative flex flex-col overflow-hidden border-white gap-5 rounded-xl"
+            key={blog.id}
+            className="h-full overflow-hidden rounded-xl"
           >
-            <div className="h-[300px] bg-white">
+            <div className="relative w-full overflow-hidden h-44 xl:h-48">
               <Image
-                src={item.img}
-                width={314}
-                height={305}
-                placeholder="blur"
-                className="object-cover w-full h-full"
-                alt={item.extra ? item.name + ", " + item.extra : item.name}
+                src={blog.img}
+                fill
+                sizes="(max-width: 1200px) 50vw, 33vw"
+                quality={50}
+                className="object-cover"
+                alt={blog.title}
               />
             </div>
-            <div className="absolute bottom-0 w-full p-4 text-white backdrop-brightness-[25%] backdrop-blur-sm rounded-b-xl">
-              <p className="text-2xl">{item.name}</p>
-              {extra && <p>{item.extra}</p>}
+
+            <div className="pt-6">
+              <h1 className="mb-3 text-lg font-bold dark:text-white title-font">
+                {blog.title}
+              </h1>
+
+              <p className="mb-3 opacity-70">{blog.description}</p>
+
+              <NBgLink prompt="Read post" href="#" />
             </div>
           </SwiperSlide>
         );
@@ -80,4 +87,4 @@ const Carousel = ({
   );
 };
 
-export default Carousel;
+export default BlogCarousel;

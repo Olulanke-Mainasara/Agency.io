@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google";
 
+import Footer from "@/components/UI/Footer/Footer";
 import Nav from "@/components/UI/Nav/Nav";
 import NextTopLoader from "nextjs-toploader";
 import "swiper/css";
@@ -30,6 +31,7 @@ export default function RootLayout({
           <Providers>
             <Nav />
             {children}
+            <Footer />
           </Providers>
         </body>
       </html>

@@ -1,9 +1,11 @@
+"use client";
+
 import Image, { StaticImageData } from "next/image";
 
 import { motion } from "framer-motion";
 import React from "react";
 
-const ImageCardSm = ({
+const BuildTripCTACard = ({
   imgsrc,
   index,
 }: {
@@ -37,4 +39,4 @@ const ImageCardSm = ({
   );
 };
 
-export default ImageCardSm;
+export default BuildTripCTACard;

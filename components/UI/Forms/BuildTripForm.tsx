@@ -53,7 +53,7 @@ export default function BuildTripForm() {
           <div className="flex items-center w-full px-3 overflow-hidden border border-black h-14 md:h-16 rounded-xl dark:border-white">
             <Label
               htmlFor="adults"
-              className="flex items-center w-full gap-2 md:text-lg"
+              className="flex items-center w-full gap-2 md:text-lg md:min-w-[170px]"
             >
               <User /> <span className="hidden md:block">No. of</span> Adults
             </Label>
@@ -93,7 +93,7 @@ export default function BuildTripForm() {
         <div className="flex items-center w-full px-3 overflow-hidden border border-black h-14 md:h-16 rounded-xl dark:border-white">
           <Label
             htmlFor="rooms"
-            className="flex items-center w-full gap-2 md:text-lg"
+            className="flex items-center w-full gap-2 md:text-lg md:min-w-[170px]"
           >
             <Home /> No. of Rooms
           </Label>

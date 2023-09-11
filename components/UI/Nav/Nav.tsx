@@ -13,7 +13,7 @@ const Nav = () => {
   const pathname = usePathname();
 
   return (
-    <nav
+    <header
       className={`fixed top-0 left-0 z-30 h-16 lg:h-20 w-screen text-black bg-white dark:text-white dark:bg-background ${
         pathname === "/login"
           ? "hidden"
@@ -26,7 +26,7 @@ const Nav = () => {
     >
       <DesktopNav user={user} />
       <MobileNav pathname={pathname} user={user} />
-    </nav>
+    </header>
   );
 };
 

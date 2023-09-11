@@ -2,8 +2,8 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
+import { MobileThemeToggler } from "@/components/UI/Buttons/ThemeTogglers";
 import BackLink from "@/components/UI/Links/BackLink";
-import { MobileThemeToggler } from "@/components/UI/Nav/Shared/ThemeTogglers";
 import { Button } from "@/components/UI/ShadUI/button";
 import FemaleTourist from "@/public/Auth/femaleTourist.webp";
 import { FaPlane } from "react-icons/fa";

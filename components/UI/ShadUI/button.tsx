@@ -3,6 +3,7 @@ import { Slot } from "@radix-ui/react-slot";
 import { type VariantProps, cva } from "class-variance-authority";
 import React from "react";
 
+
 const buttonVariants = cva(
   "inline-flex items-center justify-center gap-2 rounded-full text-md transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-black disabled:pointer-events-none disabled:opacity-50 dark:focus-visible:ring-white",
   {
@@ -13,9 +14,9 @@ const buttonVariants = cva(
         destructive:
           "bg-red-500 text-slate-50 hover:bg-red-500/90 dark:bg-red-900 dark:text-red-50 dark:hover:bg-red-900/90",
         outline:
-          "text-black duration-150 border dark:bg-transparent hover:bg-black hover:text-white hover:border-black dark:text-white border-brandDark dark:border-brandLight dark:hover:bg-white dark:hover:text-black dark:hover:border-white",
+          "text-black duration-150 border dark:bg-transparent hover:bg-background hover:text-white hover:border-black dark:text-white border-brandDark dark:border-brandLight dark:hover:bg-white dark:hover:text-black dark:hover:border-white",
         plain:
-          "text-white bg-black border-none dark:text-black dark:bg-white text-xl dark:hover:bg-gray-300",
+          "text-white bg-background border-none dark:text-black dark:bg-white text-xl dark:hover:bg-gray-300",
         ghost:
           "hover:bg-slate-100 hover:text-slate-900 dark:hover:bg-slate-800 dark:hover:text-slate-50",
         link: "flex items-center gap-2 group",

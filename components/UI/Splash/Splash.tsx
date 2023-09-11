@@ -6,13 +6,16 @@ const Splash = () => {
   const width = typeof window !== "undefined" ? window.innerWidth : 0;
 
   return (
-    <motion.div animate={{ display: "none", transition: { delay: 2.8 } }}>
+    <motion.div
+      animate={{ display: "none", transition: { delay: 2.8 } }}
+      className="absolute inset-0 z-40"
+    >
       <motion.div
         animate={{
           opacity: 0,
           transition: { duration: 0.7, delay: 2 },
         }}
-        className="absolute inset-0 z-40 flex items-center justify-center w-screen h-screen bg-white dark:bg-background"
+        className="flex items-center justify-center h-full bg-white dark:bg-background"
       >
         <motion.div
           animate={{ opacity: 0, transition: { delay: 1.5 } }}

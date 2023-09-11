@@ -1,7 +1,7 @@
 import { recommendedDes } from "@/static-data/images";
 import React from "react";
 
-import Carousel from "../UI/Carousel/Carousel";
+import DefaultCarousel from "../UI/Carousel/DefaultCarousel";
 
 const RecommendedDestinations = () => {
   return (
@@ -11,7 +11,7 @@ const RecommendedDestinations = () => {
         <span className="text-brandDark dark:text-brandLight">recommend</span>
       </h1>
 
-      <Carousel items={recommendedDes} />
+      <DefaultCarousel items={recommendedDes} />
     </section>
   );
 };
