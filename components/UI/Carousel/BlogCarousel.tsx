@@ -63,6 +63,7 @@ const BlogCarousel = ({ blogs }: { blogs: Blog }) => {
                 src={blog.img}
                 fill
                 sizes="(max-width: 1200px) 50vw, 33vw"
+                placeholder="blur"
                 quality={50}
                 className="object-cover"
                 alt={blog.title}

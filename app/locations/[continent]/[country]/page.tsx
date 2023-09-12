@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 
-import Footer from "@/components/UI/Footer/Footer";
 import {
   africa,
   asia,
