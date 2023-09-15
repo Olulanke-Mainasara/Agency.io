@@ -34,7 +34,7 @@ const MobileNav = ({
         </span>
       ) : null}
 
-      <Logo />
+      <Logo pathname={pathname} />
 
       {user ? (
         <span className="grid md:hidden place-items-center">
@@ -70,7 +70,7 @@ const MobileNav = ({
               </span>
             ) : null}
 
-            <Logo />
+            <Logo pathname={pathname} />
 
             {user ? (
               <span className="grid md:hidden place-items-center">

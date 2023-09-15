@@ -37,7 +37,7 @@ export function RecoverForm() {
 
           <Button disabled={isLoading}>
             {isLoading && (
-              <Icons.spinner className="w-5 h-5 mr-2 animate-spin" />
+              <Icons.spinner className="w-5 h-5 animate-spin" />
             )}
             Reset
           </Button>

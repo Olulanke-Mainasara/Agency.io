@@ -25,12 +25,16 @@ const BrowseExperienceButton = () => {
       className="mx-auto"
     >
       <Button className="md:w-[300px]" variant={"plain"} size={"sm"}>
-        <Link href={"/experiences"} prefetch={false}>
+        <Link
+          href={"/experiences"}
+          prefetch={false}
+          className="flex items-center justify-center gap-1"
+        >
           View all
+          <span className="dark:text-brandDark text-brandLight">
+            <ArrowRight size={20} />
+          </span>
         </Link>
-        <span className="dark:text-brandDark text-brandLight">
-          <ArrowRight size={20} />
-        </span>
       </Button>
     </motion.span>
   );

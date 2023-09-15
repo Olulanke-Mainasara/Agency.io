@@ -24,7 +24,7 @@ const Nav = () => {
           : "block"
       } px-4 lg:px-8`}
     >
-      <DesktopNav user={user} />
+      <DesktopNav pathname={pathname} user={user} />
       <MobileNav pathname={pathname} user={user} />
     </header>
   );
