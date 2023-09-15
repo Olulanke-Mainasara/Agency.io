@@ -33,7 +33,7 @@ const LocationImageCard = ({
       }`}
     >
       <Link
-        href={`/continents/${continent}/${country.split(" ").join("-")}`}
+        href={`/locations/${continent}/${country.split(" ").join("-")}`}
         className={`relative h-full`}
       >
         <div className="w-full h-full">

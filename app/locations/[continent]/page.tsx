@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
 
 import LocationImageCard from "@/components/UI/Cards/LocationImageCard";
-import Footer from "@/components/UI/Footer/Footer";
 import {
   africa,
   asia,
@@ -93,6 +92,6 @@ export default function Page({
           })}
         </div>
       </div>
-     </>
+    </>
   );
 }
