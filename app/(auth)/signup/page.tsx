@@ -22,7 +22,7 @@ export default function Page() {
         <div className="relative hidden h-full text-white lg:block">
           <div className="absolute inset-0 z-10 flex flex-col p-10 backdrop-brightness-[60%]">
             <Link
-              href={"/"}
+              href={`/?splashed=true&visited=true`}
               className="relative z-20 flex items-center text-3xl"
             >
               Agency<span className="text-brandLight">.io</span>&nbsp;

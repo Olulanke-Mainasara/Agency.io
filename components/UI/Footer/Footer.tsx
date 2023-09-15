@@ -100,7 +100,7 @@ const Footer = () => {
       <section className="flex flex-col">
         <div className="flex flex-col items-center gap-8 pb-8 lg:flex-row">
           <Link
-            href="/"
+            href={pathname === "/" ? "/" : `/?splashed=true&visited=true`}
             className={`hidden lg:flex items-center text-4xl xs:text-lg h-fit`}
           >
             Agency
@@ -132,7 +132,11 @@ const Footer = () => {
           </div>
 
           <Button className="hidden lg:block" variant={"plain"} size={"sm"}>
-            <Link href={"/contactUs"} prefetch={false}>
+            <Link
+              href={"/contactUs"}
+              prefetch={false}
+              className="w-full h-full"
+            >
               Contact Us
             </Link>
           </Button>

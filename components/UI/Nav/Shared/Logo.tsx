@@ -3,9 +3,12 @@ import Link from "next/link";
 import React from "react";
 import { FaPlane } from "react-icons/fa";
 
-const Logo = () => {
+const Logo = ({ pathname }: { pathname: string }) => {
   return (
-    <Link href="/" className={`flex items-center text-2xl`}>
+    <Link
+      href={pathname === "/" ? "/" : `/?splashed=true&visited=true`}
+      className={`flex items-center text-2xl`}
+    >
       Agency
       <span className="text-brandDark dark:text-brandLight">.io</span>
       &nbsp;

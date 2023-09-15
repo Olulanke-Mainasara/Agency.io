@@ -11,10 +11,16 @@ import { Notifications } from "../Shared/Notifications";
 import { ProfileOps } from "../Shared/Profile";
 import { DesktopNavLinks } from "./DesktopNavLinks";
 
-const DesktopNav = ({ user }: { user: User | null | undefined }) => {
+const DesktopNav = ({
+  pathname,
+  user,
+}: {
+  pathname: string;
+  user: User | null | undefined;
+}) => {
   return (
     <div className="items-center justify-between hidden h-full xl:flex">
-      <Logo />
+      <Logo pathname={pathname} />
 
       <DesktopNavLinks />
 
@@ -43,12 +49,16 @@ const DesktopNav = ({ user }: { user: User | null | undefined }) => {
                 </Link>
 
                 <Button className="gap-1 px-6 text-base" variant={"plain"}>
-                  <Link href={"/login"} prefetch={false}>
+                  <Link
+                    href={"/login"}
+                    prefetch={false}
+                    className="flex items-center justify-center gap-1"
+                  >
                     Log in
+                    <span className="dark:text-brandDark text-brandLight">
+                      <ArrowRight size={20} />
+                    </span>
                   </Link>
-                  <span className="dark:text-brandDark text-brandLight">
-                    <ArrowRight size={20} />
-                  </span>
                 </Button>
               </div>
             )}

@@ -31,8 +31,8 @@ const NotFound = () => {
           </p>
 
           <div className="flex items-center gap-6 md:gap-10 xs:gap-4">
-            <Button className="px-8 text-lg gap-1" variant={"plain"}>
-              <Link href={"/"} prefetch={false}>
+            <Button className="gap-1 px-8 text-lg" variant={"plain"}>
+              <Link href={`/?splashed=true&visited=true`} prefetch={false}>
                 Home
               </Link>
             </Button>
