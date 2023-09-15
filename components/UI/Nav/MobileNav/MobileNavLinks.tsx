@@ -7,7 +7,7 @@ const links = [
   {
     id: 1,
     label: "Home",
-    link: "/",
+    link: `/?splashed=true&visited=true`,
   },
   {
     id: 2,
@@ -35,20 +35,25 @@ const MobileNavLinks = () => {
   const pathname = usePathname();
 
   return (
-    <ul className="flex flex-col items-center gap-8">
-      {links.map((link) => (
-        <li key={link.id}>
-          <Link
-            href={link.link}
-            className={`${
-              pathname == link.link ? "text-brandDark dark:text-brandLight" : ""
-            }`}
-          >
-            {link.label}
-          </Link>
-        </li>
-      ))}
-    </ul>
+    <nav>
+      <ul className="flex flex-col items-center gap-8">
+        {links.map((link) => (
+          <li key={link.id}>
+            <Link
+              href={link.link}
+              className={`${
+                pathname == link.link
+                  ? "text-brandDark dark:text-brandLight"
+                  : ""
+              }`}
+              prefetch={false}
+            >
+              {link.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </nav>
   );
 };
 

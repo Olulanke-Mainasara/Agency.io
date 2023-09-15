@@ -52,7 +52,7 @@ export function SignupForm() {
 
       await sendEmailVerification(user);
 
-      router.push("/");
+      router.push(`/?splashed=true&visited=true`);
     } catch (error) {
       setIsLoading(false);
       setError(true);
@@ -115,7 +115,7 @@ export function SignupForm() {
   React.useEffect(() => {
     if (user) {
       setIsLoading(true);
-      router.push("/");
+      router.push(`/?splashed=true&visited=true`);
     }
   }, [router, user]);
 
@@ -190,7 +190,7 @@ export function SignupForm() {
 
           <Button disabled={isLoading || isGoogleLoading || isAppleLoading}>
             {isLoading && (
-              <Icons.spinner className="w-5 h-5 mr-2 animate-spin" />
+              <Icons.spinner className="w-5 h-5 animate-spin" />
             )}
 
             {error ? "Retry" : "Sign up"}

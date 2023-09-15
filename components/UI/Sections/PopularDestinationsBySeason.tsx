@@ -1,10 +1,10 @@
 import { locationsBySeason } from "@/static-data/images";
 import React from "react";
 
-import Carousel from "../Carousel/Carousel";
+import DefaultCarousel from "../Carousel/DefaultCarousel";
 
 const PopularDestinationsBySeason = () => {
-  return <Carousel items={locationsBySeason} extra />;
+  return <DefaultCarousel items={locationsBySeason} extra />;
 };
 
 export default PopularDestinationsBySeason;

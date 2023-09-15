@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 import { Icons } from "@/components/Icons";
 import { authContext } from "@/components/Providers/Providers";
@@ -29,6 +29,7 @@ export function LoginForm() {
   const [password, setPassword] = React.useState<string>("");
   const user = React.useContext(authContext);
   const router = useRouter();
+  const previous = useSearchParams().get("previous");
 
   async function onSubmit(event: React.SyntheticEvent) {
     event.preventDefault();
@@ -37,7 +38,9 @@ export function LoginForm() {
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      router.push("/");
+      previous === "profile"
+        ? router.push("/profile")
+        : router.push(`/?splashed=true&visited=true`);
     } catch (error) {
       setIsLoading(false);
       setError(true);
@@ -95,9 +98,11 @@ export function LoginForm() {
   React.useEffect(() => {
     if (user) {
       setIsLoading(true);
-      router.push("/");
+      previous === "profile"
+        ? router.push("/profile")
+        : router.push(`/?splashed=true&visited=true`);
     }
-  }, [router, user]);
+  }, [previous, router, user]);
 
   return (
     <div className="grid gap-6">
@@ -143,7 +148,7 @@ export function LoginForm() {
 
           <Button disabled={isLoading || isGoogleLoading || isAppleLoading}>
             {isLoading && (
-              <Icons.spinner className="w-5 h-5 mr-2 animate-spin" />
+              <Icons.spinner className="w-5 h-5 animate-spin" />
             )}
 
             {error ? "Retry" : "Login"}

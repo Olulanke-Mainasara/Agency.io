@@ -5,12 +5,12 @@ import { motion } from "framer-motion";
 import { Menu, ShoppingCart, X } from "lucide-react";
 import React from "react";
 
+import { MobileThemeToggler } from "../../Buttons/ThemeTogglers";
 import FBgLink from "../../Links/FBgLink";
 import NBgLink from "../../Links/NBgLink";
 import Logo from "../Shared/Logo";
 import { Notifications } from "../Shared/Notifications";
 import { ProfileOps } from "../Shared/Profile";
-import { MobileThemeToggler } from "../Shared/ThemeTogglers";
 import MobileNavLinks from "./MobileNavLinks";
 
 const MobileNav = ({
@@ -34,7 +34,7 @@ const MobileNav = ({
         </span>
       ) : null}
 
-      <Logo />
+      <Logo pathname={pathname} />
 
       {user ? (
         <span className="grid md:hidden place-items-center">
@@ -70,7 +70,7 @@ const MobileNav = ({
               </span>
             ) : null}
 
-            <Logo />
+            <Logo pathname={pathname} />
 
             {user ? (
               <span className="grid md:hidden place-items-center">

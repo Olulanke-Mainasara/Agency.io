@@ -22,6 +22,11 @@ import Reykjavik from "@/public/Destinations/Reykjavik.jpg";
 import Spain from "@/public/Destinations/Spain.webp";
 import Thailand from "@/public/Destinations/Thailand.webp";
 import Zermatt from "@/public/Destinations/Zermatt.webp";
+import Cabin from "@/public/Properties/Cabin.jpg";
+import Castle from "@/public/Properties/Castle.jpg";
+import Cottage from "@/public/Properties/Cottage.jpg";
+import Lodge from "@/public/Properties/Lodge.jpg";
+import Villa from "@/public/Properties/Villa.jpg";
 import React from "react";
 import {
   FaBicycle,
@@ -40,13 +45,14 @@ import Pic1 from "../public/CTA/Pic1.jpg";
 import Pic2 from "../public/CTA/Pic2.jpg";
 import Pic3 from "../public/CTA/Pic3.jpg";
 import Pic4 from "../public/CTA/Pic4.jpg";
-import Carousel1 from "../public/Carousel/Carousel1.webp";
-import Carousel2 from "../public/Carousel/Carousel2.webp";
-import Carousel3 from "../public/Carousel/Carousel3.webp";
-import Carousel4 from "../public/Carousel/Carousel4.webp";
-import Carousel5 from "../public/Carousel/Carousel5.webp";
-import Carousel6 from "../public/Carousel/Carousel6.webp";
-import Carousel7 from "../public/Carousel/Carousel7.webp";
+import Image1 from "../public/Carousel/Image1.webp";
+import Image2 from "../public/Carousel/Image2.webp";
+import Image3 from "../public/Carousel/Image3.webp";
+import Image4 from "../public/Carousel/Image4.webp";
+import Image5 from "../public/Carousel/Image5.webp";
+import Image6 from "../public/Carousel/Image6.webp";
+import Image7 from "../public/Carousel/Image7.webp";
+import Image8 from "../public/Carousel/Image8.jpg";
 import Bora from "../public/Destinations/Bora.webp";
 import Machu from "../public/Destinations/Machu.webp";
 import Maldives from "../public/Destinations/Maldives.webp";
@@ -402,14 +408,14 @@ export const images = [
   },
 ];
 
-export const carouselSections = [
+export const vacationCarousel = [
   {
     id: 1,
     mainText: "Indulge in Tranquil Spa Retreats",
     subText: "Revitalize Your Mind, Body, and Soul",
     description:
       "Escape to a world of serenity and relaxation with our rejuvenating spa retreats. Unwind amidst soothing ambiance, skilled therapists, and pampering treatments that will leave you feeling refreshed.",
-    imgsrc: Carousel1,
+    imgsrc: Image1,
   },
   {
     id: 2,
@@ -417,7 +423,7 @@ export const carouselSections = [
     subText: "Experience Unmatched Comfort and Adventure",
     description:
       "Embark on a journey of a lifetime aboard our exquisite cruise ships. Enjoy luxurious amenities, breathtaking views, and a wide range of activities for an unforgettable vacation.",
-    imgsrc: Carousel2,
+    imgsrc: Image2,
   },
   {
     id: 3,
@@ -425,7 +431,7 @@ export const carouselSections = [
     subText: "Soar Above the Clouds and Feel Alive",
     description:
       "Experience the ultimate adrenaline rush with our exhilarating skydiving adventures. Dive from high above, feel the rush of wind, and witness awe-inspiring views as you conquer the skies.",
-    imgsrc: Carousel3,
+    imgsrc: Image3,
   },
   {
     id: 4,
@@ -433,7 +439,7 @@ export const carouselSections = [
     subText: "Escape to Tranquility Under the Moonlight",
     description:
       "Immerse yourself in the enchanting beauty of our secluded beaches. Take romantic strolls along the shoreline, bask in the gentle ocean breeze, and witness the mesmerizing spectacle of the night sky.",
-    imgsrc: Carousel4,
+    imgsrc: Image4,
   },
   {
     id: 5,
@@ -441,7 +447,7 @@ export const carouselSections = [
     subText: "Reach New Heights, Unleash Your Adventure",
     description:
       "Embark on a thrilling mountain climbing expedition and conquer majestic peaks. Push your limits, revel in breathtaking vistas, and savor the sense of achievement at the pinnacle of the world.",
-    imgsrc: Carousel5,
+    imgsrc: Image5,
   },
   {
     id: 6,
@@ -449,7 +455,7 @@ export const carouselSections = [
     subText: "Immerse Yourself in Nature's Wonders",
     description:
       "Explore the extraordinary realm of wildlife through an immersive expedition that transports you to nature's wonders. Witness majestic creatures thriving in their natural habitats, from graceful big cats to and elusive marine life.",
-    imgsrc: Carousel6,
+    imgsrc: Image6,
   },
   {
     id: 7,
@@ -457,6 +463,57 @@ export const carouselSections = [
     subText: "Uncover the Pulse of Vibrant Cities",
     description:
       "Indulge in a captivating city escape and immerse yourself in the vibrant energy of bustling metropolises. Wander through historic streets, marvel at iconic landmarks, and discover hidden gems nestled amidst urban landscapes.",
-    imgsrc: Carousel7,
+    imgsrc: Image7,
+  },
+  {
+    id: 8,
+    mainText: "Fine Dining Extravaganza",
+    subText: "Savor Culinary Excellence",
+    description:
+      "Elevate your taste buds with an exquisite fine dining experience. Delight in a gourmet journey of flavors, artfully crafted dishes, and impeccable service that will leave you with unforgettable culinary memories.",
+    imgsrc: Image8,
+  },
+];
+
+export const propertyCarousel = [
+  {
+    id: 1,
+    mainText: "Seaside Cottage Retreat",
+    subText: "France, Normandy",
+    description:
+      "Discover the charm of Normandy in this seaside cottage retreat. Wake up to the sound of waves, explore picturesque coastal towns, and savor fresh seafood. The perfect escape for beach lovers.",
+    imgsrc: Cottage,
+  },
+  {
+    id: 2,
+    mainText: "Luxury Oasis Villa",
+    subText: "Germany, Neuruppin",
+    description:
+      "Escape to this exclusive oasis in Neuruppin, Germany. Experience serenity and relaxation in a luxurious villa surrounded by beautiful landscapes. Unwind in a private spa, enjoy gourmet dining, and create unforgettable memories.",
+    imgsrc: Villa,
+  },
+  {
+    id: 3,
+    mainText: "Mountain View Cabin",
+    subText: "Canada, Banff",
+    description:
+      "Embrace nature in a cozy mountain view cabin in Banff, Canada. Hike through breathtaking trails, stargaze from your private deck, and experience the beauty of the Canadian Rockies.",
+    imgsrc: Cabin,
+  },
+  {
+    id: 4,
+    mainText: "Riverside Lodge",
+    subText: "USA, Montana",
+    description:
+      "Unwind in a rustic yet elegant riverside lodge in Montana, USA. Fly fish in pristine waters, go horseback riding through scenic landscapes, and enjoy evenings by the campfire.",
+    imgsrc: Lodge,
+  },
+  {
+    id: 5,
+    mainText: "Historic Castle Stay",
+    subText: "Scotland, Edinburgh",
+    description:
+      "Step back in time with a stay in a historic castle in Edinburgh, Scotland. Explore ancient corridors, enjoy traditional Scottish feasts, and experience the grandeur of a bygone era.",
+    imgsrc: Castle,
   },
 ];

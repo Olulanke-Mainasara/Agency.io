@@ -2,13 +2,14 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
+import { MobileThemeToggler } from "@/components/UI/Buttons/ThemeTogglers";
 import BackLink from "@/components/UI/Links/BackLink";
-import { MobileThemeToggler } from "@/components/UI/Nav/Shared/ThemeTogglers";
 import { Button } from "@/components/UI/ShadUI/button";
 import FemaleTourist from "@/public/Auth/femaleTourist.webp";
 import { FaPlane } from "react-icons/fa";
 
 import { LoginForm } from "./LoginForm";
+import React from "react";
 
 export const metadata: Metadata = {
   title: "Agency.io | Login",
@@ -22,7 +23,7 @@ export default function Page() {
         <div className="relative hidden h-full text-white lg:block">
           <div className="absolute inset-0 z-10 flex flex-col p-10 backdrop-brightness-[60%]">
             <Link
-              href={"/"}
+              href={`/?splashed=true&visited=true`}
               className="relative z-20 flex items-center text-3xl"
             >
               Agency<span className="text-brandLight">.io</span>&nbsp;
@@ -53,7 +54,7 @@ export default function Page() {
           </div>
         </div>
 
-        <div className="relative w-full h-full px-6 grid place-items-center">
+        <div className="relative grid w-full h-full px-6 place-items-center">
           <div className="absolute flex items-center justify-between w-full px-4 top-4 md:top-8 lg:px-8">
             <BackLink />
 
@@ -70,7 +71,7 @@ export default function Page() {
 
           <div className="lg:p-8">
             <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[400px]">
-              <div className="flex flex-col text-center space-y-2">
+              <div className="flex flex-col space-y-2 text-center">
                 <h1 className="text-2xl tracking-tight sm:text-4xl">
                   Welcome back!
                 </h1>
@@ -78,8 +79,10 @@ export default function Page() {
                   Enter your details below to continue your journey
                 </p>
               </div>
-
-              <LoginForm />
+              
+              <React.Suspense fallback={<></>}>
+                <LoginForm />
+              </React.Suspense>
             </div>
           </div>
         </div>

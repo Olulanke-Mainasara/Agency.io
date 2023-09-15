@@ -1,3 +1,5 @@
+"use client";
+
 import dynamic from "next/dynamic";
 import Image from "next/image";
 
@@ -47,10 +49,10 @@ const Search = () => {
         </div>
       </div>
       <div className="flex flex-col w-full gap-8 pt-14 md:pt-28 md:items-center xl:pt-0 xl:items-start xl:justify-center xl:basis-1/2">
-        <div className="flex max-w-3xl overflow-scroll gap-5 md:justify-center xl:justify-start dark:text-white md:flex-wrap activities">
+        <div className="flex max-w-3xl gap-5 overflow-scroll md:justify-center xl:justify-start dark:text-white md:flex-wrap activities">
           <Button
             variant={"outline"}
-            className="px-6 py-2 text-white bg-black border-black dark:bg-white dark:text-black dark:border-white"
+            className="px-6 py-2 text-white border-black bg-background dark:bg-white dark:text-black dark:border-white"
           >
             All
           </Button>
@@ -92,7 +94,7 @@ const Search = () => {
               size={"sm"}
               className={`${
                 plan === button.plan
-                  ? "bg-black text-white dark:bg-white dark:text-black border-black dark:border-white"
+                  ? "bg-background text-white dark:bg-white dark:text-black border-black dark:border-white"
                   : button.plan === "generate" && user === undefined
                   ? "bg-gray-400 text-gray-400 dark:bg-gray-400 dark:text-gray-400 animate-pulse border-white dark:border-black skeleton"
                   : ""

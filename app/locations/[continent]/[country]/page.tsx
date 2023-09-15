@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 
-import Footer from "@/components/UI/Footer/Footer";
 import {
   africa,
   asia,
@@ -13,6 +12,8 @@ import {
 export function generateStaticParams() {
   return [];
 }
+
+export const runtime = "edge";
 
 export default function Page({
   params: { continent, country },
@@ -63,7 +64,6 @@ export default function Page({
         </h1>
         <div className="min-h-screen border border-black dark:border-white dark:text-white grow rounded-xl"></div>
       </div>
-      <Footer />
     </>
   );
 }

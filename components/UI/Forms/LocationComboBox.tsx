@@ -35,7 +35,7 @@ export function LocationComboBox({
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="justify-between w-full px-3 font-normal bg-transparent border-black duration-300 h-14 md:h-16 md:text-lg rounded-xl basis-1/2 dark:bg-transparent dark:hover:bg-white dark:hover:text-black dark:text-white dark:border-white"
+          className="justify-between w-full px-3 font-normal duration-300 bg-transparent border-black grow h-14 md:h-16 md:text-lg rounded-xl basis-1/2 dark:bg-transparent dark:hover:bg-white dark:hover:text-black max-w-[450px] dark:text-white dark:border-white"
         >
           <div className="flex items-center w-full gap-2">
             <Map />

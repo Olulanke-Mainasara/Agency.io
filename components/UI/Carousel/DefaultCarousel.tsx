@@ -9,7 +9,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import LeftArrow from "./LeftArrow";
 import RightArrow from "./RightArrow";
 
-const Carousel = ({
+const DefaultCarousel = ({
   items,
   extra,
 }: {
@@ -55,7 +55,7 @@ const Carousel = ({
         return (
           <SwiperSlide
             key={item.id}
-            className="relative flex flex-col overflow-hidden border-white gap-5 rounded-xl"
+            className="relative flex flex-col gap-5 overflow-hidden border-white rounded-xl"
           >
             <div className="h-[300px] bg-white">
               <Image
@@ -80,4 +80,4 @@ const Carousel = ({
   );
 };
 
-export default Carousel;
+export default DefaultCarousel;

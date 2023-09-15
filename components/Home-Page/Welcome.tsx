@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 
 import About1 from "@/public/Main/About1.webp";
