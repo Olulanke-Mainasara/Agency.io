@@ -13,6 +13,8 @@ export function generateStaticParams() {
   return [];
 }
 
+export const runtime = "edge";
+
 export default function Page({
   params: { continent, country },
 }: {
@@ -62,6 +64,6 @@ export default function Page({
         </h1>
         <div className="min-h-screen border border-black dark:border-white dark:text-white grow rounded-xl"></div>
       </div>
-     </>
+    </>
   );
 }
