@@ -30,11 +30,11 @@ const AltAuthLinks = ({
       </div>
       <div className="flex justify-center gap-2">
         <Button
-          variant="outline"
+          variant="plain"
           type="button"
           disabled={isLoading || isGoogleLoading || isAppleLoading}
           onClick={() => handleGoogleSignIn()}
-          className="w-full text-black border border-black dark:text-black dark:border-white dark:bg-white"
+          className="w-full text-md"
         >
           {isGoogleLoading ? (
             <Icons.spinner className="w-5 h-5 animate-spin" />
@@ -45,11 +45,11 @@ const AltAuthLinks = ({
         </Button>
 
         <Button
-          variant="outline"
+          variant="plain"
           type="button"
           disabled={isLoading || isGoogleLoading || isAppleLoading}
           onClick={() => handleAppleSignIn()}
-          className="w-full text-black border border-black dark:border-white dark:bg-white dark:text-black"
+          className="w-full text-md"
         >
           {isAppleLoading ? (
             <Icons.spinner className="w-5 h-5 animate-spin" />

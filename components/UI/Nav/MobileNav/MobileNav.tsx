@@ -29,7 +29,7 @@ const MobileNav = ({
   return (
     <div className="flex items-center justify-between h-full xl:hidden">
       {user ? (
-        <span className="flex items-center md:hidden">
+        <span className="flex items-center xl:hidden">
           <ProfileOps />
         </span>
       ) : null}
@@ -37,7 +37,7 @@ const MobileNav = ({
       <Logo pathname={pathname} />
 
       {user ? (
-        <span className="grid md:hidden place-items-center">
+        <span className="grid xl:hidden place-items-center">
           <Notifications size={24} />
         </span>
       ) : null}
@@ -65,7 +65,7 @@ const MobileNav = ({
             }`}
           >
             {user ? (
-              <span className="flex items-center md:hidden">
+              <span className="flex items-center xl:hidden">
                 <ProfileOps />
               </span>
             ) : null}
@@ -73,7 +73,7 @@ const MobileNav = ({
             <Logo pathname={pathname} />
 
             {user ? (
-              <span className="grid md:hidden place-items-center">
+              <span className="grid xl:hidden place-items-center">
                 <Link href={"#"}>
                   <ShoppingCart />
                 </Link>
@@ -94,7 +94,9 @@ const MobileNav = ({
           <div className="flex items-center gap-2 xs:flex-col xs:w-full xs:gap-5">
             <FBgLink />
 
-            {!user ? <NBgLink prompt="Log in" href="/login" /> : null}
+            {!user ? (
+              <NBgLink prompt="Log in" href={`/login?previous=${pathname}`} />
+            ) : null}
           </div>
 
           <MobileThemeToggler

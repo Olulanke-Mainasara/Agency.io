@@ -18,7 +18,7 @@ export function Notifications({ size }: { size: number }) {
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
         {notifications.length > 0 ? (
-          <span className="relative text-black">
+          <span className="relative text-black max-w-[24px]">
             <span className="absolute top-0 flex w-2 h-2 -mt-1 -mr-1 right-1">
               <span className="absolute inline-flex w-full h-full rounded-full opacity-75 animate-ping bg-sky-400"></span>
               <span className="relative inline-flex w-2 h-2 rounded-full bg-sky-500"></span>

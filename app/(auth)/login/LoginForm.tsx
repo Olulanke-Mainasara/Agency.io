@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 import { Icons } from "@/components/Icons";
 import { authContext } from "@/components/Providers/Providers";
@@ -17,7 +17,7 @@ import {
 } from "firebase/auth";
 import React from "react";
 
-export function LoginForm() {
+export function LoginForm({ previous }: { previous: string }) {
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [isGoogleLoading, setIsGoogleLoading] = React.useState<boolean>(false);
   const [isAppleLoading, setIsAppleLoading] = React.useState<boolean>(false);
@@ -29,7 +29,6 @@ export function LoginForm() {
   const [password, setPassword] = React.useState<string>("");
   const user = React.useContext(authContext);
   const router = useRouter();
-  const previous = useSearchParams().get("previous");
 
   async function onSubmit(event: React.SyntheticEvent) {
     event.preventDefault();
@@ -38,9 +37,6 @@ export function LoginForm() {
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      previous === "profile"
-        ? router.push("/profile")
-        : router.push(`/?splashed=true&visited=true`);
     } catch (error) {
       setIsLoading(false);
       setError(true);
@@ -98,9 +94,9 @@ export function LoginForm() {
   React.useEffect(() => {
     if (user) {
       setIsLoading(true);
-      previous === "profile"
-        ? router.push("/profile")
-        : router.push(`/?splashed=true&visited=true`);
+      previous === "/" || !previous
+        ? router.push(`/?splashed=true`)
+        : router.push(previous);
     }
   }, [previous, router, user]);
 
@@ -127,7 +123,7 @@ export function LoginForm() {
             <Label htmlFor="password" className="flex justify-between">
               Password
               <Link
-                href={"/recover"}
+                href={`/recover?previous=${previous}`}
                 className="text-center underline transition-opacity hover:opacity-70"
               >
                 Forgot Password?
@@ -147,9 +143,7 @@ export function LoginForm() {
           </div>
 
           <Button disabled={isLoading || isGoogleLoading || isAppleLoading}>
-            {isLoading && (
-              <Icons.spinner className="w-5 h-5 animate-spin" />
-            )}
+            {isLoading && <Icons.spinner className="w-5 h-5 animate-spin" />}
 
             {error ? "Retry" : "Login"}
           </Button>

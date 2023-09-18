@@ -7,7 +7,7 @@ const links = [
   {
     id: 1,
     label: "Home",
-    link: `/?splashed=true&visited=true`,
+    link: `/?splashed=true`,
   },
   {
     id: 2,

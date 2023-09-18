@@ -16,7 +16,7 @@ const PopularDestinations = () => {
 
   return (
     <section className="flex flex-col gap-8 xl:py-8">
-      <div className="flex flex-col gap-8 px-6 xl:px-8 lg:gap-4 lg:flex-row">
+      <div className="flex flex-col px-6 gap-8 xl:px-8 lg:gap-4 lg:flex-row">
         <h1 className="text-4xl md:text-5xl">
           Popular{" "}
           <span className="text-brandDark dark:text-brandLight">

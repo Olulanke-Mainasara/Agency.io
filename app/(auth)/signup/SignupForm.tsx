@@ -18,7 +18,7 @@ import {
 } from "firebase/auth";
 import React from "react";
 
-export function SignupForm() {
+export function SignupForm({ previous }: { previous: string }) {
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [isGoogleLoading, setIsGoogleLoading] = React.useState<boolean>(false);
   const [isAppleLoading, setIsAppleLoading] = React.useState<boolean>(false);
@@ -51,8 +51,6 @@ export function SignupForm() {
       });
 
       await sendEmailVerification(user);
-
-      router.push(`/?splashed=true&visited=true`);
     } catch (error) {
       setIsLoading(false);
       setError(true);
@@ -115,9 +113,11 @@ export function SignupForm() {
   React.useEffect(() => {
     if (user) {
       setIsLoading(true);
-      router.push(`/?splashed=true&visited=true`);
+      previous === "/" || !previous
+        ? router.push(`/?splashed=true`)
+        : router.push(previous);
     }
-  }, [router, user]);
+  }, [previous, router, user]);
 
   return (
     <div className="grid gap-6">
@@ -189,9 +189,7 @@ export function SignupForm() {
           </div>
 
           <Button disabled={isLoading || isGoogleLoading || isAppleLoading}>
-            {isLoading && (
-              <Icons.spinner className="w-5 h-5 animate-spin" />
-            )}
+            {isLoading && <Icons.spinner className="w-5 h-5 animate-spin" />}
 
             {error ? "Retry" : "Sign up"}
           </Button>

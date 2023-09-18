@@ -55,7 +55,7 @@ const DefaultCarousel = ({
         return (
           <SwiperSlide
             key={item.id}
-            className="relative flex flex-col gap-5 overflow-hidden border-white rounded-xl"
+            className="relative flex flex-col overflow-hidden border-white gap-5 rounded-xl"
           >
             <div className="h-[300px] bg-white">
               <Image

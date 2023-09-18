@@ -12,17 +12,22 @@ import { SignupForm } from "./SignupForm";
 
 export const metadata: Metadata = {
   title: "Agency.io | Sign up",
-  description: "Authentication forms built using the components.",
+  description:
+    "Start your adventure. Enter your details to embark on an unforgettable journey.",
 };
 
-export default function Page() {
+export const runtime = "edge";
+
+export default function Page({ searchParams }: { searchParams: any }) {
+  const previous = searchParams.previous;
+
   return (
     <>
       <div className="flex flex-col items-center justify-center h-screen lg:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
         <div className="relative hidden h-full text-white lg:block">
           <div className="absolute inset-0 z-10 flex flex-col p-10 backdrop-brightness-[60%]">
             <Link
-              href={`/?splashed=true&visited=true`}
+              href={`/?splashed=true`}
               className="relative z-20 flex items-center text-3xl"
             >
               Agency<span className="text-brandLight">.io</span>&nbsp;
@@ -65,7 +70,9 @@ export default function Page() {
             />
 
             <Button className="rounded-full">
-              <Link href="/login">Log in</Link>
+              <Link href={`/login${previous ? `?previous=${previous}` : ""}`}>
+                Log in
+              </Link>
             </Button>
           </div>
 
@@ -80,7 +87,7 @@ export default function Page() {
                 </p>
               </div>
 
-              <SignupForm />
+              <SignupForm previous={previous} />
 
               <p className="px-8 text-sm text-center text-muted-foreground">
                 By clicking Sign up, you agree to our{" "}
