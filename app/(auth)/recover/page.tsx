@@ -11,18 +11,22 @@ import { FaPlane } from "react-icons/fa";
 import { RecoverForm } from "./RecoverForm";
 
 export const metadata: Metadata = {
-  title: "Authentication",
-  description: "Authentication forms built using the components.",
+  title: "Agency.io | Forgot Password",
+  description: "Let's help you get it.",
 };
 
-export default function Page() {
+export const runtime = "edge";
+
+export default function Page({ searchParams }: { searchParams: any }) {
+  const previous = searchParams.previous;
+
   return (
     <>
       <div className="flex flex-col items-center justify-center h-screen lg:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
         <div className="relative hidden h-full text-white lg:block">
           <div className="absolute inset-0 z-10 flex flex-col p-10 backdrop-brightness-[60%]">
             <Link
-              href={`/?splashed=true&visited=true`}
+              href={`/?splashed=true`}
               className="relative z-20 flex items-center text-3xl"
             >
               Agency<span className="text-brandLight">.io</span>&nbsp;
@@ -63,7 +67,9 @@ export default function Page() {
             />
 
             <Button className="rounded-full">
-              <Link href="/login">Log in</Link>
+              <Link href={`/login${previous ? `?previous=${previous}` : ""}`}>
+                Log in
+              </Link>
             </Button>
           </div>
 
@@ -71,11 +77,11 @@ export default function Page() {
             <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[400px]">
               <div className="flex justify-center text-center">
                 <h1 className="text-2xl tracking-tight sm:text-4xl">
-                  Password Reset
+                  Let&apos;s help you get it
                 </h1>
               </div>
 
-              <RecoverForm />
+              <RecoverForm previous={previous} />
             </div>
           </div>
         </div>

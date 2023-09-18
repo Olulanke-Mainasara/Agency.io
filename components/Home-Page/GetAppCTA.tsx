@@ -25,7 +25,7 @@ const GetAppCTA = () => {
   }, []);
 
   return (
-    <section className="flex flex-col items-center justify-between overflow-hidden xl:h-[95dvh] xl:max-h-[900px] xl:flex-row xl:p-8">
+    <section className="flex flex-col items-center justify-between overflow-hidden xl:h-[95dvh] xl:max-h-[800px] xl:flex-row xl:p-8">
       <div className="items-center justify-center hidden w-full h-full xl:flex basis-2/5">
         <div className="relative w-full max-w-[350px] overflow-hidden rounded-[55px] h-full">
           {mounted && (
@@ -45,7 +45,7 @@ const GetAppCTA = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         onAnimationComplete={() => setHasViewed(true)}
-        className="flex flex-col items-center justify-center gap-6 text-center text-black xl:grow dark:text-white"
+        className="flex flex-col items-center justify-center text-center text-black gap-6 xl:grow dark:text-white"
       >
         <h1 className="max-w-3xl text-5xl md:text-[90px] text-brandDark dark:text-brandLight text-center">
           A new adventure, on the go!
@@ -72,7 +72,7 @@ const GetAppCTA = () => {
         </div>
       </motion.div>
 
-      <div className="flex md:w-full justify-evenly h-[95dvh] max-h-[700px] xl:hidden">
+      <div className="flex md:w-full justify-evenly h-[750px] xl:hidden">
         <div className="relative w-[350px] md:w-full max-w-[350px] overflow-hidden rounded-[55px] h-full">
           {mounted && (
             <Image

@@ -6,7 +6,7 @@ import { Input } from "@/components/UI/ShadUI/input";
 import { Label } from "@/components/UI/ShadUI/label";
 import React from "react";
 
-export function RecoverForm() {
+export function RecoverForm({ previous }: { previous: string }) {
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
 
   async function onSubmit(event: React.SyntheticEvent) {
@@ -36,9 +36,7 @@ export function RecoverForm() {
           </div>
 
           <Button disabled={isLoading}>
-            {isLoading && (
-              <Icons.spinner className="w-5 h-5 animate-spin" />
-            )}
+            {isLoading && <Icons.spinner className="w-5 h-5 animate-spin" />}
             Reset
           </Button>
         </div>

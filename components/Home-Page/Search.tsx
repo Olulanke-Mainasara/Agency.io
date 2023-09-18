@@ -49,7 +49,7 @@ const Search = () => {
         </div>
       </div>
       <div className="flex flex-col w-full gap-8 pt-14 md:pt-28 md:items-center xl:pt-0 xl:items-start xl:justify-center xl:basis-1/2">
-        <div className="flex max-w-3xl gap-5 overflow-scroll md:justify-center xl:justify-start dark:text-white md:flex-wrap activities">
+        <div className="flex max-w-3xl overflow-scroll gap-5 md:justify-center xl:justify-start dark:text-white md:flex-wrap activities">
           <Button
             variant={"outline"}
             className="px-6 py-2 text-white border-black bg-background dark:bg-white dark:text-black dark:border-white"

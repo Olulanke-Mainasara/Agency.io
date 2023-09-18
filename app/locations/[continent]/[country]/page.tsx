@@ -9,10 +9,6 @@ import {
   southAmerica,
 } from "@/static-data/continents";
 
-export function generateStaticParams() {
-  return [];
-}
-
 export const runtime = "edge";
 
 export default function Page({
@@ -52,7 +48,6 @@ export default function Page({
   );
 
   if (existingCountry === undefined) {
-    console.log(existingCountry, country);
     notFound();
   }
 

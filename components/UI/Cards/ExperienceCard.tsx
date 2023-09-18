@@ -33,14 +33,14 @@ const ExperienceCard = ({
         },
       }}
       onAnimationComplete={() => setHasViewed(true)}
-      className="w-full h-full p-6 duration-300 border border-black dark:border-white hover:border-brandLight dark:hover:border-brandLight rounded-xl"
+      className="w-full h-full p-6 border border-black duration-300 dark:border-white hover:border-brandLight dark:hover:border-brandLight rounded-xl"
     >
       <Link
         href={`/experience/${experience.experience}`}
         prefetch={false}
         className="w-full h-full space-y-5"
       >
-        <div className="flex items-center gap-2 text-2xl">
+        <div className="flex items-center text-2xl gap-2">
           <span className="text-brandDark dark:text-brandLight">
             {experience.icon}
           </span>

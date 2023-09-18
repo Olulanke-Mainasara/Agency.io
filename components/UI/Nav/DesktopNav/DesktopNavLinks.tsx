@@ -26,7 +26,7 @@ export function DesktopNavLinks() {
       <NavigationMenuList>
         <NavigationMenuItem>
           <Link
-            href={`/?splashed=true&visited=true`}
+            href={`/?splashed=true`}
             className={
               navigationMenuTriggerStyle() +
               `${pathname == "/" ? " text-brandDark dark:text-brandLight" : ""}`

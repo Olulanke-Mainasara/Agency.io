@@ -6,7 +6,7 @@ import { FaPlane } from "react-icons/fa";
 const Logo = ({ pathname }: { pathname: string }) => {
   return (
     <Link
-      href={pathname === "/" ? "/" : `/?splashed=true&visited=true`}
+      href={pathname === "/" ? "/" : `/?splashed=true`}
       className={`flex items-center text-2xl`}
     >
       Agency

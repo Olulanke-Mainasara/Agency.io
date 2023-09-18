@@ -53,13 +53,12 @@ const Footer = () => {
         pathname === "/" ? { display: "block", transition: { delay: 2.8 } } : {}
       }
       className={`mt-40 px-6 xl:px-8 space-y-8 ${
-        pathname === "/login"
-          ? "hidden"
-          : pathname === "/signup"
-          ? "hidden"
-          : pathname === "/recover"
-          ? "hidden"
-          : pathname === "/"
+        pathname === "/login" ||
+        pathname === "/signup" ||
+        pathname === "/recover" ||
+        pathname === "/" ||
+        pathname === "/studio" ||
+        pathname.startsWith("/studio/")
           ? "hidden"
           : ""
       }`}
@@ -98,9 +97,9 @@ const Footer = () => {
       </section>
 
       <section className="flex flex-col">
-        <div className="flex flex-col items-center gap-8 pb-8 lg:flex-row">
+        <div className="flex flex-col items-center pb-8 gap-8 lg:flex-row">
           <Link
-            href={pathname === "/" ? "/" : `/?splashed=true&visited=true`}
+            href={pathname === "/" ? "/" : `/?splashed=true`}
             className={`hidden lg:flex items-center text-4xl xs:text-lg h-fit`}
           >
             Agency
@@ -142,7 +141,7 @@ const Footer = () => {
           </Button>
         </div>
 
-        <section className="flex flex-col-reverse items-center justify-between gap-6 py-8 text-sm text-center border-t border-black md:flex-row dark:border-white md:gap-0">
+        <section className="flex flex-col-reverse items-center justify-between py-8 text-sm text-center border-t border-black gap-6 md:flex-row dark:border-white md:gap-0">
           <p>
             © 2023 Agency
             <span className="text-brandDark dark:text-brandLight">

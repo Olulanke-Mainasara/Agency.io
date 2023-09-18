@@ -19,13 +19,12 @@ const Nav = () => {
         pathname === "/" ? { display: "block", transition: { delay: 0.1 } } : {}
       }
       className={`fixed top-0 left-0 z-30 h-16 lg:h-20 w-screen text-black bg-white dark:text-white dark:bg-background ${
-        pathname === "/login"
-          ? "hidden"
-          : pathname === "/signup"
-          ? "hidden"
-          : pathname === "/recover"
-          ? "hidden"
-          : pathname === "/"
+        pathname === "/login" ||
+        pathname === "/signup" ||
+        pathname === "/recover" ||
+        pathname === "/" ||
+        pathname === "/studio" ||
+        pathname.startsWith("/studio/")
           ? "hidden"
           : ""
       } px-4 lg:px-8`}

@@ -42,16 +42,15 @@ const DesktopNav = ({
             ) : (
               <div className="flex items-center gap-6">
                 <Link
-                  href={"/signup"}
+                  href={`/signup?previous=${pathname}`}
                   className="duration-300 dark:text-white w-fit xl:flex hover:text-brandDark dark:hover:text-brandLight"
                 >
                   Signup
                 </Link>
 
-                <Button className="gap-1 px-6 text-base" variant={"plain"}>
+                <Button className="px-6 text-base gap-1" variant={"plain"}>
                   <Link
-                    href={"/login"}
-                    prefetch={false}
+                    href={`/login?previous=${pathname}`}
                     className="flex items-center justify-center gap-1"
                   >
                     Log in
