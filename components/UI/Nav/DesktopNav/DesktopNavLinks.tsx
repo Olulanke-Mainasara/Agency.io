@@ -13,7 +13,7 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/UI/ShadUI/navigation-menu";
 import { cn } from "@/lib/utils";
-import { experiences } from "@/static-data/images";
+import { staticExperiencesData } from "@/static-data/images";
 import { company, locations, utils } from "@/static-data/navigation";
 import React from "react";
 
@@ -37,30 +37,24 @@ export function DesktopNavLinks() {
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>
-            <Link
-              href="/experiences"
-              className={
-                navigationMenuTriggerStyle() +
-                `${
-                  pathname == "/experiences"
-                    ? " text-brandDark dark:text-brandLight"
-                    : ""
-                }`
-              }
-              legacyBehavior
-              prefetch={false}
-            >
+          <NavigationMenuTrigger
+            className={
+              pathname == "/experiences"
+                ? " text-brandDark dark:text-brandLight"
+                : ""
+            }
+          >
+            <Link href="/experiences" prefetch={false}>
               Experiences
             </Link>
           </NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-full gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-              {experiences.slice(0, 5).map((section) => (
+              {staticExperiencesData.slice(0, 5).map((section) => (
                 <ListItem
-                  key={section.id}
-                  title={section.experience}
-                  href={`/experiences/${section.experience}`}
+                  key={section._id}
+                  title={section.name}
+                  href={`/experiences/${section.name}`}
                 >
                   {section.description}
                 </ListItem>
@@ -72,20 +66,14 @@ export function DesktopNavLinks() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>
-            <Link
-              href="/locations"
-              className={
-                navigationMenuTriggerStyle() +
-                `${
-                  pathname == "/locations"
-                    ? " text-brandDark dark:text-brandLight"
-                    : ""
-                }`
-              }
-              legacyBehavior
-              prefetch={false}
-            >
+          <NavigationMenuTrigger
+            className={
+              pathname == "/locations"
+                ? " text-brandDark dark:text-brandLight"
+                : ""
+            }
+          >
+            <Link href="/locations" prefetch={false}>
               Locations
             </Link>
           </NavigationMenuTrigger>
@@ -104,20 +92,14 @@ export function DesktopNavLinks() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>
-            <Link
-              href="/utilities"
-              className={
-                navigationMenuTriggerStyle() +
-                `${
-                  pathname == "/utilities"
-                    ? " text-brandDark dark:text-brandLight"
-                    : ""
-                }`
-              }
-              legacyBehavior
-              prefetch={false}
-            >
+          <NavigationMenuTrigger
+            className={
+              pathname == "/utilities"
+                ? " text-brandDark dark:text-brandLight"
+                : ""
+            }
+          >
+            <Link href="/utilities" prefetch={false}>
               Utilities
             </Link>
           </NavigationMenuTrigger>
@@ -132,20 +114,14 @@ export function DesktopNavLinks() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>
-            <Link
-              href="/company"
-              className={
-                navigationMenuTriggerStyle() +
-                `${
-                  pathname == "/company"
-                    ? " text-brandDark dark:text-brandLight"
-                    : ""
-                }`
-              }
-              legacyBehavior
-              prefetch={false}
-            >
+          <NavigationMenuTrigger
+            className={
+              pathname == "/company"
+                ? " text-brandDark dark:text-brandLight"
+                : ""
+            }
+          >
+            <Link href="/company" prefetch={false}>
               Company
             </Link>
           </NavigationMenuTrigger>

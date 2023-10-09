@@ -36,7 +36,7 @@ const ExploreTheWorldForm = () => {
       >
         {isLoading && <Icons.spinner className="w-5 h-5 mr-2 animate-spin" />}
 
-        {error ? "Retry" : "Explore"}
+        {error ? "Retry" : "Search"}
       </Button>
 
       {error && <div className="text-center">{errorMessage}</div>}

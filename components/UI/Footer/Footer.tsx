@@ -35,7 +35,7 @@ const footerData = [
     id: 3,
     category: "Connect",
     links: [
-      { text: "About Us", url: "/aboutUs" },
+      { text: "About Us", url: "/aboutus" },
       { text: "FAQ", url: "/faq" },
       { text: "Privacy Policy", url: "/privacy" },
       { text: "Terms and Conditions", url: "/terms" },
@@ -50,17 +50,18 @@ const Footer = () => {
   return (
     <motion.footer
       animate={
-        pathname === "/" ? { display: "block", transition: { delay: 2.8 } } : {}
+        pathname === "/"
+          ? { display: "block", transition: { delay: 2.8 } }
+          : pathname === "/login" ||
+            pathname === "/signup" ||
+            pathname === "/recover" ||
+            pathname === "/studio" ||
+            pathname.startsWith("/studio/")
+          ? { display: "none" }
+          : { display: "block" }
       }
       className={`mt-40 px-6 xl:px-8 space-y-8 ${
-        pathname === "/login" ||
-        pathname === "/signup" ||
-        pathname === "/recover" ||
-        pathname === "/" ||
-        pathname === "/studio" ||
-        pathname.startsWith("/studio/")
-          ? "hidden"
-          : ""
+        pathname === "/" ? "hidden" : ""
       }`}
     >
       <section className="max-w-[1440px] mx-auto overflow-hidden">

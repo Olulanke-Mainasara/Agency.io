@@ -154,84 +154,96 @@ export const locationsBySeason = [
   },
 ];
 
-export const experiences = [
+export const staticExperiencesData = [
   {
-    id: 1,
-    experience: "food",
+    _id: 1,
+    name: "food",
+    slug: "food",
     description:
       "Explore local cuisines and indulge in delightful culinary experiences",
     icon: <FaUtensils />,
   },
   {
-    id: 2,
-    experience: "climbing",
+    _id: 2,
+    name: "climbing",
+    slug: "climbing",
     description: "Challenge yourself and conquer breathtaking heights",
     icon: <FaMountain />,
   },
   {
-    id: 3,
-    experience: "skydiving",
+    _id: 3,
+    name: "skydiving",
+    slug: "skydiving",
     description: "Experience the thrill of freefall and soar through the skies",
     icon: <FaPlane />,
   },
   {
-    id: 4,
-    experience: "cycling",
+    _id: 4,
+    name: "cycling",
+    slug: "cycling",
     description:
       "Pedal your way through scenic routes and discover new destinations",
     icon: <FaBicycle />,
   },
   {
-    id: 5,
-    experience: "photography",
+    _id: 5,
+    name: "photography",
+    slug: "photography",
     description: "Capture unforgettable moments and express your creativity",
     icon: <FaCamera />,
   },
   {
-    id: 6,
-    experience: "hiking",
+    _id: 6,
+    name: "hiking",
+    slug: "hiking",
     description:
       "Embark on trails and immerse yourself in the beauty of nature",
     icon: <FaHiking />,
   },
   {
-    id: 7,
-    experience: "shopping",
+    _id: 7,
+    name: "shopping",
+    slug: "shopping",
     description:
       "Indulge in retail therapy and explore vibrant markets and shops",
     icon: <FaShoppingBag />,
   },
   {
-    id: 8,
-    experience: "theater",
+    _id: 8,
+    name: "theater",
+    slug: "theater",
     description:
       "Immerse yourself in captivating performances and artistic expressions",
     icon: <FaTheaterMasks />,
   },
   {
-    id: 9,
-    experience: "music festivals",
+    _id: 9,
+    name: "music festivals",
+    slug: "music-festivals",
     description:
       "Savor the energy and joy of live music performances and festivals",
     icon: <FaMusic />,
   },
   {
-    id: 10,
-    experience: "cooking classes",
+    _id: 10,
+    name: "cooking classes",
+    slug: "cooking-classes",
     description:
       "Learn culinary skills from experts and unleash your inner chef",
     icon: <GiCookingPot />,
   },
   {
-    id: 11,
-    experience: "caving",
+    _id: 11,
+    name: "caving",
+    slug: "caving",
     description:
       "Discover hidden underground wonders and embark on thrilling cave explorations",
     icon: <GiMountainCave />,
   },
   {
-    id: 12,
-    experience: "camping",
+    _id: 12,
+    name: "camping",
+    slug: "camping",
     description:
       "Embrace the great outdoors and create unforgettable memories under the stars",
     icon: <GiCampingTent />,
@@ -281,41 +293,49 @@ export const cities = [
   },
 ];
 
-export const blogs = [
+export const staticBlogData = [
   {
-    id: 1,
+    _id: 1,
     title: "10 Must-Visit Beaches for Your Summer Getaway",
+    slug: "10-must-visit-beaches-for-your-summer-getaway",
     description:
       "Discover stunning beaches around the world for the perfect summer vacation. From tropical paradises to hidden gems, explore the best destinations for sun, sand, and relaxation.",
-    img: Blog1,
+    image: { url: Blog1, alt: "10 Must-Visit Beaches for Your Summer Getaway" },
   },
   {
-    id: 2,
+    _id: 2,
     title: "Unforgettable Adventure: Hiking the Majestic Mountains",
+    slug: "unforgettable-adventure-hiking-the-majestic-mountains",
     description:
       "Embark on an epic hiking adventure and conquer the breathtaking mountains. Get ready for thrilling trails, stunning vistas, and an unforgettable journey to the top of the world.",
-    img: Blog2,
+    image: {
+      url: Blog2,
+      alt: "Unforgettable Adventure: Hiking the Majestic Mountains",
+    },
   },
   {
-    id: 3,
+    _id: 3,
     title: "Exploring Exotic Cuisines: A Foodie's Guide",
+    slug: "exploring-exotic-cuisines-a-foodies-guide",
     description:
       "Indulge your taste buds with a culinary journey across different cultures. From street food delights to fine dining experiences, explore the diverse and mouthwatering world of global cuisine.",
-    img: Blog3,
+    image: { url: Blog3, alt: "Exploring Exotic Cuisines: A Foodie's Guide" },
   },
   {
-    id: 4,
+    _id: 4,
     title: "Hidden Gems: Off-the-Beaten-Path Destinations",
+    slug: "hidden-gems-off-the-beaten-path-destinations",
     description:
       "Escape the crowds and discover hidden gems off the beaten path. Venture to lesser-known destinations that offer unique experiences, untouched natural beauty, and authentic local cultures.",
-    img: Blog4,
+    image: { url: Blog4, alt: "Hidden Gems: Off-the-Beaten-Path Destinations" },
   },
   {
-    id: 5,
+    _id: 5,
     title: "City Escapes: Unveiling Urban Wonders",
+    slug: "city-escapes-unveiling-urban-wonders",
     description:
       "Immerse yourself in the vibrant energy of bustling cities. From iconic landmarks to cultural hotspots, dive into the heart of urban life and explore the hidden treasures of cosmopolitan destinations.",
-    img: Blog5,
+    image: { url: Blog5, alt: "City Escapes: Unveiling Urban Wonders" },
   },
 ];
 

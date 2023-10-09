@@ -7,14 +7,14 @@
 }
 
 .swiper {
-  padding: 1.5rem;
-  padding-top: 0;
+  padding: 1.5rem !important;
+  padding-top: 0 !important;
 }
 
 @media screen and (min-width: 1440px) {
   .swiper {
-    padding: 2rem;
-    padding-top: 0;
+    padding: 2rem !important;
+    padding-top: 0 !important;
   }
 }
 
@@ -22,17 +22,17 @@
 .swiper-pagination-custom,
 .swiper-horizontal > .swiper-pagination-bullets,
 .swiper-pagination-bullets.swiper-pagination-horizontal {
-  bottom: -6px;
+  bottom: -6px !important;
 }
 
 .swiper-pagination-bullet-active,
 .swiper-pagination-bullet {
-  background: black;
+  background: black !important;
 }
 
 .dark .swiper-pagination-bullet-active,
 .dark .swiper-pagination-bullet {
-  background: white;
+  background: white !important;
 }
 
 .skeleton {
