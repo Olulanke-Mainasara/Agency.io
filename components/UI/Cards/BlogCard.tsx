@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+import { Blog } from "@/types/Blog";
 import React from "react";
 
 import NBgLink from "../Links/NBgLink";
