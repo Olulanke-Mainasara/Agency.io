@@ -26,13 +26,13 @@ export const locations: { title: string; href: string; description: string }[] =
     },
     {
       title: "North America",
-      href: "/locations/northAmerica",
+      href: "/locations/north-america",
       description:
         "A continent comprising countries such as the United States, Canada, and Mexico, known for its vast landscapes and cultural diversity.",
     },
     {
       title: "South America",
-      href: "/locations/southAmerica",
+      href: "/locations/south-america",
       description:
         "A continent known for its Amazon rain forest, Andes Mountains, and vibrant Latin American cultures.",
     },
@@ -41,7 +41,7 @@ export const locations: { title: string; href: string; description: string }[] =
 export const company: { title: string; href: string; description: string }[] = [
   {
     title: "About us",
-    href: "/company/aboutUs",
+    href: "/company/aboutus",
     description:
       "Learn more about our company, our mission, and the values that drive us.",
   },

@@ -1,7 +1,8 @@
 "use client";
 
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 
+import { Blog } from "@/types/Blog";
 import React from "react";
 import { Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -10,14 +11,7 @@ import NBgLink from "../Links/NBgLink";
 import LeftArrow from "./LeftArrow";
 import RightArrow from "./RightArrow";
 
-type Blog = {
-  id: number;
-  title: string;
-  description: string;
-  img: StaticImageData;
-}[];
-
-const BlogCarousel = ({ blogs }: { blogs: Blog }) => {
+const BlogCarousel = ({ blog }: { blog: Blog[] }) => {
   return (
     <Swiper
       spaceBetween={32}
@@ -52,21 +46,20 @@ const BlogCarousel = ({ blogs }: { blogs: Blog }) => {
     >
       <LeftArrow />
 
-      {blogs.map((blog) => {
+      {blog.map((blog) => {
         return (
           <SwiperSlide
-            key={blog.id}
+            key={blog._id}
             className="h-full overflow-hidden rounded-xl"
           >
             <div className="relative w-full overflow-hidden h-44 xl:h-48">
               <Image
-                src={blog.img}
+                src={blog.image.url}
                 fill
                 sizes="(max-width: 1200px) 50vw, 33vw"
-                placeholder="blur"
                 quality={50}
                 className="object-cover"
-                alt={blog.title}
+                alt={blog.image.alt}
               />
             </div>
 

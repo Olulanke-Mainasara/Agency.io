@@ -14,7 +14,7 @@ const Body = ({ children }: { children: React.ReactNode }) => {
 
   React.useEffect(() => {
     const timeout = setTimeout(() => {
-      router.push("/");
+      router.push("/", { scroll: false });
       setSplashCounter((prev) => prev + 1);
     }, 2800);
 
