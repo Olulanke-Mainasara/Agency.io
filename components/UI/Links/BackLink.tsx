@@ -1,9 +1,8 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-
-import { ArrowLeft } from "lucide-react";
 import React from "react";
+import { useRouter } from "next/navigation";
+import { ArrowLeft } from "lucide-react";
 
 const BackLink = () => {
   const router = useRouter();
@@ -11,9 +10,9 @@ const BackLink = () => {
   return (
     <button
       onClick={() => router.back()}
-      className="flex items-center text-lg gap-2 group"
+      className="group flex items-center gap-2 text-lg"
     >
-      <span className="duration-300 text-brandDark dark:text-brandLight group-hover:-translate-x-1">
+      <span className="text-brandDark duration-300 group-hover:-translate-x-1 dark:text-brandLight">
         <ArrowLeft size={20} />
       </span>
       back

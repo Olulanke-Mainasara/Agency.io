@@ -1,9 +1,8 @@
 "use client";
 
+import React, { useEffect } from "react";
 import { MoonStar, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-import React from "react";
-import { useEffect } from "react";
 
 export const DesktopThemeToggler = () => {
   const [mounted, setMounted] = React.useState(false);
@@ -17,7 +16,7 @@ export const DesktopThemeToggler = () => {
     return (
       <button
         title="Toggle theme"
-        className="flex items-center justify-center w-10 h-10 text-xl bg-gray-400 rounded-full animate-pulse skeleton"
+        className="skeleton flex h-10 w-10 animate-pulse items-center justify-center rounded-full bg-gray-400 text-xl"
       ></button>
     );
   }
@@ -29,7 +28,7 @@ export const DesktopThemeToggler = () => {
       <button
         title="Toggle theme"
         onClick={() => setTheme("light")}
-        className="flex items-center justify-center w-10 h-10 text-xl text-white rounded-full"
+        className="flex h-10 w-10 items-center justify-center rounded-full text-xl text-white"
       >
         <Sun fill="white" />
       </button>
@@ -39,7 +38,7 @@ export const DesktopThemeToggler = () => {
       <button
         title="Toggle theme"
         onClick={() => setTheme("dark")}
-        className="flex items-center justify-center w-10 h-10 text-xl text-black rounded-full"
+        className="flex h-10 w-10 items-center justify-center rounded-full text-xl text-black"
       >
         <MoonStar />
       </button>

@@ -1,10 +1,11 @@
 "use client";
 
-import { auth } from "@/firebase/client.config";
-import useCookie from "@/hooks/useCookie";
-import { User, onAuthStateChanged } from "firebase/auth";
-import { ThemeProvider } from "next-themes";
 import React from "react";
+import { auth } from "@/firebase/client.config";
+import { onAuthStateChanged, User } from "firebase/auth";
+import { ThemeProvider } from "next-themes";
+
+import useCookie from "@/hooks/useCookie";
 
 export const authContext = React.createContext<User | null | undefined>(null);
 

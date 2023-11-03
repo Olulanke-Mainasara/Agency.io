@@ -16,10 +16,33 @@ export const experience = {
       options: { source: "name" },
     },
     {
+      name: "displayImage",
+      type: "image",
+      title: "Display Image",
+      description: "The display image of the experience",
+      options: { hotspot: true },
+      fields: [{ name: "alt", type: "string", title: "Alt" }],
+    },
+    {
       name: "description",
       title: "Description",
       type: "string",
       description: "A short description of the experience",
+    },
+    {
+      name: "top10",
+      type: "array",
+      title: "Top 10 locations",
+      description: "The top 10 locations that offer this experience",
+      of: [
+        {
+          name: "location",
+          type: "reference",
+          title: "Location",
+          description: "Select a location",
+          to: [{ type: "location" }],
+        },
+      ],
     },
     {
       name: "sections",
@@ -30,6 +53,7 @@ export const experience = {
           name: "section",
           type: "object",
           title: "Section",
+          description: "A section to be featured on the experience page.",
           fields: [
             {
               name: "title",
@@ -38,19 +62,16 @@ export const experience = {
               description: "Title of the section",
             },
             {
-              name: "images",
+              name: "locations",
               type: "array",
-              title: "Images",
+              title: "Locations that offer this section of the experience",
               of: [
                 {
-                  title: "Image",
-                  type: "image",
-                  description: "A section image",
-                  options: { hotspot: true },
-                  fields: [
-                    { name: "alt", type: "string", title: "Alt" },
-                    { name: "caption", type: "string", title: "Caption" },
-                  ],
+                  name: "location",
+                  type: "reference",
+                  title: "Location",
+                  description: "Select a location",
+                  to: [{ type: "location" }],
                 },
               ],
             },

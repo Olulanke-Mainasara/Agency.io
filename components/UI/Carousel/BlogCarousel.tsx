@@ -1,11 +1,11 @@
 "use client";
 
-import Image from "next/image";
-
-import { Blog } from "@/types/Blog";
 import React from "react";
+import Image from "next/image";
 import { Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+
+import { Blog } from "@/types/Blog";
 
 import NBgLink from "../Links/NBgLink";
 import LeftArrow from "./LeftArrow";
@@ -52,19 +52,19 @@ const BlogCarousel = ({ blog }: { blog: Blog[] }) => {
             key={blog._id}
             className="h-full overflow-hidden rounded-xl"
           >
-            <div className="relative w-full overflow-hidden h-44 xl:h-48">
+            <div className="relative h-44 w-full overflow-hidden xl:h-48">
               <Image
                 src={blog.image.url}
                 fill
                 sizes="(max-width: 1200px) 50vw, 33vw"
                 quality={50}
                 className="object-cover"
-                alt={blog.image.alt}
+                alt={blog.image.alt ? blog.image.alt : ""}
               />
             </div>
 
             <div className="pt-6">
-              <h1 className="mb-3 text-lg font-bold dark:text-white title-font">
+              <h1 className="title-font mb-3 text-lg font-bold dark:text-white">
                 {blog.title}
               </h1>
 

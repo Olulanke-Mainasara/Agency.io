@@ -1,10 +1,10 @@
-import { locationsBySeason } from "@/static-data/images";
 import React from "react";
+import { locationsBySeason } from "@/static-data/images";
 
-import DefaultCarousel from "../Carousel/DefaultCarousel";
+import SharedPagePlaceCarousel from "../Carousel/SharedPagePlaceCarousel";
 
 const PopularDestinationsBySeason = () => {
-  return <DefaultCarousel items={locationsBySeason} extra />;
+  return <SharedPagePlaceCarousel items={locationsBySeason} extra />;
 };
 
 export default PopularDestinationsBySeason;

@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import React from "react";
+import { motion } from "framer-motion";
 
 import { images } from "../../static-data/images";
 import BuildTripCTACard from "../UI/Cards/BuildTripCTACard";
@@ -18,9 +18,9 @@ const BuildTripCTA = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         onAnimationComplete={() => setHasViewed(true)}
-        className="flex flex-col items-center justify-center px-5 pb-10 text-center text-black gap-6 xl:text-right xl:items-end xl:pr-0 basis-1/2 dark:text-white"
+        className="flex basis-1/2 flex-col items-center justify-center gap-6 px-5 pb-10 text-center text-black dark:text-white xl:items-end xl:pr-0 xl:text-right"
       >
-        <h1 className="max-w-3xl text-5xl md:text-[90px] text-brandDark dark:text-brandLight">
+        <h1 className="max-w-3xl text-5xl text-brandDark dark:text-brandLight md:text-[90px]">
           Leave the planning to us
         </h1>
         <p className="max-w-2xl sm:text-lg">
@@ -28,13 +28,13 @@ const BuildTripCTA = () => {
           budget and interests, book your flights, hotels, and activities all in
           one place, and get inspired by our curated travel guides.
         </p>
-        <div className="flex justify-center w-full gap-5 xl:justify-end">
+        <div className="flex w-full justify-center gap-5 xl:justify-end">
           <FBgButtons />
           <TBgButtons href="/experiences">Get Inspired</TBgButtons>
         </div>
       </motion.div>
 
-      <div className="relative flex items-center justify-center basis-1/2 w-[612px]">
+      <div className="relative flex w-[612px] basis-1/2 items-center justify-center">
         <div className="grid grid-cols-2 gap-10">
           {images.map((image, index) => (
             <BuildTripCTACard

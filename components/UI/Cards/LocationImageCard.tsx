@@ -1,16 +1,25 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
-
-import { motion } from "framer-motion";
 import React from "react";
+import Image, { StaticImageData } from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
+
+type Continent = {
+  id: number;
+  label: string;
+  value: string;
+  map: {
+    url: StaticImageData;
+    alt: string;
+  };
+};
 
 const LocationImageCard = ({
   continent,
   index,
 }: {
-  continent: ContinentInfo;
+  continent: Continent;
   index: number;
 }) => {
   return (
@@ -23,22 +32,25 @@ const LocationImageCard = ({
           delay: 0.2 * index,
         },
       }}
-      className="h-[300px] border border-transparent dark:border-white rounded-xl overflow-hidden text-2xl xl:text-xl group"
+      className="group h-[300px] overflow-hidden rounded-xl border border-transparent text-2xl dark:border-white xl:text-xl"
     >
-      <Link href={`/locations/${continent.slug}`} className={`relative h-full`}>
-        <div className="w-full h-full">
-          <div className="relative w-full h-full duration-500 group-hover:scale-110">
+      <Link
+        href={`/locations/${continent.value}`}
+        className={`relative h-full`}
+      >
+        <div className="h-full w-full">
+          <div className="relative h-full w-full duration-500 group-hover:scale-110">
             <Image
-              src={continent.map.image}
+              src={continent.map.url}
               width={314}
               height={305}
-              className="object-cover w-full h-full"
-              alt={continent.map.alt}
+              className="h-full w-full object-cover"
+              alt={continent.map.alt ? continent.map.alt : ""}
             />
           </div>
 
-          <div className="absolute inset-0 pt-5 pl-5 backdrop-brightness-[80%]">
-            <h1>{continent.name}</h1>
+          <div className="absolute inset-0 pl-5 pt-5 backdrop-brightness-[80%]">
+            <h1>{continent.label}</h1>
           </div>
         </div>
       </Link>

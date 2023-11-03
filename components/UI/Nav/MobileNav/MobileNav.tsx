@@ -1,9 +1,8 @@
+import React from "react";
 import Link from "next/link";
-
 import { User } from "firebase/auth";
 import { motion } from "framer-motion";
 import { Menu, ShoppingCart, X } from "lucide-react";
-import React from "react";
 
 import { MobileThemeToggler } from "../../Buttons/ThemeTogglers";
 import FBgLink from "../../Links/FBgLink";
@@ -27,7 +26,7 @@ const MobileNav = ({
   }, [pathname]);
 
   return (
-    <div className="flex items-center justify-between h-full xl:hidden">
+    <div className="flex h-full items-center justify-between xl:hidden">
       {user ? (
         <span className="flex items-center xl:hidden">
           <ProfileOps />
@@ -37,7 +36,7 @@ const MobileNav = ({
       <Logo pathname={pathname} />
 
       {user ? (
-        <span className="grid xl:hidden place-items-center">
+        <span className="grid place-items-center xl:hidden">
           <Notifications size={24} />
         </span>
       ) : null}
@@ -56,11 +55,11 @@ const MobileNav = ({
         transition={{
           duration: 0.3,
         }}
-        className={`z-10 absolute inset-0 bg-white dark:bg-background overflow-hidden`}
+        className={`absolute inset-0 z-10 overflow-hidden bg-white dark:bg-background`}
       >
-        <div className="min-h-[100dvh] flex flex-col gap-8 items-center justify-center relative">
+        <div className="relative flex min-h-[100dvh] flex-col items-center justify-center gap-8">
           <div
-            className={`absolute flex items-center justify-between w-full px-4 lg:px-8 ${
+            className={`absolute flex w-full items-center justify-between px-4 lg:px-8 ${
               user ? "top-3" : "top-4 lg:top-6"
             }`}
           >
@@ -73,7 +72,7 @@ const MobileNav = ({
             <Logo pathname={pathname} />
 
             {user ? (
-              <span className="grid xl:hidden place-items-center">
+              <span className="grid place-items-center xl:hidden">
                 <Link href={"#"}>
                   <ShoppingCart />
                 </Link>
@@ -91,7 +90,7 @@ const MobileNav = ({
 
           <MobileNavLinks />
 
-          <div className="flex items-center gap-2 xs:flex-col xs:w-full xs:gap-5">
+          <div className="flex items-center gap-2 xs:w-full xs:flex-col xs:gap-5">
             <FBgLink />
 
             {!user ? (

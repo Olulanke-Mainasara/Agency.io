@@ -1,8 +1,10 @@
+import React from "react";
+import Image from "next/image";
 import Link from "next/link";
-
 import { staticExperiencesData } from "@/static-data/images";
 import { motion } from "framer-motion";
-import React from "react";
+
+import { Experience } from "@/types/Experience";
 
 const ExperienceCard = ({
   experience,
@@ -27,25 +29,42 @@ const ExperienceCard = ({
             }
           : { opacity: 0, transition: { duration: 0.1, delay: index * 0.1 } }
       }
-      className="w-full h-full p-6 border border-black duration-300 dark:border-white hover:border-brandLight dark:hover:border-brandLight rounded-xl"
+      className="h-full w-full overflow-hidden rounded-xl border border-black duration-300 hover:border-brandLight dark:border-white dark:hover:border-brandLight"
     >
       <Link
         href={`/experiences/${experience.slug}`}
         prefetch={false}
-        className="w-full h-full space-y-5"
+        className="h-full w-full"
       >
-        <div className="flex items-center text-2xl gap-2">
-          <span className="text-brandDark dark:text-brandLight">
-            {experience.icon
-              ? experience.icon
-              : staticExperiencesData.find(
-                  (experienceData) => experienceData.name === experience.slug
-                )?.icon}
-          </span>
-          <h2 className="first-letter:uppercase">{experience.name}</h2>
-        </div>
+        {experience.displayImage && (
+          <div className="relative h-44 w-full">
+            <Image
+              src={experience.displayImage.url}
+              fill
+              sizes="(max-width: 1200px) 50vw, 33vw"
+              quality={50}
+              className="object-cover"
+              alt={
+                experience.displayImage.alt ? experience.displayImage.alt : ""
+              }
+            />
+          </div>
+        )}
 
-        <p className="text-lg opacity-70">{experience.description}</p>
+        <div className="space-y-2 p-5">
+          <div className="flex items-center gap-2 text-2xl">
+            <span className="text-brandDark dark:text-brandLight">
+              {experience.icon
+                ? experience.icon
+                : staticExperiencesData.find(
+                    (experienceData) => experienceData.name === experience.slug
+                  )?.icon}
+            </span>
+            <p className="first-letter:uppercase">{experience.name}</p>
+          </div>
+
+          <p className="text-lg opacity-70">{experience.description}</p>
+        </div>
       </Link>
     </motion.div>
   );

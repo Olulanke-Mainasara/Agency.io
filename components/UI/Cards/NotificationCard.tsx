@@ -1,3 +1,7 @@
+import { notifications } from "@/static-data/services";
+import { Check } from "lucide-react";
+
+import { cn } from "@/lib/utils";
 import { Button } from "@/components/UI/ShadUI/button";
 import {
   Card,
@@ -7,9 +11,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/UI/ShadUI/card";
-import { cn } from "@/lib/utils";
-import { notifications } from "@/static-data/services";
-import { Check } from "lucide-react";
 
 type CardProps = React.ComponentProps<typeof Card>;
 
@@ -22,17 +23,17 @@ export function NotificationCard({ className, ...props }: CardProps) {
       </CardHeader>
       <CardContent className="grid gap-4">
         <div>
-          {notifications.map((notification, index) => (
+          {notifications.map((notification) => (
             <div
-              key={index}
+              key={notification.title}
               className="mb-4 grid grid-cols-[25px_1fr] items-start pb-4 last:mb-0 last:pb-0"
             >
-              <span className="flex w-2 h-2 rounded-full translate-y-1 bg-sky-500" />
+              <span className="flex h-2 w-2 translate-y-1 rounded-full bg-sky-500" />
               <div className="space-y-1">
                 <p className="text-sm font-medium leading-none">
                   {notification.title}
                 </p>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-muted-foreground text-sm">
                   {notification.description}
                 </p>
               </div>
@@ -42,7 +43,7 @@ export function NotificationCard({ className, ...props }: CardProps) {
       </CardContent>
       <CardFooter>
         <Button className="w-full">
-          <Check className="w-4 h-4 mr-2" /> Mark all as read
+          <Check className="mr-2 h-4 w-4" /> Mark all as read
         </Button>
       </CardFooter>
     </Card>

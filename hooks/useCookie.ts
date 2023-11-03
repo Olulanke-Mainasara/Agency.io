@@ -1,5 +1,5 @@
-import Cookies from "js-cookie";
 import { useCallback, useState } from "react";
+import Cookies from "js-cookie";
 
 export default function useCookie(
   name: string,
@@ -7,7 +7,7 @@ export default function useCookie(
 ): [
   string | null | undefined,
   (newValue: string, options?: Cookies.CookieAttributes | undefined) => void,
-  () => void
+  () => void,
 ] {
   const [value, setValue] = useState<string | null | undefined>(() => {
     const cookie = Cookies.get(name);

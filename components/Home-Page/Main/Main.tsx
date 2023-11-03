@@ -1,5 +1,8 @@
-import CarouselSkeleton from "@/components/UI/Carousel/CarouselSkeleton";
 import React from "react";
+
+import CarouselSkeleton from "@/components/UI/Carousel/CarouselSkeleton";
+import Footer from "@/components/UI/Footer/Footer";
+import Nav from "@/components/UI/Nav/Nav";
 
 import Blog from "../Blog";
 import BrowseByExperience from "../BrowseByExperience";
@@ -18,6 +21,7 @@ import Body from "./Body";
 const Main = () => {
   return (
     <React.Suspense>
+      <Nav />
       <Body>
         <div className="space-y-40">
           <div className="space-y-28">
@@ -51,6 +55,7 @@ const Main = () => {
           <GetAppCTA />
         </div>
       </Body>
+      <Footer />
     </React.Suspense>
   );
 };

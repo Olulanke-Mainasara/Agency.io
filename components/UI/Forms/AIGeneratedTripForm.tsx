@@ -1,11 +1,12 @@
+import React from "react";
+import { companions, departure, months } from "@/static-data/services";
+import { Calculator, Calendar, Clock } from "lucide-react";
+import { FaHandshake } from "react-icons/fa";
+
 import { Icons } from "@/components/Icons";
 import { Button } from "@/components/UI/ShadUI/button";
 import { Input } from "@/components/UI/ShadUI/input";
 import { Label } from "@/components/UI/ShadUI/label";
-import { companions, departure, months } from "@/static-data/services";
-import { Calculator, Calendar, Clock } from "lucide-react";
-import React from "react";
-import { FaHandshake } from "react-icons/fa";
 
 import { DatePickerWithRange } from "./DataPickerWithRange";
 import { LocationComboBox } from "./LocationComboBox";
@@ -52,9 +53,9 @@ export default function AIGeneratedTripForm() {
   return (
     <form
       onSubmit={handleTripGenerate}
-      className="flex flex-col w-full max-w-2xl gap-8"
+      className="flex w-full max-w-2xl flex-col gap-8"
     >
-      <div className="grid md:grid-cols-2 gap-x-4 gap-y-6">
+      <div className="grid gap-x-4 gap-y-6 md:grid-cols-2">
         <LocationComboBox
           label="Where to?"
           width="w-[330px]"
@@ -72,10 +73,10 @@ export default function AIGeneratedTripForm() {
           <DatePickerWithRange handleDateRange={handleDateRange} />
         ) : departureTime === "No specific date/range" ? (
           <>
-            <div className="flex items-center w-full px-3 overflow-hidden border border-black h-14 md:h-16 dark:border-white rounded-xl">
+            <div className="flex h-14 w-full items-center overflow-hidden rounded-xl border border-black px-3 dark:border-white md:h-16">
               <Label
                 htmlFor="days"
-                className="flex items-center w-full gap-2 md:text-lg min-w-[230px]"
+                className="flex w-full min-w-[230px] items-center gap-2 md:text-lg"
               >
                 <Calculator /> No. of Days (max 7)
               </Label>
@@ -87,7 +88,7 @@ export default function AIGeneratedTripForm() {
                 min={1}
                 max={7}
                 onChange={(e) => setNoOfDays(e.target.value)}
-                className="w-1/2 px-0 text-xl text-center bg-transparent border-none dark:text-white"
+                className="w-1/2 border-none bg-transparent px-0 text-center text-xl dark:text-white"
               />
             </div>
 
@@ -111,9 +112,9 @@ export default function AIGeneratedTripForm() {
 
         <Button
           disabled={isLoading}
-          className="py-3 text-lg md:text-xl rounded-xl"
+          className="rounded-xl py-3 text-lg md:text-xl"
         >
-          {isLoading && <Icons.spinner className="w-5 h-5 mr-2 animate-spin" />}
+          {isLoading && <Icons.spinner className="mr-2 h-5 w-5 animate-spin" />}
 
           {error ? "Retry" : "Generate"}
         </Button>

@@ -1,5 +1,5 @@
 type Faq = {
-  _id: number;
+  _key: number;
   question: string;
   answer: string;
 };

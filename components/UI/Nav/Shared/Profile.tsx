@@ -1,4 +1,8 @@
 import Image from "next/image";
+import { auth } from "@/firebase/client.config";
+import Profile from "@/public/Hero/profile.webp";
+import { signOut } from "firebase/auth";
+import { BaggageClaim, Heart, LogOut, User, Wallet } from "lucide-react";
 
 import {
   DropdownMenu,
@@ -9,10 +13,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/UI/ShadUI/dropdown-menu";
-import { auth } from "@/firebase/client.config";
-import Profile from "@/public/Hero/profile.webp";
-import { signOut } from "firebase/auth";
-import { BaggageClaim, Heart, LogOut, User, Wallet } from "lucide-react";
 
 export function ProfileOps() {
   const handleSignOut = () => {
@@ -22,7 +22,7 @@ export function ProfileOps() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <button className="relative w-10 overflow-hidden rounded-full aspect-square">
+        <button className="relative aspect-square w-10 overflow-hidden rounded-full">
           <Image
             src={Profile}
             width={96}
@@ -39,25 +39,25 @@ export function ProfileOps() {
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuItem>
-            <User className="w-4 h-4 mr-2" />
+            <User className="mr-2 h-4 w-4" />
             <span>Profile</span>
           </DropdownMenuItem>
           <DropdownMenuItem>
-            <Wallet className="w-4 h-4 mr-2" />
+            <Wallet className="mr-2 h-4 w-4" />
             <span>Wallet</span>
           </DropdownMenuItem>
           <DropdownMenuItem>
-            <BaggageClaim className="w-4 h-4 mr-2" />
+            <BaggageClaim className="mr-2 h-4 w-4" />
             <span>Booking and Trips</span>
           </DropdownMenuItem>
           <DropdownMenuItem>
-            <Heart className="w-4 h-4 mr-2" />
+            <Heart className="mr-2 h-4 w-4" />
             <span>Saved</span>
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuItem onClick={handleSignOut}>
-          <LogOut className="w-4 h-4 mr-2" />
+          <LogOut className="mr-2 h-4 w-4" />
           <span>Sign out</span>
         </DropdownMenuItem>
       </DropdownMenuContent>

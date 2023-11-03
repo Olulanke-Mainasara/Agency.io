@@ -1,8 +1,12 @@
 "use client";
 
+import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { staticExperiencesData } from "@/static-data/images";
+import { company, locations, utils } from "@/static-data/navigation";
 
+import { cn } from "@/lib/utils";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -12,12 +16,8 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/UI/ShadUI/navigation-menu";
-import { cn } from "@/lib/utils";
-import { staticExperiencesData } from "@/static-data/images";
-import { company, locations, utils } from "@/static-data/navigation";
-import React from "react";
 
-import NBgButtons from "../../Links/NBgLink";
+import NBgLink from "../../Links/NBgLink";
 
 export function DesktopNavLinks() {
   const pathname = usePathname();
@@ -60,7 +60,11 @@ export function DesktopNavLinks() {
                 </ListItem>
               ))}
               <div className="flex items-center pl-3">
-                <NBgButtons prompt="View all" href="/experiences" />
+                <NBgLink
+                  prompt="View all"
+                  href="/experiences"
+                  extraStyles="dark:text-black"
+                />
               </div>
             </ul>
           </NavigationMenuContent>
@@ -154,7 +158,7 @@ const ListItem = React.forwardRef<
         <a
           ref={ref}
           className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-gray-100 hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            "hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-gray-100",
             className
           )}
           {...props}
@@ -162,7 +166,7 @@ const ListItem = React.forwardRef<
           <div className="text-base font-bold leading-none first-letter:uppercase">
             {title}
           </div>
-          <p className="text-sm leading-snug line-clamp-3 text-muted-foreground">
+          <p className="text-muted-foreground line-clamp-3 text-sm leading-snug">
             {children}
           </p>
         </a>

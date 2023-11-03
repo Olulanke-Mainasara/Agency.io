@@ -1,11 +1,10 @@
 "use client";
 
+import React from "react";
 import Image from "next/image";
-
 import About1 from "@/public/Main/About1.webp";
 import About2 from "@/public/Main/About2.webp";
 import { motion } from "framer-motion";
-import React from "react";
 
 import { authContext } from "../Providers/Providers";
 import FBgButtons from "../UI/Links/FBgLink";
@@ -18,7 +17,7 @@ const Welcome = () => {
     <section
       className={`relative ${
         user ? "hidden" : "flex md:grid"
-      }  flex-col w-full min-h-screen gap-8 p-8 py-0 overflow-hidden xl:py-8 md:grid-rows-3 md:grid-cols-4 dark:text-white md:min-h-fit xl:h-screen lg:max-h-[900px]`}
+      }  min-h-screen w-full flex-col gap-8 overflow-hidden p-8 py-0 dark:text-white md:min-h-fit md:grid-cols-4 md:grid-rows-3 lg:max-h-[900px] xl:h-screen xl:py-8`}
     >
       <motion.div
         initial={hasViewed ? { x: 0, opacity: 1 } : { x: -100, opacity: 0 }}
@@ -30,7 +29,7 @@ const Welcome = () => {
           },
         }}
         onAnimationComplete={() => setHasViewed(true)}
-        className="col-span-2 relative row-span-3 rounded-xl min-h-[300px] overflow-hidden"
+        className="relative col-span-2 row-span-3 min-h-[300px] overflow-hidden rounded-xl"
       >
         <Image
           src={About1}
@@ -52,7 +51,7 @@ const Welcome = () => {
             duration: 0.5,
           },
         }}
-        className="flex flex-col justify-center col-span-2 gap-y-5"
+        className="col-span-2 flex flex-col justify-center gap-y-5"
       >
         <h1 className="xl:text-2xl">
           Welcome to Agency.io, your ultimate guide and help for unforgettable
@@ -73,7 +72,7 @@ const Welcome = () => {
             duration: 0.3,
           },
         }}
-        className="col-span-2 relative col-start-3 row-span-2 rounded-xl min-h-[300px] overflow-hidden"
+        className="relative col-span-2 col-start-3 row-span-2 min-h-[300px] overflow-hidden rounded-xl"
       >
         <Image
           src={About2}

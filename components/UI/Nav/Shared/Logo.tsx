@@ -1,6 +1,5 @@
-import Link from "next/link";
-
 import React from "react";
+import Link from "next/link";
 import { FaPlane } from "react-icons/fa";
 
 const Logo = ({ pathname }: { pathname: string }) => {

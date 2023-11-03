@@ -1,5 +1,6 @@
-import { Icons } from "@/components/Icons";
 import React from "react";
+
+import { Icons } from "@/components/Icons";
 
 import { Button } from "../ShadUI/button";
 
@@ -22,8 +23,8 @@ const AltAuthLinks = ({
         <div className="absolute inset-0 flex items-center">
           <span className="w-full border-t border-black dark:border-white" />
         </div>
-        <div className="relative flex justify-center uppercase text-md">
-          <span className="px-2 bg-white dark:bg-background text-muted-foreground">
+        <div className="text-md relative flex justify-center uppercase">
+          <span className="text-muted-foreground bg-white px-2 dark:bg-background">
             Or
           </span>
         </div>
@@ -34,12 +35,12 @@ const AltAuthLinks = ({
           type="button"
           disabled={isLoading || isGoogleLoading || isAppleLoading}
           onClick={() => handleGoogleSignIn()}
-          className="w-full text-md"
+          className="text-md w-full"
         >
           {isGoogleLoading ? (
-            <Icons.spinner className="w-5 h-5 animate-spin" />
+            <Icons.spinner className="h-5 w-5 animate-spin" />
           ) : (
-            <Icons.google className="w-4 h-4" />
+            <Icons.google className="h-4 w-4" />
           )}
           Google
         </Button>
@@ -49,12 +50,12 @@ const AltAuthLinks = ({
           type="button"
           disabled={isLoading || isGoogleLoading || isAppleLoading}
           onClick={() => handleAppleSignIn()}
-          className="w-full text-md"
+          className="text-md w-full"
         >
           {isAppleLoading ? (
-            <Icons.spinner className="w-5 h-5 animate-spin" />
+            <Icons.spinner className="h-5 w-5 animate-spin" />
           ) : (
-            <Icons.apple className="w-4 h-4" />
+            <Icons.apple className="h-4 w-4" />
           )}
           Apple
         </Button>

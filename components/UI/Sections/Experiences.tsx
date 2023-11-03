@@ -1,9 +1,10 @@
 "use client";
 
-import { usePathname } from "next/navigation";
-
-import { motion } from "framer-motion";
 import React from "react";
+import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
+
+import { Experience } from "@/types/Experience";
 
 import ExperienceCard from "../Cards/ExperienceCard";
 
@@ -22,7 +23,7 @@ const Experiences = ({
       initial={{ opacity: 1 }}
       whileInView={{ opacity: 1 }}
       onAnimationComplete={() => setCardsVisible(true)}
-      className="hidden overflow-hidden grid-cols-3 gap-10 lg:grid xl:hidden grow"
+      className="hidden grow grid-cols-3 gap-10 overflow-hidden lg:grid xl:hidden"
     >
       {experiences.slice(0, sliced).map((experience, index) => {
         return (
@@ -40,7 +41,7 @@ const Experiences = ({
       initial={{ opacity: 1 }}
       whileInView={{ opacity: 1 }}
       onAnimationComplete={() => setCardsVisible(true)}
-      className="overflow-hidden grid grid-cols-1 gap-10 lg:hidden md:grid-cols-2 grow"
+      className="grid grow grid-cols-1 gap-10 overflow-hidden md:grid-cols-2 lg:hidden"
     >
       {experiences.slice(0, sliced).map((experience, index) => {
         return (
@@ -60,7 +61,7 @@ const Experiences = ({
       onAnimationComplete={() => setCardsVisible(true)}
       className={`${
         pathName === "/" ? "hidden xl:grid" : "grid"
-      } grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 overflow-hidden grow`}
+      } grow grid-cols-1 gap-10 overflow-hidden md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4`}
     >
       {experiences.map((experience, index) => {
         return (

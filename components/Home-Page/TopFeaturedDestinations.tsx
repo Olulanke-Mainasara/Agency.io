@@ -1,10 +1,9 @@
 "use client";
 
+import React from "react";
 import Image from "next/image";
-
 import { destinations } from "@/static-data/images";
 import { motion } from "framer-motion";
-import React from "react";
 
 import NBgButtons from "../UI/Links/NBgLink";
 
@@ -17,14 +16,14 @@ const TopFeaturedDestinations = () => {
   };
 
   return (
-    <section className="flex flex-col lg:h-[800px] gap-8 h-[600px] xl:h-[700px] md:h-[700px] px-6 xl:p-8 dark:text-white">
-      <h1 className="text-4xl text-center md:text-5xl">
+    <section className="flex h-[600px] flex-col gap-8 px-6 dark:text-white md:h-[700px] lg:h-[800px] xl:h-[700px] xl:p-8">
+      <h1 className="text-center text-4xl md:text-5xl">
         Top{" "}
         <span className="text-brandDark dark:text-brandLight">Featured</span>{" "}
         Destinations
       </h1>
 
-      <div className="flex w-full overflow-x-scroll overflow-y-hidden text-white gap-8 grow">
+      <div className="flex w-full grow gap-8 overflow-y-hidden overflow-x-scroll text-white">
         {destinations.map((destination, index) => {
           return (
             <motion.div
@@ -40,13 +39,13 @@ const TopFeaturedDestinations = () => {
                 delay: 0.2 * index,
               }}
               onClick={() => handleClick(index)}
-              className={`relative rounded-xl overflow-hidden duration-500 min-w-[60vw] ease-out xl:min-w-[200px] ${
-                card == index ? "grow" : "hover:cursor-pointer grow-0"
+              className={`relative min-w-[60vw] overflow-hidden rounded-xl duration-500 ease-out xl:min-w-[200px] ${
+                card == index ? "grow" : "grow-0 hover:cursor-pointer"
               }`}
               key={destination.id}
               onAnimationComplete={() => setHasViewed(true)}
             >
-              <div className="relative w-full h-full">
+              <div className="relative h-full w-full">
                 <Image
                   className="object-cover"
                   src={destination.imgsrc}
@@ -63,14 +62,14 @@ const TopFeaturedDestinations = () => {
                   card !== index
                     ? "backdrop-brightness-[80%] xl:backdrop-brightness-50"
                     : "backdrop-brightness-[80%]"
-                } duration-500 absolute inset-0 pt-5 pl-5`}
+                } absolute inset-0 pl-5 pt-5 duration-500`}
               >
                 <h1
                   className={`${
                     card == index
                       ? "text-3xl md:text-5xl"
                       : "text-3xl md:text-5xl xl:text-xl"
-                  } duration-300 flex flex-col gap-2`}
+                  } flex flex-col gap-2 duration-300`}
                 >
                   {destination.destination}
                   <span

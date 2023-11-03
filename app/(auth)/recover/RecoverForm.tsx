@@ -1,10 +1,11 @@
 "use client";
 
+import React from "react";
+
 import { Icons } from "@/components/Icons";
 import { Button } from "@/components/UI/ShadUI/button";
 import { Input } from "@/components/UI/ShadUI/input";
 import { Label } from "@/components/UI/ShadUI/label";
-import React from "react";
 
 export function RecoverForm({ previous }: { previous: string }) {
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
@@ -36,7 +37,7 @@ export function RecoverForm({ previous }: { previous: string }) {
           </div>
 
           <Button disabled={isLoading}>
-            {isLoading && <Icons.spinner className="w-5 h-5 animate-spin" />}
+            {isLoading && <Icons.spinner className="h-5 w-5 animate-spin" />}
             Reset
           </Button>
         </div>

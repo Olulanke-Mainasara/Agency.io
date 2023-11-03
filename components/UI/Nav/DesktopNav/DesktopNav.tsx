@@ -1,8 +1,7 @@
+import React from "react";
 import Link from "next/link";
-
 import { User } from "firebase/auth";
 import { ArrowRight, ShoppingCart } from "lucide-react";
-import React from "react";
 
 import { DesktopThemeToggler } from "../../Buttons/ThemeTogglers";
 import { Button } from "../../ShadUI/button";
@@ -19,14 +18,14 @@ const DesktopNav = ({
   user: User | null | undefined;
 }) => {
   return (
-    <div className="items-center justify-between hidden h-full xl:flex">
+    <div className="hidden h-full items-center justify-between xl:flex">
       <Logo pathname={pathname} />
 
       <DesktopNavLinks />
 
-      <div className="items-center hidden gap-6 md:flex">
+      <div className="hidden items-center gap-6 md:flex">
         {user === undefined ? (
-          <div className="w-[203px] h-12 bg-gray-400 animate-pulse"></div>
+          <div className="h-12 w-[203px] animate-pulse bg-gray-400"></div>
         ) : (
           <>
             {user ? (
@@ -43,18 +42,18 @@ const DesktopNav = ({
               <div className="flex items-center gap-6">
                 <Link
                   href={`/signup?previous=${pathname}`}
-                  className="duration-300 dark:text-white w-fit xl:flex hover:text-brandDark dark:hover:text-brandLight"
+                  className="w-fit duration-300 hover:text-brandDark dark:text-white dark:hover:text-brandLight xl:flex"
                 >
                   Signup
                 </Link>
 
-                <Button className="px-6 text-base gap-1" variant={"plain"}>
+                <Button className="gap-1 px-6 text-base" variant={"plain"}>
                   <Link
                     href={`/login?previous=${pathname}`}
                     className="flex items-center justify-center gap-1"
                   >
                     Log in
-                    <span className="dark:text-brandDark text-brandLight">
+                    <span className="text-brandLight dark:text-brandDark">
                       <ArrowRight size={20} />
                     </span>
                   </Link>
