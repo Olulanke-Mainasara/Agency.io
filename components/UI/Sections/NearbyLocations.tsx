@@ -2,11 +2,11 @@
 
 import React from "react";
 import Image from "next/image";
+import { getNearbyLocations } from "@/sanity/lib/getNearbyLocations";
 import { Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import { LocationInfo } from "@/types/LocationInfo";
-import getContent from "@/lib/getContent";
 
 import CarouselSkeleton from "../Carousel/CarouselSkeleton";
 import LeftArrow from "../Carousel/LeftArrow";
@@ -32,11 +32,11 @@ const NearbyLocations = ({
         (position) => {
           async function fetchLocations(longitude: number, latitude: number) {
             try {
-              const queryResult = await getContent("getNearbyLocations", {
-                name: experience,
-                longitude: longitude,
-                latitude: latitude,
-              });
+              const queryResult = await getNearbyLocations(
+                experience,
+                longitude,
+                latitude
+              );
               setItems(queryResult);
               setIsLoading(false);
             } catch (error) {

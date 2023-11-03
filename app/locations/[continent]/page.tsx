@@ -1,6 +1,6 @@
-import { Country } from "@/types/Country";
+import { getCountries } from "@/sanity/lib/getCountry(ies)";
+
 import firstLetterToUpperCase from "@/lib/firstLetterToUpperCase";
-import getContent from "@/lib/getContent";
 import CountryImageCard from "@/components/UI/Cards/CountryImageCard";
 
 export default async function Continent({
@@ -8,11 +8,7 @@ export default async function Continent({
 }: {
   params: { continent: string };
 }) {
-  const countries: Country[] = await getContent(
-    "getCountries",
-    continent,
-    true
-  );
+  const countries = await getCountries(continent);
 
   return (
     <main className="mx-auto max-w-[1440px] px-6 pt-20 md:pt-24 xl:px-8">
