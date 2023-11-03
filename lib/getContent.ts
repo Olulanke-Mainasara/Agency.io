@@ -3,7 +3,7 @@ export default async function getContent(
   specific?: string | { name: string; longitude: number; latitude: number },
   preserve?: boolean
 ) {
-  const rawData = await fetch("http://localhost:3000/api/getContent", {
+  const rawData = await fetch(process.env.APP_URL + "/api/getContent", {
     method: "POST",
     body: JSON.stringify({ action: action, specific: specific }),
     cache: preserve ? "force-cache" : "no-store",
