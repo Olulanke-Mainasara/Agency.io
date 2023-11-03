@@ -1,17 +1,18 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { getExperience } from "@/sanity/lib/getExperience(s)";
 
-import { Experience } from "@/types/Experience";
-import getContent from "@/lib/getContent";
 import SharedPageLocationCarousel from "@/components/UI/Carousel/SharedPageLocationCarousel";
 import NearbyLocations from "@/components/UI/Sections/NearbyLocations";
+
+export const dynamic = "force-dynamic";
 
 export default async function Category({
   params: { category },
 }: {
   params: { category: string };
 }) {
-  const queryResult: Experience[] = await getContent("getExperience", category);
+  const queryResult = await getExperience(category);
 
   if (!queryResult) {
     return (

@@ -1,8 +1,6 @@
 import React from "react";
+import { getExperiences } from "@/sanity/lib/getExperience(s)";
 import { staticExperiencesData } from "@/static-data/images";
-
-import { Experience } from "@/types/Experience";
-import getContent from "@/lib/getContent";
 
 import BrowseExperienceButton from "../UI/Buttons/BrowseExperienceButton";
 import Experiences from "../UI/Sections/Experiences";
@@ -11,11 +9,7 @@ const BrowseByExperience = async () => {
   let experiences;
 
   try {
-    const queryResult: Experience[] = await getContent(
-      "getExperiences",
-      "",
-      true
-    );
+    const queryResult = await getExperiences();
     experiences = queryResult;
   } catch (err) {
     experiences = staticExperiencesData;

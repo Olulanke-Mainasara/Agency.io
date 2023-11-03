@@ -1,14 +1,13 @@
+import { getBlog } from "@/sanity/lib/getBlog";
 import { staticBlogData } from "@/static-data/images";
 
 import BlogCard from "@/components/UI/Cards/BlogCard";
-import getContent from "@/lib/getContent";
-import { Blog } from "@/types/Blog";
 
 export default async function Blog() {
   let blog;
 
   try {
-    const queryResult: Blog[] = await getContent("getBlog", "", true);
+    const queryResult = await getBlog();
     blog = queryResult;
   } catch (error) {
     blog = staticBlogData;
