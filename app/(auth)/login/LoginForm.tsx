@@ -1,7 +1,14 @@
 "use client";
 
+import React from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { auth } from "@/firebase/client.config";
+import {
+  GoogleAuthProvider,
+  signInWithEmailAndPassword,
+  signInWithRedirect,
+} from "firebase/auth";
 
 import { Icons } from "@/components/Icons";
 import { authContext } from "@/components/Providers/Providers";
@@ -9,13 +16,6 @@ import AltAuthLinks from "@/components/UI/Links/AltAuthLinks";
 import { Button } from "@/components/UI/ShadUI/button";
 import { Input } from "@/components/UI/ShadUI/input";
 import { Label } from "@/components/UI/ShadUI/label";
-import { auth } from "@/firebase/client.config";
-import {
-  GoogleAuthProvider,
-  signInWithEmailAndPassword,
-  signInWithRedirect,
-} from "firebase/auth";
-import React from "react";
 
 export function LoginForm({ previous }: { previous: string }) {
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
@@ -143,7 +143,7 @@ export function LoginForm({ previous }: { previous: string }) {
           </div>
 
           <Button disabled={isLoading || isGoogleLoading || isAppleLoading}>
-            {isLoading && <Icons.spinner className="w-5 h-5 animate-spin" />}
+            {isLoading && <Icons.spinner className="h-5 w-5 animate-spin" />}
 
             {error ? "Retry" : "Login"}
           </Button>

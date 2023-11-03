@@ -1,11 +1,10 @@
-import Link from "next/link";
-
 import React from "react";
+import Link from "next/link";
 import { FaGithub, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 
 const SocialLinks = () => {
   return (
-    <div className="flex text-2xl gap-7 dark:text-white xs:text-xl">
+    <div className="flex gap-7 text-2xl dark:text-white xs:text-xl">
       <Link
         href={"#"}
         aria-label="Instagram"

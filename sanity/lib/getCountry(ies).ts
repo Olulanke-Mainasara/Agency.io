@@ -1,3 +1,4 @@
+import { Country } from "@/types/Country";
 import firstLetterToUpperCase from "@/lib/firstLetterToUpperCase";
 
 import { client } from "./client";
@@ -6,12 +7,12 @@ export async function getCountries(continent: string): Promise<Country[]> {
   const accurateContinent = firstLetterToUpperCase(continent, "-");
 
   return client.fetch(
-    `*[_type == "country" && continent == '${accurateContinent}']{_id, name, "slug": slug.current, "picture": { "image": picture.asset->url, "alt": picture.alt }}`
+    `*[_type == "country" && continent == '${accurateContinent}']{_id, name, "slug": slug.current, "displayImage": { "url": displayImage.asset->url, "alt": displayImage.alt }}`
   );
 }
 
 export async function getCountry(country: string): Promise<Country[]> {
   return client.fetch(
-    `*[_type == "country" && slug.current == '${country}']{name, "flag": { "image": flag.asset->url, "alt": flag.alt }, "picture": { "image": picture.asset->url, "alt": picture.alt }, "coordinates": { "alt": location.alt, "lat": location.lat, "lon": location.lng }}`
+    `*[_type == "country" && slug.current == "nigeria"]{name, "flag": { "url": flag.asset->url, "alt": flag.alt }, "displayImage": { "url": displayImage.asset->url, "alt": displayImage.alt }, description, continent, "pictures": pictures[]{ "url": asset->url, "alt": alt }, essentials[]{_key, title, description, locations[]->{_key, name, "slug": slug.current, "displayImage": { "url": displayImage.asset->url, "alt": displayImage.alt}, rating}}, destinations[]->{_key, name, "slug": slug.current, "displayImage": { "url": displayImage.asset->url, "alt": displayImage.alt}}, posts[]->{_id, title, "slug": slug.current, "image": { "url": image.asset->url, "alt": image.alt }, description}, whyWeLove[]{_key, title, locations[]->{_key, name, "slug": slug.current, "displayImage": { "url": displayImage.asset->url, "alt": displayImage.alt}, rating}}, coordinates, faqs[]{_key, question, answer}}`
   );
 }

@@ -1,12 +1,11 @@
 import { type SchemaTypeDefinition } from "sanity";
 
 import { blog } from "./blog";
-import { continent } from "./continent";
 import { country } from "./country";
 import { experience } from "./experience";
-import { faq } from "./faq";
 import { location } from "./location";
+import { place } from "./place";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [experience, continent, country, blog, faq, location],
+  types: [experience, country, place, blog, location],
 };

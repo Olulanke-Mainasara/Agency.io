@@ -1,20 +1,17 @@
-import FaqCard from "@/components/UI/Cards/FaqCard";
-import { getFaqs } from "@/sanity/lib/getFaqs";
+import { faqs } from "@/static-data/services";
 
-export const dynamic = "force-dynamic";
+import FaqCard from "@/components/UI/Cards/FaqCard";
 
 export default async function Faq() {
-  const faqs = await getFaqs();
-
   return (
-    <div className="px-6 pt-24 space-y-8 xl:px-8 max-w-[1440px] mx-auto">
-      <h1 className="text-4xl md:text-7xl dark:text-white">FAQs</h1>
+    <main className="mx-auto max-w-[1440px] space-y-8 px-6 pt-24 xl:px-8">
+      <h1 className="text-4xl dark:text-white md:text-7xl">FAQs</h1>
 
-      <div className="py-8 text-white grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-12 text-white md:grid-cols-2 lg:grid-cols-3">
         {faqs.map((faq) => {
-          return <FaqCard key={faq._id} faq={faq} />;
+          return <FaqCard key={faq._key} faq={faq} />;
         })}
       </div>
-    </div>
+    </main>
   );
 }

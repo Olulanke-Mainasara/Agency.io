@@ -1,5 +1,6 @@
-import { Icons } from "@/components/Icons";
 import React from "react";
+
+import { Icons } from "@/components/Icons";
 
 import { Button } from "../ShadUI/button";
 import { LocationComboBox } from "./LocationComboBox";
@@ -22,7 +23,7 @@ const ExploreTheWorldForm = () => {
   return (
     <form
       onSubmit={handleExploreTheWorld}
-      className="w-full max-w-2xl gap-6 space-y-6 md:space-y-0 md:flex md:justify-center xl:justify-start"
+      className="w-full max-w-2xl gap-6 space-y-6 md:flex md:justify-center md:space-y-0 xl:justify-start"
     >
       <LocationComboBox
         label="Places to go, things to do..."
@@ -32,9 +33,9 @@ const ExploreTheWorldForm = () => {
 
       <Button
         disabled={isLoading}
-        className="w-full px-10 py-3 text-lg md:text-xl rounded-xl md:w-fit"
+        className="w-full rounded-xl px-10 py-3 text-lg md:w-fit md:text-xl"
       >
-        {isLoading && <Icons.spinner className="w-5 h-5 mr-2 animate-spin" />}
+        {isLoading && <Icons.spinner className="mr-2 h-5 w-5 animate-spin" />}
 
         {error ? "Retry" : "Search"}
       </Button>

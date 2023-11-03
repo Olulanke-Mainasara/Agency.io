@@ -1,26 +1,26 @@
-import Experiences from "@/components/UI/Sections/Experiences";
-import { getExperiences } from "@/sanity/lib/getExperience(s)";
 import { staticExperiencesData } from "@/static-data/images";
 
-export const dynamic = "force-dynamic";
+import getContent from "@/lib/getContent";
+import Experiences from "@/components/UI/Sections/Experiences";
+import { Experience } from "@/types/Experience";
 
 export default async function Experience() {
   let experiences;
 
   try {
-    const queryResult = await getExperiences();
+    const queryResult: Experience[] = await getContent("getExperiences", "", true);
     experiences = queryResult;
   } catch (err) {
     experiences = staticExperiencesData;
   }
 
   return (
-    <div className="px-6 pt-24 space-y-8 xl:px-8 max-w-[1440px] mx-auto">
-      <h1 className="text-4xl text-center md:text-7xl dark:text-white">
+    <main className="mx-auto max-w-[1440px] space-y-8 px-6 pt-24 xl:px-8">
+      <h1 className="text-4xl text-center dark:text-white md:text-7xl">
         Experiences
       </h1>
 
       <Experiences experiences={experiences} />
-    </div>
+    </main>
   );
 }

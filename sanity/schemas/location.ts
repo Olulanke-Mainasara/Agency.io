@@ -16,6 +16,14 @@ export const location = {
       options: { source: "name" },
     },
     {
+      name: "displayImage",
+      type: "image",
+      title: "Display Image",
+      description: "The display image of the country",
+      options: { hotspot: true },
+      fields: [{ name: "alt", type: "string", title: "Alt" }],
+    },
+    {
       name: "about",
       type: "text",
       title: "About",
@@ -41,6 +49,12 @@ export const location = {
           fields: [{ name: "alt", type: "string", title: "Alt" }],
         },
       ],
+    },
+    {
+      name: "rating",
+      type: "number",
+      title: "Rating",
+      description: "The overall rating of the location",
     },
     {
       name: "address",
@@ -137,6 +151,33 @@ export const location = {
                 dateFormat: "MM-DD-YYYY",
                 calendarTodayLabel: "Today",
               },
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: "faqs",
+      type: "array",
+      title: "Faqs",
+      description: "The Faqs of the location",
+      of: [
+        {
+          type: "object",
+          title: "Faq",
+          description: "A frequently asked question",
+          fields: [
+            {
+              name: "question",
+              type: "string",
+              title: "Question",
+              description: "The question asked",
+            },
+            {
+              name: "answer",
+              type: "string",
+              title: "Answer",
+              description: "The answer to the question asked",
             },
           ],
         },

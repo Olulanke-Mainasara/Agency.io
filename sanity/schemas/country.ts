@@ -24,6 +24,14 @@ export const country = {
       options: { source: "name" },
     },
     {
+      name: "displayImage",
+      type: "image",
+      title: "Display Image",
+      description: "The display image of the country",
+      options: { hotspot: true },
+      fields: [{ name: "alt", type: "string", title: "Alt" }],
+    },
+    {
       name: "description",
       type: "text",
       title: "Description",
@@ -94,16 +102,27 @@ export const country = {
       name: "destinations",
       type: "array",
       title: "Destinations",
-      description: "A list of some recommended destinations",
+      description: "A list of some popular destinations in the country",
       of: [
         {
           name: "destination",
-          type: "image",
+          type: "reference",
           title: "Destination",
-          fields: [
-            { name: "alt", type: "string", title: "Alt" },
-            { name: "name", type: "string", title: "Name" },
-          ],
+          to: [{ type: "place" }],
+        },
+      ],
+    },
+    {
+      name: "posts",
+      type: "array",
+      title: "Posts",
+      description: "A list of some blog posts about this place",
+      of: [
+        {
+          type: "reference",
+          title: "Post",
+          description: "A post about this place",
+          to: [{ type: "blog" }],
         },
       ],
     },
@@ -142,10 +161,37 @@ export const country = {
       ],
     },
     {
-      name: "location",
+      name: "coordinates",
       type: "geopoint",
-      title: "Location",
+      title: "Coordinates",
       description: "The Geo-coordinates of the country",
+    },
+    {
+      name: "faqs",
+      type: "array",
+      title: "Faqs",
+      description: "The Faqs of the country",
+      of: [
+        {
+          type: "object",
+          title: "Faq",
+          description: "A frequently asked question",
+          fields: [
+            {
+              name: "question",
+              type: "string",
+              title: "Question",
+              description: "The question asked",
+            },
+            {
+              name: "answer",
+              type: "string",
+              title: "Answer",
+              description: "The answer to the question asked",
+            },
+          ],
+        },
+      ],
     },
   ],
 };

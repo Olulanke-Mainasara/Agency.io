@@ -1,13 +1,10 @@
-import { StaticImageData } from "next/image";
+import { Image } from "./Image";
 
 export type Blog = {
   _id: string | number;
   title: string;
   slug: string;
-  image: {
-    url: string | StaticImageData;
-    alt: string;
-  };
+  image: Image;
   description: string;
   content?: string[];
 };
