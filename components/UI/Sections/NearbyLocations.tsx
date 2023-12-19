@@ -59,7 +59,7 @@ const NearbyLocations = ({
     <CarouselSkeleton />
   ) : items !== null ? (
     <section className="flex flex-col gap-8 xl:py-8">
-      <h1 className="px-6 text-right text-4xl md:text-5xl xl:px-8">
+      <h1 className="px-6 text-4xl text-right md:text-5xl xl:px-8">
         Nearby {title} locations
       </h1>
 
@@ -98,11 +98,11 @@ const NearbyLocations = ({
         <LeftArrow />
 
         {items.length === 0 ? (
-          <div className="flex h-[300px] w-full flex-col items-center justify-center gap-4 rounded-xl border md:flex-row">
+          <div className="flex h-[300px] w-full flex-col items-center justify-center gap-4 rounded-xl border border-black dark:border-white md:flex-row">
             <p className="text-xl">No related locations were found nearby</p>
             <Button
               onClick={() => setIsLoading(true)}
-              className="gap-1 px-6 text-base"
+              className="px-6 text-base gap-1"
               variant={"plain"}
             >
               Search
@@ -113,7 +113,7 @@ const NearbyLocations = ({
             return (
               <SwiperSlide
                 key={item._id}
-                className="relative flex flex-col gap-5 overflow-hidden rounded-xl border-white"
+                className="relative flex flex-col overflow-hidden border-white gap-5 rounded-xl"
               >
                 <div className="h-[300px] bg-white">
                   <Image
@@ -121,7 +121,7 @@ const NearbyLocations = ({
                     width={314}
                     height={305}
                     placeholder="blur"
-                    className="h-full w-full object-cover"
+                    className="object-cover w-full h-full"
                     alt={item.displayImage.alt ? item.displayImage.alt : ""}
                   />
                 </div>
@@ -137,10 +137,10 @@ const NearbyLocations = ({
       </Swiper>
     </section>
   ) : (
-    <section className="flex flex-col gap-8 px-6 xl:p-8">
+    <section className="flex flex-col px-6 gap-8 xl:p-8">
       <h1 className="text-4xl md:text-5xl">Nearby {title} locations</h1>
 
-      <div className="flex h-[300px] w-full flex-col items-center justify-center gap-4 rounded-xl border md:flex-row">
+      <div className="flex h-[300px] w-full flex-col items-center justify-center gap-4 rounded-xl border border-black dark:border-white md:flex-row">
         {!permission && (
           <>
             <p className="text-xl">Get nearby related locations</p>
@@ -148,7 +148,7 @@ const NearbyLocations = ({
               onClick={() => {
                 setPermission(true);
               }}
-              className="gap-1 px-6 text-base"
+              className="px-6 text-base gap-1"
               variant={"plain"}
             >
               Search
@@ -166,7 +166,7 @@ const NearbyLocations = ({
               onClick={() => {
                 setIsLoading(true);
               }}
-              className="gap-1 px-6 text-base"
+              className="px-6 text-base gap-1"
               variant={"plain"}
             >
               Retry

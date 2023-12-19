@@ -1,17 +1,18 @@
 import React from "react";
 import { getBlog } from "@/sanity/lib/getBlog";
-import { staticBlogData } from "@/static-data/images";
+
+import { Blog } from "@/types/Blog";
 
 import BlogCarousel from "../UI/Carousel/BlogCarousel";
 
-const Blog = async () => {
-  let blog;
+const BlogSection = async () => {
+  let blog: Blog[];
 
   try {
     const queryResult = await getBlog();
     blog = queryResult;
   } catch (error) {
-    blog = staticBlogData;
+    blog = [];
   }
 
   return (
@@ -27,4 +28,4 @@ const Blog = async () => {
   );
 };
 
-export default Blog;
+export default BlogSection;

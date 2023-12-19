@@ -31,7 +31,11 @@ const DestinationCarousel = ({ items }: { items: Place[] }) => {
         <LeftArrow />
 
         {!items ? (
-          <div className="relative grid h-[600px] place-items-center rounded-xl text-white dark:border md:h-[700px] lg:h-[800px] xl:h-[700px]">
+          <div className="relative grid h-[600px] place-items-center rounded-xl border border-black text-white dark:border-white md:h-[700px] lg:h-[800px] xl:h-[700px]">
+            <p className="text-xl">Error loading destinations</p>
+          </div>
+        ) : items.length === 0 ? (
+          <div className="relative grid h-[600px] place-items-center rounded-xl border border-black text-white dark:border-white md:h-[700px] lg:h-[800px] xl:h-[700px]">
             <p className="text-xl">
               No destinations are available for this country
             </p>
@@ -41,28 +45,27 @@ const DestinationCarousel = ({ items }: { items: Place[] }) => {
             return (
               <SwiperSlide key={item._id} className="flex flex-col gap-5">
                 <div className="relative h-[600px] w-full overflow-hidden rounded-xl text-white dark:border md:h-[700px] lg:h-[800px] xl:h-[700px]">
-                  <div className="relative h-full w-full">
+                  <div className="relative w-full h-full">
                     <Image
                       src={item.displayImage.url}
                       fill
                       sizes="(max-width: 1200px) 50vw, 33vw"
                       quality={50}
-                      placeholder="blur"
                       alt={item.displayImage.alt}
                       className="object-cover"
                     />
                   </div>
 
-                  <div className="absolute inset-0 rounded-xl pl-3 pt-8 backdrop-brightness-50 sm:pl-5">
+                  <div className="absolute inset-0 pt-8 pl-3 rounded-xl backdrop-brightness-50 sm:pl-5">
                     <h1 className="max-w-3xl text-3xl md:text-7xl">
                       {item.name}
                     </h1>
 
-                    <div className="absolute bottom-8 max-w-lg space-y-5 sm:right-5">
+                    <div className="absolute max-w-lg bottom-8 space-y-5 sm:right-5">
                       <p className="md:text-lg">{item.description}</p>
 
                       <NBgLink
-                        prompt="View the place"
+                        prompt="View the destination"
                         href={`/locations/${item.country}/${item.slug}`}
                         extraStyles="text-white"
                       />

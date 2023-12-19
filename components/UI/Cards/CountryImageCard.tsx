@@ -36,18 +36,18 @@ const CountryImageCard = ({
         href={`/locations/${continent}/${country.slug}`}
         className={`relative h-full`}
       >
-        <div className="h-full w-full">
-          <div className="relative h-full w-full duration-500 group-hover:scale-110">
+        <div className="w-full h-full">
+          <div className="relative w-full h-full duration-500 group-hover:scale-110">
             <Image
               src={country.displayImage.url}
               width={314}
               height={305}
-              className="h-full w-full object-cover"
+              className="object-cover w-full h-full"
               alt={country.displayImage.alt ? country.displayImage.alt : ""}
             />
           </div>
 
-          <div className="absolute inset-0 pl-5 pt-5 backdrop-brightness-75">
+          <div className="absolute inset-0 pt-5 pl-5 backdrop-brightness-75">
             <h1>{country.name}</h1>
           </div>
         </div>

@@ -16,7 +16,7 @@ export const DesktopThemeToggler = () => {
     return (
       <button
         title="Toggle theme"
-        className="skeleton flex h-10 w-10 animate-pulse items-center justify-center rounded-full bg-gray-400 text-xl"
+        className="flex items-center justify-center w-10 h-10 text-xl bg-gray-400 rounded-full skeleton animate-pulse"
       ></button>
     );
   }
@@ -28,7 +28,7 @@ export const DesktopThemeToggler = () => {
       <button
         title="Toggle theme"
         onClick={() => setTheme("light")}
-        className="flex h-10 w-10 items-center justify-center rounded-full text-xl text-white"
+        className="flex items-center justify-center w-10 h-10 text-xl text-white rounded-full"
       >
         <Sun fill="white" />
       </button>
@@ -38,7 +38,7 @@ export const DesktopThemeToggler = () => {
       <button
         title="Toggle theme"
         onClick={() => setTheme("dark")}
-        className="flex h-10 w-10 items-center justify-center rounded-full text-xl text-black"
+        className="flex items-center justify-center w-10 h-10 text-xl text-black rounded-full"
       >
         <MoonStar />
       </button>

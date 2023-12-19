@@ -15,11 +15,11 @@ const Splash = () => {
           opacity: 0,
           transition: { duration: 0.7, delay: 2 },
         }}
-        className="flex h-full items-center justify-center bg-white dark:bg-background"
+        className="flex items-center justify-center h-full bg-white dark:bg-background"
       >
         <motion.div
           animate={{ opacity: 0, transition: { delay: 1.5 } }}
-          className="flex items-center justify-center rounded-xl border border-brandDark p-5 text-5xl text-black dark:text-white md:p-10 md:text-8xl lg:text-9xl"
+          className="flex items-center justify-center p-5 text-5xl text-black border rounded-xl border-brandDark dark:text-white md:p-10 md:text-8xl lg:text-9xl"
         >
           <motion.h1
             initial={{ width: 0, opacity: 0 }}

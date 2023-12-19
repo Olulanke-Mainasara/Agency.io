@@ -22,7 +22,7 @@ export function ProfileOps() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <button className="relative aspect-square w-10 overflow-hidden rounded-full">
+        <button className="relative w-10 overflow-hidden rounded-full aspect-square">
           <Image
             src={Profile}
             width={96}
@@ -39,25 +39,25 @@ export function ProfileOps() {
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuItem>
-            <User className="mr-2 h-4 w-4" />
+            <User className="w-4 h-4 mr-2" />
             <span>Profile</span>
           </DropdownMenuItem>
           <DropdownMenuItem>
-            <Wallet className="mr-2 h-4 w-4" />
+            <Wallet className="w-4 h-4 mr-2" />
             <span>Wallet</span>
           </DropdownMenuItem>
           <DropdownMenuItem>
-            <BaggageClaim className="mr-2 h-4 w-4" />
+            <BaggageClaim className="w-4 h-4 mr-2" />
             <span>Booking and Trips</span>
           </DropdownMenuItem>
           <DropdownMenuItem>
-            <Heart className="mr-2 h-4 w-4" />
+            <Heart className="w-4 h-4 mr-2" />
             <span>Saved</span>
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuItem onClick={handleSignOut}>
-          <LogOut className="mr-2 h-4 w-4" />
+          <LogOut className="w-4 h-4 mr-2" />
           <span>Sign out</span>
         </DropdownMenuItem>
       </DropdownMenuContent>

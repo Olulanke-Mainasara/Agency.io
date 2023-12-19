@@ -24,13 +24,13 @@ const BuildTripCTACard = ({
       onAnimationComplete={() => setHasViewed(true)}
       className={`aspect-square w-72`}
     >
-      <div className="relative h-full w-full overflow-hidden rounded-xl">
+      <div className="relative w-full h-full overflow-hidden rounded-xl">
         <Image
           src={imgsrc}
           width={314}
           height={305}
           alt="Vacation pictures"
-          className="h-full w-full object-cover"
+          className="object-cover w-full h-full"
           placeholder="blur"
         />
       </div>

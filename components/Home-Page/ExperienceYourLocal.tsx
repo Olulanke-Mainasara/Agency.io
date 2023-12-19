@@ -1,19 +1,20 @@
 import React from "react";
 import { cities } from "@/static-data/images";
 
-import { getUserLocationData } from "@/lib/getUserLocationData";
-
 import SharedPagePlaceCarousel from "../UI/Carousel/SharedPagePlaceCarousel";
 
-const ExperienceYourLocal = async () => {
+const ExperienceYourLocal = async ({
+  rawLocationData,
+}: {
+  rawLocationData: any;
+}) => {
   let countryName;
 
-  const rawLocationData = await getUserLocationData();
   countryName = rawLocationData.country_name;
 
   return (
     <section className="flex flex-col gap-8 xl:py-8">
-      <h1 className="px-6 text-right text-4xl md:text-5xl xl:px-8">
+      <h1 className="px-6 text-4xl text-right md:text-5xl xl:px-8">
         Experience{" "}
         <span className="text-brandDark dark:text-brandLight">
           {countryName}

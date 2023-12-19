@@ -38,13 +38,13 @@ const LocationImageCard = ({
         href={`/locations/${continent.value}`}
         className={`relative h-full`}
       >
-        <div className="h-full w-full">
-          <div className="relative h-full w-full duration-500 group-hover:scale-110">
+        <div className="w-full h-full">
+          <div className="relative w-full h-full duration-500 group-hover:scale-110">
             <Image
               src={continent.map.url}
               width={314}
               height={305}
-              className="h-full w-full object-cover"
+              className="object-cover w-full h-full"
               alt={continent.map.alt ? continent.map.alt : ""}
             />
           </div>

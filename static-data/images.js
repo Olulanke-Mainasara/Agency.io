@@ -1,9 +1,4 @@
 import React from "react";
-import Blog1 from "@/public/Blog/Blog1.jpeg";
-import Blog2 from "@/public/Blog/Blog2.webp";
-import Blog3 from "@/public/Blog/Blog3.jpg";
-import Blog4 from "@/public/Blog/Blog4.webp";
-import Blog5 from "@/public/Blog/Blog5.jpg";
 import Amsterdam from "@/public/Destinations/Amsterdam.jpg";
 import Australia from "@/public/Destinations/Australia.jpg";
 import Bali from "@/public/Destinations/Bali.jpg";
@@ -208,118 +203,82 @@ export const staticExperiencesData = [
   {
     _id: 1,
     name: "food",
-    slug: "food",
-    displayImage: { url: Spain, alt: "" },
     description:
       "Explore local cuisines and indulge in delightful culinary experiences",
-    top10: [],
     icon: <FaUtensils />,
   },
   {
     _id: 2,
     name: "climbing",
-    slug: "climbing",
-    displayImage: { url: Spain, alt: "" },
     description: "Challenge yourself and conquer breathtaking heights",
-    top10: [],
     icon: <FaMountain />,
   },
   {
     _id: 3,
     name: "skydiving",
-    slug: "skydiving",
-    displayImage: { url: Spain, alt: "" },
     description: "Experience the thrill of freefall and soar through the skies",
-    top10: [],
     icon: <FaPlane />,
   },
   {
     _id: 4,
     name: "cycling",
-    slug: "cycling",
-    displayImage: { url: Spain, alt: "" },
     description:
       "Pedal your way through scenic routes and discover new destinations",
-    top10: [],
     icon: <FaBicycle />,
   },
   {
     _id: 5,
     name: "photography",
-    slug: "photography",
-    displayImage: { url: Spain, alt: "" },
     description: "Capture unforgettable moments and express your creativity",
-    top10: [],
     icon: <FaCamera />,
   },
   {
     _id: 6,
     name: "hiking",
-    slug: "hiking",
-    displayImage: { url: Spain, alt: "" },
     description:
       "Embark on trails and immerse yourself in the beauty of nature",
-    top10: [],
     icon: <FaHiking />,
   },
   {
     _id: 7,
     name: "shopping",
-    slug: "shopping",
-    displayImage: { url: Spain, alt: "" },
     description:
       "Indulge in retail therapy and explore vibrant markets and shops",
-    top10: [],
     icon: <FaShoppingBag />,
   },
   {
     _id: 8,
     name: "theater",
-    slug: "theater",
-    displayImage: { url: Spain, alt: "" },
     description:
       "Immerse yourself in captivating performances and artistic expressions",
-    top10: [],
     icon: <FaTheaterMasks />,
   },
   {
     _id: 9,
     name: "music-fest",
-    slug: "music-fest",
-    displayImage: { url: Spain, alt: "" },
     description:
       "Savor the energy and joy of live music performances and festivals",
-    top10: [],
     icon: <FaMusic />,
   },
   {
     _id: 10,
     name: "cooking",
-    slug: "cooking",
-    displayImage: { url: Spain, alt: "" },
     description:
       "Learn culinary skills from experts and unleash your inner chef",
-    top10: [],
     icon: <GiCookingPot />,
   },
   {
     _id: 11,
     name: "caving",
-    slug: "caving",
-    displayImage: { url: Spain, alt: "" },
     description:
       "Discover hidden underground wonders and embark on thrilling cave explorations",
-    top10: [],
     icon: <GiMountainCave />,
   },
   {
     _id: 12,
     name: "camping",
-    slug: "camping",
-    displayImage: { url: Spain, alt: "" },
     description:
       "Embrace the great outdoors and create unforgettable memories under the stars",
-    top10: [],
     icon: <GiCampingTent />,
   },
 ];
@@ -372,52 +331,6 @@ export const cities = [
     name: "Port Harcourt",
     slug: "port-harcourt",
     displayImage: { url: Spain, alt: "Port Harcourt" },
-  },
-];
-
-export const staticBlogData = [
-  {
-    _id: 1,
-    title: "10 Must-Visit Beaches for Your Summer Getaway",
-    slug: "10-must-visit-beaches-for-your-summer-getaway",
-    description:
-      "Discover stunning beaches around the world for the perfect summer vacation. From tropical paradises to hidden gems, explore the best destinations for sun, sand, and relaxation.",
-    image: { url: Blog1, alt: "10 Must-Visit Beaches for Your Summer Getaway" },
-  },
-  {
-    _id: 2,
-    title: "Unforgettable Adventure: Hiking the Majestic Mountains",
-    slug: "unforgettable-adventure-hiking-the-majestic-mountains",
-    description:
-      "Embark on an epic hiking adventure and conquer the breathtaking mountains. Get ready for thrilling trails, stunning vistas, and an unforgettable journey to the top of the world.",
-    image: {
-      url: Blog2,
-      alt: "Unforgettable Adventure: Hiking the Majestic Mountains",
-    },
-  },
-  {
-    _id: 3,
-    title: "Exploring Exotic Cuisines: A Foodie's Guide",
-    slug: "exploring-exotic-cuisines-a-foodies-guide",
-    description:
-      "Indulge your taste buds with a culinary journey across different cultures. From street food delights to fine dining experiences, explore the diverse and mouthwatering world of global cuisine.",
-    image: { url: Blog3, alt: "Exploring Exotic Cuisines: A Foodie's Guide" },
-  },
-  {
-    _id: 4,
-    title: "Hidden Gems: Off-the-Beaten-Path Destinations",
-    slug: "hidden-gems-off-the-beaten-path-destinations",
-    description:
-      "Escape the crowds and discover hidden gems off the beaten path. Venture to lesser-known destinations that offer unique experiences, untouched natural beauty, and authentic local cultures.",
-    image: { url: Blog4, alt: "Hidden Gems: Off-the-Beaten-Path Destinations" },
-  },
-  {
-    _id: 5,
-    title: "City Escapes: Unveiling Urban Wonders",
-    slug: "city-escapes-unveiling-urban-wonders",
-    description:
-      "Immerse yourself in the vibrant energy of bustling cities. From iconic landmarks to cultural hotspots, dive into the heart of urban life and explore the hidden treasures of cosmopolitan destinations.",
-    image: { url: Blog5, alt: "City Escapes: Unveiling Urban Wonders" },
   },
 ];
 

@@ -61,7 +61,7 @@ const SharedPagePlaceCarousel = ({
           return (
             <SwiperSlide
               key={item._id}
-              className="relative flex flex-col gap-5 overflow-hidden rounded-xl border-white"
+              className="relative flex flex-col overflow-hidden border-white gap-5 rounded-xl"
             >
               <div className="h-[300px] bg-white">
                 <Image
@@ -69,7 +69,7 @@ const SharedPagePlaceCarousel = ({
                   width={314}
                   height={305}
                   placeholder="blur"
-                  className="h-full w-full object-cover"
+                  className="object-cover w-full h-full"
                   alt={item.displayImage.alt ? item.displayImage.alt : ""}
                 />
               </div>

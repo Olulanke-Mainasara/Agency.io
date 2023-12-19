@@ -33,9 +33,9 @@ const ExploreTheWorldForm = () => {
 
       <Button
         disabled={isLoading}
-        className="w-full rounded-xl px-10 py-3 text-lg md:w-fit md:text-xl"
+        className="w-full px-10 py-3 text-lg rounded-xl md:w-fit md:text-xl"
       >
-        {isLoading && <Icons.spinner className="mr-2 h-5 w-5 animate-spin" />}
+        {isLoading && <Icons.spinner className="w-5 h-5 mr-2 animate-spin" />}
 
         {error ? "Retry" : "Search"}
       </Button>

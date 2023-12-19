@@ -2,17 +2,27 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getCountry } from "@/sanity/lib/getCountry(ies)";
 
+import { Country } from "@/types/Country";
 import FaqCard from "@/components/UI/Cards/FaqCard";
 import BlogCarousel from "@/components/UI/Carousel/BlogCarousel";
 import DestinationCarousel from "@/components/UI/Carousel/DestinationCarousel";
 import SharedPageLocationCarousel from "@/components/UI/Carousel/SharedPageLocationCarousel";
+import BadRequest from "@/components/UI/Sections/BadRequest";
 
-export default async function Country({
+export const dynamic = "force-dynamic";
+
+export default async function CountryPage({
   params: { country },
 }: {
   params: { country: string };
 }) {
-  const countryInfo = await getCountry(country);
+  let countryInfo: Country[];
+
+  try {
+    countryInfo = await getCountry(country);
+  } catch (error) {
+    return <BadRequest />;
+  }
 
   if (countryInfo.length === 0) {
     notFound();
@@ -20,6 +30,7 @@ export default async function Country({
 
   const location = countryInfo[0];
   const {
+    displayImage,
     flag,
     name,
     description,
@@ -33,13 +44,13 @@ export default async function Country({
 
   return (
     <main className="mx-auto max-w-[1440px] space-y-40">
-      <section>
-        <section className="flex h-screen max-h-[900px] items-center gap-8 px-6 xl:px-8">
-          <div className="grid h-[550px] basis-1/2 grid-cols-2 gap-10">
+      <section className="pt-20 lg:pt-24 xl:pt-0">
+        <section className="flex max-h-[900px] flex-col gap-8 px-6 lg:h-screen lg:flex-row lg:items-center xl:px-8">
+          <div className="hidden h-[550px] basis-1/2 grid-cols-2 gap-10 lg:grid">
             {pictures.map((picture) => (
               <div
                 key={Math.floor(Math.random() * Date.now())}
-                className="relative h-full w-full overflow-hidden rounded-lg"
+                className="relative w-full h-full overflow-hidden rounded-lg"
               >
                 <Image
                   src={picture.url}
@@ -51,37 +62,49 @@ export default async function Country({
             ))}
           </div>
 
-          <div className="basis-1/2 space-y-8">
+          <div className="space-y-8 lg:basis-1/2">
             <div className="flex items-center gap-2">
-              <div className="relative h-14 w-24">
+              <div className="relative w-20 h-12 md:h-14 md:w-24">
                 <Image src={flag.url} fill alt={flag.alt} />
               </div>
-              <h1 className="text-4xl dark:text-white md:text-8xl">{name}</h1>
+              <h1 className="text-4xl dark:text-white md:text-7xl xl:text-8xl">
+                {name}
+              </h1>
             </div>
 
-            <p className="text-lg">{description}</p>
+            <p className="md:text-lg">{description}</p>
+          </div>
+
+          <div className="relative h-[300px] overflow-hidden rounded-lg lg:hidden">
+            <Image src={displayImage.url} fill alt={displayImage.alt} />
           </div>
         </section>
 
-        <section className="mt-0 space-y-8">
-          <p className="px-6 text-4xl dark:text-white md:text-5xl xl:px-8">
+        <section className="mt-40 space-y-8 lg:mt-0">
+          <p className="pl-6 text-4xl dark:text-white md:text-5xl xl:pl-8">
             Essentials
           </p>
 
           {essentials ? (
-            essentials.map((essential) => {
-              return (
-                <div key={essential._key} className="flex gap-8">
-                  <p className="text-4xl">{essential.title}</p>
+            <div className="space-y-16">
+              {essentials.map((essential) => {
+                return (
+                  <div
+                    key={essential._key}
+                    className="flex flex-col gap-6 xl:gap-8"
+                  >
+                    <div className="px-6 space-y-2 xl:px-8">
+                      <p className="text-3xl">{essential.title}</p>
+                      <p className="md:text-xl">{essential.description}</p>
+                    </div>
 
-                  <SharedPageLocationCarousel
-                    items={essential.locations || []}
-                  />
-                </div>
-              );
-            })
+                    <SharedPageLocationCarousel items={essential.locations} />
+                  </div>
+                );
+              })}
+            </div>
           ) : (
-            <SharedPageLocationCarousel items={[]} />
+            <SharedPageLocationCarousel items={essentials} />
           )}
         </section>
       </section>
@@ -101,32 +124,40 @@ export default async function Country({
       </section>
 
       <section className="space-y-8">
-        <p className="px-6 text-4xl dark:text-white md:text-5xl xl:px-8">
+        <p className="pl-6 text-4xl dark:text-white md:text-5xl xl:pl-8">
           Why we love {name}
         </p>
 
         {whyWeLove ? (
-          whyWeLove.map((reason) => {
-            return (
-              <div key={reason._key} className="flex gap-8">
-                <p className="text-4xl">{reason.title}</p>
+          <div className="space-y-16">
+            {whyWeLove.map((reason) => {
+              return (
+                <div key={reason._key} className="flex flex-col gap-6 xl:gap-8">
+                  <p className="pl-6 text-3xl xl:pl-8">{reason.title}</p>
 
-                <SharedPageLocationCarousel items={reason.locations || []} />
-              </div>
-            );
-          })
+                  <SharedPageLocationCarousel items={reason.locations} />
+                </div>
+              );
+            })}
+          </div>
         ) : (
-          <SharedPageLocationCarousel items={[]} />
+          <SharedPageLocationCarousel items={whyWeLove} />
         )}
       </section>
 
-      <section className="space-y-8 px-6 xl:px-8">
+      <section className="px-6 space-y-8 xl:px-8">
         <p className="text-4xl dark:text-white md:text-5xl">FAQs</p>
 
-        <div className="grid grid-cols-1 gap-12 text-white md:grid-cols-2 lg:grid-cols-3">
-          {faqs.map((faq) => {
-            return <FaqCard key={faq._key} faq={faq} />;
-          })}
+        <div className="text-white grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
+          {faqs ? (
+            faqs.map((faq) => {
+              return <FaqCard key={faq._key} faq={faq} />;
+            })
+          ) : (
+            <div className="flex h-[300px] w-full items-center justify-center gap-4 rounded-xl border">
+              <p className="text-xl">No related faqs</p>
+            </div>
+          )}
         </div>
       </section>
     </main>

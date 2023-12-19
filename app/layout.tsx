@@ -1,8 +1,5 @@
 import NextTopLoader from "nextjs-toploader";
 
-import Footer from "@/components/UI/Footer/Footer";
-import Nav from "@/components/UI/Nav/Nav";
-
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";

@@ -25,7 +25,7 @@ const GetAppCTA = () => {
 
   return (
     <section className="flex flex-col items-center justify-between overflow-hidden xl:h-[95dvh] xl:max-h-[800px] xl:flex-row xl:p-8">
-      <div className="hidden h-full w-full basis-2/5 items-center justify-center xl:flex">
+      <div className="items-center justify-center hidden w-full h-full basis-2/5 xl:flex">
         <div className="relative h-full w-full max-w-[350px] overflow-hidden rounded-[55px]">
           {mounted && (
             <Image
@@ -44,26 +44,26 @@ const GetAppCTA = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         onAnimationComplete={() => setHasViewed(true)}
-        className="flex flex-col items-center justify-center gap-6 text-center text-black dark:text-white xl:grow"
+        className="flex flex-col items-center justify-center text-center text-black gap-6 dark:text-white xl:grow"
       >
         <h1 className="max-w-3xl text-center text-5xl text-brandDark dark:text-brandLight md:text-[90px]">
           A new adventure, on the go!
         </h1>
-        <p className="max-w-2xl sm:text-lg">
+        <p className="max-w-2xl px-6 sm:text-lg">
           With our powerful tools, you can find the perfect vacation for your
           budget and interests, book your flights, hotels, and activities all in
           one place, and get inspired by our curated travel guides.
         </p>
         <div className="flex justify-center gap-5">
-          <Button size={"sm"} className="rounded-full text-lg xl:px-8">
-            <Link href={"#"} className="flex h-full w-full items-center gap-2">
-              <Icons.apple className="h-4 w-4" />
+          <Button size={"sm"} className="text-lg rounded-full xl:px-8">
+            <Link href={"#"} className="flex items-center w-full h-full gap-2">
+              <Icons.apple className="w-4 h-4" />
               Apple
             </Link>
           </Button>
 
-          <Button size={"sm"} className="rounded-full text-lg xl:px-8">
-            <Link href={"#"} className="flex h-full w-full items-center gap-2">
+          <Button size={"sm"} className="text-lg rounded-full xl:px-8">
+            <Link href={"#"} className="flex items-center w-full h-full gap-2">
               <FaAndroid />
               Android
             </Link>
@@ -97,7 +97,7 @@ const GetAppCTA = () => {
         </div>
       </div>
 
-      <div className="hidden h-full w-full basis-2/5 items-center justify-center xl:flex">
+      <div className="items-center justify-center hidden w-full h-full basis-2/5 xl:flex">
         <div className="relative h-full w-full max-w-[350px] overflow-hidden">
           {mounted && (
             <Image

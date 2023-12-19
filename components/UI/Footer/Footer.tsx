@@ -68,7 +68,7 @@ const Footer = () => {
             },
           }}
           onAnimationComplete={() => setHasViewed(true)}
-          className="text-center text-4xl md:text-left md:text-6xl"
+          className="text-4xl text-center md:text-left md:text-6xl"
         >
           Explore the{" "}
           <span className="text-brandDark dark:text-brandLight">World,</span>
@@ -83,7 +83,7 @@ const Footer = () => {
             },
           }}
           onAnimationComplete={() => setHasViewed(true)}
-          className="text-center text-4xl md:text-right md:text-6xl lg:text-8xl xl:text-9xl"
+          className="text-4xl text-center md:text-right md:text-6xl lg:text-8xl xl:text-9xl"
         >
           One click at a{" "}
           <span className="text-brandDark dark:text-brandLight">Time!</span>
@@ -91,7 +91,7 @@ const Footer = () => {
       </section>
 
       <section className="flex flex-col">
-        <div className="flex flex-col items-center gap-8 pb-8 lg:flex-row">
+        <div className="flex flex-col items-center pb-8 gap-8 lg:flex-row">
           <Link
             href={pathname === "/" ? "/" : `/?splashed=true`}
             className={`hidden h-fit items-center text-4xl lg:flex xs:text-lg`}
@@ -102,7 +102,7 @@ const Footer = () => {
             <FaPlane />
           </Link>
 
-          <div className="md: flex w-full grow flex-wrap justify-between gap-8 md:justify-around lg:w-fit">
+          <div className="flex flex-wrap justify-between w-full md: grow gap-8 md:justify-around lg:w-fit">
             {footerData.map((data) => (
               <div key={data.id} className="space-y-6">
                 <p className="text-brandDark dark:text-brandLight">
@@ -128,14 +128,14 @@ const Footer = () => {
             <Link
               href={"/contactUs"}
               prefetch={false}
-              className="h-full w-full"
+              className="w-full h-full"
             >
               Contact Us
             </Link>
           </Button>
         </div>
 
-        <section className="flex flex-col-reverse items-center justify-between gap-6 border-t border-black py-8 text-center text-sm dark:border-white md:flex-row md:gap-0">
+        <section className="flex flex-col-reverse items-center justify-between py-8 text-sm text-center border-t border-black gap-6 dark:border-white md:flex-row md:gap-0">
           <p>
             © 2023 Agency
             <span className="text-brandDark dark:text-brandLight">

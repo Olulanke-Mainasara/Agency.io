@@ -17,13 +17,13 @@ const TopFeaturedDestinations = () => {
 
   return (
     <section className="flex h-[600px] flex-col gap-8 px-6 dark:text-white md:h-[700px] lg:h-[800px] xl:h-[700px] xl:p-8">
-      <h1 className="text-center text-4xl md:text-5xl">
+      <h1 className="text-4xl text-center md:text-5xl">
         Top{" "}
         <span className="text-brandDark dark:text-brandLight">Featured</span>{" "}
         Destinations
       </h1>
 
-      <div className="flex w-full grow gap-8 overflow-y-hidden overflow-x-scroll text-white">
+      <div className="flex w-full overflow-x-scroll overflow-y-hidden text-white grow gap-8">
         {destinations.map((destination, index) => {
           return (
             <motion.div
@@ -45,7 +45,7 @@ const TopFeaturedDestinations = () => {
               key={destination.id}
               onAnimationComplete={() => setHasViewed(true)}
             >
-              <div className="relative h-full w-full">
+              <div className="relative w-full h-full">
                 <Image
                   className="object-cover"
                   src={destination.imgsrc}
@@ -77,7 +77,11 @@ const TopFeaturedDestinations = () => {
                       card == index ? "opacity-100" : "xl:opacity-0"
                     } text-base duration-300`}
                   >
-                    <NBgButtons prompt="view more" href="#" />
+                    <NBgButtons
+                      prompt="view more"
+                      href="#"
+                      extraStyles="text-white"
+                    />
                   </span>
                 </h1>
               </div>
