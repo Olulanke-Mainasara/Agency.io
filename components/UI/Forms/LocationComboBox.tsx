@@ -38,14 +38,14 @@ export function LocationComboBox({
           aria-expanded={open}
           className="h-14 w-full max-w-[450px] grow basis-1/2 justify-between rounded-xl border-black bg-transparent px-3 font-normal duration-300 dark:border-white dark:bg-transparent dark:text-white dark:hover:bg-white dark:hover:text-black md:h-16 md:text-lg"
         >
-          <div className="flex w-full items-center gap-2">
+          <div className="flex items-center w-full gap-2">
             <Map />
             {value
               ? allLocations.find((location) => location.value === value)?.label
               : label}
           </div>
 
-          <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+          <ChevronsUpDown className="w-4 h-4 ml-2 opacity-50 shrink-0" />
         </Button>
       </PopoverTrigger>
       <PopoverContent className={`${width} p-0`}>

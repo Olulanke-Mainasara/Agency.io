@@ -1,5 +1,6 @@
 import React from "react";
 
+import { getUserLocationData } from "@/lib/getUserLocationData";
 import CarouselSkeleton from "@/components/UI/Carousel/CarouselSkeleton";
 import Footer from "@/components/UI/Footer/Footer";
 import Nav from "@/components/UI/Nav/Nav";
@@ -18,10 +19,13 @@ import TopFeaturedDestinations from "../TopFeaturedDestinations";
 import VacationCarousel from "../VacationCarousel";
 import Body from "./Body";
 
-const Main = () => {
+const Main = async () => {
+  const rawLocationData = await getUserLocationData();
+
   return (
     <React.Suspense>
       <Nav />
+
       <Body>
         <div className="space-y-40">
           <div className="space-y-28">
@@ -35,13 +39,13 @@ const Main = () => {
           <VacationCarousel />
 
           <React.Suspense fallback={<CarouselSkeleton side="items-end" />}>
-            <ExperienceYourLocal />
+            <ExperienceYourLocal rawLocationData={rawLocationData} />
           </React.Suspense>
 
           <BrowseByExperience />
 
           <React.Suspense fallback={<CarouselSkeleton side="items-end" />}>
-            <RecommendedCitySpots />
+            <RecommendedCitySpots rawLocationData={rawLocationData} />
           </React.Suspense>
 
           <PropertyCarousel />
@@ -55,6 +59,7 @@ const Main = () => {
           <GetAppCTA />
         </div>
       </Body>
+
       <Footer />
     </React.Suspense>
   );

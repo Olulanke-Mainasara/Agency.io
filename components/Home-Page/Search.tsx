@@ -26,7 +26,6 @@ const Search = () => {
   const buttonData = [
     { id: 1, text: "Explore the world", plan: "explore" },
     { id: 2, text: "Build your trip", plan: "build" },
-
     {
       id: 3,
       text: user ? "No plan, use A.I" : "A.I Generate",
@@ -36,8 +35,8 @@ const Search = () => {
 
   return (
     <section className="flex w-full p-4 pb-0 lg:max-h-[900px] lg:gap-8 lg:p-8 lg:pb-0 xl:h-screen">
-      <div className="hidden items-center justify-end xl:flex xl:basis-1/2 ">
-        <div className="relative h-4/5 w-full overflow-hidden rounded-xl">
+      <div className="items-center justify-end hidden xl:flex xl:basis-1/2 ">
+        <div className="relative w-full overflow-hidden h-4/5 rounded-xl">
           <Image
             src={SearchImg}
             placeholder="blur"
@@ -48,11 +47,11 @@ const Search = () => {
           />
         </div>
       </div>
-      <div className="flex w-full flex-col gap-8 pt-14 md:items-center md:pt-28 xl:basis-1/2 xl:items-start xl:justify-center xl:pt-0">
-        <div className="activities flex max-w-3xl gap-5 overflow-scroll dark:text-white md:flex-wrap md:justify-center xl:justify-start">
+      <div className="flex flex-col w-full gap-8 pt-14 md:items-center md:pt-28 xl:basis-1/2 xl:items-start xl:justify-center xl:pt-0">
+        <div className="flex max-w-3xl overflow-scroll activities gap-5 dark:text-white md:flex-wrap md:justify-center xl:justify-start">
           <Button
             variant={"outline"}
-            className="border-black bg-background px-6 py-2 text-white dark:border-white dark:bg-white dark:text-black"
+            className="px-6 py-2 text-white border-black bg-background dark:border-white dark:bg-white dark:text-black"
           >
             All
           </Button>

@@ -26,7 +26,7 @@ const MobileNav = ({
   }, [pathname]);
 
   return (
-    <div className="flex h-full items-center justify-between xl:hidden">
+    <div className="flex items-center justify-between h-full xl:hidden">
       {user ? (
         <span className="flex items-center xl:hidden">
           <ProfileOps />

@@ -40,7 +40,7 @@ const MobileNavLinks = () => {
           <li key={link.id}>
             <Link
               href={link.link}
-              className={`${
+              className={`text-lg ${
                 pathname == link.link
                   ? "text-brandDark dark:text-brandLight"
                   : ""

@@ -18,61 +18,40 @@ const Experiences = ({
   const [cardsVisible, setCardsVisible] = React.useState(false);
   const pathName = usePathname();
 
-  return sliced === 9 ? (
+  const renderExperienceCards = (sliced: number = 12) => {
+    return experiences
+      .slice(0, sliced)
+      .map((experience, index) => (
+        <ExperienceCard
+          experience={experience}
+          start={cardsVisible}
+          index={index}
+          key={experience._id}
+        />
+      ));
+  };
+
+  return (
     <motion.div
       initial={{ opacity: 1 }}
       whileInView={{ opacity: 1 }}
       onAnimationComplete={() => setCardsVisible(true)}
-      className="hidden grow grid-cols-3 gap-10 overflow-hidden lg:grid xl:hidden"
     >
-      {experiences.slice(0, sliced).map((experience, index) => {
-        return (
-          <ExperienceCard
-            experience={experience}
-            start={cardsVisible}
-            index={index}
-            key={experience._id}
-          />
-        );
-      })}
-    </motion.div>
-  ) : sliced === 6 ? (
-    <motion.div
-      initial={{ opacity: 1 }}
-      whileInView={{ opacity: 1 }}
-      onAnimationComplete={() => setCardsVisible(true)}
-      className="grid grow grid-cols-1 gap-10 overflow-hidden md:grid-cols-2 lg:hidden"
-    >
-      {experiences.slice(0, sliced).map((experience, index) => {
-        return (
-          <ExperienceCard
-            experience={experience}
-            start={cardsVisible}
-            index={index}
-            key={experience._id}
-          />
-        );
-      })}
-    </motion.div>
-  ) : (
-    <motion.div
-      initial={{ opacity: 1 }}
-      whileInView={{ opacity: 1 }}
-      onAnimationComplete={() => setCardsVisible(true)}
-      className={`${
-        pathName === "/" ? "hidden xl:grid" : "grid"
-      } grow grid-cols-1 gap-10 overflow-hidden md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4`}
-    >
-      {experiences.map((experience, index) => {
-        return (
-          <ExperienceCard
-            experience={experience}
-            start={cardsVisible}
-            index={index}
-            key={experience._id}
-          />
-        );
-      })}
+      {sliced === 9 && (
+        <div className="hidden grid-cols-3 gap-10 lg:grid xl:hidden">
+          {renderExperienceCards(sliced)}
+        </div>
+      )}
+      {sliced === 6 && (
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:hidden">
+          {renderExperienceCards(sliced)}
+        </div>
+      )}
+      {sliced !== 9 && sliced !== 6 && (
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {renderExperienceCards(sliced)}
+        </div>
+      )}
     </motion.div>
   );
 };

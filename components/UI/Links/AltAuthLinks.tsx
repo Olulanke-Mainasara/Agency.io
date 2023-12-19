@@ -23,8 +23,8 @@ const AltAuthLinks = ({
         <div className="absolute inset-0 flex items-center">
           <span className="w-full border-t border-black dark:border-white" />
         </div>
-        <div className="text-md relative flex justify-center uppercase">
-          <span className="text-muted-foreground bg-white px-2 dark:bg-background">
+        <div className="relative flex justify-center uppercase text-md">
+          <span className="px-2 bg-white text-muted-foreground dark:bg-background">
             Or
           </span>
         </div>
@@ -35,12 +35,12 @@ const AltAuthLinks = ({
           type="button"
           disabled={isLoading || isGoogleLoading || isAppleLoading}
           onClick={() => handleGoogleSignIn()}
-          className="text-md w-full"
+          className="w-full text-md"
         >
           {isGoogleLoading ? (
-            <Icons.spinner className="h-5 w-5 animate-spin" />
+            <Icons.spinner className="w-5 h-5 animate-spin" />
           ) : (
-            <Icons.google className="h-4 w-4" />
+            <Icons.google className="w-4 h-4" />
           )}
           Google
         </Button>
@@ -50,12 +50,12 @@ const AltAuthLinks = ({
           type="button"
           disabled={isLoading || isGoogleLoading || isAppleLoading}
           onClick={() => handleAppleSignIn()}
-          className="text-md w-full"
+          className="w-full text-md"
         >
           {isAppleLoading ? (
-            <Icons.spinner className="h-5 w-5 animate-spin" />
+            <Icons.spinner className="w-5 h-5 animate-spin" />
           ) : (
-            <Icons.apple className="h-4 w-4" />
+            <Icons.apple className="w-4 h-4" />
           )}
           Apple
         </Button>

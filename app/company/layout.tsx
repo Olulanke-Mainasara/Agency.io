@@ -7,11 +7,7 @@ export const metadata = {
     "Discover travel tips, reviews, and deals. Plan your stay, find activities, and dine at the finest restaurants.",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <Nav />

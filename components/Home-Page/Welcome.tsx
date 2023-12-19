@@ -51,7 +51,7 @@ const Welcome = () => {
             duration: 0.5,
           },
         }}
-        className="col-span-2 flex flex-col justify-center gap-y-5"
+        className="flex flex-col justify-center col-span-2 gap-y-5"
       >
         <h1 className="xl:text-2xl">
           Welcome to Agency.io, your ultimate guide and help for unforgettable

@@ -19,8 +19,9 @@ import {
 
 import NBgLink from "../../Links/NBgLink";
 
-export function DesktopNavLinks() {
+export function DesktopNavLinks({}: {}) {
   const pathname = usePathname();
+
   return (
     <NavigationMenu>
       <NavigationMenuList>
@@ -50,13 +51,13 @@ export function DesktopNavLinks() {
           </NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-full gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-              {staticExperiencesData.slice(0, 5).map((section) => (
+              {staticExperiencesData.slice(0, 5).map((experience) => (
                 <ListItem
-                  key={section._id}
-                  title={section.name}
-                  href={`/experiences/${section.name}`}
+                  key={experience._id}
+                  title={experience.name}
+                  href={`/experiences/${experience.name}`}
                 >
-                  {section.description}
+                  {experience.description}
                 </ListItem>
               ))}
               <div className="flex items-center pl-3">
@@ -166,7 +167,7 @@ const ListItem = React.forwardRef<
           <div className="text-base font-bold leading-none first-letter:uppercase">
             {title}
           </div>
-          <p className="text-muted-foreground line-clamp-3 text-sm leading-snug">
+          <p className="text-sm leading-snug text-muted-foreground line-clamp-3">
             {children}
           </p>
         </a>

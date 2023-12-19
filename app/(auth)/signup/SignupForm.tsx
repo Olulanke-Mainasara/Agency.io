@@ -189,7 +189,7 @@ export function SignupForm({ previous }: { previous: string }) {
           </div>
 
           <Button disabled={isLoading || isGoogleLoading || isAppleLoading}>
-            {isLoading && <Icons.spinner className="h-5 w-5 animate-spin" />}
+            {isLoading && <Icons.spinner className="w-5 h-5 animate-spin" />}
 
             {error ? "Retry" : "Sign up"}
           </Button>
