@@ -23,7 +23,7 @@ export default function Page({ searchParams }: { searchParams: any }) {
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center h-screen lg:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
+      <div className="flex h-screen flex-col items-center justify-center lg:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
         <div className="relative hidden h-full text-white lg:block">
           <div className="absolute inset-0 z-10 flex flex-col p-10 backdrop-brightness-[60%]">
             <Link
@@ -47,7 +47,7 @@ export default function Page({ searchParams }: { searchParams: any }) {
             </div>
           </div>
 
-          <div className="relative w-full h-full">
+          <div className="relative h-full w-full">
             <Image
               src={MaleTourist2}
               placeholder="blur"
@@ -59,8 +59,8 @@ export default function Page({ searchParams }: { searchParams: any }) {
           </div>
         </div>
 
-        <div className="relative w-full h-full px-6 grid place-items-center">
-          <div className="absolute flex items-center justify-between w-full px-4 top-4 md:top-8 lg:px-8">
+        <div className="relative grid h-full w-full place-items-center px-6">
+          <div className="absolute top-4 flex w-full items-center justify-between px-4 md:top-8 lg:px-8">
             <BackLink />
 
             <MobileThemeToggler
@@ -78,7 +78,7 @@ export default function Page({ searchParams }: { searchParams: any }) {
 
           <div className="lg:p-8">
             <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[400px]">
-              <div className="flex flex-col text-center space-y-2">
+              <div className="flex flex-col space-y-2 text-center">
                 <h1 className="text-2xl tracking-tight sm:text-4xl">
                   Start Your Adventure
                 </h1>
@@ -89,18 +89,18 @@ export default function Page({ searchParams }: { searchParams: any }) {
 
               <SignupForm previous={previous} />
 
-              <p className="px-8 text-sm text-center text-muted-foreground">
+              <p className="text-muted-foreground px-8 text-center text-sm">
                 By clicking Sign up, you agree to our{" "}
                 <Link
                   href="/terms"
-                  className="underline hover:text-primary underline-offset-4"
+                  className="hover:text-primary underline underline-offset-4"
                 >
                   Terms of Service
                 </Link>{" "}
                 and{" "}
                 <Link
                   href="/privacy"
-                  className="underline hover:text-primary underline-offset-4"
+                  className="hover:text-primary underline underline-offset-4"
                 >
                   Privacy Policy
                 </Link>

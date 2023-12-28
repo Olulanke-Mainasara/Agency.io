@@ -39,7 +39,7 @@ export default function BuildTripForm() {
   return (
     <form
       onSubmit={handleTripBuild}
-      className="flex flex-col w-full max-w-2xl gap-8"
+      className="flex w-full max-w-2xl flex-col gap-8"
     >
       <div className="grid gap-x-4 gap-y-6 md:grid-cols-2">
         <LocationComboBox
@@ -51,7 +51,7 @@ export default function BuildTripForm() {
         <DatePickerWithRange handleDateRange={handleDateRange} />
 
         <div className="flex gap-4 md:col-span-2">
-          <div className="flex items-center w-full px-3 overflow-hidden border border-black h-14 rounded-xl dark:border-white md:h-16">
+          <div className="flex h-14 w-full items-center overflow-hidden rounded-xl border border-black px-3 dark:border-white md:h-16">
             <Label
               htmlFor="adults"
               className="flex w-full items-center gap-2 md:min-w-[170px] md:text-lg"
@@ -65,11 +65,11 @@ export default function BuildTripForm() {
               disabled={isLoading}
               min={1}
               onChange={(e) => setNoOfAdults(e.target.value)}
-              className="w-full px-0 text-xl text-center bg-transparent border-none dark:text-white"
+              className="w-full border-none bg-transparent px-0 text-center text-xl dark:text-white"
             />
           </div>
 
-          <div className="flex items-center w-full px-3 overflow-hidden border border-black h-14 rounded-xl dark:border-white md:h-16">
+          <div className="flex h-14 w-full items-center overflow-hidden rounded-xl border border-black px-3 dark:border-white md:h-16">
             <Label
               htmlFor="children"
               className="flex w-full items-center gap-2 md:min-w-[170px] md:text-lg"
@@ -86,12 +86,12 @@ export default function BuildTripForm() {
               disabled={isLoading}
               min={0}
               onChange={(e) => setNoOfChildren(e.target.value)}
-              className="w-full px-0 text-xl text-center bg-transparent border-none dark:text-white"
+              className="w-full border-none bg-transparent px-0 text-center text-xl dark:text-white"
             />
           </div>
         </div>
 
-        <div className="flex items-center w-full px-3 overflow-hidden border border-black h-14 rounded-xl dark:border-white md:h-16">
+        <div className="flex h-14 w-full items-center overflow-hidden rounded-xl border border-black px-3 dark:border-white md:h-16">
           <Label
             htmlFor="rooms"
             className="flex w-full items-center gap-2 md:min-w-[170px] md:text-lg"
@@ -105,15 +105,15 @@ export default function BuildTripForm() {
             disabled={isLoading}
             min={1}
             onChange={(e) => setNoOfRooms(e.target.value)}
-            className="w-full px-0 text-xl text-center bg-transparent border-none dark:text-white"
+            className="w-full border-none bg-transparent px-0 text-center text-xl dark:text-white"
           />
         </div>
 
         <Button
           disabled={isLoading}
-          className="py-3 text-lg rounded-xl md:text-xl"
+          className="rounded-xl py-3 text-lg md:text-xl"
         >
-          {isLoading && <Icons.spinner className="w-5 h-5 mr-2 animate-spin" />}
+          {isLoading && <Icons.spinner className="mr-2 h-5 w-5 animate-spin" />}
 
           {error ? "Retry" : "Search"}
         </Button>

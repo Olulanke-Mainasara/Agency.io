@@ -18,12 +18,12 @@ const DesktopNav = ({
   user: User | null | undefined;
 }) => {
   return (
-    <div className="items-center justify-between hidden h-full xl:flex">
+    <div className="hidden h-full items-center justify-between xl:flex">
       <Logo pathname={pathname} />
 
       <DesktopNavLinks />
 
-      <div className="items-center hidden gap-6 md:flex">
+      <div className="hidden items-center gap-6 md:flex">
         {user === undefined ? (
           <div className="h-12 w-[203px] animate-pulse bg-gray-400"></div>
         ) : (
@@ -34,7 +34,7 @@ const DesktopNav = ({
 
                 <ProfileOps />
 
-                <Link href={"#"}>
+                <Link href={"/cart"}>
                   <ShoppingCart />
                 </Link>
               </>
@@ -47,10 +47,10 @@ const DesktopNav = ({
                   Signup
                 </Link>
 
-                <Button className="px-6 text-base gap-1" variant={"plain"}>
+                <Button className="gap-1 p-0 text-base" variant={"plain"}>
                   <Link
                     href={`/login?previous=${pathname}`}
-                    className="flex items-center justify-center gap-1"
+                    className="flex items-center justify-center gap-1 px-6 py-2"
                   >
                     Log in
                     <span className="text-brandLight dark:text-brandDark">

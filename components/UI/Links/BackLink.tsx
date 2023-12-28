@@ -10,7 +10,7 @@ const BackLink = () => {
   return (
     <button
       onClick={() => router.back()}
-      className="flex items-center text-lg group gap-2"
+      className="group flex items-center gap-2 text-lg"
     >
       <span className="text-brandDark duration-300 group-hover:-translate-x-1 dark:text-brandLight">
         <ArrowLeft size={20} />

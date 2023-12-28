@@ -74,19 +74,34 @@ export const place = {
               description: "A short description of the essential",
             },
             {
-              name: "locations",
+              name: "establishments",
               type: "array",
-              title: "Locations",
+              title: "Establishments",
               of: [
                 {
                   title: "Location",
                   type: "reference",
-                  description: "A location that offers the above essential",
-                  to: [{ type: "location" }],
+                  description:
+                    "An establishment that offers the above essential",
+                  to: [{ type: "establishment" }],
                 },
               ],
             },
           ],
+        },
+      ],
+    },
+    {
+      name: "popularSpots",
+      type: "array",
+      title: "Popular Spots",
+      description: "A list of some popular spots in the place",
+      of: [
+        {
+          name: "spot",
+          type: "reference",
+          title: "Spot",
+          to: [{ type: "establishment" }],
         },
       ],
     },
@@ -121,15 +136,15 @@ export const place = {
               description: "The reason title",
             },
             {
-              name: "locations",
+              name: "establishments",
               type: "array",
-              title: "Locations",
+              title: "Establishments",
               of: [
                 {
                   title: "Location",
                   type: "reference",
-                  description: "A location that supports the reason",
-                  to: [{ type: "location" }],
+                  description: "An establishment that supports the reason",
+                  to: [{ type: "establishment" }],
                 },
               ],
             },
@@ -138,7 +153,7 @@ export const place = {
       ],
     },
     {
-      name: "location",
+      name: "establishment",
       type: "geopoint",
       title: "Location",
       description: "The Geo-coordinates of the country",

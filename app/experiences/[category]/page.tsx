@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { getExperience } from "@/sanity/lib/getExperience(s)";
 
 import { Experience } from "@/types/Experience";
-import SharedPageLocationCarousel from "@/components/UI/Carousel/SharedPageLocationCarousel";
+import SharedPageEstablishmentCarousel from "@/components/UI/Carousel/SharedPageEstablishmentCarousel";
 import BadRequest from "@/components/UI/Sections/BadRequest";
 import NearbyLocations from "@/components/UI/Sections/NearbyLocations";
 
@@ -42,13 +42,13 @@ export default async function Category({
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 p-6 text-white backdrop-brightness-[30%] md:flex-row md:gap-6 xl:p-8">
           <h1 className="text-8xl md:text-9xl">{experience.name}</h1>
           <div className="hidden h-full max-h-[200px] w-1 bg-white md:block"></div>
-          <p className="text-xl text-center w-96 md:text-left md:text-2xl">
+          <p className="w-96 text-center text-xl md:text-left md:text-2xl">
             {experience.description}
           </p>
         </div>
       </section>
 
-      <SharedPageLocationCarousel
+      <SharedPageEstablishmentCarousel
         title="Top 10 locations"
         items={experience.top10 ? experience.top10 : []}
       />
@@ -56,7 +56,7 @@ export default async function Category({
       <NearbyLocations title={experience.name} experience={experience.slug} />
 
       {experience.sections?.map((section) => (
-        <SharedPageLocationCarousel
+        <SharedPageEstablishmentCarousel
           key={section._id}
           title={section.title}
           items={section.locations}

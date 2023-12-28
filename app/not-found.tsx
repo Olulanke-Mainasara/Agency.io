@@ -18,8 +18,8 @@ const NotFound = () => {
           className="object-cover"
         />
       </div>
-      <div className="absolute inset-0 flex items-center justify-center w-full lg:static lg:basis-1/2">
-        <div className="flex flex-col items-center w-4/5 gap-10">
+      <div className="absolute inset-0 flex w-full items-center justify-center lg:static lg:basis-1/2">
+        <div className="flex w-4/5 flex-col items-center gap-10">
           <h1 className="text-8xl dark:text-white md:text-9xl">404</h1>
 
           <p className="text-2xl md:text-4xl xs:text-xl">Oops! Wrong address</p>
@@ -30,7 +30,7 @@ const NotFound = () => {
           </p>
 
           <div className="flex items-center gap-6 md:gap-10 xs:gap-4">
-            <Button className="px-8 text-lg gap-1" variant={"plain"}>
+            <Button className="gap-1 px-8 text-lg" variant={"plain"}>
               <Link href={`/?splashed=true`} prefetch={false}>
                 Home
               </Link>

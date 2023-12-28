@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { staticExperiencesData } from "@/static-data/images";
-import { company, locations, utils } from "@/static-data/navigation";
+import { company, places, utils } from "@/static-data/navigation";
 
 import { cn } from "@/lib/utils";
 import {
@@ -64,7 +64,7 @@ export function DesktopNavLinks({}: {}) {
                 <NBgLink
                   prompt="View all"
                   href="/experiences"
-                  extraStyles="dark:text-black"
+                  extraStyles="dark:text-black font-bold"
                 />
               </div>
             </ul>
@@ -78,19 +78,19 @@ export function DesktopNavLinks({}: {}) {
                 : ""
             }
           >
-            <Link href="/locations" prefetch={false}>
-              Locations
+            <Link href="/places" prefetch={false}>
+              Places
             </Link>
           </NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-full gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-              {locations.map((location) => (
+              {places.map((place) => (
                 <ListItem
-                  key={location.title}
-                  title={location.title}
-                  href={location.href}
+                  key={place.title}
+                  title={place.title}
+                  href={place.href}
                 >
-                  {location.description}
+                  {place.description}
                 </ListItem>
               ))}
             </ul>
@@ -167,7 +167,7 @@ const ListItem = React.forwardRef<
           <div className="text-base font-bold leading-none first-letter:uppercase">
             {title}
           </div>
-          <p className="text-sm leading-snug text-muted-foreground line-clamp-3">
+          <p className="text-muted-foreground line-clamp-3 text-sm leading-snug">
             {children}
           </p>
         </a>

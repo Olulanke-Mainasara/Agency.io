@@ -21,11 +21,11 @@ export default async function Continent({
 
   return (
     <main className="mx-auto max-w-[1440px] px-6 pt-20 lg:pt-24 xl:px-8">
-      <h1 className="text-4xl text-center dark:text-white md:text-7xl">
+      <h1 className="text-center text-4xl dark:text-white md:text-7xl">
         {firstLetterToUpperCase(continent, "-")}
       </h1>
 
-      <div className="py-8 text-white grid gap-8 md:grid-cols-2 lg:grid-cols-6">
+      <div className="grid gap-8 py-8 text-white md:grid-cols-2 lg:grid-cols-6">
         {countries.map((country, index) => {
           return (
             <CountryImageCard

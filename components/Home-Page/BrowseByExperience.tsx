@@ -17,7 +17,7 @@ const BrowseByExperience = async () => {
   }
 
   return (
-    <section className="flex flex-col px-6 gap-8 xl:p-8">
+    <section className="flex flex-col gap-8 px-6 xl:p-8">
       <h1 className="text-4xl md:text-5xl ">
         Browse by{" "}
         <span className="text-brandDark dark:text-brandLight">experience</span>{" "}

@@ -40,7 +40,7 @@ const FullPageCarousel = ({ items }: { items: Item[] }) => {
           return (
             <SwiperSlide key={item.id} className="flex flex-col gap-5">
               <div className="relative h-[600px] w-full overflow-hidden rounded-xl text-white dark:border md:h-[700px] lg:h-[800px] xl:h-[700px]">
-                <div className="relative w-full h-full">
+                <div className="relative h-full w-full">
                   <Image
                     src={item.imgsrc}
                     fill
@@ -52,7 +52,7 @@ const FullPageCarousel = ({ items }: { items: Item[] }) => {
                   />
                 </div>
 
-                <div className="absolute inset-0 pt-8 pl-3 rounded-xl backdrop-brightness-50 sm:pl-5">
+                <div className="absolute inset-0 rounded-xl pl-3 pt-8 backdrop-brightness-50 sm:pl-5">
                   <div className="space-y-3">
                     <p className="opacity-75 md:text-2xl">{item.subText}</p>
                     <h1 className="max-w-3xl text-3xl md:text-7xl">
@@ -60,7 +60,7 @@ const FullPageCarousel = ({ items }: { items: Item[] }) => {
                     </h1>
                   </div>
 
-                  <div className="absolute max-w-lg bottom-8 space-y-5 sm:right-5">
+                  <div className="absolute bottom-8 max-w-lg space-y-5 sm:right-5">
                     <p className="md:text-lg">{item.description}</p>
 
                     <NBgLink

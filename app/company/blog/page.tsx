@@ -22,7 +22,7 @@ export default async function BlogPage() {
           <p className="text-xl">No posts are available</p>
         </div>
       ) : (
-        <div className="text-white grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-12 text-white md:grid-cols-2 lg:grid-cols-3">
           {blog.map((post) => {
             return <BlogCard key={post._id} post={post} />;
           })}

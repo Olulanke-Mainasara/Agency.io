@@ -1,5 +1,6 @@
 import { Blog } from "./Blog";
 import { Essential, Reason } from "./Country";
+import { EstablishmentInfo } from "./EstablishmentInfo";
 import { Image } from "./Image";
 
 export type Place = {
@@ -8,16 +9,17 @@ export type Place = {
   slug: string;
   extra?: string;
   displayImage: Image;
-  country?: string;
+  country: string;
   description?: string;
-  picture?: Image[];
-  essentials?: Essential[];
-  posts?: Blog[];
-  whyWeLove?: Reason[];
-  coordinates?: {
+  popularSpots: EstablishmentInfo[];
+  pictures: Image[];
+  essentials: Essential[];
+  posts: Blog[];
+  whyWeLove: Reason[];
+  coordinates: {
     altitude: number;
     latitude: number;
     longitude: number;
   };
-  faqs?: Faq[];
+  faqs: Faq[];
 };

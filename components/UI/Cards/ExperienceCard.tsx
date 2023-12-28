@@ -29,15 +29,15 @@ const ExperienceCard = ({
             }
           : { opacity: 0, transition: { duration: 0.1, delay: index * 0.1 } }
       }
-      className="w-full h-full border border-black rounded-xl duration-300 hover:border-brandLight dark:border-white dark:hover:border-brandLight"
+      className="h-full w-full rounded-xl border border-black duration-300 hover:border-brandLight dark:border-white dark:hover:border-brandLight"
     >
       <Link
         href={`/experiences/${experience.slug}`}
         prefetch={false}
-        className="w-full h-full"
+        className="h-full w-full"
       >
         {experience.displayImage && (
-          <div className="relative w-full overflow-hidden h-44 rounded-t-xl">
+          <div className="relative h-44 w-full overflow-hidden rounded-t-xl">
             <Image
               src={experience.displayImage.url}
               fill
@@ -51,8 +51,8 @@ const ExperienceCard = ({
           </div>
         )}
 
-        <div className="p-5 space-y-2">
-          <div className="flex items-center text-2xl gap-2">
+        <div className="space-y-2 p-5">
+          <div className="flex items-center gap-2 text-2xl">
             <span className="text-brandDark dark:text-brandLight">
               {
                 staticExperiencesData.find(

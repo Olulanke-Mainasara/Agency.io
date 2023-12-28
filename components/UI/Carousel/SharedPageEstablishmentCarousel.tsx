@@ -5,12 +5,16 @@ import Image from "next/image";
 import { Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import { LocationInfo } from "@/types/LocationInfo";
+import { EstablishmentInfo } from "@/types/EstablishmentInfo";
 
 import LeftArrow from "./LeftArrow";
 import RightArrow from "./RightArrow";
 
-const BareBonesLocationCarousel = ({ items }: { items: LocationInfo[] }) => {
+const BareBonesEstablishmentCarousel = ({
+  items,
+}: {
+  items: EstablishmentInfo[];
+}) => {
   return !items ? (
     <div className="flex h-[300px] w-full items-center justify-center gap-4 rounded-xl border border-black dark:border-white">
       <p className="text-xl">Error loading locations</p>
@@ -58,14 +62,14 @@ const BareBonesLocationCarousel = ({ items }: { items: LocationInfo[] }) => {
         return (
           <SwiperSlide
             key={item._id}
-            className="relative flex flex-col overflow-hidden border-white gap-5 rounded-xl"
+            className="relative flex flex-col gap-5 overflow-hidden rounded-xl border-white"
           >
             <div className="h-[300px] bg-white">
               <Image
                 src={item.displayImage.url}
                 width={314}
                 height={305}
-                className="object-cover w-full h-full"
+                className="h-full w-full object-cover"
                 alt={item.displayImage.alt ? item.displayImage.alt : ""}
               />
             </div>
@@ -81,26 +85,26 @@ const BareBonesLocationCarousel = ({ items }: { items: LocationInfo[] }) => {
   );
 };
 
-const SharedPageLocationCarousel = ({
+const SharedPageEstablishmentCarousel = ({
   title,
   items,
 }: {
   title?: string;
-  items: LocationInfo[];
+  items: EstablishmentInfo[];
 }) => {
   return title ? (
-    <section className="flex flex-col px-6 gap-8 xl:px-8">
+    <section className="flex flex-col gap-8 px-6 xl:px-8">
       <h1 className="text-4xl md:text-5xl">{title}</h1>
 
-      <BareBonesLocationCarousel items={items} />
+      <BareBonesEstablishmentCarousel items={items} />
     </section>
   ) : (
     <div
       className={`w-full ${!items || items.length === 0 ? "px-6 xl:px-8" : ""}`}
     >
-      <BareBonesLocationCarousel items={items} />
+      <BareBonesEstablishmentCarousel items={items} />
     </div>
   );
 };
 
-export default SharedPageLocationCarousel;
+export default SharedPageEstablishmentCarousel;
