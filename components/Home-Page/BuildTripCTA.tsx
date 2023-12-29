@@ -18,7 +18,7 @@ const BuildTripCTA = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         onAnimationComplete={() => setHasViewed(true)}
-        className="flex flex-col items-center justify-center px-5 pb-10 text-center text-black basis-1/2 gap-6 dark:text-white xl:items-end xl:pr-0 xl:text-right"
+        className="flex basis-1/2 flex-col items-center justify-center gap-6 px-5 pb-10 text-center text-black dark:text-white xl:items-end xl:pr-0 xl:text-right"
       >
         <h1 className="max-w-3xl text-5xl text-brandDark dark:text-brandLight md:text-[90px]">
           Leave the planning to us
@@ -28,9 +28,9 @@ const BuildTripCTA = () => {
           budget and interests, book your flights, hotels, and activities all in
           one place, and get inspired by our curated travel guides.
         </p>
-        <div className="flex justify-center w-full gap-5 xl:justify-end">
+        <div className="flex w-full justify-center gap-5 xl:justify-end">
           <FBgButtons />
-          <TBgButtons href="/experiences">Get Inspired</TBgButtons>
+          <TBgButtons href="/experiences">Get inspired</TBgButtons>
         </div>
       </motion.div>
 

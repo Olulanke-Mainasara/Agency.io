@@ -2,11 +2,11 @@
 
 import React from "react";
 import Image from "next/image";
-import { getNearbyLocations } from "@/sanity/lib/getNearbyLocations";
+import { getNearby } from "@/sanity/lib/getNearby";
 import { Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import { LocationInfo } from "@/types/LocationInfo";
+import { EstablishmentInfo } from "@/types/EstablishmentInfo";
 
 import CarouselSkeleton from "../Carousel/CarouselSkeleton";
 import LeftArrow from "../Carousel/LeftArrow";
@@ -23,7 +23,7 @@ const NearbyLocations = ({
   const [isLoading, setIsLoading] = React.useState(false);
   const [permission, setPermission] = React.useState(false);
   const [error, setError] = React.useState(false);
-  const [items, setItems] = React.useState<LocationInfo[] | null>(null);
+  const [items, setItems] = React.useState<EstablishmentInfo[] | null>(null);
 
   React.useEffect(() => {
     if (permission) {
@@ -32,7 +32,7 @@ const NearbyLocations = ({
         (position) => {
           async function fetchLocations(longitude: number, latitude: number) {
             try {
-              const queryResult = await getNearbyLocations(
+              const queryResult = await getNearby(
                 experience,
                 longitude,
                 latitude
@@ -59,7 +59,7 @@ const NearbyLocations = ({
     <CarouselSkeleton />
   ) : items !== null ? (
     <section className="flex flex-col gap-8 xl:py-8">
-      <h1 className="px-6 text-4xl text-right md:text-5xl xl:px-8">
+      <h1 className="px-6 text-right text-4xl md:text-5xl xl:px-8">
         Nearby {title} locations
       </h1>
 
@@ -102,7 +102,7 @@ const NearbyLocations = ({
             <p className="text-xl">No related locations were found nearby</p>
             <Button
               onClick={() => setIsLoading(true)}
-              className="px-6 text-base gap-1"
+              className="gap-1 px-6 text-base"
               variant={"plain"}
             >
               Search
@@ -113,7 +113,7 @@ const NearbyLocations = ({
             return (
               <SwiperSlide
                 key={item._id}
-                className="relative flex flex-col overflow-hidden border-white gap-5 rounded-xl"
+                className="relative flex flex-col gap-5 overflow-hidden rounded-xl border-white"
               >
                 <div className="h-[300px] bg-white">
                   <Image
@@ -121,7 +121,7 @@ const NearbyLocations = ({
                     width={314}
                     height={305}
                     placeholder="blur"
-                    className="object-cover w-full h-full"
+                    className="h-full w-full object-cover"
                     alt={item.displayImage.alt ? item.displayImage.alt : ""}
                   />
                 </div>
@@ -137,7 +137,7 @@ const NearbyLocations = ({
       </Swiper>
     </section>
   ) : (
-    <section className="flex flex-col px-6 gap-8 xl:p-8">
+    <section className="flex flex-col gap-8 px-6 xl:p-8">
       <h1 className="text-4xl md:text-5xl">Nearby {title} locations</h1>
 
       <div className="flex h-[300px] w-full flex-col items-center justify-center gap-4 rounded-xl border border-black dark:border-white md:flex-row">
@@ -148,7 +148,7 @@ const NearbyLocations = ({
               onClick={() => {
                 setPermission(true);
               }}
-              className="px-6 text-base gap-1"
+              className="gap-1 px-6 text-base"
               variant={"plain"}
             >
               Search
@@ -166,7 +166,7 @@ const NearbyLocations = ({
               onClick={() => {
                 setIsLoading(true);
               }}
-              className="px-6 text-base gap-1"
+              className="gap-1 px-6 text-base"
               variant={"plain"}
             >
               Retry

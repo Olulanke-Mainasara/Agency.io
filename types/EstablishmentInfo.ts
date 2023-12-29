@@ -10,12 +10,15 @@ type Review = {
   date: string;
 };
 
-export type LocationInfo = {
+export type EstablishmentInfo = {
   _id: string;
   name: string;
   slug: string;
   about: string;
   displayImage: Image;
+  continent: string;
+  country: string;
+  place: string;
   category: string;
   picture: Image[];
   rating: number;

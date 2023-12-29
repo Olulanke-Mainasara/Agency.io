@@ -1,19 +1,19 @@
 import { Blog } from "./Blog";
+import { EstablishmentInfo } from "./EstablishmentInfo";
 import { Image } from "./Image";
-import { LocationInfo } from "./LocationInfo";
 import { Place } from "./Place";
 
 export type Essential = {
   _key: string;
   title: string;
   description: string;
-  locations: LocationInfo[];
+  locations: EstablishmentInfo[];
 };
 
 export type Reason = {
   _key: string;
   title: string;
-  locations: LocationInfo[];
+  locations: EstablishmentInfo[];
 };
 
 export type Country = {

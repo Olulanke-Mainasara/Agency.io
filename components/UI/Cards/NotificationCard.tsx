@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { notifications } from "@/static-data/services";
 import { Check } from "lucide-react";
 
@@ -16,7 +17,7 @@ type CardProps = React.ComponentProps<typeof Card>;
 
 export function NotificationCard({ className, ...props }: CardProps) {
   return (
-    <Card className={cn("w-[350px]", className)} {...props}>
+    <Card className={cn("md:w-[350px]", className)} {...props}>
       <CardHeader>
         <CardTitle>Notifications</CardTitle>
         <CardDescription>You have 3 unread messages.</CardDescription>
@@ -28,22 +29,23 @@ export function NotificationCard({ className, ...props }: CardProps) {
               key={notification.title}
               className="mb-4 grid grid-cols-[25px_1fr] items-start pb-4 last:mb-0 last:pb-0"
             >
-              <span className="flex w-2 h-2 rounded-full translate-y-1 bg-sky-500" />
+              <span className="flex h-2 w-2 translate-y-1 rounded-full bg-sky-500" />
               <div className="space-y-1">
-                <p className="text-sm font-medium leading-none">
+                <p className="text-lg font-bold leading-none md:text-base">
                   {notification.title}
                 </p>
-                <p className="text-sm text-muted-foreground">
-                  {notification.description}
-                </p>
+                <p className="md:text-sm">{notification.description}</p>
               </div>
             </div>
           ))}
         </div>
       </CardContent>
-      <CardFooter>
+      <CardFooter className="flex gap-4 text-lg md:text-base">
         <Button className="w-full">
-          <Check className="w-4 h-4 mr-2" /> Mark all as read
+          <Check className="mr-2 h-4 w-4" /> Mark all as read
+        </Button>
+        <Button asChild className="basis-2/4 px-4">
+          <Link href={"/notifications"}>View all</Link>
         </Button>
       </CardFooter>
     </Card>

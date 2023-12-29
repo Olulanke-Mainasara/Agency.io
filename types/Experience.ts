@@ -1,10 +1,10 @@
+import { EstablishmentInfo } from "./EstablishmentInfo";
 import { Image } from "./Image";
-import { LocationInfo } from "./LocationInfo";
 
 type Section = {
   _id: string;
   title: string;
-  locations: LocationInfo[];
+  locations: EstablishmentInfo[];
 };
 
 export type Experience = {
@@ -13,7 +13,7 @@ export type Experience = {
   slug: string;
   displayImage: Image;
   description: string;
-  top10: LocationInfo[];
+  top10: EstablishmentInfo[];
   sections?: Section[];
   icon?: React.JSX.Element;
 };

@@ -50,10 +50,10 @@ const WhatWeOffer = () => {
                     delay: 0.2,
                   },
                 }}
-                className="flex flex-col justify-center w-full gap-y-5"
+                className="flex w-full flex-col justify-center gap-y-5"
                 key={service.id}
               >
-                <h1 className="flex items-center text-2xl gap-2">
+                <h1 className="flex items-center gap-2 text-2xl">
                   <span className="text-brandDark dark:text-brandLight">
                     {service.icon}
                   </span>
@@ -76,7 +76,7 @@ const WhatWeOffer = () => {
             delay: 0.2,
           },
         }}
-        className="relative hidden h-full overflow-hidden basis-1/2 rounded-xl lg:block"
+        className="relative hidden h-full basis-1/2 overflow-hidden rounded-xl lg:block"
       >
         <Image
           src={Offer}

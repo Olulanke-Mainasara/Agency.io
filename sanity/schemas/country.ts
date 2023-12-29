@@ -82,15 +82,16 @@ export const country = {
               description: "A short description of the essential",
             },
             {
-              name: "locations",
+              name: "establishments",
               type: "array",
-              title: "Locations",
+              title: "Establishments",
               of: [
                 {
                   title: "Location",
                   type: "reference",
-                  description: "A location that offers the above essential",
-                  to: [{ type: "location" }],
+                  description:
+                    "An establishment that offers the above essential",
+                  to: [{ type: "establishment" }],
                 },
               ],
             },
@@ -144,15 +145,15 @@ export const country = {
               description: "The reason title",
             },
             {
-              name: "locations",
+              name: "establishments",
               type: "array",
-              title: "Locations",
+              title: "",
               of: [
                 {
                   title: "Location",
                   type: "reference",
-                  description: "A location that supports the reason",
-                  to: [{ type: "location" }],
+                  description: "An establishment that supports the reason",
+                  to: [{ type: "establishment" }],
                 },
               ],
             },

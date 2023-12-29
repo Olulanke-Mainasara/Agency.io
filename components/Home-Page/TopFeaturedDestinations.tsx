@@ -5,11 +5,14 @@ import Image from "next/image";
 import { destinations } from "@/static-data/images";
 import { motion } from "framer-motion";
 
+import useMedia from "@/hooks/useMedia";
+
 import NBgButtons from "../UI/Links/NBgLink";
 
 const TopFeaturedDestinations = () => {
   const [card, setCard] = React.useState(0);
   const [hasViewed, setHasViewed] = React.useState(false);
+  const isMobile = useMedia("(max-width: 1024px)");
 
   const handleClick = (index: number) => {
     setCard(index);
@@ -17,18 +20,20 @@ const TopFeaturedDestinations = () => {
 
   return (
     <section className="flex h-[600px] flex-col gap-8 px-6 dark:text-white md:h-[700px] lg:h-[800px] xl:h-[700px] xl:p-8">
-      <h1 className="text-4xl text-center md:text-5xl">
+      <h1 className="text-center text-4xl md:text-5xl">
         Top{" "}
         <span className="text-brandDark dark:text-brandLight">Featured</span>{" "}
         Destinations
       </h1>
 
-      <div className="flex w-full overflow-x-scroll overflow-y-hidden text-white grow gap-8">
+      <div className="flex w-full grow gap-8 overflow-y-hidden overflow-x-scroll text-white">
         {destinations.map((destination, index) => {
           return (
             <motion.div
               initial={
-                hasViewed ? { y: 0, opacity: 1 } : { y: 100, opacity: 0 }
+                hasViewed || isMobile
+                  ? { y: 0, opacity: 1 }
+                  : { y: 100, opacity: 0 }
               }
               whileInView={{
                 y: 0,
@@ -45,7 +50,7 @@ const TopFeaturedDestinations = () => {
               key={destination.id}
               onAnimationComplete={() => setHasViewed(true)}
             >
-              <div className="relative w-full h-full">
+              <div className="relative h-full w-full">
                 <Image
                   className="object-cover"
                   src={destination.imgsrc}

@@ -34,17 +34,14 @@ const LocationImageCard = ({
       }}
       className="group h-[300px] overflow-hidden rounded-xl border border-transparent text-2xl dark:border-white xl:text-xl"
     >
-      <Link
-        href={`/locations/${continent.value}`}
-        className={`relative h-full`}
-      >
-        <div className="w-full h-full">
-          <div className="relative w-full h-full duration-500 group-hover:scale-110">
+      <Link href={`/places/${continent.value}`} className={`relative h-full`}>
+        <div className="h-full w-full">
+          <div className="relative h-full w-full duration-500 group-hover:scale-110">
             <Image
               src={continent.map.url}
               width={314}
               height={305}
-              className="object-cover w-full h-full"
+              className="h-full w-full object-cover"
               alt={continent.map.alt ? continent.map.alt : ""}
             />
           </div>

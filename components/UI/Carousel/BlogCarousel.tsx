@@ -61,7 +61,7 @@ const BlogCarousel = ({ blog }: { blog: Blog[] }) => {
               key={blog._id}
               className="h-full overflow-hidden rounded-xl"
             >
-              <div className="relative w-full overflow-hidden h-44 xl:h-48">
+              <div className="relative h-44 w-full overflow-hidden xl:h-48">
                 <Image
                   src={blog.image.url}
                   fill
@@ -73,7 +73,7 @@ const BlogCarousel = ({ blog }: { blog: Blog[] }) => {
               </div>
 
               <div className="pt-6">
-                <h1 className="mb-3 text-lg font-bold title-font dark:text-white">
+                <h1 className="title-font mb-3 text-lg font-bold dark:text-white">
                   {blog.title}
                 </h1>
 
