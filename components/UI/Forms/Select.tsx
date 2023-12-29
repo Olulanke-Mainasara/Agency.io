@@ -1,3 +1,5 @@
+import React from "react";
+
 import {
   Select,
   SelectContent,
@@ -6,7 +8,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/UI/ShadUI/select";
-import React from "react";
 
 export function SelectOption({
   label,
@@ -24,8 +25,8 @@ export function SelectOption({
 }) {
   return (
     <Select onValueChange={(value) => handleSelect(value)}>
-      <SelectTrigger className="border-black md:text-lg h-14 md:h-16 dark:border-white rounded-xl">
-        <div className="flex items-center w-full gap-2">
+      <SelectTrigger className="h-14 rounded-xl border-black dark:border-white md:h-16 md:text-lg">
+        <div className="flex w-full items-center gap-2">
           {icon} <SelectValue placeholder={label} />
         </div>
       </SelectTrigger>

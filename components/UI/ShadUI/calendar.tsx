@@ -1,10 +1,11 @@
 "use client";
 
-import { buttonVariants } from "@/components/UI/ShadUI/button";
-import { cn } from "@/lib/utils";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import React from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { DayPicker } from "react-day-picker";
+
+import { cn } from "@/lib/utils";
+import { buttonVariants } from "@/components/UI/ShadUI/button";
 
 export type CalendarProps = React.ComponentProps<typeof DayPicker>;
 
@@ -52,10 +53,10 @@ function Calendar({
       }}
       components={{
         IconLeft: ({ ...props }) => (
-          <ChevronLeft className="w-4 h-4 dark:text-black dark:hover:text-white" />
+          <ChevronLeft className="h-4 w-4 dark:text-black dark:hover:text-white" />
         ),
         IconRight: ({ ...props }) => (
-          <ChevronRight className="w-4 h-4 dark:text-black dark:hover:text-white" />
+          <ChevronRight className="h-4 w-4 dark:text-black dark:hover:text-white" />
         ),
       }}
       {...props}

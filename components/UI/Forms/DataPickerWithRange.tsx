@@ -1,15 +1,13 @@
-import { Button } from "@/components/UI/ShadUI/button";
-import { Calendar } from "@/components/UI/ShadUI/calendar";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/UI/ShadUI/popover";
-import { cn } from "@/lib/utils";
+import React from "react";
 import { format } from "date-fns";
 import { Calendar as CalendarIcon } from "lucide-react";
-import React from "react";
 import { DateRange } from "react-day-picker";
+
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/UI/ShadUI/button";
+import { Calendar } from "@/components/UI/ShadUI/calendar";
+
+import { Dialog, DialogContent, DialogTrigger } from "../ShadUI/dialog";
 
 export function DatePickerWithRange({
   handleDateRange,
@@ -29,14 +27,14 @@ export function DatePickerWithRange({
   }, [date, handleDateRange]);
 
   return (
-    <div className={cn("grid gap-2 w-full basis-1/2")}>
-      <Popover>
-        <PopoverTrigger asChild>
+    <div className={cn("grid w-full basis-1/2 gap-2")}>
+      <Dialog>
+        <DialogTrigger asChild>
           <Button
             id="date"
             variant={"outline"}
             className={cn(
-              "h-14 md:h-16 border-black justify-start rounded-xl font-normal md:text-lg bg-transparent dark:bg-transparent dark:hover:bg-white dark:hover:text-black duration-300 dark:text-white dark:border-white px-3"
+              "h-14 justify-start rounded-xl border-black bg-transparent px-3 font-normal duration-300 dark:border-white dark:bg-transparent dark:text-white dark:hover:bg-white dark:hover:text-black md:h-16 md:text-lg"
             )}
           >
             <CalendarIcon />
@@ -53,8 +51,8 @@ export function DatePickerWithRange({
               <span>Check in - Check out</span>
             )}
           </Button>
-        </PopoverTrigger>
-        <PopoverContent className="w-auto p-0" align="start">
+        </DialogTrigger>
+        <DialogContent className="w-auto p-0">
           <Calendar
             initialFocus
             mode="range"
@@ -62,8 +60,8 @@ export function DatePickerWithRange({
             onSelect={(dateRange) => setDate(dateRange)}
             numberOfMonths={2}
           />
-        </PopoverContent>
-      </Popover>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }

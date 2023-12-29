@@ -1,29 +1,32 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import FemaleTourist from "@/public/Auth/femaleTourist.webp";
+import { FaPlane } from "react-icons/fa";
 
 import { MobileThemeToggler } from "@/components/UI/Buttons/ThemeTogglers";
 import BackLink from "@/components/UI/Links/BackLink";
 import { Button } from "@/components/UI/ShadUI/button";
-import FemaleTourist from "@/public/Auth/femaleTourist.webp";
-import { FaPlane } from "react-icons/fa";
 
 import { LoginForm } from "./LoginForm";
-import React from "react";
 
 export const metadata: Metadata = {
   title: "Agency.io | Login",
-  description: "Authentication forms built using the components.",
+  description: "Welcome back! Enter your details to continue your journey.",
 };
 
-export default function Page() {
+export const runtime = "edge";
+
+export default function Page({ searchParams }: { searchParams: any }) {
+  const previous = searchParams.previous;
+
   return (
     <>
-      <div className="flex flex-col items-center justify-center h-screen lg:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
+      <div className="flex h-screen flex-col items-center justify-center lg:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
         <div className="relative hidden h-full text-white lg:block">
           <div className="absolute inset-0 z-10 flex flex-col p-10 backdrop-brightness-[60%]">
             <Link
-              href={`/?splashed=true&visited=true`}
+              href={`/?splashed=true`}
               className="relative z-20 flex items-center text-3xl"
             >
               Agency<span className="text-brandLight">.io</span>&nbsp;
@@ -42,7 +45,7 @@ export default function Page() {
             </div>
           </div>
 
-          <div className="relative w-full h-full">
+          <div className="relative h-full w-full">
             <Image
               src={FemaleTourist}
               placeholder="blur"
@@ -54,8 +57,8 @@ export default function Page() {
           </div>
         </div>
 
-        <div className="relative grid w-full h-full px-6 place-items-center">
-          <div className="absolute flex items-center justify-between w-full px-4 top-4 md:top-8 lg:px-8">
+        <div className="relative grid h-full w-full place-items-center px-6">
+          <div className="absolute top-4 flex w-full items-center justify-between px-4 md:top-8 lg:px-8">
             <BackLink />
 
             <MobileThemeToggler
@@ -65,7 +68,9 @@ export default function Page() {
             />
 
             <Button className="rounded-full">
-              <Link href="/signup">Sign up</Link>
+              <Link href={`/signup${previous ? `?previous=${previous}` : ""}`}>
+                Sign up
+              </Link>
             </Button>
           </div>
 
@@ -79,10 +84,8 @@ export default function Page() {
                   Enter your details below to continue your journey
                 </p>
               </div>
-              
-              <React.Suspense fallback={<></>}>
-                <LoginForm />
-              </React.Suspense>
+
+              <LoginForm previous={previous} />
             </div>
           </div>
         </div>

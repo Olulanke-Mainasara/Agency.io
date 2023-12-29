@@ -1,5 +1,5 @@
-import { vacationCarousel } from "@/static-data/images";
 import React from "react";
+import { vacationCarousel } from "@/static-data/images";
 
 import FullPageCarousel from "../UI/Carousel/FullPageCarousel";
 

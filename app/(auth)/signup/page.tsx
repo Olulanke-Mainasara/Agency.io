@@ -1,28 +1,33 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import MaleTourist2 from "@/public/Auth/maleTourist2.webp";
+import { FaPlane } from "react-icons/fa";
 
 import { MobileThemeToggler } from "@/components/UI/Buttons/ThemeTogglers";
 import BackLink from "@/components/UI/Links/BackLink";
 import { Button } from "@/components/UI/ShadUI/button";
-import MaleTourist2 from "@/public/Auth/maleTourist2.webp";
-import { FaPlane } from "react-icons/fa";
 
 import { SignupForm } from "./SignupForm";
 
 export const metadata: Metadata = {
   title: "Agency.io | Sign up",
-  description: "Authentication forms built using the components.",
+  description:
+    "Start your adventure. Enter your details to embark on an unforgettable journey.",
 };
 
-export default function Page() {
+export const runtime = "edge";
+
+export default function Page({ searchParams }: { searchParams: any }) {
+  const previous = searchParams.previous;
+
   return (
     <>
-      <div className="flex flex-col items-center justify-center h-screen lg:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
+      <div className="flex h-screen flex-col items-center justify-center lg:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
         <div className="relative hidden h-full text-white lg:block">
           <div className="absolute inset-0 z-10 flex flex-col p-10 backdrop-brightness-[60%]">
             <Link
-              href={`/?splashed=true&visited=true`}
+              href={`/?splashed=true`}
               className="relative z-20 flex items-center text-3xl"
             >
               Agency<span className="text-brandLight">.io</span>&nbsp;
@@ -42,7 +47,7 @@ export default function Page() {
             </div>
           </div>
 
-          <div className="relative w-full h-full">
+          <div className="relative h-full w-full">
             <Image
               src={MaleTourist2}
               placeholder="blur"
@@ -54,8 +59,8 @@ export default function Page() {
           </div>
         </div>
 
-        <div className="relative w-full h-full px-6 grid place-items-center">
-          <div className="absolute flex items-center justify-between w-full px-4 top-4 md:top-8 lg:px-8">
+        <div className="relative grid h-full w-full place-items-center px-6">
+          <div className="absolute top-4 flex w-full items-center justify-between px-4 md:top-8 lg:px-8">
             <BackLink />
 
             <MobileThemeToggler
@@ -65,13 +70,15 @@ export default function Page() {
             />
 
             <Button className="rounded-full">
-              <Link href="/login">Log in</Link>
+              <Link href={`/login${previous ? `?previous=${previous}` : ""}`}>
+                Log in
+              </Link>
             </Button>
           </div>
 
           <div className="lg:p-8">
             <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[400px]">
-              <div className="flex flex-col text-center space-y-2">
+              <div className="flex flex-col space-y-2 text-center">
                 <h1 className="text-2xl tracking-tight sm:text-4xl">
                   Start Your Adventure
                 </h1>
@@ -80,20 +87,20 @@ export default function Page() {
                 </p>
               </div>
 
-              <SignupForm />
+              <SignupForm previous={previous} />
 
-              <p className="px-8 text-sm text-center text-muted-foreground">
+              <p className="text-muted-foreground px-8 text-center text-sm">
                 By clicking Sign up, you agree to our{" "}
                 <Link
                   href="/terms"
-                  className="underline underline-offset-4 hover:text-primary"
+                  className="hover:text-primary underline underline-offset-4"
                 >
                   Terms of Service
                 </Link>{" "}
                 and{" "}
                 <Link
                   href="/privacy"
-                  className="underline underline-offset-4 hover:text-primary"
+                  className="hover:text-primary underline underline-offset-4"
                 >
                   Privacy Policy
                 </Link>

@@ -1,11 +1,12 @@
+import React from "react";
+import { Home, User } from "lucide-react";
+import { DateRange } from "react-day-picker";
+import { FaChild } from "react-icons/fa";
+
 import { Icons } from "@/components/Icons";
 import { Button } from "@/components/UI/ShadUI/button";
 import { Input } from "@/components/UI/ShadUI/input";
 import { Label } from "@/components/UI/ShadUI/label";
-import { Home, User } from "lucide-react";
-import React from "react";
-import { DateRange } from "react-day-picker";
-import { FaChild } from "react-icons/fa";
 
 import { DatePickerWithRange } from "./DataPickerWithRange";
 import { LocationComboBox } from "./LocationComboBox";
@@ -38,22 +39,21 @@ export default function BuildTripForm() {
   return (
     <form
       onSubmit={handleTripBuild}
-      className="flex flex-col w-full max-w-2xl gap-8"
+      className="flex w-full max-w-2xl flex-col gap-8"
     >
-      <div className="grid md:grid-cols-2 gap-x-4 gap-y-6">
+      <div className="grid gap-x-4 gap-y-6 md:grid-cols-2">
         <LocationComboBox
           label="Search location..."
-          width="w-[330px]"
           handleLocation={handleLocation}
         />
 
         <DatePickerWithRange handleDateRange={handleDateRange} />
 
         <div className="flex gap-4 md:col-span-2">
-          <div className="flex items-center w-full px-3 overflow-hidden border border-black h-14 md:h-16 rounded-xl dark:border-white">
+          <div className="flex h-14 w-full items-center overflow-hidden rounded-xl border border-black px-3 dark:border-white md:h-16">
             <Label
               htmlFor="adults"
-              className="flex items-center w-full gap-2 md:text-lg md:min-w-[170px]"
+              className="flex w-full items-center gap-2 md:min-w-[170px] md:text-lg"
             >
               <User /> <span className="hidden md:block">No. of</span> Adults
             </Label>
@@ -64,14 +64,14 @@ export default function BuildTripForm() {
               disabled={isLoading}
               min={1}
               onChange={(e) => setNoOfAdults(e.target.value)}
-              className="w-full px-0 text-xl text-center bg-transparent border-none dark:text-white"
+              className="w-full border-none bg-transparent px-0 text-center text-xl dark:text-white"
             />
           </div>
 
-          <div className="flex items-center w-full px-3 overflow-hidden border border-black h-14 md:h-16 rounded-xl dark:border-white">
+          <div className="flex h-14 w-full items-center overflow-hidden rounded-xl border border-black px-3 dark:border-white md:h-16">
             <Label
               htmlFor="children"
-              className="flex items-center w-full md:min-w-[170px] gap-2 md:text-lg"
+              className="flex w-full items-center gap-2 md:min-w-[170px] md:text-lg"
             >
               <span className="text-lg">
                 <FaChild />
@@ -85,15 +85,15 @@ export default function BuildTripForm() {
               disabled={isLoading}
               min={0}
               onChange={(e) => setNoOfChildren(e.target.value)}
-              className="w-full px-0 text-xl text-center bg-transparent border-none dark:text-white"
+              className="w-full border-none bg-transparent px-0 text-center text-xl dark:text-white"
             />
           </div>
         </div>
 
-        <div className="flex items-center w-full px-3 overflow-hidden border border-black h-14 md:h-16 rounded-xl dark:border-white">
+        <div className="flex h-14 w-full items-center overflow-hidden rounded-xl border border-black px-3 dark:border-white md:h-16">
           <Label
             htmlFor="rooms"
-            className="flex items-center w-full gap-2 md:text-lg md:min-w-[170px]"
+            className="flex w-full items-center gap-2 md:min-w-[170px] md:text-lg"
           >
             <Home /> No. of Rooms
           </Label>
@@ -104,15 +104,15 @@ export default function BuildTripForm() {
             disabled={isLoading}
             min={1}
             onChange={(e) => setNoOfRooms(e.target.value)}
-            className="w-full px-0 text-xl text-center bg-transparent border-none dark:text-white"
+            className="w-full border-none bg-transparent px-0 text-center text-xl dark:text-white"
           />
         </div>
 
         <Button
           disabled={isLoading}
-          className="py-3 text-lg md:text-xl rounded-xl"
+          className="rounded-xl py-3 text-lg md:text-xl"
         >
-          {isLoading && <Icons.spinner className="w-5 h-5 mr-2 animate-spin" />}
+          {isLoading && <Icons.spinner className="mr-2 h-5 w-5 animate-spin" />}
 
           {error ? "Retry" : "Search"}
         </Button>
