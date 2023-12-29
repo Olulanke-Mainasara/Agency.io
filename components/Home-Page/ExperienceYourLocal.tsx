@@ -1,5 +1,7 @@
 import React from "react";
-import { cities } from "@/static-data/images";
+import { getCities } from "@/sanity/lib/getCity(ies)";
+
+import { Place } from "@/types/Place";
 
 import SharedPagePlaceCarousel from "../UI/Carousel/SharedPagePlaceCarousel";
 
@@ -11,6 +13,14 @@ const ExperienceYourLocal = async ({
   let countryName;
 
   countryName = rawLocationData.country_name;
+
+  let cities: Place[];
+
+  try {
+    cities = await getCities(countryName);
+  } catch (err) {
+    cities = [];
+  }
 
   return (
     <section className="flex flex-col gap-8 xl:py-8">

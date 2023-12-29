@@ -31,7 +31,7 @@ const BlogCard = ({ post }: { post: Blog }) => {
           {post.description}
         </p>
 
-        <NBgLink prompt="Read post" href={`/company/post/${post.slug}`} />
+        <NBgLink prompt="Read post" href={`/company/blog/${post.slug}`} />
       </div>
     </div>
   );

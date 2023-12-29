@@ -10,8 +10,8 @@ export default function Utilities() {
       </h1>
 
       <div className="grid grid-cols-1 gap-12 text-white md:grid-cols-2 lg:grid-cols-3">
-        {utils.map((util) => {
-          return <DefaultCard key={util.title} features={util} />;
+        {utils.map((util, index) => {
+          return <DefaultCard key={util.title} features={util} index={index} />;
         })}
       </div>
     </main>

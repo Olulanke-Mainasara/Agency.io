@@ -68,7 +68,6 @@ const SharedPagePlaceCarousel = ({
                   src={item.displayImage.url}
                   width={314}
                   height={305}
-                  placeholder="blur"
                   className="h-full w-full object-cover"
                   alt={item.displayImage.alt ? item.displayImage.alt : ""}
                 />
