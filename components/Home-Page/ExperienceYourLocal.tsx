@@ -1,6 +1,5 @@
 import React from "react";
 import { getCities } from "@/sanity/lib/getCity(ies)";
-import { cities } from "@/static-data/images";
 
 import { Place } from "@/types/Place";
 
