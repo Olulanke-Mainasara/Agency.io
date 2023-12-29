@@ -30,7 +30,7 @@ const BuildTripCTA = () => {
         </p>
         <div className="flex w-full justify-center gap-5 xl:justify-end">
           <FBgButtons />
-          <TBgButtons href="/experiences">Get Inspired</TBgButtons>
+          <TBgButtons href="/experiences">Get inspired</TBgButtons>
         </div>
       </motion.div>
 

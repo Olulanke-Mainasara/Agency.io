@@ -53,7 +53,7 @@ const Footer = () => {
           ? { display: "block", transition: { delay: 2.8 } }
           : { display: "block" }
       }
-      className={`mt-40 space-y-8 px-6 xl:px-8 ${
+      className={`mt-32 space-y-8 px-6 xl:mt-40 xl:px-8 ${
         pathname === "/" ? "hidden" : ""
       }`}
     >

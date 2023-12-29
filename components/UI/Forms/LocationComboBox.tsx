@@ -1,8 +1,6 @@
 import React from "react";
-import { allLocations } from "@/static-data/continents";
-import { Check, ChevronsUpDown, Map } from "lucide-react";
+import { Check, ChevronsUpDown, Map, MapPin } from "lucide-react";
 
-import { cn } from "@/lib/utils";
 import { Button } from "@/components/UI/ShadUI/button";
 import {
   Command,
@@ -11,69 +9,58 @@ import {
   CommandInput,
   CommandItem,
 } from "@/components/UI/ShadUI/command";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/UI/ShadUI/popover";
+
+import { Dialog, DialogContent, DialogTrigger } from "../ShadUI/dialog";
 
 export function LocationComboBox({
   label,
-  width,
   handleLocation,
 }: {
   label: string;
-  width: string;
   handleLocation: Function;
 }) {
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState("");
 
   return (
-    <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger asChild>
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogTrigger asChild>
         <Button
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="h-14 w-full max-w-[450px] grow basis-1/2 justify-between rounded-xl border-black bg-transparent px-3 font-normal duration-300 dark:border-white dark:bg-transparent dark:text-white dark:hover:bg-white dark:hover:text-black md:h-16 md:text-lg"
+          className="h-14 w-full grow basis-1/2 justify-between rounded-xl border-black bg-transparent px-3 font-normal duration-300 dark:border-white dark:bg-transparent dark:text-white dark:hover:bg-white dark:hover:text-black md:h-16 md:text-lg"
         >
           <div className="flex w-full items-center gap-2">
             <Map />
-            {value
-              ? allLocations.find((location) => location.value === value)?.label
-              : label}
+            {value ? value.charAt(0).toUpperCase() + value.slice(1) : label}
           </div>
 
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
-      </PopoverTrigger>
-      <PopoverContent className={`${width} p-0`}>
+      </DialogTrigger>
+      <DialogContent>
         <Command>
           <CommandInput placeholder={label} />
           <CommandEmpty>No location found.</CommandEmpty>
           <CommandGroup>
-            {allLocations.map((location) => (
-              <CommandItem
-                key={location.id}
-                onSelect={(currentValue: string) => {
-                  handleLocation(currentValue === value ? "" : currentValue);
-                  setValue(currentValue === value ? "" : currentValue);
-                  setOpen(false);
-                }}
-              >
-                <Check
-                  className={cn(
-                    "mr-2 h-4 w-4",
-                    value === location.value ? "opacity-100" : "opacity-0"
-                  )}
-                />
-                {location.label}
-              </CommandItem>
-            ))}
+            <CommandItem
+              onSelect={(currentValue: string) => {
+                handleLocation(currentValue === value ? "" : currentValue);
+                setValue(currentValue === value ? "" : currentValue);
+                setOpen(false);
+              }}
+            >
+              {value === "nearby" ? (
+                <Check className="mr-2 h-4 w-4" />
+              ) : (
+                <MapPin className="mr-2 h-4 w-4" />
+              )}
+              Nearby
+            </CommandItem>
           </CommandGroup>
         </Command>
-      </PopoverContent>
-    </Popover>
+      </DialogContent>
+    </Dialog>
   );
 }

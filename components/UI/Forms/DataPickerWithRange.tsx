@@ -6,11 +6,8 @@ import { DateRange } from "react-day-picker";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/UI/ShadUI/button";
 import { Calendar } from "@/components/UI/ShadUI/calendar";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/UI/ShadUI/popover";
+
+import { Dialog, DialogContent, DialogTrigger } from "../ShadUI/dialog";
 
 export function DatePickerWithRange({
   handleDateRange,
@@ -31,8 +28,8 @@ export function DatePickerWithRange({
 
   return (
     <div className={cn("grid w-full basis-1/2 gap-2")}>
-      <Popover>
-        <PopoverTrigger asChild>
+      <Dialog>
+        <DialogTrigger asChild>
           <Button
             id="date"
             variant={"outline"}
@@ -54,8 +51,8 @@ export function DatePickerWithRange({
               <span>Check in - Check out</span>
             )}
           </Button>
-        </PopoverTrigger>
-        <PopoverContent className="w-auto p-0" align="start">
+        </DialogTrigger>
+        <DialogContent className="w-auto p-0">
           <Calendar
             initialFocus
             mode="range"
@@ -63,8 +60,8 @@ export function DatePickerWithRange({
             onSelect={(dateRange) => setDate(dateRange)}
             numberOfMonths={2}
           />
-        </PopoverContent>
-      </Popover>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }

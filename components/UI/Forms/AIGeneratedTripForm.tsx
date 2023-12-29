@@ -56,11 +56,7 @@ export default function AIGeneratedTripForm() {
       className="flex w-full max-w-2xl flex-col gap-8"
     >
       <div className="grid gap-x-4 gap-y-6 md:grid-cols-2">
-        <LocationComboBox
-          label="Where to?"
-          width="w-[330px]"
-          handleLocation={handleLocation}
-        />
+        <LocationComboBox label="Where to?" handleLocation={handleLocation} />
 
         <SelectOption
           label="When do you want to go?"

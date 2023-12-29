@@ -17,7 +17,7 @@ type CardProps = React.ComponentProps<typeof Card>;
 
 export function NotificationCard({ className, ...props }: CardProps) {
   return (
-    <Card className={cn("w-[350px]", className)} {...props}>
+    <Card className={cn("md:w-[350px]", className)} {...props}>
       <CardHeader>
         <CardTitle>Notifications</CardTitle>
         <CardDescription>You have 3 unread messages.</CardDescription>
@@ -31,18 +31,16 @@ export function NotificationCard({ className, ...props }: CardProps) {
             >
               <span className="flex h-2 w-2 translate-y-1 rounded-full bg-sky-500" />
               <div className="space-y-1">
-                <p className="text-sm font-medium leading-none">
+                <p className="text-lg font-bold leading-none md:text-base">
                   {notification.title}
                 </p>
-                <p className="text-muted-foreground text-sm">
-                  {notification.description}
-                </p>
+                <p className="md:text-sm">{notification.description}</p>
               </div>
             </div>
           ))}
         </div>
       </CardContent>
-      <CardFooter className="flex gap-2">
+      <CardFooter className="flex gap-4 text-lg md:text-base">
         <Button className="w-full">
           <Check className="mr-2 h-4 w-4" /> Mark all as read
         </Button>

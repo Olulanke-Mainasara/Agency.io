@@ -28,8 +28,12 @@ const Main = async () => {
 
       <Body>
         <div className="space-y-40">
-          <div className="space-y-28">
+          <div className="md:space-y-40">
             <Search />
+
+            <div className="my-6 flex flex-col items-center md:hidden">
+              <div className="h-24 w-[2.5px] rounded bg-brandDark dark:bg-brandLight" />
+            </div>
 
             <TopFeaturedDestinations />
           </div>

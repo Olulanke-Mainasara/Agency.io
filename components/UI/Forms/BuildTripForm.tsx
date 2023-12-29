@@ -44,7 +44,6 @@ export default function BuildTripForm() {
       <div className="grid gap-x-4 gap-y-6 md:grid-cols-2">
         <LocationComboBox
           label="Search location..."
-          width="w-[330px]"
           handleLocation={handleLocation}
         />
 

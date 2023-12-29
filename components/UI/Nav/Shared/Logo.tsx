@@ -6,7 +6,7 @@ const Logo = ({ pathname }: { pathname: string }) => {
   return (
     <Link
       href={pathname === "/" ? "/" : `/?splashed=true`}
-      className={`flex items-center text-2xl`}
+      className="z-20 flex items-center text-2xl"
     >
       Agency
       <span className="text-brandDark dark:text-brandLight">.io</span>

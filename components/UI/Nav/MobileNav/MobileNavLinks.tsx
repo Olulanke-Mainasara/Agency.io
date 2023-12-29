@@ -15,7 +15,7 @@ const links = [
   },
   {
     id: 3,
-    label: "places",
+    label: "Places",
     link: "/places",
   },
   {

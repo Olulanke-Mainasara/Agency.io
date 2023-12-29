@@ -12,7 +12,7 @@ import NBgButtons from "../UI/Links/NBgLink";
 const TopFeaturedDestinations = () => {
   const [card, setCard] = React.useState(0);
   const [hasViewed, setHasViewed] = React.useState(false);
-  const isMobile = useMedia("(max-width: 767px)");
+  const isMobile = useMedia("(max-width: 1024px)");
 
   const handleClick = (index: number) => {
     setCard(index);
