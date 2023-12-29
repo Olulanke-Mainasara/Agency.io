@@ -9,17 +9,17 @@ export type Place = {
   slug: string;
   extra?: string;
   displayImage: Image;
-  country?: string;
+  country: string;
   description?: string;
-  popularSpots?: EstablishmentInfo[];
-  picture?: Image[];
-  essentials?: Essential[];
-  posts?: Blog[];
-  whyWeLove?: Reason[];
-  coordinates?: {
+  popularSpots: EstablishmentInfo[];
+  pictures: Image[];
+  essentials: Essential[];
+  posts: Blog[];
+  whyWeLove: Reason[];
+  coordinates: {
     altitude: number;
     latitude: number;
     longitude: number;
   };
-  faqs?: Faq[];
+  faqs: Faq[];
 };
