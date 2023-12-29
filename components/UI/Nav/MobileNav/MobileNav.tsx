@@ -1,9 +1,7 @@
-import Link from "next/link";
-
+import React from "react";
 import { User } from "firebase/auth";
 import { motion } from "framer-motion";
-import { Menu, ShoppingCart, X } from "lucide-react";
-import React from "react";
+import { Menu, X } from "lucide-react";
 
 import { MobileThemeToggler } from "../../Buttons/ThemeTogglers";
 import FBgLink from "../../Links/FBgLink";
@@ -27,9 +25,9 @@ const MobileNav = ({
   }, [pathname]);
 
   return (
-    <div className="flex items-center justify-between h-full xl:hidden">
+    <div className="flex h-full items-center justify-between xl:hidden">
       {user ? (
-        <span className="flex items-center md:hidden">
+        <span className="z-20 flex items-center xl:hidden">
           <ProfileOps />
         </span>
       ) : null}
@@ -37,18 +35,28 @@ const MobileNav = ({
       <Logo pathname={pathname} />
 
       {user ? (
-        <span className="grid md:hidden place-items-center">
+        <span className="z-20 grid place-items-center xl:hidden">
           <Notifications size={24} />
         </span>
       ) : null}
 
-      <button
-        title="Open navigation menu"
-        onClick={() => setClicked(true)}
-        className="text-black dark:text-white"
-      >
-        <Menu size={26} />
-      </button>
+      {clicked ? (
+        <button
+          title="Close navigation menu"
+          onClick={() => setClicked(false)}
+          className="z-20 text-black dark:text-white"
+        >
+          <X size={26} />
+        </button>
+      ) : (
+        <button
+          title="Open navigation menu"
+          onClick={() => setClicked(true)}
+          className="z-20 text-black dark:text-white"
+        >
+          <Menu size={26} />
+        </button>
+      )}
 
       <motion.div
         initial={{ height: 0 }}
@@ -56,45 +64,17 @@ const MobileNav = ({
         transition={{
           duration: 0.3,
         }}
-        className={`z-10 absolute inset-0 bg-white dark:bg-background overflow-hidden`}
+        className={`absolute inset-0 overflow-hidden bg-white dark:bg-background`}
       >
-        <div className="min-h-[100dvh] flex flex-col gap-8 items-center justify-center relative">
-          <div
-            className={`absolute flex items-center justify-between w-full px-4 lg:px-8 ${
-              user ? "top-3" : "top-4 lg:top-6"
-            }`}
-          >
-            {user ? (
-              <span className="flex items-center md:hidden">
-                <ProfileOps />
-              </span>
-            ) : null}
-
-            <Logo pathname={pathname} />
-
-            {user ? (
-              <span className="grid md:hidden place-items-center">
-                <Link href={"#"}>
-                  <ShoppingCart />
-                </Link>
-              </span>
-            ) : null}
-
-            <button
-              title="Close navigation menu"
-              onClick={() => setClicked(false)}
-              className="text-black dark:text-white"
-            >
-              <X size={26} />
-            </button>
-          </div>
-
+        <div className="relative flex min-h-[100dvh] flex-col items-center justify-center gap-8">
           <MobileNavLinks />
 
-          <div className="flex items-center gap-2 xs:flex-col xs:w-full xs:gap-5">
+          <div className="flex items-center gap-2 xs:w-full xs:flex-col xs:gap-5">
             <FBgLink />
 
-            {!user ? <NBgLink prompt="Log in" href="/login" /> : null}
+            {!user ? (
+              <NBgLink prompt="Log in" href={`/login?previous=${pathname}`} />
+            ) : null}
           </div>
 
           <MobileThemeToggler

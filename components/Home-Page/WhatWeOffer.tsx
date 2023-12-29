@@ -1,11 +1,10 @@
 "use client";
 
+import React from "react";
 import Image from "next/image";
-
 import Offer from "@/public/Main/Offer.webp";
 import { services } from "@/static-data/services";
 import { motion } from "framer-motion";
-import React from "react";
 
 import { authContext } from "../Providers/Providers";
 import NBgButtons from "../UI/Links/NBgLink";
@@ -18,9 +17,9 @@ const WhatWeOffer = () => {
     <section
       className={`w-full ${
         user ? "hidden" : "flex"
-      } items-center py-0 xl:py-8 p-8 xl:h-screen lg:max-h-[900px] md:h-[900px] gap-8 overflow-hidden`}
+      } items-center gap-8 overflow-hidden p-8 py-0 md:h-[900px] lg:max-h-[900px] xl:h-screen xl:py-8`}
     >
-      <div className="flex flex-col gap-8 lg:basis-3/4 dark:text-white">
+      <div className="flex flex-col gap-8 dark:text-white lg:basis-3/4">
         <motion.h1
           initial={hasViewed ? { x: 0, opacity: 1 } : { x: 100, opacity: 0 }}
           whileInView={{
@@ -36,7 +35,7 @@ const WhatWeOffer = () => {
           What do we{" "}
           <span className="text-brandDark dark:text-brandLight">offer</span>?
         </motion.h1>
-        <div className="grid md:grid-cols-2 gap-x-10 gap-y-12 h-fit">
+        <div className="grid h-fit gap-x-10 gap-y-12 md:grid-cols-2">
           {services.map((service) => {
             return (
               <motion.div
@@ -51,7 +50,7 @@ const WhatWeOffer = () => {
                     delay: 0.2,
                   },
                 }}
-                className="flex flex-col justify-center w-full gap-y-5"
+                className="flex w-full flex-col justify-center gap-y-5"
                 key={service.id}
               >
                 <h1 className="flex items-center gap-2 text-2xl">
@@ -77,7 +76,7 @@ const WhatWeOffer = () => {
             delay: 0.2,
           },
         }}
-        className="relative hidden h-full overflow-hidden basis-1/2 rounded-xl lg:block"
+        className="relative hidden h-full basis-1/2 overflow-hidden rounded-xl lg:block"
       >
         <Image
           src={Offer}

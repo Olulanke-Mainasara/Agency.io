@@ -1,5 +1,9 @@
-import CarouselSkeleton from "@/components/UI/Carousel/CarouselSkeleton";
 import React from "react";
+
+import { getUserLocationData } from "@/lib/getUserLocationData";
+import CarouselSkeleton from "@/components/UI/Carousel/CarouselSkeleton";
+import Footer from "@/components/UI/Footer/Footer";
+import Nav from "@/components/UI/Nav/Nav";
 
 import Blog from "../Blog";
 import BrowseByExperience from "../BrowseByExperience";
@@ -15,13 +19,21 @@ import TopFeaturedDestinations from "../TopFeaturedDestinations";
 import VacationCarousel from "../VacationCarousel";
 import Body from "./Body";
 
-const Main = () => {
+const Main = async () => {
+  const rawLocationData = await getUserLocationData();
+
   return (
     <React.Suspense>
+      <Nav />
+
       <Body>
         <div className="space-y-40">
-          <div className="space-y-28">
+          <div className="md:space-y-40">
             <Search />
+
+            <div className="my-6 flex flex-col items-center md:hidden">
+              <div className="h-24 w-[2.5px] rounded bg-brandDark dark:bg-brandLight" />
+            </div>
 
             <TopFeaturedDestinations />
           </div>
@@ -31,13 +43,13 @@ const Main = () => {
           <VacationCarousel />
 
           <React.Suspense fallback={<CarouselSkeleton side="items-end" />}>
-            <ExperienceYourLocal />
+            <ExperienceYourLocal rawLocationData={rawLocationData} />
           </React.Suspense>
 
           <BrowseByExperience />
 
           <React.Suspense fallback={<CarouselSkeleton side="items-end" />}>
-            <RecommendedCitySpots />
+            <RecommendedCitySpots rawLocationData={rawLocationData} />
           </React.Suspense>
 
           <PropertyCarousel />
@@ -51,6 +63,8 @@ const Main = () => {
           <GetAppCTA />
         </div>
       </Body>
+
+      <Footer />
     </React.Suspense>
   );
 };

@@ -165,3 +165,78 @@ export const companions = [
     option: "Family",
   },
 ];
+
+export const faqs = [
+  {
+    _key: 1,
+    question: "What is Agency.io?",
+    answer:
+      "Agency.io is a comprehensive vacation planning platform that helps you discover, plan, and book your dream vacations. We provide a wide range of tools and resources to make your travel experience unforgettable.",
+  },
+  {
+    _key: 2,
+    question: "How can I create an account on Agency.io?",
+    answer:
+      "Creating an account with Agency.io is easy. Just click on the 'Sign Up' button, provide the required information, and you're all set to start planning your trips.",
+  },
+  {
+    _key: 3,
+    question: "Is my personal information safe on Agency.io?",
+    answer:
+      "Absolutely. We take data security seriously. Your personal information is encrypted and securely stored. We never share your details with third parties without your consent.",
+  },
+  {
+    _key: 4,
+    question: "How can I find vacation packages on Agency.io?",
+    answer:
+      "To find vacation packages, simply use our search and filter options. You can browse by destination, dates, and activities to discover the perfect vacation tailored to your preferences.",
+  },
+  {
+    _key: 5,
+    question: "Can I customize my travel itinerary on Agency.io?",
+    answer:
+      "Yes, you can! Agency.io offers customizable travel itineraries. You can add or remove activities, choose accommodations, and tailor your trip to your unique preferences.",
+  },
+  {
+    _key: 6,
+    question: "What payment options are available on Agency.io?",
+    answer:
+      "We accept various payment methods, including major credit cards and secure online payment gateways. You can choose the one that's most convenient for you during the booking process.",
+  },
+  {
+    _key: 7,
+    question: "How do I contact customer support?",
+    answer:
+      "If you have any questions or need assistance, our dedicated customer support team is available 24/7. You can reach out through our 'Contact Us' page, and we'll be happy to help.",
+  },
+  {
+    _key: 8,
+    question: "Are there any special discounts or offers available?",
+    answer:
+      "Yes, we regularly offer special discounts and promotions. Keep an eye on our 'Deals' section to find the latest offers and save on your next adventure with Agency.io.",
+  },
+  {
+    _key: 9,
+    question: "How can I change my password?",
+    answer:
+      "Changing your password is simple. Just log in to your account, go to the 'Account Settings' page, and you'll find an option to update your password securely.",
+  },
+  {
+    _key: 10,
+    question: "What should I do if I encounter issues during my trip?",
+    answer:
+      "In case of any issues during your trip, please contact our customer support immediately. We're here to assist you and ensure you have a smooth and enjoyable vacation.",
+  },
+  {
+    _key: 11,
+    question: "Is travel insurance included in the packages?",
+    answer:
+      "Travel insurance is not automatically included in our packages, but we highly recommend purchasing it for your peace of mind. You can add travel insurance during the booking process.",
+  },
+  {
+    _key: 12,
+    question: "How can I provide feedback about my travel experience?",
+    answer:
+      "We'd love to hear about your experience! After your trip, you'll receive an email with a link to our feedback survey. Your input helps us enhance our services.",
+  },
+];

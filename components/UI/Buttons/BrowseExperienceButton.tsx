@@ -1,10 +1,9 @@
 "use client";
 
+import React from "react";
 import Link from "next/link";
-
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import React from "react";
 
 import { Button } from "../ShadUI/button";
 
@@ -31,7 +30,7 @@ const BrowseExperienceButton = () => {
           className="flex items-center justify-center gap-1"
         >
           View all
-          <span className="dark:text-brandDark text-brandLight">
+          <span className="text-brandLight dark:text-brandDark">
             <ArrowRight size={20} />
           </span>
         </Link>

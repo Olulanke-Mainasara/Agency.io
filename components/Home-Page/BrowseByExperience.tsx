@@ -1,10 +1,21 @@
-import { experiences } from "@/static-data/images";
 import React from "react";
+import { getExperiences } from "@/sanity/lib/getExperience(s)";
+
+import { Experience } from "@/types/Experience";
 
 import BrowseExperienceButton from "../UI/Buttons/BrowseExperienceButton";
-import ExperienceCard from "../UI/Cards/ExperienceCard";
+import Experiences from "../UI/Sections/Experiences";
 
-const BrowseByExperience = () => {
+const BrowseByExperience = async () => {
+  let experiences: Experience[];
+
+  try {
+    const queryResult = await getExperiences();
+    experiences = queryResult;
+  } catch (err) {
+    experiences = [];
+  }
+
   return (
     <section className="flex flex-col gap-8 px-6 xl:p-8">
       <h1 className="text-4xl md:text-5xl ">
@@ -13,41 +24,25 @@ const BrowseByExperience = () => {
         type
       </h1>
 
-      <div className="hidden grid-cols-4 gap-10 overflow-hidden xl:grid grow">
-        {experiences.map((experience, index) => {
-          return (
-            <ExperienceCard
-              experience={experience}
-              index={index}
-              key={experience.id}
-            />
-          );
-        })}
-      </div>
+      {experiences.length === 0 ? (
+        <div className="flex h-[300px] w-full items-center justify-center gap-4 rounded-xl border border-black dark:border-white">
+          <p className="text-xl">Error loading experiences</p>
+        </div>
+      ) : (
+        <>
+          <span className="hidden xl:block">
+            <Experiences experiences={experiences} />
+          </span>
 
-      <div className="hidden grid-cols-3 gap-10 overflow-hidden lg:grid xl:hidden grow">
-        {experiences.slice(0, 9).map((experience, index) => {
-          return (
-            <ExperienceCard
-              experience={experience}
-              index={index}
-              key={experience.id}
-            />
-          );
-        })}
-      </div>
+          <span className="hidden lg:block xl:hidden">
+            <Experiences experiences={experiences} sliced={9} />
+          </span>
 
-      <div className="grid grid-cols-1 gap-10 overflow-hidden lg:hidden md:grid-cols-2 grow">
-        {experiences.slice(0, 6).map((experience, index) => {
-          return (
-            <ExperienceCard
-              experience={experience}
-              index={index}
-              key={experience.id}
-            />
-          );
-        })}
-      </div>
+          <span className="lg:hidden">
+            <Experiences experiences={experiences} sliced={6} />
+          </span>
+        </>
+      )}
 
       <BrowseExperienceButton />
     </section>

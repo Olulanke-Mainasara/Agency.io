@@ -1,9 +1,8 @@
 "use client";
 
-import Image, { StaticImageData } from "next/image";
-
-import { motion } from "framer-motion";
 import React from "react";
+import Image, { StaticImageData } from "next/image";
+import { motion } from "framer-motion";
 
 const BuildTripCTACard = ({
   imgsrc,
@@ -23,15 +22,15 @@ const BuildTripCTACard = ({
         delay: 0.2 * index,
       }}
       onAnimationComplete={() => setHasViewed(true)}
-      className={`w-72 aspect-square`}
+      className={`aspect-square w-72`}
     >
-      <div className="relative w-full h-full overflow-hidden rounded-xl">
+      <div className="relative h-full w-full overflow-hidden rounded-xl">
         <Image
           src={imgsrc}
           width={314}
           height={305}
           alt="Vacation pictures"
-          className="object-cover w-full h-full"
+          className="h-full w-full object-cover"
           placeholder="blur"
         />
       </div>

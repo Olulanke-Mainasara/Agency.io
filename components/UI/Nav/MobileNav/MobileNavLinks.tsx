@@ -1,13 +1,12 @@
+import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
-import React from "react";
 
 const links = [
   {
     id: 1,
     label: "Home",
-    link: `/?splashed=true&visited=true`,
+    link: `/?splashed=true`,
   },
   {
     id: 2,
@@ -16,8 +15,8 @@ const links = [
   },
   {
     id: 3,
-    label: "Locations",
-    link: "/locations",
+    label: "Places",
+    link: "/places",
   },
   {
     id: 4,
@@ -41,7 +40,7 @@ const MobileNavLinks = () => {
           <li key={link.id}>
             <Link
               href={link.link}
-              className={`${
+              className={`text-lg ${
                 pathname == link.link
                   ? "text-brandDark dark:text-brandLight"
                   : ""

@@ -1,10 +1,9 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-import { useSearchParams } from "next/navigation";
+import React from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 
 import Splash from "@/components/UI/Splash/Splash";
-import React from "react";
 
 const Body = ({ children }: { children: React.ReactNode }) => {
   const [splashCounter, setSplashCounter] = React.useState(0);
@@ -14,7 +13,7 @@ const Body = ({ children }: { children: React.ReactNode }) => {
 
   React.useEffect(() => {
     const timeout = setTimeout(() => {
-      router.push("/");
+      router.push("/", { scroll: false });
       setSplashCounter((prev) => prev + 1);
     }, 2800);
 
@@ -25,7 +24,7 @@ const Body = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <main
-      className={`max-w-[1440px] mx-auto ${
+      className={`mx-auto max-w-[1440px] ${
         !splashed && splashCounter === 0 ? "h-screen overflow-hidden" : ""
       }`}
     >
