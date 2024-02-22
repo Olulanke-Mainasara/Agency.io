@@ -13,8 +13,7 @@ export default async function Continent({
   let countries: Country[];
 
   try {
-    const queryResult = await getCountries(continent);
-    countries = queryResult;
+    countries = await getCountries(continent);
   } catch (error) {
     return <BadRequest />;
   }
