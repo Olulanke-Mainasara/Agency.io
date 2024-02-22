@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 
 import { Experience } from "@/types/Experience";
@@ -16,9 +15,8 @@ const Experiences = ({
   experiences: Experience[];
 }) => {
   const [cardsVisible, setCardsVisible] = React.useState(false);
-  const pathName = usePathname();
 
-  const renderExperienceCards = (sliced: number = 12) => {
+  const renderExperienceCards = (sliced: number = experiences.length) => {
     return experiences
       .slice(0, sliced)
       .map((experience, index) => (

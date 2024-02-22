@@ -17,8 +17,7 @@ export default async function Category({
   let experienceData: Experience[];
 
   try {
-    const queryResult = await getExperience(category);
-    experienceData = queryResult;
+    experienceData = await getExperience(category);
   } catch (error) {
     return <BadRequest />;
   }
