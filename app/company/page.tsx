@@ -15,6 +15,7 @@ export default function Company() {
             <DefaultCard
               key={companyFeature.title}
               features={companyFeature}
+              index={index}
             />
           );
         })}
