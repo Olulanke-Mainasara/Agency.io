@@ -10,9 +10,13 @@ export default function Company() {
       </h1>
 
       <div className="grid grid-cols-1 gap-12 text-white md:grid-cols-2 lg:grid-cols-4">
-        {company.map((companyFeature) => {
+        {company.map((companyFeature, index) => {
           return (
-            <DefaultCard key={companyFeature.title} features={companyFeature} />
+            <DefaultCard
+              key={companyFeature.title}
+              features={companyFeature}
+              index={index}
+            />
           );
         })}
       </div>

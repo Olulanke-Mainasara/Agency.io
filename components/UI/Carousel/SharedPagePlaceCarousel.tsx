@@ -54,7 +54,9 @@ const SharedPagePlaceCarousel = ({
 
       {items.length === 0 ? (
         <div className="flex h-[300px] w-full items-center justify-center gap-4 rounded-xl border">
-          <p className="text-xl">No related locations are available</p>
+          <p className="text-xl">
+            No related content is available yet, check back soon!
+          </p>
         </div>
       ) : (
         items.map((item) => {
@@ -68,7 +70,6 @@ const SharedPagePlaceCarousel = ({
                   src={item.displayImage.url}
                   width={314}
                   height={305}
-                  placeholder="blur"
                   className="h-full w-full object-cover"
                   alt={item.displayImage.alt ? item.displayImage.alt : ""}
                 />

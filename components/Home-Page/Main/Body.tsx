@@ -17,19 +17,18 @@ const Body = ({ children }: { children: React.ReactNode }) => {
       setSplashCounter((prev) => prev + 1);
     }, 2800);
 
-    return () => {
-      clearTimeout(timeout);
-    };
+    return () => clearTimeout(timeout);
   }, [router]);
+
+  const shouldDisplaySplash = !splashed && splashCounter === 0;
 
   return (
     <main
       className={`mx-auto max-w-[1440px] ${
-        !splashed && splashCounter === 0 ? "h-screen overflow-hidden" : ""
+        shouldDisplaySplash ? "h-screen overflow-hidden" : ""
       }`}
     >
-      {!splashed && splashCounter === 0 ? <Splash /> : null}
-
+      {shouldDisplaySplash && <Splash />}
       {children}
     </main>
   );

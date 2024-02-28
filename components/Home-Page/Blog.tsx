@@ -9,8 +9,7 @@ const BlogSection = async () => {
   let blog: Blog[];
 
   try {
-    const queryResult = await getBlog();
-    blog = queryResult;
+    blog = await getBlog();
   } catch (error) {
     blog = [];
   }

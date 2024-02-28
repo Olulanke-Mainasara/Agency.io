@@ -10,8 +10,7 @@ const BrowseByExperience = async () => {
   let experiences: Experience[];
 
   try {
-    const queryResult = await getExperiences();
-    experiences = queryResult;
+    experiences = await getExperiences();
   } catch (err) {
     experiences = [];
   }

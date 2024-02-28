@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import MobileAndroidD from "@/public/CTA/MobileAndroidDark.png";
 import MobileAndroidL from "@/public/CTA/MobileAndroidLight.png";
@@ -23,20 +23,26 @@ const GetAppCTA = () => {
     setMounted(true);
   }, []);
 
+  const renderMobileImage = (src: StaticImageData) => {
+    return (
+      <div className="relative h-full w-full max-w-[350px] overflow-hidden rounded-[55px]">
+        {mounted && (
+          <Image
+            src={src}
+            fill
+            placeholder="blur"
+            alt="Mobile application"
+            className="scale-90"
+          />
+        )}
+      </div>
+    );
+  };
+
   return (
     <section className="flex flex-col items-center justify-between overflow-hidden xl:h-[95dvh] xl:max-h-[800px] xl:flex-row xl:p-8">
       <div className="hidden h-full w-full basis-2/5 items-center justify-center xl:flex">
-        <div className="relative h-full w-full max-w-[350px] overflow-hidden rounded-[55px]">
-          {mounted && (
-            <Image
-              src={theme === "dark" ? MobileAppleD : MobileAppleL}
-              fill
-              placeholder="blur"
-              alt="Mobile application"
-              className="scale-90"
-            />
-          )}
-        </div>
+        {renderMobileImage(theme === "dark" ? MobileAppleD : MobileAppleL)}
       </div>
 
       <motion.div
@@ -72,43 +78,13 @@ const GetAppCTA = () => {
       </motion.div>
 
       <div className="flex h-[750px] justify-evenly md:w-full xl:hidden">
-        <div className="relative h-full w-[350px] max-w-[350px] overflow-hidden rounded-[55px] md:w-full">
-          {mounted && (
-            <Image
-              src={theme === "dark" ? MobileAppleD : MobileAppleL}
-              fill
-              placeholder="blur"
-              alt="Mobile application"
-              className="scale-90"
-            />
-          )}
-        </div>
+        {renderMobileImage(theme === "dark" ? MobileAppleD : MobileAppleL)}
 
-        <div className="relative h-full w-[350px] max-w-[350px] overflow-hidden md:w-full">
-          {mounted && (
-            <Image
-              src={theme === "dark" ? MobileAndroidD : MobileAndroidL}
-              fill
-              placeholder="blur"
-              alt="Mobile application"
-              className="scale-90"
-            />
-          )}
-        </div>
+        {renderMobileImage(theme === "dark" ? MobileAndroidD : MobileAndroidL)}
       </div>
 
       <div className="hidden h-full w-full basis-2/5 items-center justify-center xl:flex">
-        <div className="relative h-full w-full max-w-[350px] overflow-hidden">
-          {mounted && (
-            <Image
-              src={theme === "dark" ? MobileAndroidD : MobileAndroidL}
-              fill
-              placeholder="blur"
-              alt="Mobile application"
-              className="scale-90"
-            />
-          )}
-        </div>
+        {renderMobileImage(theme === "dark" ? MobileAndroidD : MobileAndroidL)}
       </div>
     </section>
   );

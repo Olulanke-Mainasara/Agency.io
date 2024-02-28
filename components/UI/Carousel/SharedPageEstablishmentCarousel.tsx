@@ -17,11 +17,13 @@ const BareBonesEstablishmentCarousel = ({
 }) => {
   return !items ? (
     <div className="flex h-[300px] w-full items-center justify-center gap-4 rounded-xl border border-black dark:border-white">
-      <p className="text-xl">Error loading locations</p>
+      <p className="text-xl">Error loading spots</p>
     </div>
   ) : items.length === 0 ? (
     <div className="flex h-[300px] w-full items-center justify-center gap-4 rounded-xl border border-black dark:border-white">
-      <p className="text-xl">No related locations are available</p>
+      <p className="text-xl">
+        No related content is available yet, check back soon!
+      </p>
     </div>
   ) : (
     <Swiper

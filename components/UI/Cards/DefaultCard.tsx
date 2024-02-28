@@ -1,5 +1,8 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 type Features = {
   id: number;
@@ -8,7 +11,11 @@ type Features = {
   href: string;
 };
 
-const DefaultCard = ({ features }: { features: Features }) => {
+const DefaultCard = ({
+  features
+}: {
+  features: Features
+}) => {
   return (
     <Link
       href={features.href}

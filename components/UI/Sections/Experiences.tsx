@@ -16,7 +16,7 @@ const Experiences = ({
 }) => {
   const [cardsVisible, setCardsVisible] = React.useState(false);
 
-  const renderExperienceCards = (sliced: number = 12) => {
+  const renderExperienceCards = (sliced: number = experiences.length) => {
     return experiences
       .slice(0, sliced)
       .map((experience, index) => (
