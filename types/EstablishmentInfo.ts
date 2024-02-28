@@ -1,12 +1,12 @@
 import { Image } from "./Image";
 
-type Review = {
+export type Review = {
   _key: string;
   name: string;
   title: string;
   description: string;
   rating: number;
-  pictures: Image[];
+  pictures?: Image[];
   date: string;
 };
 

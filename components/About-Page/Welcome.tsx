@@ -6,19 +6,13 @@ import About1 from "@/public/Main/About1.webp";
 import About2 from "@/public/Main/About2.webp";
 import { motion } from "framer-motion";
 
-import { authContext } from "../Providers/Providers";
 import FBgButtons from "../UI/Links/FBgLink";
 
 const Welcome = () => {
   const [hasViewed, setHasViewed] = React.useState(false);
-  const user = React.useContext(authContext);
 
   return (
-    <section
-      className={`relative ${
-        user ? "hidden" : "flex md:grid"
-      }  min-h-screen w-full flex-col gap-8 overflow-hidden p-8 py-0 dark:text-white md:min-h-fit md:grid-cols-4 md:grid-rows-3 lg:max-h-[900px] xl:h-screen xl:py-8`}
-    >
+    <section className="flex min-h-screen w-full flex-col gap-8 overflow-hidden px-6 py-0 dark:text-white md:grid md:min-h-fit md:grid-cols-4 md:grid-rows-3 lg:max-h-[900px] xl:h-screen xl:p-8">
       <motion.div
         initial={hasViewed ? { x: 0, opacity: 1 } : { x: -100, opacity: 0 }}
         whileInView={{
@@ -53,12 +47,12 @@ const Welcome = () => {
         }}
         className="col-span-2 flex flex-col justify-center gap-y-5"
       >
-        <h1 className="xl:text-2xl">
+        <p className="text-center text-lg md:text-left xl:text-2xl">
           Welcome to Agency.io, your ultimate guide and help for unforgettable
           travel experiences. We believe that every journey should be filled
           with wonder, excitement, and personalized attention.
-        </h1>
-        <div className="flex justify-end md:justify-start">
+        </p>
+        <div className="flex justify-center md:justify-start">
           <FBgButtons />
         </div>
       </motion.div>

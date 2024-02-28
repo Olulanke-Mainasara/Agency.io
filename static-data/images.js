@@ -853,3 +853,51 @@ export const propertyCarousel = [
     imgsrc: Castle,
   },
 ];
+
+export const execs = [
+  {
+    id: 1,
+    name: "Olulanke Mainasara",
+    position: "Co-Founder",
+    image: {
+      url: "",
+      alt: "",
+    },
+  },
+  {
+    id: 2,
+    name: "Olulanke Oluwatomiwa",
+    position: "Co-Founder",
+    image: {
+      url: "",
+      alt: "",
+    },
+  },
+  {
+    id: 3,
+    name: "Olulanke Folashade",
+    position: "C.F.O",
+    image: {
+      url: "",
+      alt: "",
+    },
+  },
+  {
+    id: 4,
+    name: "Olulanke Isaac",
+    position: "C.T.O",
+    image: {
+      url: "",
+      alt: "",
+    },
+  },
+  {
+    id: 5,
+    name: "Olulanke Ebunoluwa",
+    position: "G.C",
+    image: {
+      url: "",
+      alt: "",
+    },
+  },
+];

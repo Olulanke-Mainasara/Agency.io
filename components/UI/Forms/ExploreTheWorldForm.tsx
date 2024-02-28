@@ -2,8 +2,8 @@ import React from "react";
 
 import { Icons } from "@/components/Icons";
 
+import { LocationComboBox } from "../Modals/LocationComboBox";
 import { Button } from "../ShadUI/button";
-import { LocationComboBox } from "./LocationComboBox";
 
 const ExploreTheWorldForm = () => {
   const [isLoading, setIsLoading] = React.useState<boolean>(false);

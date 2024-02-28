@@ -32,7 +32,7 @@ const LocationImageCard = ({
           delay: 0.2 * index,
         },
       }}
-      className="group h-[300px] overflow-hidden rounded-xl border border-transparent text-2xl dark:border-white xl:text-xl"
+      className="group h-[300px] overflow-hidden rounded-xl border border-transparent text-2xl dark:border-gray-400 xl:text-xl"
     >
       <Link href={`/places/${continent.value}`} className={`relative h-full`}>
         <div className="h-full w-full">

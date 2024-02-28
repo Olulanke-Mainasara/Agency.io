@@ -28,7 +28,7 @@ const CountryImageCard = ({
           delay: 0.2 * index,
         },
       }}
-      className={`group h-[300px] overflow-hidden rounded-xl border border-transparent text-2xl dark:border-white xl:col-span-2 xl:text-xl ${
+      className={`group h-[300px] overflow-hidden rounded-xl border border-transparent text-2xl dark:border-gray-400 xl:col-span-2 xl:text-xl ${
         cols == 2 ? "lg:col-span-2" : cols == 3 ? "lg:col-span-3" : ""
       }`}
     >

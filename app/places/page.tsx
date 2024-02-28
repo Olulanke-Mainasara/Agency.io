@@ -5,7 +5,7 @@ import LocationImageCard from "@/components/UI/Cards/LocationImageCard";
 export default async function Locations() {
   return (
     <main className="mx-auto max-w-[1440px] space-y-8 px-6 pt-20 lg:pt-24 xl:px-8">
-      <h1 className="text-center text-4xl dark:text-white md:text-7xl">
+      <h1 className="text-center text-6xl dark:text-white md:text-7xl">
         Locations
       </h1>
 

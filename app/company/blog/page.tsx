@@ -14,8 +14,10 @@ export default async function BlogPage() {
   }
 
   return (
-    <main className="mx-auto max-w-[1440px] space-y-8 px-6 pt-20 xl:px-8">
-      <h1 className="text-center text-4xl dark:text-white md:text-7xl">Blog</h1>
+    <main className="mx-auto max-w-[1440px] space-y-8 px-6 pt-24 xl:px-8">
+      <h1 className="text-center text-6xl dark:text-white md:text-7xl">
+        Inspiration <span className="text-brandDark">awaits</span> here!
+      </h1>
 
       {!blog ? (
         <div className="flex h-[300px] w-full items-center justify-center gap-4 rounded-xl border border-black dark:border-white">

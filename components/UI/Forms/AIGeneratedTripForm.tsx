@@ -8,8 +8,8 @@ import { Button } from "@/components/UI/ShadUI/button";
 import { Input } from "@/components/UI/ShadUI/input";
 import { Label } from "@/components/UI/ShadUI/label";
 
-import { DatePickerWithRange } from "./DataPickerWithRange";
-import { LocationComboBox } from "./LocationComboBox";
+import { DatePickerWithRange } from "../Modals/DataPickerWithRange";
+import { LocationComboBox } from "../Modals/LocationComboBox";
 import { SelectOption } from "./Select";
 
 export default function AIGeneratedTripForm() {
