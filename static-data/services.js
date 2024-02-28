@@ -240,3 +240,87 @@ export const faqs = [
       "We'd love to hear about your experience! After your trip, you'll receive an email with a link to our feedback survey. Your input helps us enhance our services.",
   },
 ];
+
+export const staticReview = [
+  {
+    _key: "1",
+    name: "John Doe",
+    title: "Fantastic Experience",
+    description:
+      "I had a fantastic experience with this service. The staff was friendly, the facilities were clean, and the overall atmosphere was welcoming. I highly recommend it to anyone looking for a great experience.",
+    date: "2023-10-27",
+    rating: 5,
+  },
+  {
+    _key: "2",
+    name: "Jane Smith",
+    title: "Amazing Service",
+    description:
+      "I'm impressed with the level of service provided by this company. The staff went above and beyond to ensure that my needs were met. I'll definitely be returning for future visits.",
+    date: "2023-10-25",
+    rating: 5,
+  },
+  {
+    _key: "3",
+    name: "David Johnson",
+    title: "Highly Recommend",
+    description:
+      "I had an excellent experience with this service. The quality of service exceeded my expectations, and I was impressed by the professionalism of the staff. I'll be recommending it to all my friends and family.",
+    date: "2023-10-23",
+    rating: 5,
+  },
+  {
+    _key: "4",
+    name: "Emily Brown",
+    title: "Great Value for Money",
+    description:
+      "I found this service to be excellent value for money. The prices were reasonable, and the quality of service was top-notch. I'll definitely be returning in the future.",
+    date: "2023-10-20",
+    rating: 4,
+  },
+  {
+    _key: "5",
+    name: "Michael Wilson",
+    title: "Exceptional Experience",
+    description:
+      "My experience with this service was exceptional. The staff was knowledgeable and helpful, and the facilities were well-maintained. I'll be recommending it to all my friends.",
+    date: "2023-10-18",
+    rating: 5,
+  },
+  {
+    _key: "6",
+    name: "Sarah Taylor",
+    title: "Outstanding Service",
+    description:
+      "I had an outstanding experience with this service. The staff was friendly and attentive, and the quality of service was exceptional. I'll definitely be returning for future visits.",
+    date: "2023-10-15",
+    rating: 5,
+  },
+  {
+    _key: "7",
+    name: "Mark Johnson",
+    title: "Excellent Customer Service",
+    description:
+      "The customer service provided by this company was excellent. The staff was polite, helpful, and went out of their way to assist me. I'll be recommending this service to others.",
+    date: "2023-10-12",
+    rating: 5,
+  },
+  {
+    _key: "8",
+    name: "Jessica Brown",
+    title: "Impressive Facilities",
+    description:
+      "I was impressed by the quality of the facilities offered by this service. Everything was clean, well-maintained, and up to date. I'll definitely be returning for future visits.",
+    date: "2023-10-10",
+    rating: 4,
+  },
+  {
+    _key: "9",
+    name: "Daniel Miller",
+    title: "Friendly Staff",
+    description:
+      "The staff at this service were extremely friendly and welcoming. They made me feel valued as a customer and went above and beyond to ensure my needs were met.",
+    date: "2023-10-08",
+    rating: 5,
+  },
+];
