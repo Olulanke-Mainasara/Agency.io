@@ -11,7 +11,7 @@ const MeetTheExecs = () => {
   const [cardsVisible, setCardsVisible] = React.useState(false);
 
   return (
-    <section className="flex flex-col gap-8 px-6 py-0 xl:p-8">
+    <section className="flex flex-col gap-8 xl:p-8">
       <div className="flex items-center justify-end gap-1">
         <h1 className="text-right text-4xl md:text-5xl">Meet the Execs</h1>
         <ArrowDown size={40} className="text- text-brandDark" />

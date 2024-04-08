@@ -12,7 +12,7 @@ const WhatWeOffer = () => {
   const [hasViewed, setHasViewed] = React.useState(false);
 
   return (
-    <section className="flex items-center gap-8 overflow-hidden px-6 py-0 md:h-[900px] lg:max-h-[900px] xl:h-screen xl:p-8">
+    <section className="flex items-center gap-8 overflow-hidden md:h-[900px] lg:max-h-[900px] xl:h-screen xl:p-8">
       <div className="flex flex-col gap-8 dark:text-white lg:basis-3/4">
         <motion.h1
           initial={hasViewed ? { x: 0, opacity: 1 } : { x: 100, opacity: 0 }}

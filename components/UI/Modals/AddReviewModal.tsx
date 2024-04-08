@@ -11,7 +11,7 @@ export function AddReviewModal() {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <div className="group flex flex-col items-center justify-center space-y-4 rounded-xl border border-brandDark p-6 duration-300 hover:cursor-pointer hover:border-black dark:hover:border-white dark:hover:text-white">
+        <div className="group flex flex-col items-center justify-center space-y-2 rounded-xl border border-brandDark p-6 duration-300 hover:cursor-pointer hover:border-black dark:hover:border-white dark:hover:text-white">
           <PlusCircle
             className="text-brandDark duration-300 group-hover:text-black dark:group-hover:text-white"
             size={55}

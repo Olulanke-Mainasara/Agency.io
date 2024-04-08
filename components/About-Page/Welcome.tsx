@@ -12,7 +12,7 @@ const Welcome = () => {
   const [hasViewed, setHasViewed] = React.useState(false);
 
   return (
-    <section className="flex min-h-screen w-full flex-col gap-8 overflow-hidden px-6 py-0 dark:text-white md:grid md:min-h-fit md:grid-cols-4 md:grid-rows-3 lg:max-h-[900px] xl:h-screen xl:p-8">
+    <section className="flex min-h-screen w-full flex-col gap-8 overflow-hidden dark:text-white md:grid md:min-h-fit md:grid-cols-4 md:grid-rows-3 lg:max-h-[900px] xl:h-screen xl:p-8">
       <motion.div
         initial={hasViewed ? { x: 0, opacity: 1 } : { x: -100, opacity: 0 }}
         whileInView={{
