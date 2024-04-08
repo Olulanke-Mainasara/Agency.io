@@ -1,12 +1,13 @@
-import { Inter } from "next/font/google";
-
-import Nav from "@/components/UI/Nav/Nav";
 import NextTopLoader from "nextjs-toploader";
+
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
+import { Inter } from "next/font/google";
+
 import Providers from "../components/Providers/Providers";
+
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -27,10 +28,7 @@ export default function RootLayout({
       <html lang="en" suppressHydrationWarning>
         <body className={inter.className + " dark:bg-background"}>
           <NextTopLoader color="#6fcbc6" showSpinner={false} />
-          <Providers>
-            <Nav />
-            {children}
-          </Providers>
+          <Providers>{children}</Providers>
         </body>
       </html>
     </>

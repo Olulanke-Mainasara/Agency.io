@@ -1,3 +1,10 @@
+import Africa from "@/public/Destinations/Continents/Africa.webp";
+import Asia from "@/public/Destinations/Continents/Asia.webp";
+import Australia from "@/public/Destinations/Continents/Australia.webp";
+import Europe from "@/public/Destinations/Continents/Europe.webp";
+import NorthAmerica from "@/public/Destinations/Continents/North America.webp";
+import SouthAmerica from "@/public/Destinations/Continents/South America.webp";
+
 export const africa = [
   { id: 1, name: "Algeria" },
   { id: 2, name: "Angola" },
@@ -223,30 +230,54 @@ export const allLocations = [
     id: 1,
     value: "africa",
     label: "Africa",
+    map: {
+      url: Africa,
+      alt: "Map of Africa",
+    },
   },
   {
     id: 2,
     value: "asia",
     label: "Asia",
+    map: {
+      url: Asia,
+      alt: "Map of Asia",
+    },
   },
   {
     id: 3,
     value: "australia",
     label: "Australia",
+    map: {
+      url: Australia,
+      alt: "Map of Australia",
+    },
   },
   {
     id: 4,
     value: "europe",
     label: "Europe",
+    map: {
+      url: Europe,
+      alt: "Map of Europe",
+    },
   },
   {
     id: 5,
-    value: "north america",
+    value: "north-america",
     label: "North America",
+    map: {
+      url: NorthAmerica,
+      alt: "Map of North America",
+    },
   },
   {
     id: 6,
-    value: "south america",
+    value: "south-america",
     label: "South America",
+    map: {
+      url: SouthAmerica,
+      alt: "Map of South America",
+    },
   },
 ];

@@ -1,8 +1,4 @@
-import Blog1 from "@/public/Blog/Blog1.jpeg";
-import Blog2 from "@/public/Blog/Blog2.webp";
-import Blog3 from "@/public/Blog/Blog3.jpg";
-import Blog4 from "@/public/Blog/Blog4.webp";
-import Blog5 from "@/public/Blog/Blog5.jpg";
+import React from "react";
 import Amsterdam from "@/public/Destinations/Amsterdam.jpg";
 import Australia from "@/public/Destinations/Australia.jpg";
 import Bali from "@/public/Destinations/Bali.jpg";
@@ -22,7 +18,11 @@ import Reykjavik from "@/public/Destinations/Reykjavik.jpg";
 import Spain from "@/public/Destinations/Spain.webp";
 import Thailand from "@/public/Destinations/Thailand.webp";
 import Zermatt from "@/public/Destinations/Zermatt.webp";
-import React from "react";
+import Cabin from "@/public/Properties/Cabin.jpg";
+import Castle from "@/public/Properties/Castle.jpg";
+import Cottage from "@/public/Properties/Cottage.jpg";
+import Lodge from "@/public/Properties/Lodge.jpg";
+import Villa from "@/public/Properties/Villa.jpg";
 import {
   FaBicycle,
   FaCamera,
@@ -36,17 +36,18 @@ import {
 } from "react-icons/fa";
 import { GiCampingTent, GiCookingPot, GiMountainCave } from "react-icons/gi";
 
+import Image1 from "../public/Carousel/Image1.webp";
+import Image2 from "../public/Carousel/Image2.webp";
+import Image3 from "../public/Carousel/Image3.webp";
+import Image4 from "../public/Carousel/Image4.webp";
+import Image5 from "../public/Carousel/Image5.webp";
+import Image6 from "../public/Carousel/Image6.webp";
+import Image7 from "../public/Carousel/Image7.webp";
+import Image8 from "../public/Carousel/Image8.jpg";
 import Pic1 from "../public/CTA/Pic1.jpg";
 import Pic2 from "../public/CTA/Pic2.jpg";
 import Pic3 from "../public/CTA/Pic3.jpg";
 import Pic4 from "../public/CTA/Pic4.jpg";
-import Carousel1 from "../public/Carousel/Carousel1.webp";
-import Carousel2 from "../public/Carousel/Carousel2.webp";
-import Carousel3 from "../public/Carousel/Carousel3.webp";
-import Carousel4 from "../public/Carousel/Carousel4.webp";
-import Carousel5 from "../public/Carousel/Carousel5.webp";
-import Carousel6 from "../public/Carousel/Carousel6.webp";
-import Carousel7 from "../public/Carousel/Carousel7.webp";
 import Bora from "../public/Destinations/Bora.webp";
 import Machu from "../public/Destinations/Machu.webp";
 import Maldives from "../public/Destinations/Maldives.webp";
@@ -54,305 +55,646 @@ import Santorini from "../public/Destinations/Santorini.webp";
 
 export const locationsByMonth = [
   {
-    id: 1,
+    _id: 1,
     name: "January",
+    slug: "bora-bora",
     extra: "Bora Bora, French Polynesia",
-    img: Bora,
+    displayImage: { url: Bora, alt: "" },
+    country: "",
+    description: "",
+    popularSpots: [],
+    pictures: [],
+    essentials: [],
+    posts: [],
+    whyWeLove: [],
+    coordinates: {
+      altitude: 0,
+      latitude: 0,
+      longitude: 0,
+    },
+    faqs: [],
   },
-  { id: 2, name: "February", extra: "Venice, Italy", img: Italy },
-  { id: 3, name: "March", extra: "Cancun, Mexico", img: Mexico },
-  { id: 4, name: "April", extra: "Kyoto, Japan", img: Japan },
-  { id: 5, name: "May", extra: "Barcelona, Spain", img: Spain },
-  { id: 6, name: "June", extra: "Santorini, Greece", img: Greece },
-  { id: 7, name: "July", extra: "Maui, Hawaii", img: Hawaii },
   {
-    id: 8,
+    _id: 2,
+    name: "February",
+    slug: "venice",
+    extra: "Venice, Italy",
+    displayImage: { url: Italy, alt: "" },
+    country: "",
+    description: "",
+    popularSpots: [],
+    pictures: [],
+    essentials: [],
+    posts: [],
+    whyWeLove: [],
+    coordinates: {
+      altitude: 0,
+      latitude: 0,
+      longitude: 0,
+    },
+    faqs: [],
+  },
+  {
+    _id: 3,
+    name: "March",
+    slug: "cancun",
+    extra: "Cancun, Mexico",
+    displayImage: { url: Mexico, alt: "" },
+    country: "",
+    description: "",
+    popularSpots: [],
+    pictures: [],
+    essentials: [],
+    posts: [],
+    whyWeLove: [],
+    coordinates: {
+      altitude: 0,
+      latitude: 0,
+      longitude: 0,
+    },
+    faqs: [],
+  },
+  {
+    _id: 4,
+    name: "April",
+    slug: "kyoto",
+    extra: "Kyoto, Japan",
+    displayImage: { url: Japan, alt: "" },
+    country: "",
+    description: "",
+    popularSpots: [],
+    pictures: [],
+    essentials: [],
+    posts: [],
+    whyWeLove: [],
+    coordinates: {
+      altitude: 0,
+      latitude: 0,
+      longitude: 0,
+    },
+    faqs: [],
+  },
+  {
+    _id: 5,
+    name: "May",
+    slug: "barcelona",
+    extra: "Barcelona, Spain",
+    displayImage: { url: Spain, alt: "" },
+    country: "",
+    description: "",
+    popularSpots: [],
+    pictures: [],
+    essentials: [],
+    posts: [],
+    whyWeLove: [],
+    coordinates: {
+      altitude: 0,
+      latitude: 0,
+      longitude: 0,
+    },
+    faqs: [],
+  },
+  {
+    _id: 6,
+    name: "June",
+    slug: "santorini",
+    extra: "Santorini, Greece",
+    displayImage: { url: Greece, alt: "" },
+    country: "",
+    description: "",
+    popularSpots: [],
+    pictures: [],
+    essentials: [],
+    posts: [],
+    whyWeLove: [],
+    coordinates: {
+      altitude: 0,
+      latitude: 0,
+      longitude: 0,
+    },
+    faqs: [],
+  },
+  {
+    _id: 7,
+    name: "July",
+    slug: "maui",
+    extra: "Maui, Hawaii",
+    displayImage: { url: Hawaii, alt: "" },
+    country: "",
+    description: "",
+    popularSpots: [],
+    pictures: [],
+    essentials: [],
+    posts: [],
+    whyWeLove: [],
+    coordinates: {
+      altitude: 0,
+      latitude: 0,
+      longitude: 0,
+    },
+    faqs: [],
+  },
+  {
+    _id: 8,
     name: "August",
+    slug: "rio-de-janeiro",
     extra: "Rio de Janeiro, Brazil",
-    img: Brazil,
+    displayImage: { url: Brazil, alt: "" },
+    country: "",
+    description: "",
+    popularSpots: [],
+    pictures: [],
+    essentials: [],
+    posts: [],
+    whyWeLove: [],
+    coordinates: {
+      altitude: 0,
+      latitude: 0,
+      longitude: 0,
+    },
+    faqs: [],
   },
   {
-    id: 9,
+    _id: 9,
     name: "September",
+    slug: "machu-picchu",
     extra: "Machu Picchu, Peru",
-    img: Machu,
+    displayImage: { url: Machu, alt: "" },
+    country: "",
+    description: "",
+    popularSpots: [],
+    pictures: [],
+    essentials: [],
+    posts: [],
+    whyWeLove: [],
+    coordinates: {
+      altitude: 0,
+      latitude: 0,
+      longitude: 0,
+    },
+    faqs: [],
   },
   {
-    id: 10,
+    _id: 10,
     name: "October",
+    slug: "maldives",
     extra: "Maldives",
-    img: Maldives,
+    displayImage: { url: Maldives, alt: "" },
+    country: "",
+    description: "",
+    popularSpots: [],
+    pictures: [],
+    essentials: [],
+    posts: [],
+    whyWeLove: [],
+    coordinates: {
+      altitude: 0,
+      latitude: 0,
+      longitude: 0,
+    },
+    faqs: [],
   },
   {
-    id: 11,
+    _id: 11,
     name: "November",
+    slug: "new-zealand",
     extra: "New Zealand",
-    img: NewZealand,
+    displayImage: { url: NewZealand, alt: "" },
+    country: "",
+    description: "",
+    popularSpots: [],
+    pictures: [],
+    essentials: [],
+    posts: [],
+    whyWeLove: [],
+    coordinates: {
+      altitude: 0,
+      latitude: 0,
+      longitude: 0,
+    },
+    faqs: [],
   },
   {
-    id: 12,
+    _id: 12,
     name: "December",
+    slug: "thailand",
     extra: "Thailand",
-    img: Thailand,
+    displayImage: { url: Thailand, alt: "" },
+    country: "",
+    description: "",
+    popularSpots: [],
+    pictures: [],
+    essentials: [],
+    posts: [],
+    whyWeLove: [],
+    coordinates: {
+      altitude: 0,
+      latitude: 0,
+      longitude: 0,
+    },
+    faqs: [],
   },
 ];
 
 export const locationsBySeason = [
   {
-    id: 1,
+    _id: 1,
     name: "Spring",
+    slug: "kyoto",
     extra: "Kyoto, Japan",
-    img: KyotoSpring,
+    displayImage: { url: KyotoSpring, alt: "" },
+    country: "",
+    description: "",
+    popularSpots: [],
+    pictures: [],
+    essentials: [],
+    posts: [],
+    whyWeLove: [],
+    coordinates: {
+      altitude: 0,
+      latitude: 0,
+      longitude: 0,
+    },
+    faqs: [],
   },
   {
-    id: 2,
+    _id: 2,
     name: "Spring",
+    slug: "amsterdam",
     extra: "Amsterdam, Netherlands",
-    img: Amsterdam,
+    displayImage: { url: Amsterdam, alt: "" },
+    country: "",
+    description: "",
+    popularSpots: [],
+    pictures: [],
+    essentials: [],
+    posts: [],
+    whyWeLove: [],
+    coordinates: {
+      altitude: 0,
+      latitude: 0,
+      longitude: 0,
+    },
+    faqs: [],
   },
   {
-    id: 3,
+    _id: 3,
     name: "Summer",
+    slug: "bali",
     extra: "Bali, Indonesia",
-    img: Bali,
+    displayImage: { url: Bali, alt: "" },
+    country: "",
+    description: "",
+    popularSpots: [],
+    pictures: [],
+    essentials: [],
+    posts: [],
+    whyWeLove: [],
+    coordinates: {
+      altitude: 0,
+      latitude: 0,
+      longitude: 0,
+    },
+    faqs: [],
   },
   {
-    id: 4,
+    _id: 4,
     name: "Summer",
+    slug: "barcelona",
     extra: "Barcelona, Spain",
-    img: Barcelona,
+    displayImage: { url: Barcelona, alt: "" },
+    country: "",
+    description: "",
+    popularSpots: [],
+    pictures: [],
+    essentials: [],
+    posts: [],
+    whyWeLove: [],
+    coordinates: {
+      altitude: 0,
+      latitude: 0,
+      longitude: 0,
+    },
+    faqs: [],
   },
   {
-    id: 5,
+    _id: 5,
     name: "Autumn (Fall)",
+    slug: "kyoto",
     extra: "Kyoto, Japan",
-    img: KyotoAutumn,
+    displayImage: { url: KyotoAutumn, alt: "" },
+    country: "",
+    description: "",
+    popularSpots: [],
+    pictures: [],
+    essentials: [],
+    posts: [],
+    whyWeLove: [],
+    coordinates: {
+      altitude: 0,
+      latitude: 0,
+      longitude: 0,
+    },
+    faqs: [],
   },
   {
-    id: 6,
+    _id: 6,
     name: "Autumn (Fall)",
+    slug: "new-england",
     extra: "New England, USA",
-    img: NewEngland,
+    displayImage: { url: NewEngland, alt: "" },
+    country: "",
+    description: "",
+    popularSpots: [],
+    pictures: [],
+    essentials: [],
+    posts: [],
+    whyWeLove: [],
+    coordinates: {
+      altitude: 0,
+      latitude: 0,
+      longitude: 0,
+    },
+    faqs: [],
   },
   {
-    id: 7,
+    _id: 7,
     name: "Winter",
+    slug: "reykjavik",
     extra: "Reykjavik, Iceland",
-    img: Reykjavik,
+    displayImage: { url: Reykjavik, alt: "" },
+    country: "",
+    description: "",
+    popularSpots: [],
+    pictures: [],
+    essentials: [],
+    posts: [],
+    whyWeLove: [],
+    coordinates: {
+      altitude: 0,
+      latitude: 0,
+      longitude: 0,
+    },
+    faqs: [],
   },
   {
-    id: 8,
+    _id: 8,
     name: "Winter",
+    slug: "zermatt",
     extra: "Zermatt, Switzerland",
-    img: Zermatt,
+    displayImage: { url: Zermatt, alt: "" },
+    country: "",
+    description: "",
+    popularSpots: [],
+    pictures: [],
+    essentials: [],
+    posts: [],
+    whyWeLove: [],
+    coordinates: {
+      altitude: 0,
+      latitude: 0,
+      longitude: 0,
+    },
+    faqs: [],
   },
 ];
 
-export const experiences = [
+export const staticExperiencesData = [
   {
-    id: 1,
-    experience: "food",
+    _id: 1,
+    name: "food",
     description:
       "Explore local cuisines and indulge in delightful culinary experiences",
     icon: <FaUtensils />,
   },
   {
-    id: 2,
-    experience: "climbing",
+    _id: 2,
+    name: "climbing",
     description: "Challenge yourself and conquer breathtaking heights",
     icon: <FaMountain />,
   },
   {
-    id: 3,
-    experience: "skydiving",
+    _id: 3,
+    name: "skydiving",
     description: "Experience the thrill of freefall and soar through the skies",
     icon: <FaPlane />,
   },
   {
-    id: 4,
-    experience: "cycling",
+    _id: 4,
+    name: "cycling",
     description:
       "Pedal your way through scenic routes and discover new destinations",
     icon: <FaBicycle />,
   },
   {
-    id: 5,
-    experience: "photography",
+    _id: 5,
+    name: "photography",
     description: "Capture unforgettable moments and express your creativity",
     icon: <FaCamera />,
   },
   {
-    id: 6,
-    experience: "hiking",
+    _id: 6,
+    name: "hiking",
     description:
       "Embark on trails and immerse yourself in the beauty of nature",
     icon: <FaHiking />,
   },
   {
-    id: 7,
-    experience: "shopping",
+    _id: 7,
+    name: "shopping",
     description:
       "Indulge in retail therapy and explore vibrant markets and shops",
     icon: <FaShoppingBag />,
   },
   {
-    id: 8,
-    experience: "theater",
+    _id: 8,
+    name: "theater",
     description:
       "Immerse yourself in captivating performances and artistic expressions",
     icon: <FaTheaterMasks />,
   },
   {
-    id: 9,
-    experience: "music festivals",
+    _id: 9,
+    name: "music-fest",
     description:
       "Savor the energy and joy of live music performances and festivals",
     icon: <FaMusic />,
   },
   {
-    id: 10,
-    experience: "cooking classes",
+    _id: 10,
+    name: "cooking",
     description:
       "Learn culinary skills from experts and unleash your inner chef",
     icon: <GiCookingPot />,
   },
   {
-    id: 11,
-    experience: "caving",
+    _id: 11,
+    name: "caving",
     description:
       "Discover hidden underground wonders and embark on thrilling cave explorations",
     icon: <GiMountainCave />,
   },
   {
-    id: 12,
-    experience: "camping",
+    _id: 12,
+    name: "camping",
     description:
       "Embrace the great outdoors and create unforgettable memories under the stars",
     icon: <GiCampingTent />,
   },
 ];
 
-export const cities = [
-  {
-    id: 1,
-    name: "Lagos",
-    img: Spain,
-  },
-  {
-    id: 2,
-    name: "Abuja",
-    img: Spain,
-  },
-  {
-    id: 3,
-    name: "Calabar",
-    img: Spain,
-  },
-  {
-    id: 4,
-    name: "Enugu",
-    img: Spain,
-  },
-  {
-    id: 5,
-    name: "Obudu",
-    img: Spain,
-  },
-  {
-    id: 6,
-    name: "Kano",
-    img: Spain,
-  },
-  {
-    id: 7,
-    name: "Ibadan",
-    img: Spain,
-  },
-  {
-    id: 8,
-    name: "Port Harcourt",
-    img: Spain,
-  },
-];
-
-export const blogs = [
-  {
-    id: 1,
-    title: "10 Must-Visit Beaches for Your Summer Getaway",
-    description:
-      "Discover stunning beaches around the world for the perfect summer vacation. From tropical paradises to hidden gems, explore the best destinations for sun, sand, and relaxation.",
-    img: Blog1,
-  },
-  {
-    id: 2,
-    title: "Unforgettable Adventure: Hiking the Majestic Mountains",
-    description:
-      "Embark on an epic hiking adventure and conquer the breathtaking mountains. Get ready for thrilling trails, stunning vistas, and an unforgettable journey to the top of the world.",
-    img: Blog2,
-  },
-  {
-    id: 3,
-    title: "Exploring Exotic Cuisines: A Foodie's Guide",
-    description:
-      "Indulge your taste buds with a culinary journey across different cultures. From street food delights to fine dining experiences, explore the diverse and mouthwatering world of global cuisine.",
-    img: Blog3,
-  },
-  {
-    id: 4,
-    title: "Hidden Gems: Off-the-Beaten-Path Destinations",
-    description:
-      "Escape the crowds and discover hidden gems off the beaten path. Venture to lesser-known destinations that offer unique experiences, untouched natural beauty, and authentic local cultures.",
-    img: Blog4,
-  },
-  {
-    id: 5,
-    title: "City Escapes: Unveiling Urban Wonders",
-    description:
-      "Immerse yourself in the vibrant energy of bustling cities. From iconic landmarks to cultural hotspots, dive into the heart of urban life and explore the hidden treasures of cosmopolitan destinations.",
-    img: Blog5,
-  },
-];
-
 export const recommendedDes = [
   {
-    id: 1,
+    _id: 1,
     name: "Italy",
-    img: Italy,
+    slug: "italy",
+    displayImage: { url: Italy, alt: "Italy" },
+    country: "",
+    description: "",
+    popularSpots: [],
+    pictures: [],
+    essentials: [],
+    posts: [],
+    whyWeLove: [],
+    coordinates: {
+      altitude: 0,
+      latitude: 0,
+      longitude: 0,
+    },
+    faqs: [],
   },
   {
-    id: 2,
+    _id: 2,
     name: "Japan",
-    img: Japan,
+    slug: "japan",
+    displayImage: { url: Japan, alt: "Japan" },
+    country: "",
+    description: "",
+    popularSpots: [],
+    pictures: [],
+    essentials: [],
+    posts: [],
+    whyWeLove: [],
+    coordinates: {
+      altitude: 0,
+      latitude: 0,
+      longitude: 0,
+    },
+    faqs: [],
   },
   {
-    id: 3,
+    _id: 3,
     name: "Greece",
-    img: Greece,
+    slug: "greece",
+    displayImage: { url: Greece, alt: "Greece" },
+    country: "",
+    description: "",
+    popularSpots: [],
+    pictures: [],
+    essentials: [],
+    posts: [],
+    whyWeLove: [],
+    coordinates: {
+      altitude: 0,
+      latitude: 0,
+      longitude: 0,
+    },
+    faqs: [],
   },
   {
-    id: 4,
+    _id: 4,
     name: "New Zealand",
-    img: NewZealand,
+    slug: "new-zealand",
+    displayImage: { url: NewZealand, alt: "New Zealand" },
+    country: "",
+    description: "",
+    popularSpots: [],
+    pictures: [],
+    essentials: [],
+    posts: [],
+    whyWeLove: [],
+    coordinates: {
+      altitude: 0,
+      latitude: 0,
+      longitude: 0,
+    },
+    faqs: [],
   },
   {
-    id: 5,
+    _id: 5,
     name: "Thailand",
-    img: Thailand,
+    slug: "thailand",
+    displayImage: { url: Thailand, alt: "Thailand" },
+    country: "",
+    description: "",
+    popularSpots: [],
+    pictures: [],
+    essentials: [],
+    posts: [],
+    whyWeLove: [],
+    coordinates: {
+      altitude: 0,
+      latitude: 0,
+      longitude: 0,
+    },
+    faqs: [],
   },
   {
-    id: 6,
+    _id: 6,
     name: "Iceland",
-    img: Iceland,
+    slug: "iceland",
+    displayImage: { url: Iceland, alt: "Iceland" },
+    country: "",
+    description: "",
+    popularSpots: [],
+    pictures: [],
+    essentials: [],
+    posts: [],
+    whyWeLove: [],
+    coordinates: {
+      altitude: 0,
+      latitude: 0,
+      longitude: 0,
+    },
+    faqs: [],
   },
   {
-    id: 7,
+    _id: 7,
     name: "Australia",
-    img: Australia,
+    slug: "australia",
+    displayImage: { url: Australia, alt: "Australia" },
+    country: "",
+    description: "",
+    popularSpots: [],
+    pictures: [],
+    essentials: [],
+    posts: [],
+    whyWeLove: [],
+    coordinates: {
+      altitude: 0,
+      latitude: 0,
+      longitude: 0,
+    },
+    faqs: [],
   },
   {
-    id: 8,
+    _id: 8,
     name: "Spain",
-    img: Spain,
+    slug: "spain",
+    displayImage: { url: Spain, alt: "Spain" },
+    country: "",
+    description: "",
+    popularSpots: [],
+    pictures: [],
+    essentials: [],
+    posts: [],
+    whyWeLove: [],
+    coordinates: {
+      altitude: 0,
+      latitude: 0,
+      longitude: 0,
+    },
+    faqs: [],
   },
 ];
 
@@ -402,14 +744,14 @@ export const images = [
   },
 ];
 
-export const carouselSections = [
+export const vacationCarousel = [
   {
     id: 1,
     mainText: "Indulge in Tranquil Spa Retreats",
     subText: "Revitalize Your Mind, Body, and Soul",
     description:
       "Escape to a world of serenity and relaxation with our rejuvenating spa retreats. Unwind amidst soothing ambiance, skilled therapists, and pampering treatments that will leave you feeling refreshed.",
-    imgsrc: Carousel1,
+    imgsrc: Image1,
   },
   {
     id: 2,
@@ -417,7 +759,7 @@ export const carouselSections = [
     subText: "Experience Unmatched Comfort and Adventure",
     description:
       "Embark on a journey of a lifetime aboard our exquisite cruise ships. Enjoy luxurious amenities, breathtaking views, and a wide range of activities for an unforgettable vacation.",
-    imgsrc: Carousel2,
+    imgsrc: Image2,
   },
   {
     id: 3,
@@ -425,7 +767,7 @@ export const carouselSections = [
     subText: "Soar Above the Clouds and Feel Alive",
     description:
       "Experience the ultimate adrenaline rush with our exhilarating skydiving adventures. Dive from high above, feel the rush of wind, and witness awe-inspiring views as you conquer the skies.",
-    imgsrc: Carousel3,
+    imgsrc: Image3,
   },
   {
     id: 4,
@@ -433,7 +775,7 @@ export const carouselSections = [
     subText: "Escape to Tranquility Under the Moonlight",
     description:
       "Immerse yourself in the enchanting beauty of our secluded beaches. Take romantic strolls along the shoreline, bask in the gentle ocean breeze, and witness the mesmerizing spectacle of the night sky.",
-    imgsrc: Carousel4,
+    imgsrc: Image4,
   },
   {
     id: 5,
@@ -441,7 +783,7 @@ export const carouselSections = [
     subText: "Reach New Heights, Unleash Your Adventure",
     description:
       "Embark on a thrilling mountain climbing expedition and conquer majestic peaks. Push your limits, revel in breathtaking vistas, and savor the sense of achievement at the pinnacle of the world.",
-    imgsrc: Carousel5,
+    imgsrc: Image5,
   },
   {
     id: 6,
@@ -449,7 +791,7 @@ export const carouselSections = [
     subText: "Immerse Yourself in Nature's Wonders",
     description:
       "Explore the extraordinary realm of wildlife through an immersive expedition that transports you to nature's wonders. Witness majestic creatures thriving in their natural habitats, from graceful big cats to and elusive marine life.",
-    imgsrc: Carousel6,
+    imgsrc: Image6,
   },
   {
     id: 7,
@@ -457,6 +799,105 @@ export const carouselSections = [
     subText: "Uncover the Pulse of Vibrant Cities",
     description:
       "Indulge in a captivating city escape and immerse yourself in the vibrant energy of bustling metropolises. Wander through historic streets, marvel at iconic landmarks, and discover hidden gems nestled amidst urban landscapes.",
-    imgsrc: Carousel7,
+    imgsrc: Image7,
+  },
+  {
+    id: 8,
+    mainText: "Fine Dining Extravaganza",
+    subText: "Savor Culinary Excellence",
+    description:
+      "Elevate your taste buds with an exquisite fine dining experience. Delight in a gourmet journey of flavors, artfully crafted dishes, and impeccable service that will leave you with unforgettable culinary memories.",
+    imgsrc: Image8,
+  },
+];
+
+export const propertyCarousel = [
+  {
+    id: 1,
+    mainText: "Seaside Cottage Retreat",
+    subText: "France, Normandy",
+    description:
+      "Discover the charm of Normandy in this seaside cottage retreat. Wake up to the sound of waves, explore picturesque coastal towns, and savor fresh seafood. The perfect escape for beach lovers.",
+    imgsrc: Cottage,
+  },
+  {
+    id: 2,
+    mainText: "Luxury Oasis Villa",
+    subText: "Germany, Neuruppin",
+    description:
+      "Escape to this exclusive oasis in Neuruppin, Germany. Experience serenity and relaxation in a luxurious villa surrounded by beautiful landscapes. Unwind in a private spa, enjoy gourmet dining, and create unforgettable memories.",
+    imgsrc: Villa,
+  },
+  {
+    id: 3,
+    mainText: "Mountain View Cabin",
+    subText: "Canada, Banff",
+    description:
+      "Embrace nature in a cozy mountain view cabin in Banff, Canada. Hike through breathtaking trails, stargaze from your private deck, and experience the beauty of the Canadian Rockies.",
+    imgsrc: Cabin,
+  },
+  {
+    id: 4,
+    mainText: "Riverside Lodge",
+    subText: "USA, Montana",
+    description:
+      "Unwind in a rustic yet elegant riverside lodge in Montana, USA. Fly fish in pristine waters, go horseback riding through scenic landscapes, and enjoy evenings by the campfire.",
+    imgsrc: Lodge,
+  },
+  {
+    id: 5,
+    mainText: "Historic Castle Stay",
+    subText: "Scotland, Edinburgh",
+    description:
+      "Step back in time with a stay in a historic castle in Edinburgh, Scotland. Explore ancient corridors, enjoy traditional Scottish feasts, and experience the grandeur of a bygone era.",
+    imgsrc: Castle,
+  },
+];
+
+export const execs = [
+  {
+    id: 1,
+    name: "Olulanke Mainasara",
+    position: "Co-Founder",
+    image: {
+      url: "",
+      alt: "",
+    },
+  },
+  {
+    id: 2,
+    name: "Olulanke Oluwatomiwa",
+    position: "Co-Founder",
+    image: {
+      url: "",
+      alt: "",
+    },
+  },
+  {
+    id: 3,
+    name: "Olulanke Folashade",
+    position: "C.F.O",
+    image: {
+      url: "",
+      alt: "",
+    },
+  },
+  {
+    id: 4,
+    name: "Olulanke Isaac",
+    position: "C.T.O",
+    image: {
+      url: "",
+      alt: "",
+    },
+  },
+  {
+    id: 5,
+    name: "Olulanke Ebunoluwa",
+    position: "G.C",
+    image: {
+      url: "",
+      alt: "",
+    },
   },
 ];

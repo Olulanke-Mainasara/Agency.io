@@ -1,8 +1,9 @@
-import { cn } from "@/lib/utils";
+import React from "react";
 import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
 import { cva } from "class-variance-authority";
 import { ChevronDown } from "lucide-react";
-import * as React from "react";
+
+import { cn } from "@/lib/utils";
 
 const NavigationMenu = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Root>,
@@ -11,7 +12,7 @@ const NavigationMenu = React.forwardRef<
   <NavigationMenuPrimitive.Root
     ref={ref}
     className={cn(
-      "relative z-10 w-full md:w-fit flex flex-1 grow-0 justify-center",
+      "relative z-10 flex w-full flex-1 grow-0 justify-center md:w-fit",
       className
     )}
     {...props}
@@ -29,7 +30,7 @@ const NavigationMenuList = React.forwardRef<
   <NavigationMenuPrimitive.List
     ref={ref}
     className={cn(
-      "group flex flex-col xl:flex-row flex-1 gap-8 xl:gap-0 list-none items-center justify-center space-x-1",
+      "group flex flex-1 list-none flex-col items-center justify-center gap-8 space-x-1 xl:flex-row xl:gap-0",
       className
     )}
     {...props}
@@ -83,7 +84,7 @@ const NavigationMenuViewport = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Viewport>,
   React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Viewport>
 >(({ className, ...props }, ref) => (
-  <div className={cn("absolute top-[40%] xl:top-full flex justify-center")}>
+  <div className={cn("absolute top-[40%] flex justify-center xl:top-full")}>
     <NavigationMenuPrimitive.Viewport
       className={cn(
         "origin-top-center relative mt-1.5 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-md border border-black bg-white text-black shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 md:w-[var(--radix-navigation-menu-viewport-width)]",

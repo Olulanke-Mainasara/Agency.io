@@ -1,6 +1,15 @@
 "use client";
 
+import React from "react";
 import { useRouter } from "next/navigation";
+import { auth } from "@/firebase/client.config";
+import {
+  createUserWithEmailAndPassword,
+  GoogleAuthProvider,
+  sendEmailVerification,
+  signInWithRedirect,
+  updateProfile,
+} from "firebase/auth";
 
 import { Icons } from "@/components/Icons";
 import { authContext } from "@/components/Providers/Providers";
@@ -8,17 +17,8 @@ import AltAuthLinks from "@/components/UI/Links/AltAuthLinks";
 import { Button } from "@/components/UI/ShadUI/button";
 import { Input } from "@/components/UI/ShadUI/input";
 import { Label } from "@/components/UI/ShadUI/label";
-import { auth } from "@/firebase/client.config";
-import {
-  GoogleAuthProvider,
-  createUserWithEmailAndPassword,
-  sendEmailVerification,
-  signInWithRedirect,
-  updateProfile,
-} from "firebase/auth";
-import React from "react";
 
-export function SignupForm() {
+export function SignupForm({ previous }: { previous: string }) {
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [isGoogleLoading, setIsGoogleLoading] = React.useState<boolean>(false);
   const [isAppleLoading, setIsAppleLoading] = React.useState<boolean>(false);
@@ -51,8 +51,6 @@ export function SignupForm() {
       });
 
       await sendEmailVerification(user);
-
-      router.push("/");
     } catch (error) {
       setIsLoading(false);
       setError(true);
@@ -115,9 +113,11 @@ export function SignupForm() {
   React.useEffect(() => {
     if (user) {
       setIsLoading(true);
-      router.push("/");
+      previous === "/" || !previous
+        ? router.push(`/?splashed=true`)
+        : router.push(previous);
     }
-  }, [router, user]);
+  }, [previous, router, user]);
 
   return (
     <div className="grid gap-6">
@@ -189,9 +189,7 @@ export function SignupForm() {
           </div>
 
           <Button disabled={isLoading || isGoogleLoading || isAppleLoading}>
-            {isLoading && (
-              <Icons.spinner className="w-5 h-5 mr-2 animate-spin" />
-            )}
+            {isLoading && <Icons.spinner className="h-5 w-5 animate-spin" />}
 
             {error ? "Retry" : "Sign up"}
           </Button>
