@@ -1,32 +1,24 @@
+import React, { ReactNode } from "react";
 import Link from "next/link";
 
-import { buttonVariants } from "@/components/UI/ShadUI/button";
-import { cn } from "@/lib/utils";
-import React, { ReactNode } from "react";
+import { Button } from "@/components/UI/ShadUI/button";
 
-const TBgButtons = ({
-  xPaddingAndText,
-  yPadding,
+const TBgLink = ({
+  extraStyles,
   children,
   href,
 }: {
-  xPaddingAndText: string;
-  yPadding: string;
+  extraStyles?: string;
   children: ReactNode;
   href: string;
 }) => {
   return (
-    <Link
-      href={href}
-      prefetch={false}
-      className={cn(
-        buttonVariants({ variant: "outline" }),
-        `${xPaddingAndText} ${yPadding} rounded-full`
-      )}
-    >
-      {children}
-    </Link>
+    <Button variant={"outline"} size={"sm"} className={`${extraStyles}`}>
+      <Link href={href} prefetch={false} className="flex items-center gap-2">
+        {children}
+      </Link>
+    </Button>
   );
 };
 
-export default TBgButtons;
+export default TBgLink;

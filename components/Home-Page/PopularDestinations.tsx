@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 
 import PopularDestinationsByMonth from "../UI/Sections/PopularDestinationsByMonth";
@@ -14,7 +16,7 @@ const PopularDestinations = () => {
 
   return (
     <section className="flex flex-col gap-8 xl:py-8">
-      <div className="flex flex-col px-6 gap-8 xl:px-8 lg:gap-4 lg:flex-row">
+      <div className="flex flex-col gap-8 px-6 lg:flex-row lg:gap-4 xl:px-8">
         <h1 className="text-4xl md:text-5xl">
           Popular{" "}
           <span className="text-brandDark dark:text-brandLight">
@@ -29,7 +31,7 @@ const PopularDestinations = () => {
               variant={"outline"}
               className={`${
                 by === button.by
-                  ? "bg-black text-white border-black dark:bg-white dark:border-white dark:text-black"
+                  ? "border-black bg-background text-white dark:border-white dark:bg-white dark:text-black"
                   : ""
               }`}
               onClick={() => setBy(button.by)}

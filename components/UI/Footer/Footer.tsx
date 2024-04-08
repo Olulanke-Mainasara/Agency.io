@@ -1,19 +1,13 @@
 "use client";
 
+import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
 import { motion } from "framer-motion";
-import React from "react";
-import {
-  FaGithub,
-  FaInstagram,
-  FaPlane,
-  FaTwitter,
-  FaYoutube,
-} from "react-icons/fa";
+import { FaPlane } from "react-icons/fa";
 
 import { Button } from "../ShadUI/button";
+import SocialLinks from "./SocialLinks";
 
 const footerData = [
   {
@@ -40,7 +34,7 @@ const footerData = [
     id: 3,
     category: "Connect",
     links: [
-      { text: "About Us", url: "/about" },
+      { text: "About Us", url: "/aboutus" },
       { text: "FAQ", url: "/faq" },
       { text: "Privacy Policy", url: "/privacy" },
       { text: "Terms and Conditions", url: "/terms" },
@@ -53,18 +47,17 @@ const Footer = () => {
   const pathname = usePathname();
 
   return (
-    <footer
-      className={`mt-8 px-6 xl:px-8 space-y-8 ${
-        pathname === "/login"
-          ? "hidden"
-          : pathname === "/signup"
-          ? "hidden"
-          : pathname === "/recover"
-          ? "hidden"
-          : ""
+    <motion.footer
+      animate={
+        pathname === "/"
+          ? { display: "block", transition: { delay: 2.8 } }
+          : { display: "block" }
+      }
+      className={`mt-32 space-y-8 px-6 xl:mt-40 xl:px-8 ${
+        pathname === "/" ? "hidden" : ""
       }`}
     >
-      <section className="max-w-[1440px] mx-auto overflow-hidden">
+      <section className="mx-auto max-w-[1440px] overflow-hidden">
         <motion.p
           initial={hasViewed ? { x: 0, opacity: 1 } : { x: -100, opacity: 0 }}
           whileInView={{
@@ -75,7 +68,7 @@ const Footer = () => {
             },
           }}
           onAnimationComplete={() => setHasViewed(true)}
-          className="text-4xl text-center md:text-left md:text-6xl"
+          className="text-center text-4xl md:text-left md:text-6xl"
         >
           Explore the{" "}
           <span className="text-brandDark dark:text-brandLight">World,</span>
@@ -90,18 +83,18 @@ const Footer = () => {
             },
           }}
           onAnimationComplete={() => setHasViewed(true)}
-          className="text-4xl text-center md:text-right md:text-6xl lg:text-8xl xl:text-9xl"
+          className="text-center text-4xl md:text-right md:text-6xl lg:text-8xl xl:text-9xl"
         >
-          One Click at a{" "}
+          One click at a{" "}
           <span className="text-brandDark dark:text-brandLight">Time!</span>
         </motion.p>
       </section>
 
       <section className="flex flex-col">
-        <div className="flex flex-col items-center pb-8 gap-8 lg:flex-row">
+        <div className="flex flex-col items-center gap-8 pb-8 lg:flex-row">
           <Link
-            href="/"
-            className={`hidden lg:flex items-center text-4xl xs:text-lg h-fit`}
+            href={pathname === "/" ? "/" : `/?splashed=true`}
+            className={`hidden h-fit items-center text-4xl lg:flex xs:text-lg`}
           >
             Agency
             <span className="text-brandDark dark:text-brandLight">.io</span>
@@ -109,18 +102,18 @@ const Footer = () => {
             <FaPlane />
           </Link>
 
-          <div className="flex flex-wrap justify-between w-full gap-8 md: md:justify-around lg:w-fit grow">
+          <div className="md: flex w-full grow flex-wrap justify-between gap-8 md:justify-around lg:w-fit">
             {footerData.map((data) => (
               <div key={data.id} className="space-y-6">
                 <p className="text-brandDark dark:text-brandLight">
                   {data.category}
                 </p>
                 <div className="flex flex-col gap-4">
-                  {data.links.map((link, index) => (
+                  {data.links.map((link) => (
                     <Link
                       href={link.url}
                       prefetch={false}
-                      key={index}
+                      key={link.url}
                       className="transition-colors hover:text-brandDark dark:hover:text-brandLight"
                     >
                       {link.text}
@@ -131,55 +124,30 @@ const Footer = () => {
             ))}
           </div>
 
-          <Button
-            className="hidden px-6 py-3 text-white bg-black border-black dark:border-white dark:hover:bg-gray-300 h-fit lg:block dark:bg-white dark:text-black"
-            variant={"outline"}
-            asChild
-          >
-            <Link href={"/contactus"} prefetch={false} className="text-xl">
+          <Button className="hidden lg:block" variant={"plain"} size={"sm"}>
+            <Link
+              href={"/contactUs"}
+              prefetch={false}
+              className="h-full w-full"
+            >
               Contact Us
             </Link>
           </Button>
         </div>
 
-        <section className="flex flex-col-reverse items-center justify-between py-8 text-sm text-center border-t border-black gap-6 md:flex-row dark:border-white md:gap-0">
-          <p>© 2023 Agency.io Inc. All rights reserved.</p>
+        <section className="flex flex-col-reverse items-center justify-between gap-6 border-t border-black py-8 text-center text-sm dark:border-white md:flex-row md:gap-0">
+          <p>
+            © 2023 Agency
+            <span className="text-brandDark dark:text-brandLight">
+              .io
+            </span>{" "}
+            Inc. All rights reserved.
+          </p>
 
-          <div className="flex text-2xl gap-7 dark:text-white xs:text-xl">
-            <Link
-              href={"#"}
-              aria-label="Instagram"
-              className="transition-colors hover:text-brandDark dark:hover:text-brandLight"
-            >
-              <FaInstagram />
-            </Link>
-            <Link
-              href={"https://twitter.com/Grim_redd"}
-              target="_blank"
-              aria-label="Twitter"
-              className="transition-colors hover:text-brandDark dark:hover:text-brandLight"
-            >
-              <FaTwitter />
-            </Link>
-            <Link
-              href={"https://github.com/Olulanke-Mainasara/Agency.io"}
-              target="_blank"
-              aria-label="Github"
-              className="transition-colors hover:text-brandDark dark:hover:text-brandLight"
-            >
-              <FaGithub />
-            </Link>
-            <Link
-              href={"#"}
-              aria-label="Youtube"
-              className="transition-colors hover:text-brandDark dark:hover:text-brandLight"
-            >
-              <FaYoutube />
-            </Link>
-          </div>
+          <SocialLinks />
         </section>
       </section>
-    </footer>
+    </motion.footer>
   );
 };
 

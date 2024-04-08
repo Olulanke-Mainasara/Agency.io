@@ -1,7 +1,14 @@
 "use client";
 
+import React from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { auth } from "@/firebase/client.config";
+import {
+  GoogleAuthProvider,
+  signInWithEmailAndPassword,
+  signInWithRedirect,
+} from "firebase/auth";
 
 import { Icons } from "@/components/Icons";
 import { authContext } from "@/components/Providers/Providers";
@@ -9,15 +16,8 @@ import AltAuthLinks from "@/components/UI/Links/AltAuthLinks";
 import { Button } from "@/components/UI/ShadUI/button";
 import { Input } from "@/components/UI/ShadUI/input";
 import { Label } from "@/components/UI/ShadUI/label";
-import { auth } from "@/firebase/client.config";
-import {
-  GoogleAuthProvider,
-  signInWithEmailAndPassword,
-  signInWithRedirect,
-} from "firebase/auth";
-import React from "react";
 
-export function LoginForm() {
+export function LoginForm({ previous }: { previous: string }) {
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [isGoogleLoading, setIsGoogleLoading] = React.useState<boolean>(false);
   const [isAppleLoading, setIsAppleLoading] = React.useState<boolean>(false);
@@ -37,7 +37,6 @@ export function LoginForm() {
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      router.push("/");
     } catch (error) {
       setIsLoading(false);
       setError(true);
@@ -95,9 +94,11 @@ export function LoginForm() {
   React.useEffect(() => {
     if (user) {
       setIsLoading(true);
-      router.push("/");
+      previous === "/" || !previous
+        ? router.push(`/?splashed=true`)
+        : router.push(previous);
     }
-  }, [router, user]);
+  }, [previous, router, user]);
 
   return (
     <div className="grid gap-6">
@@ -122,7 +123,7 @@ export function LoginForm() {
             <Label htmlFor="password" className="flex justify-between">
               Password
               <Link
-                href={"/recover"}
+                href={`/recover?previous=${previous}`}
                 className="text-center underline transition-opacity hover:opacity-70"
               >
                 Forgot Password?
@@ -142,9 +143,7 @@ export function LoginForm() {
           </div>
 
           <Button disabled={isLoading || isGoogleLoading || isAppleLoading}>
-            {isLoading && (
-              <Icons.spinner className="w-5 h-5 mr-2 animate-spin" />
-            )}
+            {isLoading && <Icons.spinner className="h-5 w-5 animate-spin" />}
 
             {error ? "Retry" : "Login"}
           </Button>

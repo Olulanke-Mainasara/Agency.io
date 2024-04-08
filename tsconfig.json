@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "ES2017",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -28,10 +28,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "components/UI/Nav/useNavigationBar.jsx",
     "static-data/images.js",
-    "static-data/services.js",
-    "static-data/destinations.ts"
+    "static-data/services.js"
   ],
   "exclude": ["node_modules"]
 }
