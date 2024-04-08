@@ -6,19 +6,13 @@ import Offer from "@/public/Main/Offer.webp";
 import { services } from "@/static-data/services";
 import { motion } from "framer-motion";
 
-import { authContext } from "../Providers/Providers";
 import NBgButtons from "../UI/Links/NBgLink";
 
 const WhatWeOffer = () => {
   const [hasViewed, setHasViewed] = React.useState(false);
-  const user = React.useContext(authContext);
 
   return (
-    <section
-      className={`w-full ${
-        user ? "hidden" : "flex"
-      } items-center gap-8 overflow-hidden p-8 py-0 md:h-[900px] lg:max-h-[900px] xl:h-screen xl:py-8`}
-    >
+    <section className="flex items-center gap-8 overflow-hidden md:h-[900px] lg:max-h-[900px] xl:h-screen xl:p-8">
       <div className="flex flex-col gap-8 dark:text-white lg:basis-3/4">
         <motion.h1
           initial={hasViewed ? { x: 0, opacity: 1 } : { x: 100, opacity: 0 }}
@@ -60,7 +54,11 @@ const WhatWeOffer = () => {
                   {service.topic}
                 </h1>
                 <p className="opacity-70">{service.text}</p>
-                <NBgButtons prompt="Learn more" href="#" />
+                <NBgButtons
+                  prompt="Learn more"
+                  href="#"
+                  extraStyles="justify-start"
+                />
               </motion.div>
             );
           })}

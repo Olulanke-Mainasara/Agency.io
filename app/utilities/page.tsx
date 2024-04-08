@@ -5,7 +5,7 @@ import DefaultCard from "@/components/UI/Cards/DefaultCard";
 export default function Utilities() {
   return (
     <main className="mx-auto max-w-[1440px] space-y-8 px-6 pt-20 lg:pt-24 xl:px-8">
-      <h1 className="text-center text-4xl dark:text-white md:text-7xl">
+      <h1 className="text-center text-6xl dark:text-white md:text-7xl">
         Utilities
       </h1>
 

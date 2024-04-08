@@ -29,7 +29,7 @@ const ExperienceCard = ({
             }
           : { opacity: 0, transition: { duration: 0.1, delay: index * 0.1 } }
       }
-      className="h-full w-full rounded-xl border border-black duration-300 hover:border-brandLight dark:border-white dark:hover:border-brandLight"
+      className="h-full w-full rounded-xl border border-black duration-300 hover:border-brandLight dark:border-gray-400 dark:hover:border-brandLight"
     >
       <Link
         href={`/experiences/${experience.slug}`}

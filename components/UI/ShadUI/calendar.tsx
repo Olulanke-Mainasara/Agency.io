@@ -44,7 +44,7 @@ function Calendar({
         day_selected:
           "bg-slate-900 text-slate-50 hover:bg-slate-50 focus:bg-slate-900 focus:text-slate-50 dark:hover:bg-slate-50 dark:hover:text-slate-50",
         day_today: "bg-slate-500 text-slate-50",
-        day_outside: "text-slate-500 opacity-50 dark:text-slate-500",
+        day_outside: "text-slate-500 opacity-50 dark:text-white",
         day_disabled: "text-slate-500 opacity-50 dark:text-slate-400",
         day_range_middle:
           "aria-selected:bg-brandDark aria-selected:text-slate-50 dark:aria-selected:bg-brandDark dark:aria-selected:text-slate-50",
@@ -53,10 +53,10 @@ function Calendar({
       }}
       components={{
         IconLeft: ({ ...props }) => (
-          <ChevronLeft className="h-4 w-4 dark:text-black dark:hover:text-white" />
+          <ChevronLeft className="h-4 w-4 dark:text-white dark:hover:text-white" />
         ),
         IconRight: ({ ...props }) => (
-          <ChevronRight className="h-4 w-4 dark:text-black dark:hover:text-white" />
+          <ChevronRight className="h-4 w-4 dark:text-white dark:hover:text-white" />
         ),
       }}
       {...props}

@@ -9,7 +9,7 @@ const BlogCard = ({ post }: { post: Blog }) => {
   return (
     <div
       key={post._id}
-      className="h-full overflow-hidden rounded-xl border border-black dark:border-white"
+      className="h-full overflow-hidden rounded-xl border border-black dark:border-gray-400"
     >
       <div className="relative h-44 w-full overflow-hidden xl:h-48">
         <Image
@@ -23,7 +23,7 @@ const BlogCard = ({ post }: { post: Blog }) => {
       </div>
 
       <div className="p-6">
-        <h1 className="title-font mb-3 text-lg font-bold text-black dark:text-white">
+        <h1 className="mb-3 text-lg font-bold text-black dark:text-white">
           {post.title}
         </h1>
 
