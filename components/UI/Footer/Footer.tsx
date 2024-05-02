@@ -124,11 +124,16 @@ const Footer = () => {
             ))}
           </div>
 
-          <Button className="hidden lg:block" variant={"plain"} size={"sm"}>
+          <Button
+            className="hidden lg:block"
+            variant={"plain"}
+            size={"sm"}
+            asChild
+          >
             <Link
-              href={"/contactUs"}
+              href={"/company/contactus"}
               prefetch={false}
-              className="h-full w-full"
+              className="h-full"
             >
               Contact Us
             </Link>
