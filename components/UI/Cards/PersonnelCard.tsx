@@ -1,15 +1,12 @@
 import React from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { motion } from "framer-motion";
 
 type Personnel = {
   id: number;
   name: string;
   position: string;
-  image: {
-    url: string;
-    alt: string;
-  };
+  image: StaticImageData;
 };
 
 const PersonnelCard = ({
@@ -39,12 +36,12 @@ const PersonnelCard = ({
     >
       <div className="relative h-48 w-full overflow-hidden xl:h-48">
         <Image
-          src={personnel.image.url}
+          src={personnel.image}
           fill
           sizes="(max-width: 1200px) 50vw, 33vw"
           quality={50}
-          className="object-cover"
-          alt={personnel.image.alt ? personnel.image.alt : ""}
+          className="object-cover object-center"
+          alt={personnel.name}
         />
       </div>
 

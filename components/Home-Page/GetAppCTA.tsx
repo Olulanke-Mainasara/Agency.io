@@ -25,7 +25,7 @@ const GetAppCTA = () => {
 
   const renderMobileImage = (src: StaticImageData) => {
     return (
-      <div className="relative h-full w-full max-w-[350px] overflow-hidden rounded-[55px]">
+      <div className="relative h-full w-[350px] overflow-hidden rounded-[35px]">
         {mounted && (
           <Image
             src={src}
@@ -52,23 +52,23 @@ const GetAppCTA = () => {
         onAnimationComplete={() => setHasViewed(true)}
         className="flex flex-col items-center justify-center gap-6 text-center text-black dark:text-white xl:grow"
       >
-        <h1 className="max-w-3xl text-center text-5xl text-brandDark dark:text-brandLight md:text-[90px]">
+        <p className="max-w-3xl px-5 text-center text-5xl text-brandDark dark:text-brandLight md:text-[90px] xl:px-0">
           A new adventure, on the go!
-        </h1>
-        <p className="max-w-2xl px-6 sm:text-lg">
+        </p>
+        <p className="max-w-lg px-6 sm:text-lg">
           With our powerful tools, you can find the perfect vacation for your
           budget and interests, book your flights, hotels, and activities all in
           one place, and get inspired by our curated travel guides.
         </p>
         <div className="flex justify-center gap-5">
-          <Button size={"sm"} className="rounded-full text-lg xl:px-8">
+          <Button size={"sm"} className="rounded-full text-lg xl:px-8" asChild>
             <Link href={"#"} className="flex h-full w-full items-center gap-2">
               <Icons.apple className="h-4 w-4" />
               Apple
             </Link>
           </Button>
 
-          <Button size={"sm"} className="rounded-full text-lg xl:px-8">
+          <Button size={"sm"} className="rounded-full text-lg xl:px-8" asChild>
             <Link href={"#"} className="flex h-full w-full items-center gap-2">
               <FaAndroid />
               Android
@@ -77,7 +77,7 @@ const GetAppCTA = () => {
         </div>
       </motion.div>
 
-      <div className="flex h-[750px] justify-evenly md:w-full xl:hidden">
+      <div className="mt-10 flex h-[750px] justify-evenly gap-10 md:w-full xl:hidden">
         {renderMobileImage(theme === "dark" ? MobileAppleD : MobileAppleL)}
 
         {renderMobileImage(theme === "dark" ? MobileAndroidD : MobileAndroidL)}

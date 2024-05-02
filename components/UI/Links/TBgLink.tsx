@@ -13,7 +13,12 @@ const TBgLink = ({
   href: string;
 }) => {
   return (
-    <Button variant={"outline"} size={"sm"} className={`${extraStyles}`}>
+    <Button
+      variant={"outline"}
+      size={"sm"}
+      className={`${extraStyles}`}
+      asChild
+    >
       <Link href={href} prefetch={false} className="flex items-center gap-2">
         {children}
       </Link>

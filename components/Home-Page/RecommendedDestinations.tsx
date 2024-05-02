@@ -1,5 +1,5 @@
 import React from "react";
-import { recommendedDes } from "@/static-data/images";
+import { recommendedDes } from "@/static-data/destinations";
 
 import SharedPagePlaceCarousel from "../UI/Carousel/SharedPagePlaceCarousel";
 
