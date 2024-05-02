@@ -1,5 +1,5 @@
 import React from "react";
-import { locationsByMonth } from "@/static-data/images";
+import { locationsByMonth } from "@/static-data/destinations";
 
 import SharedPagePlaceCarousel from "../Carousel/SharedPagePlaceCarousel";
 

@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { destinations } from "@/static-data/images";
+import { destinations } from "@/static-data/destinations";
 import { motion } from "framer-motion";
 
 import useMedia from "@/hooks/useMedia";

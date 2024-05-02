@@ -21,7 +21,7 @@ const BareBonesEstablishmentCarousel = ({
     </div>
   ) : items.length === 0 ? (
     <div className="flex h-[300px] w-full items-center justify-center gap-4 rounded-xl border border-black dark:border-white">
-      <p className="text-xl">
+      <p className="w-4/5 text-center text-xl">
         No related content is available yet, check back soon!
       </p>
     </div>
