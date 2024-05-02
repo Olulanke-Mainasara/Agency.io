@@ -40,42 +40,37 @@ export const activities = [
   {
     id: 1,
     text: "Hotels",
-    link: "#",
+    link: "/services/hotels",
   },
   {
     id: 2,
-    text: "Flights",
-    link: "#",
+    text: "Food",
+    link: "/services/food",
   },
   {
     id: 3,
     text: "Attractions",
-    link: "#",
+    link: "/services/attractions",
   },
   {
     id: 4,
     text: "Rentals",
-    link: "#",
+    link: "/services/rentals",
   },
   {
     id: 5,
     text: "Todos",
-    link: "#",
+    link: "/services/todos",
   },
   {
     id: 6,
-    text: "Food",
-    link: "#",
+    text: "Airports",
+    link: "/services/airports",
   },
   {
     id: 7,
     text: "Cruises",
-    link: "#",
-  },
-  {
-    id: 8,
-    text: "Airlines",
-    link: "#",
+    link: "/services/cruises",
   },
 ];
 
