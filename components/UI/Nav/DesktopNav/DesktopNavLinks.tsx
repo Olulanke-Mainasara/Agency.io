@@ -64,7 +64,7 @@ export function DesktopNavLinks({}: {}) {
                 <NBgLink
                   prompt="View all"
                   href="/experiences"
-                  extraStyles="dark:text-black font-bold"
+                  extraStyles="font-bold"
                 />
               </div>
             </ul>
@@ -159,7 +159,7 @@ const ListItem = React.forwardRef<
         <a
           ref={ref}
           className={cn(
-            "hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-gray-100",
+            "hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-gray-100 dark:hover:bg-white dark:hover:text-black",
             className
           )}
           {...props}
