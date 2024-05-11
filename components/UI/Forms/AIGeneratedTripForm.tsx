@@ -69,7 +69,7 @@ export default function AIGeneratedTripForm() {
           <DatePickerWithRange handleDateRange={handleDateRange} />
         ) : departureTime === "No specific date/range" ? (
           <>
-            <div className="flex h-14 w-full items-center overflow-hidden rounded-xl border border-black px-3 dark:border-white md:h-16">
+            <div className="flex h-14 w-full items-center overflow-hidden rounded-xl border border-black px-3 dark:border-gray-400 md:h-16">
               <Label
                 htmlFor="days"
                 className="flex w-full min-w-[230px] items-center gap-2 md:text-lg"

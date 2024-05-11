@@ -25,7 +25,7 @@ export function SelectOption({
 }) {
   return (
     <Select onValueChange={(value) => handleSelect(value)}>
-      <SelectTrigger className="h-14 rounded-xl border-black dark:border-white md:h-16 md:text-lg">
+      <SelectTrigger className="h-14 rounded-xl border-black dark:border-gray-400 md:h-16 md:text-lg">
         <div className="flex w-full items-center gap-2">
           {icon} <SelectValue placeholder={label} />
         </div>

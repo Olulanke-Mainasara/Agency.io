@@ -26,11 +26,7 @@ const Search = () => {
   const buttonData = [
     { id: 1, text: "Explore the world", plan: "explore" },
     { id: 2, text: "Build your trip", plan: "build" },
-    {
-      id: 3,
-      text: user ? "No plan, use A.I" : "A.I Generate",
-      plan: "generate",
-    },
+    { id: 3, text: "A.I Generate", plan: "generate" },
   ];
 
   return (
@@ -94,8 +90,6 @@ const Search = () => {
               className={`${
                 plan === button.plan
                   ? "border-black bg-background text-white dark:border-white dark:bg-white dark:text-black"
-                  : button.plan === "generate" && user === undefined
-                  ? "skeleton animate-pulse border-white bg-gray-400 text-gray-400 dark:border-black dark:bg-gray-400 dark:text-gray-400"
                   : ""
               }`}
               onClick={() => setPlan(button.plan)}
