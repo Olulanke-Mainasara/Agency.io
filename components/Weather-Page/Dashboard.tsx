@@ -17,9 +17,7 @@ const Dashboard = () => {
   const [isFetchingWeather, setIsFetchingWeather] = React.useState(false);
   const [hasError, setHasError] = React.useState(false);
   const [isUserAsked, setIsUserAsked] = React.useState(false);
-  const [confirmed, setConfirmed] = React.useState(
-    typeof window == undefined ? "false" : localStorage.getItem("confirmed")
-  );
+  const [confirmed, setConfirmed] = React.useState("false");
   const [locationData, setLocationData] =
     React.useState<GeolocationCoordinates | null>(null);
   const [weatherInfo, setWeatherInfo] = React.useState<any>(null);
@@ -46,6 +44,9 @@ const Dashboard = () => {
   };
 
   React.useEffect(() => {
+    const confirmedValue = localStorage.getItem("confirmed");
+    setConfirmed(confirmedValue ? confirmedValue : "false");
+
     if (!navigator.geolocation) {
       setIsGeolocationSupported(false);
     }
