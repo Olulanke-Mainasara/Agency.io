@@ -15,14 +15,14 @@ const JoinUsCTA = () => {
         alt="Join us today!"
       />
       <div className="absolute inset-0 flex items-center justify-center backdrop-brightness-[25%]">
-        <div className="flex flex-col justify-center gap-4 text-white">
+        <div className="flex flex-col items-center justify-center gap-4 text-white">
           <p className="text-center text-5xl md:text-7xl">
             We can&apos;t wait to <span className="text-brandDark">meet</span>{" "}
             you!
           </p>
           <NBgLink
             prompt="View available positions!"
-            href="/company/career/#availablePositions"
+            href="#availablePositions"
             extraStyles="text-white"
           />
         </div>
