@@ -41,7 +41,7 @@ export const company = [
   {
     id: 1,
     title: "About us",
-    href: "/company/aboutus",
+    href: "/company/about-us",
     description:
       "Learn more about our company, our mission, and the values that drive us.",
   },
@@ -76,7 +76,7 @@ export const company = [
   {
     id: 6,
     title: "Contact us",
-    href: "/company/contactus",
+    href: "/company/contact-us",
     description:
       "Get in touch with our team for inquiries, support, or general questions.",
   },
@@ -93,7 +93,7 @@ export const utils = [
   {
     id: 2,
     title: "Currency converter",
-    href: "/utilities/currencyConverter",
+    href: "/utilities/currency-converter",
     description:
       "A utility that allows users to convert between different currencies and view exchange rates.",
   },
@@ -110,12 +110,5 @@ export const utils = [
     href: "/utilities/map",
     description:
       "Displays geographical maps and allows users to explore locations, get directions, and view points of interest.",
-  },
-  {
-    id: 5,
-    title: "Routing",
-    href: "/utilities/routing",
-    description:
-      "Calculates and provides optimal routes between different locations, taking into account factors like distance, traffic, and directions.",
   },
 ];
