@@ -2,6 +2,12 @@ import { faqs } from "@/static-data/services";
 
 import FaqCard from "@/components/UI/Cards/FaqCard";
 
+export const metadata = {
+  title: "FAQ | Agency.io",
+  description:
+    "Discover travel tips, reviews, and deals. Plan your stay, find activities, and dine at the finest restaurants.",
+};
+
 export default async function Faq() {
   return (
     <main className="mx-auto max-w-[1440px] space-y-8 px-6 pt-24 xl:px-8">

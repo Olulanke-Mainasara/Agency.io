@@ -4,6 +4,12 @@ import { staticReview } from "@/static-data/services";
 import ReviewCard from "@/components/UI/Cards/ReviewCard";
 import { AddReviewModal } from "@/components/UI/Modals/AddReviewModal";
 
+export const metadata = {
+  title: "Reviews | Agency.io",
+  description:
+    "Discover travel tips, reviews, and deals. Plan your stay, find activities, and dine at the finest restaurants.",
+};
+
 const page = () => {
   return (
     <main className="mx-auto max-w-[1440px] space-y-8 px-6 pt-24 xl:px-8">

@@ -3,6 +3,12 @@ import { getBlog } from "@/sanity/lib/getBlog";
 import { Blog } from "@/types/Blog";
 import BlogCard from "@/components/UI/Cards/BlogCard";
 
+export const metadata = {
+  title: "Blog | Agency.io",
+  description:
+    "Discover travel tips, reviews, and deals. Plan your stay, find activities, and dine at the finest restaurants.",
+};
+
 export default async function BlogPage() {
   let blog: Blog[];
 
