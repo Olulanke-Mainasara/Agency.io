@@ -59,7 +59,7 @@ export default function AIGeneratedTripForm() {
         <LocationComboBox label="Where to?" handleLocation={handleLocation} />
 
         <SelectOption
-          label="When do you want to go?"
+          label="When?"
           items={departure}
           handleSelect={handleDeparture}
           icon={<Clock />}
@@ -100,7 +100,7 @@ export default function AIGeneratedTripForm() {
         )}
 
         <SelectOption
-          label="Who are you going with?"
+          label="With who?"
           items={companions}
           handleSelect={handleCompanion}
           icon={<FaHandshake size={25} />}

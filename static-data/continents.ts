@@ -113,7 +113,7 @@ export const asia = [
   { id: 48, name: "Yemen" },
 ];
 
-export const australia = [
+export const oceania = [
   { id: 1, name: "Australia" },
   { id: 2, name: "Fiji" },
   { id: 3, name: "Kiribati" },
@@ -128,6 +128,7 @@ export const australia = [
   { id: 12, name: "Tonga" },
   { id: 13, name: "Tuvalu" },
   { id: 14, name: "Vanuatu" },
+  { id: 15, name: "French Polynesia" },
 ];
 
 export const europe = [

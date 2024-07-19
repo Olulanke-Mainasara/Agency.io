@@ -6,6 +6,9 @@ import { motion } from "framer-motion";
 
 import { Experience } from "@/types/Experience";
 
+import NBgLink from "../Links/NBgLink";
+import { Button } from "../ShadUI/button";
+
 const ExperienceCard = ({
   experience,
   index,
@@ -31,27 +34,21 @@ const ExperienceCard = ({
       }
       className="h-full w-full rounded-xl border border-black duration-300 hover:border-brandLight dark:border-gray-400 dark:hover:border-brandLight"
     >
-      <Link
-        href={`/experiences/${experience.slug}`}
-        prefetch={false}
-        className="h-full w-full"
-      >
-        {experience.displayImage && (
-          <div className="relative h-44 w-full overflow-hidden rounded-t-xl">
-            <Image
-              src={experience.displayImage.url}
-              fill
-              sizes="(max-width: 1200px) 50vw, 33vw"
-              quality={50}
-              className="object-cover"
-              alt={
-                experience.displayImage.alt ? experience.displayImage.alt : ""
-              }
-            />
-          </div>
-        )}
+      {experience.displayImage && (
+        <div className="relative h-44 w-full overflow-hidden rounded-t-xl">
+          <Image
+            src={experience.displayImage.url}
+            fill
+            sizes="(max-width: 1200px) 50vw, 33vw"
+            quality={50}
+            className="object-cover"
+            alt={experience.displayImage.alt ? experience.displayImage.alt : ""}
+          />
+        </div>
+      )}
 
-        <div className="space-y-2 p-5">
+      <div className="space-y-3 p-5">
+        <div className="flex justify-between">
           <div className="flex items-center gap-2 text-2xl">
             <span className="text-brandDark dark:text-brandLight">
               {
@@ -62,10 +59,15 @@ const ExperienceCard = ({
             </span>
             <p className="first-letter:uppercase">{experience.name}</p>
           </div>
-
-          <p className="text-lg opacity-70">{experience.description}</p>
+          <NBgLink
+            prompt="view"
+            href={`/experiences/${experience.slug}`}
+            extraStyles="text-base justify-end"
+          />
         </div>
-      </Link>
+
+        <p className="text-lg opacity-70">{experience.description}</p>
+      </div>
     </motion.div>
   );
 };

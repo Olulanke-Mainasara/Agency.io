@@ -29,7 +29,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "static-data/images.js",
-    "static-data/services.js"
+    "static-data/services.js",
+    "static-data/navigation.js"
   ],
   "exclude": ["node_modules"]
 }

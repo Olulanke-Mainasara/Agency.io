@@ -38,7 +38,7 @@ const NotFound = () => {
 
             <NBgButtons
               prompt="Contact us"
-              href="/contactus"
+              href="/contact-us"
               extraStyles="text-lg"
             />
           </div>

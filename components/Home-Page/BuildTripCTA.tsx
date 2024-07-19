@@ -4,8 +4,8 @@ import React from "react";
 import { motion } from "framer-motion";
 
 import { images } from "../../static-data/images";
+import BuildTripButton from "../UI/Buttons/BuildTripButton";
 import BuildTripCTACard from "../UI/Cards/BuildTripCTACard";
-import FBgLink from "../UI/Links/FBgLink";
 import TBgLink from "../UI/Links/TBgLink";
 
 const BuildTripCTA = () => {
@@ -29,7 +29,7 @@ const BuildTripCTA = () => {
           one place, and get inspired by our curated travel guides.
         </p>
         <div className="flex w-full justify-center gap-5 xl:justify-end">
-          <FBgLink />
+          <BuildTripButton />
           <TBgLink href="/experiences">Get inspired</TBgLink>
         </div>
       </motion.div>

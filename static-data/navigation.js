@@ -1,3 +1,16 @@
+import {
+  FaBlog,
+  FaBriefcase,
+  FaCalculator,
+  FaCloudSun,
+  FaEnvelope,
+  FaInfoCircle,
+  FaMapMarkedAlt,
+  FaMoneyBillWave,
+  FaQuestionCircle,
+  FaStar,
+} from "react-icons/fa";
+
 export const places = [
   {
     title: "Africa",
@@ -44,6 +57,7 @@ export const company = [
     href: "/company/about-us",
     description:
       "Learn more about our company, our mission, and the values that drive us.",
+    icon: <FaInfoCircle />,
   },
   {
     id: 2,
@@ -51,6 +65,7 @@ export const company = [
     href: "/company/reviews",
     description:
       "Read reviews and testimonials from our customers and partners.",
+    icon: <FaStar />,
   },
   {
     id: 3,
@@ -58,6 +73,7 @@ export const company = [
     href: "/company/blog",
     description:
       "Explore articles and insights on various topics related to our industry and expertise.",
+    icon: <FaBlog />,
   },
   {
     id: 4,
@@ -65,6 +81,7 @@ export const company = [
     href: "/company/career",
     description:
       "Discover exciting career opportunities and join our talented team.",
+    icon: <FaBriefcase />,
   },
   {
     id: 5,
@@ -72,6 +89,7 @@ export const company = [
     href: "/company/faq",
     description:
       "Find answers to frequently asked questions about our products and services.",
+    icon: <FaQuestionCircle />,
   },
   {
     id: 6,
@@ -79,6 +97,7 @@ export const company = [
     href: "/company/contact-us",
     description:
       "Get in touch with our team for inquiries, support, or general questions.",
+    icon: <FaEnvelope />,
   },
 ];
 
@@ -89,13 +108,15 @@ export const utils = [
     href: "/utilities/calculator",
     description:
       "A tool for performing mathematical calculations, including basic arithmetic operations and more advanced functions.",
+    icon: <FaCalculator />,
   },
   {
     id: 2,
-    title: "Currency converter",
+    title: "Converter",
     href: "/utilities/currency-converter",
     description:
       "A utility that allows users to convert between different currencies and view exchange rates.",
+    icon: <FaMoneyBillWave />,
   },
   {
     id: 3,
@@ -103,6 +124,7 @@ export const utils = [
     href: "/utilities/weather",
     description:
       "Provides current weather conditions, forecasts, and other meteorological information for specific locations.",
+    icon: <FaCloudSun />,
   },
   {
     id: 4,
@@ -110,5 +132,6 @@ export const utils = [
     href: "/utilities/map",
     description:
       "Displays geographical maps and allows users to explore locations, get directions, and view points of interest.",
+    icon: <FaMapMarkedAlt />,
   },
 ];
