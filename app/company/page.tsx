@@ -2,6 +2,12 @@ import { company } from "@/static-data/navigation";
 
 import DefaultCard from "@/components/UI/Cards/DefaultCard";
 
+export const metadata = {
+  title: "Company | Agency.io",
+  description:
+    "Discover travel tips, reviews, and deals. Plan your stay, find activities, and dine at the finest restaurants.",
+};
+
 export default function Company() {
   return (
     <main className="mx-auto max-w-[1440px] space-y-8 px-6 pt-20 lg:pt-24 xl:px-8">

@@ -1,6 +1,12 @@
 import React from "react";
 import { FaPaperPlane } from "react-icons/fa";
 
+export const metadata = {
+  title: "Contact us | Agency.io",
+  description:
+    "Discover travel tips, reviews, and deals. Plan your stay, find activities, and dine at the finest restaurants.",
+};
+
 const Contactus = () => {
   return (
     <main className="body-font relative text-gray-600 xl:h-screen">

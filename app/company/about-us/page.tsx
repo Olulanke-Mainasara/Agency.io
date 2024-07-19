@@ -4,6 +4,12 @@ import MeetTheExecs from "@/components/About-Page/MeetTheExecs";
 import Welcome from "@/components/About-Page/Welcome";
 import WhatWeOffer from "@/components/About-Page/WhatWeOffer";
 
+export const metadata = {
+  title: "About us | Agency.io",
+  description:
+    "Discover travel tips, reviews, and deals. Plan your stay, find activities, and dine at the finest restaurants.",
+};
+
 const Aboutus = () => {
   return (
     <main className="mx-auto max-w-[1440px] px-6 pt-24 xl:px-8">

@@ -1,4 +1,3 @@
-import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import MaleTourist from "@/public/Auth/maleTourist.webp";
@@ -10,8 +9,8 @@ import { Button } from "@/components/UI/ShadUI/button";
 
 import { RecoverForm } from "./RecoverForm";
 
-export const metadata: Metadata = {
-  title: "Agency.io | Forgot Password",
+export const metadata = {
+  title: "Forgot password | Agency.io",
   description: "Let's help you get it.",
 };
 
