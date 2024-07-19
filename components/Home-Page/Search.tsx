@@ -45,8 +45,8 @@ const Search = () => {
           {activities.map((activity) => {
             return (
               <React.Fragment key={activity.id}>
-                <TBgLink extraStyles="py-2" href={activity.link}>
-                  {activity.text}
+                <TBgLink extraStyles="py-2" href={activity.href}>
+                  {activity.title}
                 </TBgLink>
               </React.Fragment>
             );
@@ -58,17 +58,17 @@ const Search = () => {
         {user === undefined ? (
           <div className="h-12 w-80 animate-pulse bg-gray-400 md:w-[600px]"></div>
         ) : user ? (
-          <p className="text-center text-[26px] dark:text-white md:text-5xl">
+          <h1 className="text-center text-[26px] dark:text-white md:text-5xl">
             What&apos;s the{" "}
             <span className="text-brandDark dark:text-brandLight">plan</span>
             {user.displayName ? ", " + user.displayName.split(" ")[0] : ""}?
-          </p>
+          </h1>
         ) : (
-          <p className="text-center text-2xl dark:text-white md:text-5xl">
+          <h1 className="text-center text-2xl dark:text-white md:text-5xl">
             Discover your{" "}
             <span className="text-brandDark dark:text-brandLight">next</span>{" "}
             adventure
-          </p>
+          </h1>
         )}
 
         <div className="flex flex-wrap gap-4">

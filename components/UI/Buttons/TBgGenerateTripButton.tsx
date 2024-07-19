@@ -7,6 +7,7 @@ import {
   Dialog,
   DialogContent,
   DialogHeader,
+  DialogTitle,
   DialogTrigger,
 } from "../ShadUI/dialog";
 
@@ -20,12 +21,12 @@ const TBgGenerateTripButton = () => {
           <span className="hidden md:block">A.I </span>Generate
         </Button>
       </DialogTrigger>
-      <DialogContent>
+      <DialogContent aria-describedby={undefined}>
         <DialogHeader>
-          <h1 className="text-center text-3xl">
+          <DialogTitle>
             A<span className="text-brandDark dark:text-brandLight">.I</span>{" "}
             Generate
-          </h1>
+          </DialogTitle>
         </DialogHeader>
         <AIGeneratedTripForm />
       </DialogContent>

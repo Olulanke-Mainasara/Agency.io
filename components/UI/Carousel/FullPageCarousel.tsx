@@ -56,9 +56,9 @@ const FullPageCarousel = ({ items }: { items: Item[] }) => {
                 <div className="absolute inset-0 rounded-xl pl-3 pt-8 backdrop-brightness-50 sm:pl-5">
                   <div className="space-y-3">
                     <p className="opacity-75 md:text-2xl">{item.subText}</p>
-                    <h1 className="max-w-3xl text-3xl md:text-7xl">
+                    <p className="max-w-3xl text-3xl md:text-7xl">
                       {item.mainText}
-                    </h1>
+                    </p>
                   </div>
 
                   <div className="absolute bottom-8 max-w-lg space-y-5 sm:right-5">
