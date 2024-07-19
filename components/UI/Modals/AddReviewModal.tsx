@@ -1,12 +1,18 @@
 "use client";
 
 import React from "react";
+import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
 import { PlusCircle } from "lucide-react";
 import { FaStar } from "react-icons/fa";
 
 import { Button } from "../ShadUI/button";
 import { Card, CardContent, CardFooter, CardHeader } from "../ShadUI/card";
-import { Dialog, DialogContent, DialogTrigger } from "../ShadUI/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  DialogTrigger,
+} from "../ShadUI/dialog";
 import { Input } from "../ShadUI/input";
 import { Label } from "../ShadUI/label";
 import { Textarea } from "../ShadUI/textarea";
@@ -45,11 +51,15 @@ export function AddReviewModal() {
           <p className="text-xl md:text-2xl">Add your own review</p>
         </div>
       </DialogTrigger>
-      <DialogContent>
+      <DialogContent aria-describedby={undefined}>
+        <VisuallyHidden.Root>
+          <DialogTitle>Add your review</DialogTitle>
+        </VisuallyHidden.Root>
+
         <Card className="w-full">
           <CardHeader className="flex-row items-center justify-between px-0">
             <div>
-              <h1 className="text-2xl">Write a review</h1>
+              <p className="text-2xl">Write a review</p>
               <p className="text-sm opacity-50">How well did we do?</p>
             </div>
             <div className="flex gap-1">

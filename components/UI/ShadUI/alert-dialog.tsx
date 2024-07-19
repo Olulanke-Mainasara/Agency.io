@@ -8,14 +8,21 @@ import { cn } from "@/lib/utils";
 import { buttonVariants } from "./button";
 
 const AlertDialog = AlertDialogPrimitive.Root;
-
 const AlertDialogTrigger = AlertDialogPrimitive.Trigger;
+
+// Define a custom type that extends AlertDialogPortalProps and includes className
+type CustomAlertDialogPortalProps =
+  AlertDialogPrimitive.AlertDialogPortalProps & {
+    className?: string;
+  };
 
 const AlertDialogPortal = ({
   className,
   ...props
-}: AlertDialogPrimitive.AlertDialogPortalProps) => (
-  <AlertDialogPrimitive.Portal className={cn(className)} {...props} />
+}: CustomAlertDialogPortalProps) => (
+  <AlertDialogPrimitive.Portal {...props}>
+    <div className={cn(className)}>{props.children}</div>
+  </AlertDialogPrimitive.Portal>
 );
 AlertDialogPortal.displayName = AlertDialogPrimitive.Portal.displayName;
 

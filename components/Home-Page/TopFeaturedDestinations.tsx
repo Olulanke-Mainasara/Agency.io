@@ -20,11 +20,11 @@ const TopFeaturedDestinations = () => {
 
   return (
     <section className="flex h-[600px] flex-col gap-8 px-6 dark:text-white md:h-[700px] lg:h-[800px] xl:h-[700px] xl:p-8">
-      <h1 className="text-center text-4xl md:text-5xl">
+      <h2 className="text-center text-4xl md:text-5xl">
         Top{" "}
         <span className="text-brandDark dark:text-brandLight">Featured</span>{" "}
         Destinations
-      </h1>
+      </h2>
 
       <div className="flex w-full grow gap-8 overflow-y-hidden overflow-x-scroll text-white">
         {destinations.map((destination, index) => {
@@ -69,7 +69,7 @@ const TopFeaturedDestinations = () => {
                     : "backdrop-brightness-[80%]"
                 } absolute inset-0 pl-5 pt-5 duration-500`}
               >
-                <h1
+                <p
                   className={`${
                     card == index
                       ? "text-3xl md:text-5xl"
@@ -88,7 +88,7 @@ const TopFeaturedDestinations = () => {
                       extraStyles="text-white"
                     />
                   </span>
-                </h1>
+                </p>
               </div>
             </motion.div>
           );

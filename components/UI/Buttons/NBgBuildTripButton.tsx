@@ -8,6 +8,7 @@ import {
   Dialog,
   DialogContent,
   DialogHeader,
+  DialogTitle,
   DialogTrigger,
 } from "../ShadUI/dialog";
 
@@ -27,13 +28,13 @@ const NBgBuildTripButton = () => {
           </span>
         </Button>
       </DialogTrigger>
-      <DialogContent>
+      <DialogContent aria-describedby={undefined}>
         <DialogHeader className="flex-row items-center justify-center gap-2">
-          <h1 className="text-center text-3xl">
+          <DialogTitle>
             Build{" "}
             <span className="text-brandDark dark:text-brandLight">your</span>{" "}
             Trip
-          </h1>
+          </DialogTitle>
           <FaPlane className="text-4xl" />
         </DialogHeader>
         <BuildTripForm />
