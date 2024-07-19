@@ -1,4 +1,5 @@
 import React from "react";
+import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
 import { format } from "date-fns";
 import { Calendar as CalendarIcon } from "lucide-react";
 import { DateRange } from "react-day-picker";
@@ -7,7 +8,12 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/UI/ShadUI/button";
 import { Calendar } from "@/components/UI/ShadUI/calendar";
 
-import { Dialog, DialogContent, DialogTrigger } from "../ShadUI/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  DialogTrigger,
+} from "../ShadUI/dialog";
 
 export function DatePickerWithRange({
   handleDateRange,
@@ -52,7 +58,11 @@ export function DatePickerWithRange({
             )}
           </Button>
         </DialogTrigger>
-        <DialogContent className="w-auto p-0">
+        <DialogContent aria-describedby={undefined} className="w-auto p-0">
+          <VisuallyHidden.Root>
+            <DialogTitle>Add your review</DialogTitle>
+          </VisuallyHidden.Root>
+
           <Calendar
             initialFocus
             mode="range"

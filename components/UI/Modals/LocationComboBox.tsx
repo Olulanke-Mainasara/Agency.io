@@ -1,4 +1,5 @@
 import React from "react";
+import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
 import { Check, ChevronsUpDown, Map, MapPin } from "lucide-react";
 
 import { Button } from "@/components/UI/ShadUI/button";
@@ -10,7 +11,12 @@ import {
   CommandItem,
 } from "@/components/UI/ShadUI/command";
 
-import { Dialog, DialogContent, DialogTrigger } from "../ShadUI/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  DialogTrigger,
+} from "../ShadUI/dialog";
 
 export function LocationComboBox({
   label,
@@ -39,7 +45,10 @@ export function LocationComboBox({
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </DialogTrigger>
-      <DialogContent>
+      <DialogContent aria-describedby={undefined}>
+        <VisuallyHidden.Root>
+          <DialogTitle>Add your review</DialogTitle>
+        </VisuallyHidden.Root>
         <Command>
           <CommandInput placeholder={label} />
           <CommandEmpty>No location found.</CommandEmpty>

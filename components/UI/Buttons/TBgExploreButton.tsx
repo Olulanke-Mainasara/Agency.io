@@ -6,6 +6,7 @@ import {
   Dialog,
   DialogContent,
   DialogHeader,
+  DialogTitle,
   DialogTrigger,
 } from "../ShadUI/dialog";
 
@@ -19,13 +20,13 @@ const TBgExploreButton = () => {
           Explore<span className="hidden md:block">the world</span>
         </Button>
       </DialogTrigger>
-      <DialogContent>
+      <DialogContent aria-describedby={undefined}>
         <DialogHeader className="flex-row items-center justify-center gap-2">
-          <h1 className="text-center text-3xl">
+          <DialogTitle>
             Explore{" "}
             <span className="text-brandDark dark:text-brandLight">the</span>{" "}
             world
-          </h1>
+          </DialogTitle>
         </DialogHeader>
         <ExploreTheWorldForm />
       </DialogContent>

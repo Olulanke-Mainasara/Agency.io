@@ -17,12 +17,12 @@ const PopularDestinations = () => {
   return (
     <section className="flex flex-col gap-8 xl:py-8">
       <div className="flex flex-col gap-8 px-6 lg:flex-row lg:gap-4 xl:px-8">
-        <h1 className="text-4xl md:text-5xl">
+        <h2 className="text-4xl md:text-5xl">
           Popular{" "}
           <span className="text-brandDark dark:text-brandLight">
             Destinations
           </span>
-        </h1>
+        </h2>
 
         <div className="flex gap-4">
           {buttonData.map((button) => (
