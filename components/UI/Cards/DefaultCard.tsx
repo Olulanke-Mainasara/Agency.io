@@ -4,11 +4,14 @@ import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
+import NBgLink from "../Links/NBgLink";
+
 type Features = {
   id: number;
   title: string;
   description: string;
   href: string;
+  icon: React.JSX.Element;
 };
 
 const DefaultCard = ({
@@ -19,7 +22,7 @@ const DefaultCard = ({
   index: number;
 }) => {
   return (
-    <motion.span
+    <motion.div
       initial={{ opacity: 0 }}
       animate={{
         opacity: 1,
@@ -28,19 +31,26 @@ const DefaultCard = ({
           delay: index * 0.15,
         },
       }}
-      className="rounded-xl border border-black p-6 duration-300 hover:border-brandLight dark:border-white dark:hover:border-brandLight xl:p-8"
+      className="space-y-2 rounded-xl border border-black p-6 duration-300 hover:border-brandLight dark:border-white dark:hover:border-brandLight xl:p-8"
     >
-      <Link
-        href={features.href}
-        prefetch={false}
-        className="h-full w-full space-y-2"
-      >
-        <p className="text-xl text-black dark:text-white">{features.title}</p>
-        <p className="text-lg text-black opacity-70 dark:text-white">
-          {features.description}
-        </p>
-      </Link>
-    </motion.span>
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <span className="text-2xl text-brandDark dark:text-brandLight">
+            {features.icon}
+          </span>
+          <p className="text-xl text-black dark:text-white">{features.title}</p>
+        </div>
+        <NBgLink
+          prompt="view"
+          href={features.href}
+          extraStyles="text-base justify-end"
+        />
+      </div>
+
+      <p className="text-lg text-black opacity-70 dark:text-white">
+        {features.description}
+      </p>
+    </motion.div>
   );
 };
 

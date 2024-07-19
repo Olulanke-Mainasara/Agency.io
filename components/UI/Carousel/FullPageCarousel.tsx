@@ -5,6 +5,7 @@ import Image, { StaticImageData } from "next/image";
 import { Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
+import NBgBuildTripButton from "../Buttons/NBgBuildTripButton";
 import NBgLink from "../Links/NBgLink";
 import LeftArrow from "./LeftArrow";
 import RightArrow from "./RightArrow";
@@ -63,11 +64,7 @@ const FullPageCarousel = ({ items }: { items: Item[] }) => {
                   <div className="absolute bottom-8 max-w-lg space-y-5 sm:right-5">
                     <p className="md:text-lg">{item.description}</p>
 
-                    <NBgLink
-                      prompt="Build your trip"
-                      href="#"
-                      extraStyles="text-white"
-                    />
+                    <NBgBuildTripButton />
                   </div>
                 </div>
               </div>

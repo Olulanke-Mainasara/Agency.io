@@ -79,7 +79,10 @@ const BlogCarousel = ({ blog }: { blog: Blog[] }) => {
 
                 <p className="mb-3 opacity-70">{blog.description}</p>
 
-                <NBgLink prompt="Read post" href="#" />
+                <NBgLink
+                  prompt="Read post"
+                  href={`/company/blog/${blog.slug}`}
+                />
               </div>
             </SwiperSlide>
           );

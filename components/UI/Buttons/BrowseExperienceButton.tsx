@@ -23,14 +23,14 @@ const BrowseExperienceButton = () => {
       onAnimationComplete={() => setHasViewed(true)}
       className="mx-auto"
     >
-      <Button className="md:w-[300px]" variant={"plain"} size={"sm"}>
+      <Button className="md:w-[300px]" variant={"plain"} size={"sm"} asChild>
         <Link
           href={"/experiences"}
           prefetch={false}
-          className="flex items-center justify-center gap-1"
+          className="group flex items-center justify-center gap-1"
         >
-          View all
-          <span className="text-brandLight dark:text-brandDark">
+          View all experiences
+          <span className="text-brandLight duration-300 group-hover:translate-x-1 dark:text-brandDark">
             <ArrowRight size={20} />
           </span>
         </Link>

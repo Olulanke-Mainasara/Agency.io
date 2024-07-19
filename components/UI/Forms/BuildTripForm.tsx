@@ -50,7 +50,7 @@ export default function BuildTripForm() {
         <DatePickerWithRange handleDateRange={handleDateRange} />
 
         <div className="flex gap-4 md:col-span-2">
-          <div className="flex h-14 w-full items-center overflow-hidden rounded-xl border border-black px-3 dark:border-white md:h-16">
+          <div className="flex h-14 w-full items-center overflow-hidden rounded-xl border border-black px-3 dark:border-gray-400 md:h-16">
             <Label
               htmlFor="adults"
               className="flex w-full items-center gap-2 md:min-w-[170px] md:text-lg"
@@ -68,7 +68,7 @@ export default function BuildTripForm() {
             />
           </div>
 
-          <div className="flex h-14 w-full items-center overflow-hidden rounded-xl border border-black px-3 dark:border-white md:h-16">
+          <div className="flex h-14 w-full items-center overflow-hidden rounded-xl border border-black px-3 dark:border-gray-400 md:h-16">
             <Label
               htmlFor="children"
               className="flex w-full items-center gap-2 md:min-w-[170px] md:text-lg"
@@ -90,7 +90,7 @@ export default function BuildTripForm() {
           </div>
         </div>
 
-        <div className="flex h-14 w-full items-center overflow-hidden rounded-xl border border-black px-3 dark:border-white md:h-16">
+        <div className="flex h-14 w-full items-center overflow-hidden rounded-xl border border-black px-3 dark:border-gray-400 md:h-16">
           <Label
             htmlFor="rooms"
             className="flex w-full items-center gap-2 md:min-w-[170px] md:text-lg"

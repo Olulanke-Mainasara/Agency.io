@@ -2,11 +2,14 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, ChevronRight } from "lucide-react";
 import { Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import { Place } from "@/types/Place";
 
+import { Button } from "../ShadUI/button";
 import LeftArrow from "./LeftArrow";
 import RightArrow from "./RightArrow";
 
@@ -53,8 +56,8 @@ const SharedPagePlaceCarousel = ({
       <LeftArrow />
 
       {items.length === 0 ? (
-        <div className="flex h-[300px] w-full items-center justify-center gap-4 rounded-xl border">
-          <p className="text-xl">
+        <div className="flex h-[300px] w-full items-center justify-center gap-4 rounded-xl border border-black dark:border-white">
+          <p className="w-4/5 text-center text-xl">
             No related content is available yet, check back soon!
           </p>
         </div>
@@ -74,9 +77,19 @@ const SharedPagePlaceCarousel = ({
                   alt={item.displayImage.alt ? item.displayImage.alt : ""}
                 />
               </div>
-              <div className="absolute bottom-0 w-full rounded-b-xl p-4 text-white backdrop-blur-sm backdrop-brightness-[25%]">
-                <p className="text-2xl">{item.name}</p>
-                {extra && <p>{item.extra}</p>}
+              <div className="absolute bottom-0 flex w-full items-center justify-between rounded-b-xl p-4 text-white backdrop-blur-sm backdrop-brightness-[25%]">
+                <div>
+                  <p className="text-2xl">{item.name}</p>
+                  {extra && <p className="xl:text-sm">{item.extra}</p>}
+                </div>
+                <Button className="gap-1 rounded-full" asChild>
+                  <Link href={`/location/${item.slug}`}>
+                    view{" "}
+                    <span>
+                      <ArrowRight size={20} />
+                    </span>
+                  </Link>
+                </Button>
               </div>
             </SwiperSlide>
           );

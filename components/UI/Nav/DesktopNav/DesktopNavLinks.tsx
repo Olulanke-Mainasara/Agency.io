@@ -19,6 +19,12 @@ import {
 
 import NBgLink from "../../Links/NBgLink";
 
+interface ListItemProps extends React.ComponentPropsWithoutRef<"a"> {
+  className?: string;
+  title: string;
+  icon?: React.JSX.Element;
+}
+
 export function DesktopNavLinks({}: {}) {
   const pathname = usePathname();
 
@@ -56,6 +62,7 @@ export function DesktopNavLinks({}: {}) {
                   key={experience._id}
                   title={experience.name}
                   href={`/experiences/${experience.name}`}
+                  icon={experience.icon}
                 >
                   {experience.description}
                 </ListItem>
@@ -64,7 +71,7 @@ export function DesktopNavLinks({}: {}) {
                 <NBgLink
                   prompt="View all"
                   href="/experiences"
-                  extraStyles="dark:text-black font-bold"
+                  extraStyles="font-bold"
                 />
               </div>
             </ul>
@@ -73,7 +80,7 @@ export function DesktopNavLinks({}: {}) {
         <NavigationMenuItem>
           <NavigationMenuTrigger
             className={
-              pathname == "/locations"
+              pathname == "/places"
                 ? " text-brandDark dark:text-brandLight"
                 : ""
             }
@@ -111,7 +118,12 @@ export function DesktopNavLinks({}: {}) {
           <NavigationMenuContent>
             <ul className="grid w-full gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
               {utils.map((util) => (
-                <ListItem key={util.title} title={util.title} href={util.href}>
+                <ListItem
+                  key={util.title}
+                  title={util.title}
+                  href={util.href}
+                  icon={util.icon}
+                >
                   {util.description}
                 </ListItem>
               ))}
@@ -137,6 +149,7 @@ export function DesktopNavLinks({}: {}) {
                   key={section.title}
                   title={section.title}
                   href={section.href}
+                  icon={section.icon}
                 >
                   {section.description}
                 </ListItem>
@@ -149,30 +162,37 @@ export function DesktopNavLinks({}: {}) {
   );
 }
 
-const ListItem = React.forwardRef<
-  React.ElementRef<"a">,
-  React.ComponentPropsWithoutRef<"a">
->(({ className, title, children, ...props }, ref) => {
-  return (
-    <li>
-      <NavigationMenuLink asChild>
-        <a
-          ref={ref}
-          className={cn(
-            "hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-gray-100",
-            className
-          )}
-          {...props}
-        >
-          <div className="text-base font-bold leading-none first-letter:uppercase">
-            {title}
-          </div>
-          <p className="text-muted-foreground line-clamp-3 text-sm leading-snug">
-            {children}
-          </p>
-        </a>
-      </NavigationMenuLink>
-    </li>
-  );
-});
+const ListItem = React.forwardRef<React.ElementRef<"a">, ListItemProps>(
+  ({ className, title, children, icon, ...props }, ref) => {
+    return (
+      <li>
+        <NavigationMenuLink asChild>
+          <a
+            ref={ref}
+            className={cn(
+              "hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground block select-none space-y-2 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-gray-100 dark:hover:bg-white dark:hover:text-black",
+              className
+            )}
+            {...props}
+          >
+            <div className="flex items-center gap-2">
+              {icon && (
+                <span className="text-lg text-brandDark dark:text-brandLight">
+                  {icon}
+                </span>
+              )}
+
+              <p className="text-base font-bold leading-none first-letter:uppercase">
+                {title}
+              </p>
+            </div>
+            <p className="text-muted-foreground line-clamp-3 text-sm leading-snug">
+              {children}
+            </p>
+          </a>
+        </NavigationMenuLink>
+      </li>
+    );
+  }
+);
 ListItem.displayName = "ListItem";

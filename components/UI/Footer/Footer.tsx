@@ -14,19 +14,19 @@ const footerData = [
     id: 1,
     category: "Plan Your Trip",
     links: [
-      { text: "Book Flights", url: "/flights" },
-      { text: "Accommodations", url: "/accommodations" },
-      { text: "Transportation", url: "/transport" },
-      { text: "Travel Insurance", url: "/insurance" },
+      { text: "Book Flights", url: "services/flights" },
+      { text: "Accommodations", url: "services/accommodations" },
+      { text: "Transportation", url: "services/transport" },
+      { text: "Travel Insurance", url: "services/travel-insurance" },
     ],
   },
   {
     id: 2,
     category: "Explore",
     links: [
-      { text: "Destinations", url: "/destinations" },
-      { text: "Guided Tours", url: "/tours" },
-      { text: "Activities", url: "/activities" },
+      { text: "Destinations", url: "/places" },
+      { text: "Services", url: "/services" },
+      { text: "Experiences", url: "/experiences" },
       { text: "Travel Blog", url: "/blog" },
     ],
   },
@@ -34,7 +34,7 @@ const footerData = [
     id: 3,
     category: "Connect",
     links: [
-      { text: "About Us", url: "/aboutus" },
+      { text: "About Us", url: "/about-us" },
       { text: "FAQ", url: "/faq" },
       { text: "Privacy Policy", url: "/privacy" },
       { text: "Terms and Conditions", url: "/terms" },
@@ -102,7 +102,7 @@ const Footer = () => {
             <FaPlane />
           </Link>
 
-          <div className="md: flex w-full grow flex-wrap justify-between gap-8 md:justify-around lg:w-fit">
+          <div className="flex w-full grow flex-wrap items-center justify-between gap-8 md:justify-around lg:w-fit">
             {footerData.map((data) => (
               <div key={data.id} className="space-y-6">
                 <p className="text-brandDark dark:text-brandLight">
@@ -122,13 +122,27 @@ const Footer = () => {
                 </div>
               </div>
             ))}
+            <Button variant={"plain"} size={"sm"} className="md:hidden" asChild>
+              <Link
+                href={"/company/contact-us"}
+                prefetch={false}
+                className="h-full"
+              >
+                Contact Us
+              </Link>
+            </Button>
           </div>
 
-          <Button className="hidden lg:block" variant={"plain"} size={"sm"}>
+          <Button
+            className="hidden lg:block"
+            variant={"plain"}
+            size={"sm"}
+            asChild
+          >
             <Link
-              href={"/contactUs"}
+              href={"/company/contact-us"}
               prefetch={false}
-              className="h-full w-full"
+              className="h-full"
             >
               Contact Us
             </Link>
