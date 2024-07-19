@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { availablePositions } from "@/static-data/services";
 import { motion } from "framer-motion";
 import { DollarSignIcon } from "lucide-react";
@@ -77,9 +78,12 @@ const AvailablePositions = () => {
                 </div>
               </div>
 
-              <button className="rounded-full bg-brandDark px-5 py-3 text-white transition-colors hover:bg-[#195854]">
+              <Link
+                href={`/company/career/${position.slug}`}
+                className="rounded-full bg-brandDark px-5 py-3 text-center text-white transition-colors hover:bg-[#195854]"
+              >
                 Apply Now
-              </button>
+              </Link>
             </div>
           </motion.div>
         ))}

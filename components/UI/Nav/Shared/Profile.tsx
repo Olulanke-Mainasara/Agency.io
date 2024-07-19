@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { auth } from "@/firebase/client.config";
-import Profile from "@/public/Hero/profile.webp";
+import Profile from "@/public/Hero/profile.jpg";
 import { signOut } from "firebase/auth";
 import {
   BaggageClaim,
@@ -73,7 +73,7 @@ export function ProfileOps() {
                 <p>{user?.displayName}</p>
               </div>
               <span className="grid place-items-center xl:hidden">
-                <Link href={"#"}>
+                <Link href={"/cart"}>
                   <ShoppingCart className="h-6 w-6" />
                 </Link>
               </span>
@@ -89,7 +89,10 @@ export function ProfileOps() {
               <Wallet className="mr-2 h-6 w-6" />
               <span>Wallet</span>
             </Link>
-            <Link href={"/booking"} className="flex items-center gap-2">
+            <Link
+              href={"/booking-and-trips"}
+              className="flex items-center gap-2"
+            >
               <BaggageClaim className="mr-2 h-6 w-6" />
               <span>Booking and Trips</span>
             </Link>
