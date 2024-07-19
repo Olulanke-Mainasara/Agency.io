@@ -84,7 +84,7 @@ const TopFeaturedDestinations = () => {
                   >
                     <NBgButtons
                       prompt="view more"
-                      href="#"
+                      href={`/location/${destination.slug}`}
                       extraStyles="text-white"
                     />
                   </span>

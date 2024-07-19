@@ -8,10 +8,12 @@ const NBgLink = ({
   prompt,
   href,
   extraStyles,
+  linkStyles,
 }: {
   prompt: string;
   href: string;
   extraStyles?: string;
+  linkStyles?: string;
 }) => {
   return (
     <Button
@@ -19,7 +21,10 @@ const NBgLink = ({
       className={`text-black dark:text-white ${extraStyles} min-w-[110px] p-0`}
       asChild
     >
-      <Link href={href} className="w-fit text-lg">
+      <Link
+        href={href}
+        className={`${linkStyles ? linkStyles : "w-fit text-lg"}`}
+      >
         {prompt}
         <span className="text-brandDark duration-300 group-hover:translate-x-1 dark:text-brandLight">
           <ArrowRight size={20} />

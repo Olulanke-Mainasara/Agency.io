@@ -6,7 +6,7 @@ import About1 from "@/public/Main/About1.webp";
 import About2 from "@/public/Main/About2.webp";
 import { motion } from "framer-motion";
 
-import FBgButtons from "../UI/Links/FBgLink";
+import BuildTripButton from "../UI/Buttons/BuildTripButton";
 
 const Welcome = () => {
   const [hasViewed, setHasViewed] = React.useState(false);
@@ -53,7 +53,7 @@ const Welcome = () => {
           with wonder, excitement, and personalized attention.
         </p>
         <div className="flex justify-center md:justify-start">
-          <FBgButtons />
+          <BuildTripButton />
         </div>
       </motion.div>
 
