@@ -24,7 +24,7 @@ const BadRequest = () => {
           </Link>
         </Button>
 
-        <NBgLink prompt="Contact us" href="/contactus" extraStyles="text-lg" />
+        <NBgLink prompt="Contact us" href="/contact-us" extraStyles="text-lg" />
       </div>
     </main>
   );

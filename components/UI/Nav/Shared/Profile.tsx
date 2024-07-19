@@ -79,7 +79,7 @@ export function ProfileOps() {
               </span>
             </DrawerTitle>
           </DrawerHeader>
-          <hr />
+          <hr className="border-gray-400" />
           <div className="space-y-4 p-4">
             <Link href={"/profile"} className="flex items-center gap-2">
               <User className="mr-2 h-6 w-6" />
@@ -97,7 +97,7 @@ export function ProfileOps() {
               <Heart className="mr-2 h-6 w-6" />
               <span>Saved</span>
             </Link>
-            <hr />
+            <hr className="border-gray-400" />
             <button onClick={handleSignOut} className="flex items-center gap-2">
               <LogOut className="mr-2 h-6 w-6" />
               <span>Sign out</span>

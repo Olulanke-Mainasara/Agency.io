@@ -17,7 +17,7 @@ const Hero = () => {
           our team and be part of a collaborative and vibrant environment where
           innovation thrives.
         </p>
-        <NBgLink prompt="Who are we?" href="/company/aboutus" />
+        <NBgLink prompt="Who are we?" href="/company/about-us" />
       </div>
       <div className="relative h-full xl:basis-3/5">
         <Image

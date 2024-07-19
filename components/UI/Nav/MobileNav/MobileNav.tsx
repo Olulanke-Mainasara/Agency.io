@@ -3,8 +3,8 @@ import { User } from "firebase/auth";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
+import BuildTripButton from "../../Buttons/BuildTripButton";
 import { MobileThemeToggler } from "../../Buttons/ThemeTogglers";
-import FBgLink from "../../Links/FBgLink";
 import NBgLink from "../../Links/NBgLink";
 import Logo from "../Shared/Logo";
 import { Notifications } from "../Shared/Notifications";
@@ -70,7 +70,7 @@ const MobileNav = ({
           <MobileNavLinks />
 
           <div className="flex items-center gap-2 xs:w-full xs:flex-col xs:gap-5">
-            <FBgLink />
+            <BuildTripButton />
 
             {!user ? (
               <NBgLink prompt="Log in" href={`/login?previous=${pathname}`} />

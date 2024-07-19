@@ -6,6 +6,8 @@ import "swiper/css/pagination";
 
 import { Inter } from "next/font/google";
 
+import { Toaster } from "@/components/UI/ShadUI/toast/toaster";
+
 import Providers from "../components/Providers/Providers";
 
 import "./globals.css";
@@ -29,6 +31,7 @@ export default function RootLayout({
         <body className={inter.className + " dark:bg-background"}>
           <NextTopLoader color="#6fcbc6" showSpinner={false} />
           <Providers>{children}</Providers>
+          <Toaster />
         </body>
       </html>
     </>
