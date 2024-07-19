@@ -1,40 +1,26 @@
 "use client";
 
 import React from "react";
-import dynamic from "next/dynamic";
 import Image from "next/image";
 import SearchImg from "@/public/Main/Search.webp";
 import { activities } from "@/static-data/services";
 
 import { authContext } from "../Providers/Providers";
+import TBgBuildTripButton from "../UI/Buttons/TBgBuildTripButton";
+import TBgExploreButton from "../UI/Buttons/TBgExploreButton";
+import TBgGenerateTripButton from "../UI/Buttons/TBgGenerateTripButton";
 import NBgLink from "../UI/Links/NBgLink";
 import TBgLink from "../UI/Links/TBgLink";
 import { Button } from "../UI/ShadUI/button";
 
-const BuildTripForm = dynamic(() => import("../UI/Forms/BuildTripForm"));
-const ExploreTheWorldForm = dynamic(
-  () => import("../UI/Forms/ExploreTheWorldForm")
-);
-const AIGeneratedTripForm = dynamic(
-  () => import("../UI/Forms/AIGeneratedTripForm")
-);
-
 const Search = () => {
-  const [plan, setPlan] = React.useState("explore");
   const user = React.useContext(authContext);
 
-  const buttonData = [
-    { id: 1, text: "Explore the world", plan: "explore" },
-    { id: 2, text: "Build your trip", plan: "build" },
-    {
-      id: 3,
-      text: user ? "No plan, use A.I" : "A.I Generate",
-      plan: "generate",
-    },
-  ];
-
   return (
-    <section className="flex w-full p-4 pb-0 lg:max-h-[900px] lg:gap-8 lg:p-8 lg:pb-0 xl:h-screen">
+    <section
+      id="explore"
+      className="flex w-full p-4 pb-0 lg:max-h-[900px] lg:gap-8 lg:p-8 lg:pb-0 xl:h-screen"
+    >
       <div className="hidden items-center justify-end xl:flex xl:basis-1/2 ">
         <div className="relative h-4/5 w-full overflow-hidden rounded-xl">
           <Image
@@ -86,35 +72,10 @@ const Search = () => {
         )}
 
         <div className="flex flex-wrap gap-4">
-          {buttonData.map((button) => (
-            <Button
-              key={button.id}
-              variant={"outline"}
-              size={"sm"}
-              className={`${
-                plan === button.plan
-                  ? "border-black bg-background text-white dark:border-white dark:bg-white dark:text-black"
-                  : button.plan === "generate" && user === undefined
-                  ? "skeleton animate-pulse border-white bg-gray-400 text-gray-400 dark:border-black dark:bg-gray-400 dark:text-gray-400"
-                  : ""
-              }`}
-              onClick={() => setPlan(button.plan)}
-            >
-              <span className="md:hidden">
-                {button.plan === "generate"
-                  ? "A.I Gen"
-                  : button.text.split(" ")[0]}
-              </span>
-              <span className="hidden md:block">{button.text}</span>
-            </Button>
-          ))}
+          <TBgExploreButton />
+          <TBgBuildTripButton />
+          <TBgGenerateTripButton />
         </div>
-
-        {plan === "explore" && <ExploreTheWorldForm />}
-
-        {plan === "build" && <BuildTripForm />}
-
-        {plan === "generate" && <AIGeneratedTripForm />}
       </div>
     </section>
   );

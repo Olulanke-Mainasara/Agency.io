@@ -24,7 +24,7 @@ const Splash = () => {
           <motion.h1
             initial={{ width: 0, opacity: 0 }}
             animate={{
-              width: width > 1023 ? 555 : width > 767 ? 425 : 215,
+              width: width > 1023 ? 620 : width > 767 ? 470 : 235,
               opacity: 1,
               transition: { duration: 1.5, ease: "anticipate" },
             }}

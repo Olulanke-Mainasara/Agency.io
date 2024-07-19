@@ -7,6 +7,8 @@ import { motion } from "framer-motion";
 
 import { Country } from "@/types/Country";
 
+import NBgLink from "../Links/NBgLink";
+
 const CountryImageCard = ({
   continent,
   country,
@@ -32,26 +34,30 @@ const CountryImageCard = ({
         cols == 2 ? "lg:col-span-2" : cols == 3 ? "lg:col-span-3" : ""
       }`}
     >
-      <Link
-        href={`/places/${continent}/${country.slug}`}
-        className={`relative h-full`}
-      >
-        <div className="h-full w-full">
-          <div className="relative h-full w-full duration-500 group-hover:scale-110">
-            <Image
-              src={country.displayImage.url}
-              width={314}
-              height={305}
-              className="h-full w-full object-cover"
-              alt={country.displayImage.alt ? country.displayImage.alt : ""}
-            />
-          </div>
-
-          <div className="absolute inset-0 pl-5 pt-5 backdrop-brightness-75">
-            <h1>{country.name}</h1>
-          </div>
+      <div className="relative h-full w-full">
+        <div className="relative h-full w-full duration-500 group-hover:scale-110">
+          <Image
+            src={country.displayImage.url}
+            width={314}
+            height={305}
+            className="h-full w-full object-cover"
+            alt={country.displayImage.alt ? country.displayImage.alt : ""}
+          />
         </div>
-      </Link>
+
+        <div className="absolute inset-0 pl-5 pt-5 backdrop-brightness-[60%]">
+          <h1>{country.name}</h1>
+        </div>
+
+        <div className="absolute bottom-0 flex w-full justify-end pb-5 pr-5">
+          <NBgLink
+            prompt="visit"
+            href={`/places/${continent}/${country.slug}`}
+            extraStyles="justify-end"
+            linkStyles="w-fit text-2xl md:text-xl"
+          />
+        </div>
+      </div>
     </motion.div>
   );
 };

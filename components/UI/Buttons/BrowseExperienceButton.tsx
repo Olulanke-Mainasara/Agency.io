@@ -29,7 +29,7 @@ const BrowseExperienceButton = () => {
           prefetch={false}
           className="group flex items-center justify-center gap-1"
         >
-          View all
+          View all experiences
           <span className="text-brandLight duration-300 group-hover:translate-x-1 dark:text-brandDark">
             <ArrowRight size={20} />
           </span>
