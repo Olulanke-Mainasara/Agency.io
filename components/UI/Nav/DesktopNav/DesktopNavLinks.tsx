@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { staticExperiencesData } from "@/static-data/images";
 import { company, places, utils } from "@/static-data/navigation";
+import { services } from "@/static-data/services";
 
 import { cn } from "@/lib/utils";
 import {
@@ -100,6 +101,40 @@ export function DesktopNavLinks({}: {}) {
                   {place.description}
                 </ListItem>
               ))}
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <NavigationMenuTrigger
+            className={
+              pathname == "/services"
+                ? " text-brandDark dark:text-brandLight"
+                : ""
+            }
+          >
+            <Link href="/services" prefetch={false}>
+              Services
+            </Link>
+          </NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid w-full gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+              {services.map((service) => (
+                <ListItem
+                  key={service.title}
+                  title={service.title}
+                  href={service.href}
+                  icon={service.icon}
+                >
+                  {service.description}
+                </ListItem>
+              ))}
+              <div className="flex items-center pl-3">
+                <NBgLink
+                  prompt="View all"
+                  href="/services"
+                  extraStyles="font-bold"
+                />
+              </div>
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>

@@ -15,7 +15,7 @@ import {
   FaUtensils,
 } from "react-icons/fa";
 
-export const services = [
+export const features = [
   {
     id: 1,
     topic: "Bespoke Travel Experiences",
@@ -42,7 +42,7 @@ export const services = [
   },
 ];
 
-export const activities = [
+export const services = [
   {
     id: 1,
     title: "Hotels",
@@ -52,8 +52,8 @@ export const activities = [
   },
   {
     id: 2,
-    title: "Food",
-    href: "/services/food",
+    title: "Restaurants",
+    href: "/services/restaurants",
     description: "Discover the best places to eat.",
     icon: <FaUtensils />,
   },
@@ -68,14 +68,14 @@ export const activities = [
     id: 4,
     title: "Rentals",
     href: "/services/rentals",
-    description: "Rent cars, bikes, and other vehicles.",
+    description: "Rent houses and cars for your stay.",
     icon: <FaCar />,
   },
   {
     id: 5,
-    title: "Todos",
-    href: "/services/todos",
-    description: "Manage your travel to-do list.",
+    title: "To-dos",
+    href: "/services/to-dos",
+    description: "Things to do at every corner.",
     icon: <FaCheckSquare />,
   },
   {
@@ -384,6 +384,7 @@ export const availablePositions = [
   {
     id: "1",
     title: "Software Developer",
+    slug: "software-developer",
     category: "Engineering",
     location: "Remote",
     type: "Full-time",
@@ -394,6 +395,7 @@ export const availablePositions = [
   {
     id: "2",
     title: "Data Scientist",
+    slug: "data-scientist",
     category: "Engineering",
     location: "On-site",
     type: "Contract",
@@ -404,6 +406,7 @@ export const availablePositions = [
   {
     id: "3",
     title: "Product Manager",
+    slug: "product-manager",
     category: "Management",
     location: "Remote",
     type: "Full-time",
@@ -414,6 +417,7 @@ export const availablePositions = [
   {
     id: "4",
     title: "Marketing Specialist",
+    slug: "marketing-specialist",
     category: "Marketing",
     location: "On-site",
     type: "Part-time",
@@ -424,6 +428,7 @@ export const availablePositions = [
   {
     id: "5",
     title: "Graphic Designer",
+    slug: "graphic-designer",
     category: "Design",
     location: "Remote",
     type: "Full-time",
@@ -434,6 +439,7 @@ export const availablePositions = [
   {
     id: "6",
     title: "Customer Support",
+    slug: "customer-support",
     category: "Customer Service",
     location: "On-site",
     type: "Full-time",

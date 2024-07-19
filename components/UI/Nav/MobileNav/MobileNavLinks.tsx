@@ -20,11 +20,16 @@ const links = [
   },
   {
     id: 4,
+    label: "Services",
+    link: "/services",
+  },
+  {
+    id: 5,
     label: "Utilities",
     link: "/utilities",
   },
   {
-    id: 5,
+    id: 6,
     label: "Company",
     link: "/company",
   },

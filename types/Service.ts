@@ -1,13 +1,8 @@
 import { EstablishmentInfo } from "./EstablishmentInfo";
+import { Section } from "./Experience";
 import { Image } from "./Image";
 
-export type Section = {
-  _id: string;
-  title: string;
-  locations: EstablishmentInfo[];
-};
-
-export type Experience = {
+export type Service = {
   _id: string | number;
   name: string;
   slug: string;

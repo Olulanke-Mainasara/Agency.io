@@ -66,7 +66,7 @@ const EstablishmentCarousel = ({ items }: { items: EstablishmentInfo[] }) => {
 
                       <NBgLink
                         prompt="View the destination"
-                        href={`/locations/${item.continent}/${item.country}/${item.place}/${item.slug}`}
+                        href={`/citys/${item.continent}/${item.country}/${item.place}/${item.slug}`}
                         extraStyles="text-white"
                       />
                     </div>

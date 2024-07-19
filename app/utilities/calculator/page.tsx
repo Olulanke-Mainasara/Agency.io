@@ -5,6 +5,7 @@ import React from "react";
 const Calculator = () => {
   const [operation, setOperation] = React.useState("0");
   const [answer, setAnswer] = React.useState("0");
+
   const handleClick = (event: any) => {
     event.preventDefault();
     if (operation === "0" && event.target.name !== "operation") {
