@@ -8,6 +8,7 @@ const SocialLinks = () => {
       <Link
         href={"#"}
         aria-label="Instagram"
+        prefetch={false}
         className="transition-colors hover:text-brandDark dark:hover:text-brandLight"
       >
         <FaInstagram />
@@ -16,6 +17,7 @@ const SocialLinks = () => {
         href={"https://twitter.com/Grim_redd"}
         target="_blank"
         aria-label="Twitter"
+        prefetch={false}
         className="transition-colors hover:text-brandDark dark:hover:text-brandLight"
       >
         <FaTwitter />
@@ -24,6 +26,7 @@ const SocialLinks = () => {
         href={"https://github.com/Olulanke-Mainasara/Agency.io"}
         target="_blank"
         aria-label="Github"
+        prefetch={false}
         className="transition-colors hover:text-brandDark dark:hover:text-brandLight"
       >
         <FaGithub />
@@ -31,6 +34,7 @@ const SocialLinks = () => {
       <Link
         href={"#"}
         aria-label="Youtube"
+        prefetch={false}
         className="transition-colors hover:text-brandDark dark:hover:text-brandLight"
       >
         <FaYoutube />

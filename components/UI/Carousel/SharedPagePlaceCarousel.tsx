@@ -83,7 +83,7 @@ const SharedPagePlaceCarousel = ({
                   {extra && <p className="xl:text-sm">{item.extra}</p>}
                 </div>
                 <Button className="gap-1 rounded-full" asChild>
-                  <Link href={`/city/${item.slug}`}>
+                  <Link href={`/city/${item.slug}`} prefetch={false}>
                     view{" "}
                     <span>
                       <ArrowRight size={20} />

@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Bg from "@/public/Main/Search.webp";
 
-import NBgButtons from "@/components/UI/Links/NBgLink";
+import NBgLink from "@/components/UI/Links/NBgLink";
 import { Button } from "@/components/UI/ShadUI/button";
 
 const NotFound = () => {
@@ -36,7 +36,7 @@ const NotFound = () => {
               </Link>
             </Button>
 
-            <NBgButtons
+            <NBgLink
               prompt="Contact us"
               href="/contact-us"
               extraStyles="text-lg"

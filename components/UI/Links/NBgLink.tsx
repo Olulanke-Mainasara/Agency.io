@@ -24,6 +24,7 @@ const NBgLink = ({
       <Link
         href={href}
         className={`${linkStyles ? linkStyles : "w-fit text-lg"}`}
+        prefetch={false}
       >
         {prompt}
         <span className="text-brandDark duration-300 group-hover:translate-x-1 dark:text-brandLight">
