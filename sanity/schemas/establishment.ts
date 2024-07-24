@@ -117,60 +117,10 @@ export const establishment = {
       of: [
         {
           name: "review",
-          type: "object",
+          type: "reference",
           title: "Review",
-          fields: [
-            {
-              name: "name",
-              type: "string",
-              title: "Name",
-              description: "The name of the reviewer",
-            },
-            {
-              name: "title",
-              type: "string",
-              title: "Title",
-              description: "The title of the review",
-            },
-            {
-              name: "description",
-              type: "text",
-              title: "Description",
-              description: "The reviewer's experience",
-            },
-            {
-              name: "rating",
-              type: "number",
-              title: "Rating",
-              description: "The reviewer's rating of the establishment",
-            },
-            {
-              name: "pictures",
-              type: "array",
-              title: "Pictures",
-              description: "Pictures taken by the reviewer",
-              of: [
-                {
-                  name: "picture",
-                  type: "image",
-                  title: "Picture",
-                  description:
-                    "A picture taken by the reviewer at the establishment",
-                  fields: [{ name: "alt", type: "string", title: "Alt" }],
-                },
-              ],
-            },
-            {
-              name: "date",
-              type: "date",
-              title: "Date",
-              description: "The date the review was written",
-              options: {
-                dateFormat: "MM-DD-YYYY",
-                calendarTodayLabel: "Today",
-              },
-            },
-          ],
+          description: "Write a review",
+          to: [{ type: "review" }],
         },
       ],
     },

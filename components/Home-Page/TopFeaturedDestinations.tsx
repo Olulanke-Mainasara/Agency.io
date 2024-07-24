@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 
 import useMedia from "@/hooks/useMedia";
 
-import NBgButtons from "../UI/Links/NBgLink";
+import NBgLink from "../UI/Links/NBgLink";
 
 const TopFeaturedDestinations = () => {
   const [card, setCard] = React.useState(0);
@@ -82,9 +82,9 @@ const TopFeaturedDestinations = () => {
                       card == index ? "opacity-100" : "xl:opacity-0"
                     } text-base duration-300`}
                   >
-                    <NBgButtons
+                    <NBgLink
                       prompt="view more"
-                      href={`/location/${destination.slug}`}
+                      href={`/city/${destination.slug}`}
                       extraStyles="text-white"
                     />
                   </span>

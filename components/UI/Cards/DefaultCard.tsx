@@ -31,7 +31,7 @@ const DefaultCard = ({
           delay: index * 0.15,
         },
       }}
-      className="space-y-2 rounded-xl border border-black p-6 duration-300 hover:border-brandLight dark:border-white dark:hover:border-brandLight xl:p-8"
+      className="space-y-2 rounded-xl border border-black p-6 duration-300 hover:border-brandLight dark:border-white dark:hover:border-brandLight xl:p-7"
     >
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">

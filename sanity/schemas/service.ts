@@ -1,13 +1,13 @@
-export const experience = {
-  name: "experience",
+export const service = {
+  name: "service",
   type: "document",
-  title: "Experiences",
+  title: "Services",
   fields: [
     {
       name: "name",
       type: "string",
       title: "Name",
-      description: "The name of the experience",
+      description: "The name of the service",
     },
     {
       name: "slug",
@@ -19,7 +19,7 @@ export const experience = {
       name: "displayImage",
       type: "image",
       title: "Display Image",
-      description: "The display image of the experience",
+      description: "The display image of the service",
       options: { hotspot: true },
       fields: [{ name: "alt", type: "string", title: "Alt" }],
     },
@@ -27,13 +27,13 @@ export const experience = {
       name: "description",
       title: "Description",
       type: "string",
-      description: "A short description of the experience",
+      description: "A short description of the service",
     },
     {
       name: "top10",
       type: "array",
       title: "Top 10",
-      description: "The top 10 establishments that offer this experience",
+      description: "The top 10 establishments that offer this service",
       of: [
         {
           name: "establishment",
@@ -53,7 +53,7 @@ export const experience = {
           name: "section",
           type: "object",
           title: "Section",
-          description: "A section to be featured on the experience page.",
+          description: "A section to be featured on the service page.",
           fields: [
             {
               name: "title",

@@ -3,10 +3,8 @@
 import React from "react";
 import Image from "next/image";
 import Offer from "@/public/Main/Offer.webp";
-import { services } from "@/static-data/services";
+import { features } from "@/static-data/services";
 import { motion } from "framer-motion";
-
-import NBgButtons from "../UI/Links/NBgLink";
 
 const WhatWeOffer = () => {
   const [hasViewed, setHasViewed] = React.useState(false);
@@ -30,7 +28,7 @@ const WhatWeOffer = () => {
           <span className="text-brandDark dark:text-brandLight">offer</span>?
         </motion.h1>
         <div className="grid h-fit gap-x-10 gap-y-12 md:grid-cols-2">
-          {services.map((service) => {
+          {features.map((feature) => {
             return (
               <motion.div
                 initial={
@@ -45,20 +43,15 @@ const WhatWeOffer = () => {
                   },
                 }}
                 className="flex w-full flex-col justify-center gap-y-5"
-                key={service.id}
+                key={feature.id}
               >
                 <h1 className="flex items-center gap-2 text-2xl">
                   <span className="text-brandDark dark:text-brandLight">
-                    {service.icon}
+                    {feature.icon}
                   </span>
-                  {service.topic}
+                  {feature.topic}
                 </h1>
-                <p className="opacity-70">{service.text}</p>
-                <NBgButtons
-                  prompt="Learn more"
-                  href="#"
-                  extraStyles="justify-start"
-                />
+                <p className="opacity-70">{feature.text}</p>
               </motion.div>
             );
           })}

@@ -153,7 +153,7 @@ export const place = {
       ],
     },
     {
-      name: "establishment",
+      name: "coordinates",
       type: "geopoint",
       title: "Location",
       description: "The Geo-coordinates of the country",

@@ -5,10 +5,6 @@ import Image from "next/image";
 import { country_list } from "@/static-data/country_list";
 import { FaExchangeAlt } from "react-icons/fa";
 
-type Currency = {
-  label: string;
-};
-
 const Currency = () => {
   const currencies = Object.keys(country_list);
   const [fromCurrency, setFromCurrency] = React.useState("USD");

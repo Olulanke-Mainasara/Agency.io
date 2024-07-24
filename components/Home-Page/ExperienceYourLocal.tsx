@@ -1,38 +1,38 @@
+"use client";
+
 import React from "react";
-import { getCities } from "@/sanity/lib/getCity(ies)";
 
-import { Place } from "@/types/Place";
+import { useLocation } from "@/hooks/useLocation";
 
+import CarouselSkeleton from "../UI/Carousel/CarouselSkeleton";
 import SharedPagePlaceCarousel from "../UI/Carousel/SharedPagePlaceCarousel";
 
-const ExperienceYourLocal = async ({
-  rawLocationData,
-}: {
-  rawLocationData: any;
-}) => {
-  let countryName;
+const ExperienceYourLocal = () => {
+  const {
+    isGeolocationEnabled,
+    isConfirmed,
+    userLocation,
+    availableCities,
+    loading,
+  } = useLocation();
 
-  countryName = rawLocationData.country_name;
-
-  let cities: Place[];
-
-  try {
-    cities = await getCities(countryName);
-  } catch (err) {
-    cities = [];
+  if (!isGeolocationEnabled || isConfirmed === "false") {
+    return null;
   }
 
-  return (
+  return loading ? (
+    <CarouselSkeleton />
+  ) : (
     <section className="flex flex-col gap-8 xl:py-8">
       <h1 className="px-6 text-right text-4xl md:text-5xl xl:px-8">
         Experience{" "}
         <span className="text-brandDark dark:text-brandLight">
-          {countryName}
+          {userLocation?.address.country}
         </span>{" "}
         from all sides
       </h1>
 
-      <SharedPagePlaceCarousel items={cities} />
+      <SharedPagePlaceCarousel items={availableCities} />
     </section>
   );
 };

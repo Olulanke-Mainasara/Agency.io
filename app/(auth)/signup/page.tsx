@@ -1,4 +1,3 @@
-import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import MaleTourist2 from "@/public/Auth/maleTourist2.webp";
@@ -10,8 +9,8 @@ import { Button } from "@/components/UI/ShadUI/button";
 
 import { SignupForm } from "./SignupForm";
 
-export const metadata: Metadata = {
-  title: "Agency.io | Sign up",
+export const metadata = {
+  title: "Sign up | Agency.io",
   description:
     "Start your adventure. Enter your details to embark on an unforgettable journey.",
 };

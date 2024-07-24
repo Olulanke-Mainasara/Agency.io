@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import SearchImg from "@/public/Main/Search.webp";
-import { activities } from "@/static-data/services";
+import { services } from "@/static-data/services";
 
 import { authContext } from "../Providers/Providers";
 import TBgBuildTripButton from "../UI/Buttons/TBgBuildTripButton";
@@ -35,18 +35,11 @@ const Search = () => {
       </div>
       <div className="flex w-full flex-col items-center gap-8 pt-16 md:pt-28 xl:basis-1/2 xl:items-start xl:justify-center xl:pt-0">
         <div className="activities flex max-w-3xl flex-wrap justify-center gap-5 overflow-scroll dark:text-white xl:justify-start">
-          <Button
-            variant={"outline"}
-            className="border-black bg-background px-6 py-2 text-white dark:border-white dark:bg-white dark:text-black"
-          >
-            All
-          </Button>
-
-          {activities.map((activity) => {
+          {services.map((service) => {
             return (
-              <React.Fragment key={activity.id}>
-                <TBgLink extraStyles="py-2" href={activity.href}>
-                  {activity.title}
+              <React.Fragment key={service.id}>
+                <TBgLink extraStyles="py-2" href={service.href}>
+                  {service.title}
                 </TBgLink>
               </React.Fragment>
             );
