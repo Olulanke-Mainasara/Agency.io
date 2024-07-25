@@ -28,7 +28,7 @@ const BuildTripCTA = () => {
           budget and interests, book your flights, hotels, and activities all in
           one place, and get inspired by our curated travel guides.
         </p>
-        <div className="flex w-full justify-center gap-5 xl:justify-end">
+        <div className="flex w-full flex-col justify-center gap-5 sm:flex-row xl:justify-end">
           <BuildTripButton />
           <TBgLink href="/experiences">Get inspired</TBgLink>
         </div>

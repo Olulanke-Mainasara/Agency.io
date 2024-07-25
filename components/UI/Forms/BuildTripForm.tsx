@@ -15,6 +15,7 @@ export default function BuildTripForm() {
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [error, setError] = React.useState<boolean>(false);
   const [errorMessage, setErrorMessage] = React.useState<string>("");
+  const [tripName, setTripName] = React.useState<string>("");
   const [location, setLocation] = React.useState("");
   const [dateRange, setDateRange] = React.useState<DateRange | undefined>();
   const [noOfAdults, setNoOfAdults] = React.useState("1");
@@ -24,7 +25,7 @@ export default function BuildTripForm() {
   const handleTripBuild = (event: React.SyntheticEvent) => {
     event.preventDefault();
     console.log(
-      `${location}, ${dateRange}, ${noOfAdults}, ${noOfChildren}, ${noOfRooms}`
+      `${tripName}, ${location}, ${dateRange}, ${noOfAdults}, ${noOfChildren}, ${noOfRooms}`
     );
   };
 
@@ -42,6 +43,15 @@ export default function BuildTripForm() {
       className="flex w-full max-w-2xl flex-col gap-8"
     >
       <div className="grid gap-x-4 gap-y-6 md:grid-cols-2">
+        <Input
+          type="text"
+          value={tripName}
+          disabled={isLoading}
+          placeholder="Trip name e.g Summer vacation in Paris"
+          onChange={(e) => setTripName(e.target.value)}
+          className="h-14 w-full rounded-xl border border-black bg-transparent px-3 text-xl placeholder:text-base placeholder:text-gray-400 dark:border-gray-400 dark:text-white md:col-span-2"
+        />
+
         <LocationComboBox
           label="Search location..."
           handleLocation={handleLocation}
@@ -114,7 +124,7 @@ export default function BuildTripForm() {
         >
           {isLoading && <Icons.spinner className="mr-2 h-5 w-5 animate-spin" />}
 
-          {error ? "Retry" : "Search"}
+          {error ? "Retry" : "Build trip"}
         </Button>
       </div>
 
