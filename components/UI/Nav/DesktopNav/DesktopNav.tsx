@@ -63,7 +63,7 @@ const DesktopNav = ({
           </>
         )}
 
-        <p>NGN</p>
+        <p>EN | USD</p>
 
         <DesktopThemeToggler />
       </div>

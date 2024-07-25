@@ -18,7 +18,7 @@ const NBgLink = ({
   return (
     <Button
       variant={"link"}
-      className={`text-black dark:text-white ${extraStyles} min-w-[110px] p-0`}
+      className={`text-black dark:text-white ${extraStyles} min-w-[120px] p-0`}
       asChild
     >
       <Link

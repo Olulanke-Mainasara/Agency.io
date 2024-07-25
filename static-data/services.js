@@ -73,7 +73,7 @@ export const services = [
   },
   {
     id: 5,
-    title: "To-dos",
+    title: "Todos",
     href: "/services/to-dos",
     description: "Things to do at every corner.",
     icon: <FaCheckSquare />,

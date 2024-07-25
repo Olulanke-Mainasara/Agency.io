@@ -101,7 +101,10 @@ export function ProfileOps() {
               <span>Saved</span>
             </Link>
             <hr className="border-gray-400" />
-            <button onClick={handleSignOut} className="flex items-center gap-2">
+            <button
+              onClick={handleSignOut}
+              className="flex w-full items-center gap-2 pb-3"
+            >
               <LogOut className="mr-2 h-6 w-6" />
               <span>Sign out</span>
             </button>

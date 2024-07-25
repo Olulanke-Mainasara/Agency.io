@@ -92,12 +92,12 @@ const QuickInfo = ({ weatherInfo }: { weatherInfo: any }) => {
           {weatherData.daily.uv_index_max[0] <= 2
             ? "Low"
             : weatherData.daily.uv_index_max[0] <= 5
-            ? "Moderate"
-            : weatherData.daily.uv_index_max[0] <= 7
-            ? "High"
-            : weatherData.daily.uv_index_max[0] <= 10
-            ? "Very high"
-            : "Extreme"}
+              ? "Moderate"
+              : weatherData.daily.uv_index_max[0] <= 7
+                ? "High"
+                : weatherData.daily.uv_index_max[0] <= 10
+                  ? "Very high"
+                  : "Extreme"}
         </h1>
       </section>
     </section>

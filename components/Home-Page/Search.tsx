@@ -33,8 +33,8 @@ const Search = () => {
           />
         </div>
       </div>
-      <div className="flex w-full flex-col items-center gap-8 pt-16 md:pt-28 xl:basis-1/2 xl:items-start xl:justify-center xl:pt-0">
-        <div className="activities flex max-w-3xl flex-wrap justify-center gap-5 overflow-scroll dark:text-white xl:justify-start">
+      <div className="flex w-full flex-col gap-8 pt-16 md:pt-28 xl:basis-1/2 xl:items-start xl:justify-center xl:pt-0 xsmax:items-center">
+        <div className="flex max-w-3xl gap-5 overflow-scroll dark:text-white xl:flex-wrap xl:justify-start xsmax:flex-wrap xsmax:justify-center">
           {services.map((service) => {
             return (
               <React.Fragment key={service.id}>
@@ -51,20 +51,20 @@ const Search = () => {
         {user === undefined ? (
           <div className="h-12 w-80 animate-pulse bg-gray-400 md:w-[600px]"></div>
         ) : user ? (
-          <h1 className="text-center text-[26px] dark:text-white md:text-5xl">
+          <h1 className="text-[26px] dark:text-white md:text-5xl xl:text-left xsmax:text-center">
             What&apos;s the{" "}
             <span className="text-brandDark dark:text-brandLight">plan</span>
             {user.displayName ? ", " + user.displayName.split(" ")[0] : ""}?
           </h1>
         ) : (
-          <h1 className="text-center text-2xl dark:text-white md:text-5xl">
+          <h1 className="text-2xl dark:text-white md:text-5xl xl:text-left xsmax:text-center">
             Discover your{" "}
             <span className="text-brandDark dark:text-brandLight">next</span>{" "}
             adventure
           </h1>
         )}
 
-        <div className="flex flex-wrap gap-4">
+        <div className="flex gap-4 overflow-scroll xsmax:justify-center">
           <TBgExploreButton />
           <TBgBuildTripButton />
           <TBgGenerateTripButton />
