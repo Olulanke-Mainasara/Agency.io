@@ -32,7 +32,6 @@ const Dashboard = () => {
       setIsFetchingWeather(true);
       try {
         const rawWeather = await getWeatherInfo(locationData);
-        console.log(rawWeather);
         setWeatherInfo(rawWeather);
         setIsFetchingWeather(false);
       } catch (error) {
