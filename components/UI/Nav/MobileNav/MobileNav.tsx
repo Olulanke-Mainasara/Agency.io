@@ -78,9 +78,9 @@ const MobileNav = ({
           </div>
 
           <MobileThemeToggler
-            defaultClass="flex items-center justify-center w-10 aspect-square bg-gray-400 rounded-full absolute bottom-6 minHeight animate-pulse skeleton"
-            lightClass="flex items-center justify-center w-10 aspect-square text-xl text-black border absolute bottom-6 minHeight border-black bg-white rounded-full"
-            darkClass="flex items-center justify-center w-10 aspect-square text-xl text-white border absolute bottom-6 minHeight rounded-full"
+            defaultClass="flex items-center justify-center w-10 aspect-square bg-gray-400 rounded-full absolute xs:bottom-3 bottom-12 minHeight animate-pulse skeleton"
+            lightClass="flex items-center justify-center w-10 aspect-square text-xl text-black border absolute xs:bottom-3 bottom-12 minHeight border-black bg-white rounded-full"
+            darkClass="flex items-center justify-center w-10 aspect-square text-xl text-white border absolute xs:bottom-3 bottom-12 minHeight rounded-full"
           />
         </div>
       </motion.div>

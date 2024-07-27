@@ -77,9 +77,9 @@ const TodayInfo = ({ weatherInfo }: { weatherInfo: any }) => {
                     furtherSplitTime[0] != accurateDate.getHours()
                       ? "PM"
                       : furtherSplitTime[0] <= 11 &&
-                        furtherSplitTime[0] != accurateDate.getHours()
-                      ? "AM"
-                      : "")}
+                          furtherSplitTime[0] != accurateDate.getHours()
+                        ? "AM"
+                        : "")}
                 </h1>
                 <h1 className="text-center text-lg">
                   {gettingCurrentConditions(weatherCode[index])}

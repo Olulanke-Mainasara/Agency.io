@@ -18,12 +18,12 @@ const DesktopNav = ({
   user: User | null | undefined;
 }) => {
   return (
-    <div className="hidden h-full items-center justify-between xl:flex">
+    <div className="items-center justify-between hidden h-full xl:flex">
       <Logo pathname={pathname} />
 
       <DesktopNavLinks />
 
-      <div className="hidden items-center gap-6 md:flex">
+      <div className="items-center hidden gap-6 md:flex">
         {user === undefined ? (
           <div className="h-12 w-[203px] animate-pulse bg-gray-400"></div>
         ) : (
@@ -34,7 +34,7 @@ const DesktopNav = ({
 
                 <ProfileOps />
 
-                <Link href={"/cart"}>
+                <Link href={"/cart"} prefetch={false}>
                   <ShoppingCart />
                 </Link>
               </>
@@ -42,7 +42,7 @@ const DesktopNav = ({
               <div className="flex items-center gap-6">
                 <Link
                   href={`/signup?previous=${pathname}`}
-                  className="w-fit duration-300 hover:text-brandDark dark:text-white dark:hover:text-brandLight xl:flex"
+                  className="duration-300 w-fit hover:text-brandDark dark:text-white dark:hover:text-brandLight xl:flex"
                 >
                   Signup
                 </Link>
@@ -63,7 +63,7 @@ const DesktopNav = ({
           </>
         )}
 
-        <p>NGN</p>
+        <p>EN | USD</p>
 
         <DesktopThemeToggler />
       </div>

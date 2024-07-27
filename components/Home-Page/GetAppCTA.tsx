@@ -9,9 +9,8 @@ import MobileAppleD from "@/public/CTA/MobileAppleDark.png";
 import MobileAppleL from "@/public/CTA/MobileAppleLight.png";
 import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
-import { FaAndroid } from "react-icons/fa";
+import { FaApple, FaGooglePlay } from "react-icons/fa";
 
-import { Icons } from "../Icons";
 import { Button } from "../UI/ShadUI/button";
 
 const GetAppCTA = () => {
@@ -60,24 +59,39 @@ const GetAppCTA = () => {
           budget and interests, book your flights, hotels, and activities all in
           one place, and get inspired by our curated travel guides.
         </p>
-        <div className="flex justify-center gap-5">
-          <Button size={"sm"} className="rounded-full text-lg xl:px-8" asChild>
-            <Link href={"#"} className="flex h-full w-full items-center gap-2">
-              <Icons.apple className="h-4 w-4" />
-              Apple
-            </Link>
-          </Button>
+        <div className="flex w-4/5 flex-col gap-4 rounded-xl border border-gray-400 px-5 pb-6 pt-4 md:w-full">
+          <p className="text-center text-4xl">Coming soon!</p>
+          <div className="flex flex-col justify-center gap-5 md:flex-row">
+            <Button
+              size={"sm"}
+              className="flex h-full items-center gap-2 rounded-full px-9 text-xs"
+              asChild
+            >
+              <Link href={"#"}>
+                <FaApple className="text-2xl md:text-4xl" />
+                <p className="flex flex-col items-start">
+                  Download on the<span className="text-2xl">App Store</span>
+                </p>
+              </Link>
+            </Button>
 
-          <Button size={"sm"} className="rounded-full text-lg xl:px-8" asChild>
-            <Link href={"#"} className="flex h-full w-full items-center gap-2">
-              <FaAndroid />
-              Android
-            </Link>
-          </Button>
+            <Button
+              size={"sm"}
+              className="flex h-full items-center gap-2 rounded-full px-9 text-xs"
+              asChild
+            >
+              <Link href={"#"}>
+                <FaGooglePlay className="text-2xl md:text-4xl" />
+                <p className="flex flex-col items-start">
+                  Get it on<span className="text-2xl">Google Play</span>
+                </p>
+              </Link>
+            </Button>
+          </div>
         </div>
       </motion.div>
 
-      <div className="mt-10 flex h-[750px] justify-evenly gap-10 md:w-full xl:hidden">
+      <div className="flex h-[750px] justify-evenly gap-10 md:w-full xl:hidden">
         {renderMobileImage(theme === "dark" ? MobileAppleD : MobileAppleL)}
 
         {renderMobileImage(theme === "dark" ? MobileAndroidD : MobileAndroidL)}

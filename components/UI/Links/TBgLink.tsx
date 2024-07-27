@@ -16,10 +16,10 @@ const TBgLink = ({
     <Button
       variant={"outline"}
       size={"sm"}
-      className={`${extraStyles}`}
+      className={`${extraStyles} flex items-center gap-2`}
       asChild
     >
-      <Link href={href} prefetch={false} className="flex items-center gap-2">
+      <Link href={href} prefetch={false}>
         {children}
       </Link>
     </Button>

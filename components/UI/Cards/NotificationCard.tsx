@@ -42,7 +42,7 @@ export function NotificationCard({ className, ...props }: CardProps) {
       </CardContent>
       <CardFooter className="flex gap-4 text-lg md:text-base">
         <Button className="w-full">
-          <Check className="mr-2 h-4 w-4" /> Mark all as read
+          <Check className="h-4 w-4" /> Mark all as read
         </Button>
         <Button asChild className="basis-2/4 px-4">
           <Link href={"/notifications"}>View all</Link>

@@ -221,9 +221,7 @@ const ListItem = React.forwardRef<React.ElementRef<"a">, ListItemProps>(
                 {title}
               </p>
             </div>
-            <p className="text-muted-foreground line-clamp-3 text-sm leading-snug">
-              {children}
-            </p>
+            <p className="line-clamp-3 text-sm leading-snug">{children}</p>
           </a>
         </NavigationMenuLink>
       </li>

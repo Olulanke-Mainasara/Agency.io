@@ -45,7 +45,7 @@ export function ProfileOps() {
     return (
       <Drawer>
         <DrawerTrigger asChild>
-          <button className="relative aspect-square w-10 overflow-hidden rounded-full outline-none">
+          <button className="relative w-10 overflow-hidden rounded-full outline-none aspect-square">
             <Image
               src={Profile}
               width={96}
@@ -68,41 +68,57 @@ export function ProfileOps() {
                   placeholder="blur"
                   priority
                   alt="Profile picture"
-                  className="rounded-full object-cover"
+                  className="object-cover rounded-full"
                 />
                 <p>{user?.displayName}</p>
               </div>
               <span className="grid place-items-center xl:hidden">
-                <Link href={"/cart"}>
-                  <ShoppingCart className="h-6 w-6" />
+                <Link href={"/cart"} prefetch={false}>
+                  <ShoppingCart className="w-6 h-6" />
                 </Link>
               </span>
             </DrawerTitle>
           </DrawerHeader>
           <hr className="border-gray-400" />
-          <div className="space-y-4 p-4">
-            <Link href={"/profile"} className="flex items-center gap-2">
-              <User className="mr-2 h-6 w-6" />
+          <div className="p-4 space-y-4">
+            <Link
+              href={"/profile"}
+              prefetch={false}
+              className="flex items-center gap-2"
+            >
+              <User className="w-6 h-6 mr-2" />
               <span>Profile</span>
             </Link>
-            <Link href={"/wallet"} className="flex items-center gap-2">
-              <Wallet className="mr-2 h-6 w-6" />
+            <Link
+              href={"/wallet"}
+              prefetch={false}
+              className="flex items-center gap-2"
+            >
+              <Wallet className="w-6 h-6 mr-2" />
               <span>Wallet</span>
             </Link>
             <Link
               href={"/booking-and-trips"}
+              prefetch={false}
               className="flex items-center gap-2"
             >
-              <BaggageClaim className="mr-2 h-6 w-6" />
+              <BaggageClaim className="w-6 h-6 mr-2" />
               <span>Booking and Trips</span>
             </Link>
-            <Link href={"/saved"} className="flex items-center gap-2">
-              <Heart className="mr-2 h-6 w-6" />
+            <Link
+              href={"/saved"}
+              prefetch={false}
+              className="flex items-center gap-2"
+            >
+              <Heart className="w-6 h-6 mr-2" />
               <span>Saved</span>
             </Link>
             <hr className="border-gray-400" />
-            <button onClick={handleSignOut} className="flex items-center gap-2">
-              <LogOut className="mr-2 h-6 w-6" />
+            <button
+              onClick={handleSignOut}
+              className="flex items-center w-full gap-2 pb-3"
+            >
+              <LogOut className="w-6 h-6 mr-2" />
               <span>Sign out</span>
             </button>
           </div>
@@ -114,7 +130,7 @@ export function ProfileOps() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <button className="relative aspect-square w-10 overflow-hidden rounded-full outline-none">
+        <button className="relative w-10 overflow-hidden rounded-full outline-none aspect-square">
           <Image
             src={Profile}
             width={96}
@@ -131,25 +147,25 @@ export function ProfileOps() {
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuItem>
-            <User className="mr-2 h-4 w-4" />
+            <User className="w-4 h-4 mr-2" />
             <span>Profile</span>
           </DropdownMenuItem>
           <DropdownMenuItem>
-            <Wallet className="mr-2 h-4 w-4" />
+            <Wallet className="w-4 h-4 mr-2" />
             <span>Wallet</span>
           </DropdownMenuItem>
           <DropdownMenuItem>
-            <BaggageClaim className="mr-2 h-4 w-4" />
+            <BaggageClaim className="w-4 h-4 mr-2" />
             <span>Booking and Trips</span>
           </DropdownMenuItem>
           <DropdownMenuItem>
-            <Heart className="mr-2 h-4 w-4" />
+            <Heart className="w-4 h-4 mr-2" />
             <span>Saved</span>
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuItem onClick={handleSignOut}>
-          <LogOut className="mr-2 h-4 w-4" />
+          <LogOut className="w-4 h-4 mr-2" />
           <span>Sign out</span>
         </DropdownMenuItem>
       </DropdownMenuContent>
