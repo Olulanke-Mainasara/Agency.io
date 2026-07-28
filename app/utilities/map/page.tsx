@@ -2,10 +2,13 @@
 
 import React from "react";
 
-import { useLocation } from "@/hooks/useLocation";
+import { useLocationContext } from "@/components/Providers/Providers";
 
 const Map = () => {
-  const { loading, locationData } = useLocation();
+  const {
+    location: { loading, locationData },
+  } = useLocationContext();
+
   return (
     <main className="relative min-h-screen overflow-hidden bg-gray-300">
       {loading ? (

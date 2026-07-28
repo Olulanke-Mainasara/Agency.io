@@ -1,27 +1,24 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import { getCities } from "@/sanity/lib/getCity(ies)";
 import { getEstablishments } from "@/sanity/lib/getEstablishment(s)";
 
 import { EstablishmentInfo } from "@/types/EstablishmentInfo";
+import { userLocation } from "@/types/Location";
 import { Place } from "@/types/Place";
 
-type userLocation = {
-  address: { country: string; city: string };
-};
-
 export function useLocation() {
-  const [isGeolocationEnabled, setIsGeolocationEnabled] = React.useState(true);
-  const [isConfirmed, setIsConfirmed] = React.useState("false");
+  const [isGeolocationEnabled, setIsGeolocationEnabled] = useState(true);
+  const [isConfirmed, setIsConfirmed] = useState("false");
   const [locationData, setLocationData] =
-    React.useState<GeolocationCoordinates | null>(null);
-  const [userLocation, setUserLocation] = React.useState<userLocation>({
+    useState<GeolocationCoordinates | null>(null);
+  const [userLocation, setUserLocation] = useState<userLocation>({
     address: { country: "", city: "" },
   });
-  const [availableCities, setAvailableCities] = React.useState<Place[]>([]);
-  const [availableEstablishments, setAvailableEstablishments] = React.useState<
+  const [availableCities, setAvailableCities] = useState<Place[]>([]);
+  const [availableEstablishments, setAvailableEstablishments] = useState<
     EstablishmentInfo[]
   >([]);
-  const [loading, setLoading] = React.useState(false);
+  const [loading, setLoading] = useState(false);
 
   const fetchLocationData = async (coords: GeolocationCoordinates) => {
     try {
@@ -32,25 +29,17 @@ export function useLocation() {
         }
       );
       const data = await response.json();
-      setUserLocation({
-        address: {
-          country: data.address.country,
-          city: data.address.city ? data.address.city : data.address.state,
-        },
-      });
+      const { country, city, state } = data.address;
 
-      const citiesData = await getCities(data.address.country);
-      setAvailableCities(citiesData);
-
+      const updatedCity = city ? city : state;
+      const citiesData = await getCities(country);
       const establishmentsData = await getEstablishments(
-        data.address.city
-          ? data.address.city.split(" ")[0]
-          : data.address.state
-            ? data.address.state.split(" ")[0]
-            : ""
+        updatedCity?.split(" ")[0] ?? ""
       );
-      setAvailableEstablishments(establishmentsData);
 
+      setUserLocation({ address: { country, city: updatedCity } });
+      setAvailableCities(citiesData);
+      setAvailableEstablishments(establishmentsData);
       setLoading(false);
     } catch (error) {
       setUserLocation({
@@ -62,14 +51,14 @@ export function useLocation() {
     }
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (locationData) {
       fetchLocationData(locationData);
       return;
     }
 
     const storedIsConfirmed = localStorage.getItem("confirmed");
-    setIsConfirmed(storedIsConfirmed ? storedIsConfirmed : "false");
+    setIsConfirmed(storedIsConfirmed ?? "false");
 
     if (isConfirmed === "true" && navigator.geolocation) {
       setLoading(true);
