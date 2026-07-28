@@ -59,7 +59,7 @@ const GetAppCTA = () => {
           budget and interests, book your flights, hotels, and activities all in
           one place, and get inspired by our curated travel guides.
         </p>
-        <div className="flex w-4/5 flex-col gap-4 rounded-xl border border-gray-400 px-5 pb-6 pt-4 md:w-full">
+        <div className="flex w-4/5 flex-col gap-4 rounded-xl border border-gray-400 px-5 pb-6 pt-4 md:w-fit">
           <p className="text-center text-4xl">Coming soon!</p>
           <div className="flex flex-col justify-center gap-5 md:flex-row">
             <Button
