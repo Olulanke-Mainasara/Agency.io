@@ -28,6 +28,7 @@ feature.
 ## 4. Add `.env.example`
 - Document every required `NEXT_PUBLIC_*`/Sanity/Firebase var so a new dev
   can boot the app without guessing.
+- **Status: done.**
 
 ## 5. Decide and stand up a real app database
 - Nothing exists today beyond Firebase Auth — no Firestore, no Postgres,
