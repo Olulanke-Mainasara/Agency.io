@@ -9,14 +9,14 @@ feature.
   anyone could pull it from devtools and mutate/delete the dataset.
 - Rotate it in the Sanity dashboard (treat the old one as compromised).
 - Re-add it as a non-`NEXT_PUBLIC_` server-only env var.
-- **Status: in progress.**
+- **Status: code done — waiting on the token rotation in the Sanity dashboard.**
 
 ## 2. Move Sanity writes behind a server route
 - `sanity/lib/deleteDocument.ts` called Sanity's mutate API straight from
   client-reachable code — that's what forced the token to be public.
 - Wrap it in an `app/api/...` route so the token never leaves the server.
   This is also the first real API route, which the trip planner will need.
-- **Status: in progress.**
+- **Status: done.**
 
 ## 3. Clean up the stale branches
 - Delete the 5 already-merged branches on GitHub (`All-Pages`,
@@ -33,9 +33,13 @@ feature.
 ## 5. Decide and stand up a real app database
 - Nothing exists today beyond Firebase Auth — no Firestore, no Postgres,
   nowhere to put user-generated data.
-- Pick Firestore (fastest, same ecosystem as existing Auth) or
-  Postgres/Supabase (better long-term fit for relational trip/itinerary
-  data). Blocks steps 6 and 13+.
+- **Decision: Postgres, hosted on Neon (serverless, edge-compatible, no
+  proprietary lock-in — plain `DATABASE_URL`), accessed via Drizzle ORM
+  (no cold-start query engine, unlike Prisma, and this app already opts
+  some routes into the edge runtime).**
+- Next: create the Neon project, get the connection string, scaffold
+  `drizzle.config.ts` + a `lib/db` client + schema for reviews/itineraries,
+  run the first migration. Blocks steps 6 and 13+.
 
 ## 6. Rebuild the review feature on the new database, not Sanity
 - `AddReviewModal.tsx` currently just fakes a success toast — no real
