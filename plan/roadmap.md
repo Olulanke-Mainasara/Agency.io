@@ -75,17 +75,18 @@ feature.
   3. Dubai, UAE — Asia
   4. London, United Kingdom — Europe
   5. Istanbul, Turkey — Europe
-  6. Madrid, Spain — Europe (swapped in for Mecca)
-  7. Paris, France — Europe
-  8. Marrakech, Morocco — Africa (added for continent coverage)
-  9. New York City, USA — North America (added for continent coverage)
-  10. Sydney, Australia — Australia (added for continent coverage)
+  6. Paris, France — Europe
+  7. Marrakech, Morocco — Africa
+  8. New York City, USA — North America
+  9. Sydney, Australia — Australia
+  10. Rio de Janeiro, Brazil — South America
 - Dropped from the raw top 10 to make room: Macao (redundant with Hong
   Kong), Antalya (redundant with Istanbul, both Turkey), Kuala Lumpur
-  (redundant Southeast Asia coverage with Bangkok).
-- Covers 5 of the site's 6 continent nav categories (Africa, Asia,
-  Australia, Europe, North America) — **South America is not represented**
-  in this list; flag if that should be added or swapped in later.
+  (redundant Southeast Asia coverage with Bangkok), and Madrid (dropped in
+  favor of Rio — Europe had the most redundancy at 4 entries, and Madrid
+  was itself already a stand-in for Mecca rather than an original pick).
+- Now covers all 6 of the site's continent nav categories: Africa, Asia,
+  Australia, Europe, North America, South America.
 - Source data for these 10 next (step 8), then seed (step 9).
 
 ## 8. Source real data for those destinations
