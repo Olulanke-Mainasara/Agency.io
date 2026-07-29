@@ -113,3 +113,33 @@ feature.
 ## 16. Expand destination coverage over time
 - Once the pipeline from steps 7–9 is proven on the flagship cities,
   repeat it to grow coverage — ongoing, not a one-time task.
+
+---
+
+## Pending decisions
+
+### Auth: stay on Firebase, or move to Neon Auth?
+Raised because the DB is now on Neon and it felt natural to consolidate.
+Not acted on yet — no code changed.
+
+- **The real problem, if there is one**: Postgres tables reference users by
+  a bare `firebaseUid` text column with no actual foreign key (Firebase's
+  users don't live in Postgres), so reviews/itineraries can't be joined to
+  a real user row, and `app/api/reviews` currently trusts the
+  client-supplied uid instead of verifying it server-side (no
+  `firebase-admin` in this project).
+- **Neon Auth** (built on Stack Auth) would fix this directly — it syncs a
+  real `users` table into the same Neon database, giving real FKs/joins and
+  server-verifiable sessions without a separate admin SDK.
+- **Against it**: Firebase Auth is already fully built and working (email/
+  password, Google, Apple UI, `middleware.ts` cookie gating,
+  `Providers.tsx` context) — switching means rewriting all of that. Neon
+  Auth is also considerably newer/less battle-tested than Firebase Auth.
+  It would also reintroduce the single-vendor coupling (DB + auth on one
+  provider) that Neon was specifically chosen over Supabase to avoid.
+- **Smaller alternative, not yet built**: keep Firebase Auth, add
+  `firebase-admin` to verify ID tokens server-side, and maintain a
+  lightweight `users` table in the existing schema populated on first
+  sign-in. Solves the FK/verification gap without a full auth migration.
+- **Decision: deferred.** Revisit if the FK/verification gap becomes an
+  actual blocker, not just a theoretical one.
