@@ -80,8 +80,17 @@ feature.
   schema's reference graph. Leave `review` empty for real users.
 
 ## 10. Add a price/cost field to the `establishment` schema
-- Needed before the AI trip planner can do anything budget-aware — no cost
-  data exists to filter on today.
+- **Status: done.** Added `priceLevel` (1–4, `$`–`$$$$`, currency-agnostic
+  so it works across establishment categories and countries) to
+  `sanity/schemas/establishment.ts`, `types/EstablishmentInfo.ts`, and the
+  GROQ projections in `sanity/lib/getEstablishment(s).ts`.
+- Found and fixed while there: `getEstablishment(s).ts` was filtering on
+  `type == "location"` instead of `_type == "establishment"` (every
+  sibling query file does this correctly), plus two unquoted interpolated
+  string values — both queries always returned an empty array. Now fixed.
+- Not done: no establishment documents exist yet to actually have a price
+  set on them (step 9), and no UI reads `priceLevel` yet — that comes with
+  the trip-generation route (step 11).
 
 ## 11. Build the trip-generation API route
 - Server-side endpoint: resolve destination (user-picked, or server-side
