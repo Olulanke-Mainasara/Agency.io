@@ -109,7 +109,7 @@ export const establishment = {
         {
           title: "Phone Number",
           name: "telephone",
-          type: "number",
+          type: "string",
         },
         {
           title: "Email",

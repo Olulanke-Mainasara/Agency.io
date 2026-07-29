@@ -26,7 +26,7 @@ export type EstablishmentInfo = {
   address: string;
   contact: {
     website: string;
-    telephone: number;
+    telephone: string;
     email: string;
   };
   coordinates: {
