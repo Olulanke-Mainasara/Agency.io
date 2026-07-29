@@ -107,10 +107,27 @@ feature.
   Places API for richer establishment data.
 
 ## 9. Write and run a seed script
-- `@sanity/client` script or `sanity dataset import` with NDJSON (which can
-  pull images straight from URLs), populating `country` → `place` →
-  `establishment` → `experience`/`service` in that order, respecting the
-  schema's reference graph. Leave `review` empty for real users.
+- **Status: tooling done, not yet run.** `scripts/seed/build-ndjson.ts`
+  reads every `sanity/seed/data/*.json` from step 8's sourcing script and
+  transforms it into `country`/`place`/`establishment` documents in
+  `sanity/seed/output.ndjson` (gitignored, regenerate with
+  `npm run seed:build`). Images use Sanity's `_sanityAsset: "image@<url>"`
+  convention so the CLI downloads/uploads them directly. Deterministic
+  `_id`s (`country-<slug>`, etc.) make re-imports idempotent with
+  `--replace`.
+- Transform logic verified end-to-end with a throwaway fixture (geopoint
+  mapping, optional-field omission, dedup) — the sourcing script itself
+  couldn't be run from this sandbox, so this is untested against real data.
+- Editorial fields (`essentials`, `whyWeLove`, `popularSpots`, `faqs`) are
+  intentionally left unset — that's manual curation in Studio, not
+  something to auto-generate from scraped data. `review` also stays empty,
+  for real users (and lives in Postgres now anyway, per step 6).
+- Remaining steps, in order: run `npm run seed:source` (step 8) → run
+  `npm run seed:build` → run
+  `npx sanity dataset import sanity/seed/output.ndjson <dataset-name> --replace`.
+  Not done: seeding `experience`/`service` documents — those weren't part
+  of the sourced data (OSM/Wikipedia don't map cleanly to "experiences" as
+  this schema models them); revisit separately if wanted.
 
 ## 10. Add a price/cost field to the `establishment` schema
 - **Status: done.** Added `priceLevel` (1–4, `$`–`$$$$`, currency-agnostic
