@@ -37,9 +37,14 @@ feature.
   proprietary lock-in — plain `DATABASE_URL`), accessed via Drizzle ORM
   (no cold-start query engine, unlike Prisma, and this app already opts
   some routes into the edge runtime).**
-- Next: create the Neon project, get the connection string, scaffold
-  `drizzle.config.ts` + a `lib/db` client + schema for reviews/itineraries,
-  run the first migration. Blocks steps 6 and 13+.
+- **Status: scaffolding done** — `drizzle.config.ts`, `lib/db/index.ts`
+  (Neon HTTP client), `lib/db/schema.ts` (`reviews`, `itineraries` tables),
+  and the first migration (`drizzle/0000_init.sql`) are all committed.
+  `npm run db:generate|migrate|push|studio` scripts are wired up.
+- Still needed: a real `DATABASE_URL` in `.env.local`/Vercel env, then
+  `npm run db:push` (or `db:migrate`) to apply the schema to Neon. Not run
+  yet — no live connection string was available in this session. Blocks
+  steps 6 and 13+.
 
 ## 6. Rebuild the review feature on the new database, not Sanity
 - `AddReviewModal.tsx` currently just fakes a success toast — no real
