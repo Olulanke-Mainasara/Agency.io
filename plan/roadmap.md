@@ -90,8 +90,19 @@ feature.
 - Source data for these 10 next (step 8), then seed (step 9).
 
 ## 8. Source real data for those destinations
-- OpenStreetMap (Overpass API) for establishments, Wikipedia/Wikivoyage for
-  place descriptions, Unsplash/Pexels for photos — free and ToS-safe.
+- **Status: tooling done, not yet executed.** `scripts/seed/source.ts` (+
+  `scripts/seed/lib/{wikipedia,overpass,unsplash}.ts`) fetches city/country
+  descriptions and images from Wikipedia's REST API, real
+  hotels/restaurants/attractions per city from OpenStreetMap's Overpass
+  API, and optional establishment photos from Unsplash
+  (`UNSPLASH_ACCESS_KEY`, gracefully skipped if unset). Writes one JSON
+  file per destination to `sanity/seed/data/`.
+- **Could not run or verify it from this session** — this sandbox's
+  network policy blocks Wikipedia, Overpass, and Unsplash entirely
+  (confirmed 403 via both `curl` and `WebFetch`). Needs to be run locally:
+  `npm run seed:source`. Since it's unverified against the real APIs,
+  do a first run and spot-check the output JSON before trusting it at
+  full scale — Overpass in particular can be slow/rate-limited.
 - Optional, costs money and has caching restrictions to respect: Google
   Places API for richer establishment data.
 
