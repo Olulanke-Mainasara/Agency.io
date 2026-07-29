@@ -11,7 +11,8 @@
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
     "db:push": "drizzle-kit push",
-    "db:studio": "drizzle-kit studio"
+    "db:studio": "drizzle-kit studio",
+    "seed:source": "tsx scripts/seed/source.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.1.1",
@@ -69,6 +70,7 @@
     "@ianvs/prettier-plugin-sort-imports": "^4.1.1",
     "@types/js-cookie": "^3.0.3",
     "drizzle-kit": "^0.31.10",
-    "prettier-plugin-tailwindcss": "^0.5.6"
+    "prettier-plugin-tailwindcss": "^0.5.6",
+    "tsx": "^4.23.1"
   }
 }
