@@ -64,8 +64,29 @@ feature.
   before this works end-to-end.
 
 ## 7. Scope the content: pick 5–10 flagship destinations
-- Product decision, not code — decide which cities/countries get real,
-  fully-built-out content first instead of covering the whole world thinly.
+- **Status: done.** Started from Euromonitor's 2025 international-arrivals
+  top 10, then adjusted for fit and continent coverage (the raw list was
+  6 Asia / 4 Europe, zero Africa/Americas/Oceania, and included Mecca —
+  almost entirely Hajj/Umrah pilgrimage traffic, a poor fit for this
+  app's leisure-travel content model).
+- **Final 10:**
+  1. Bangkok, Thailand — Asia
+  2. Hong Kong, China — Asia
+  3. Dubai, UAE — Asia
+  4. London, United Kingdom — Europe
+  5. Istanbul, Turkey — Europe
+  6. Madrid, Spain — Europe (swapped in for Mecca)
+  7. Paris, France — Europe
+  8. Marrakech, Morocco — Africa (added for continent coverage)
+  9. New York City, USA — North America (added for continent coverage)
+  10. Sydney, Australia — Australia (added for continent coverage)
+- Dropped from the raw top 10 to make room: Macao (redundant with Hong
+  Kong), Antalya (redundant with Istanbul, both Turkey), Kuala Lumpur
+  (redundant Southeast Asia coverage with Bangkok).
+- Covers 5 of the site's 6 continent nav categories (Africa, Asia,
+  Australia, Europe, North America) — **South America is not represented**
+  in this list; flag if that should be added or swapped in later.
+- Source data for these 10 next (step 8), then seed (step 9).
 
 ## 8. Source real data for those destinations
 - OpenStreetMap (Overpass API) for establishments, Wikipedia/Wikivoyage for
