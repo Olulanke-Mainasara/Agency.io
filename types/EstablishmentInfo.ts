@@ -22,6 +22,7 @@ export type EstablishmentInfo = {
   category: string;
   picture: Image[];
   rating: number;
+  priceLevel?: number;
   address: string;
   contact: {
     website: string;
