@@ -47,10 +47,21 @@ feature.
   steps 6 and 13+.
 
 ## 6. Rebuild the review feature on the new database, not Sanity
-- `AddReviewModal.tsx` currently just fakes a success toast — no real
-  submission exists.
-- Build real submission + moderation flag + rating aggregation against the
-  new DB from step 5, not Sanity (Sanity stays editorial-only).
+- **Status: done.** `app/api/reviews` (POST, Zod-validated, requires sign-in,
+  `isApproved` defaults false), `lib/db/reviews.ts` query helpers, and
+  `AddReviewModal.tsx` now submit for real. `app/company/reviews/page.tsx`
+  reads approved reviews straight from Postgres, replacing the old
+  `staticReview` hardcoded array (removed).
+- Turned out reviews only ever rendered on the site-wide `/company/reviews`
+  page — the Sanity `establishment.reviews` field was unused dead wiring —
+  so `establishment_id` was made optional rather than required.
+- Not done yet: rating aggregation (no per-establishment reviews exist to
+  aggregate yet — revisit once establishments have real review volume),
+  and real Firebase ID token verification server-side (route currently
+  trusts the client-supplied uid; low risk today since reviews sit
+  unapproved until moderated, but worth hardening later).
+- Still needs the actual migration applied to Neon (`npm run db:push`)
+  before this works end-to-end.
 
 ## 7. Scope the content: pick 5–10 flagship destinations
 - Product decision, not code — decide which cities/countries get real,
