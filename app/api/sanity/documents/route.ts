@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-
 import { dataset, projectId } from "@/sanity/env";
 
 export async function DELETE(request: NextRequest) {

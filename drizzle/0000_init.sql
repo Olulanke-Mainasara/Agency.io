@@ -11,7 +11,7 @@ CREATE TABLE "itineraries" (
 --> statement-breakpoint
 CREATE TABLE "reviews" (
 	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
-	"establishment_id" text NOT NULL,
+	"establishment_id" text,
 	"firebase_uid" text NOT NULL,
 	"first_name" text NOT NULL,
 	"last_name" text NOT NULL,

@@ -10,7 +10,7 @@ import {
 
 export const reviews = pgTable("reviews", {
   id: uuid("id").defaultRandom().primaryKey(),
-  establishmentId: text("establishment_id").notNull(),
+  establishmentId: text("establishment_id"),
   firebaseUid: text("firebase_uid").notNull(),
   firstName: text("first_name").notNull(),
   lastName: text("last_name").notNull(),
