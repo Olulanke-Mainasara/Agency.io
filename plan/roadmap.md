@@ -175,6 +175,42 @@ feature.
 
 ---
 
+## Sanity/frontend alignment audit (done)
+Prompted by checking the Sanity project directly — it turned out **not**
+to be empty as originally assumed: 69 documents (1 `country`: Nigeria,
+1 `place`: Lagos, 12 `experience`, 7 `service`, 5 `blog`), leftover test
+content from 2023. Auditing it against the frontend surfaced real,
+currently-live bugs, all fixed:
+
+- **Systemic field mismatch**: schema field `establishments` was
+  correctly fetched by every GROQ query (`establishments[]{...}`), but
+  every TypeScript type (`Essential`, `Reason`, `Section`) and every
+  component reading them expected `.locations` — a field that never
+  existed in the query result. Every establishment carousel under
+  "Essentials," "Why we love," and experience/service sections has been
+  silently showing "Error loading spots" regardless of underlying data.
+  Fixed by aliasing in the query (`"locations": establishments[]{...}`)
+  in `getCity(ies).ts`, `getCountry(ies).ts`, `getExperience(s).ts`,
+  `getService(s).ts` — matches the codebase's existing GROQ aliasing
+  convention.
+- `getCity(ies).ts` never fetched `popularSpots` or `posts` at all, even
+  though the city page destructures and renders both. Added.
+- Country page did `pictures.map(...)` with no guard (city page's
+  sibling code already uses `pictures?.map`) — would throw for any
+  country doc without pictures. Fixed.
+- **Live data fix**: the one existing `place` document (Lagos) stored its
+  geopoint under the field name `location`, but the current schema (and
+  every query) expects `coordinates` — stale field name from before a
+  schema rename, orphaned data invisible in both Studio and the
+  frontend. Patched and published directly in Sanity.
+- Sampled `experience`, `service`, and `blog` documents — clean, no
+  further issues found.
+- Confirmed only 1 real Sanity project member (you, Administrator) —
+  the earlier "2 members" figure from the MCP `list_projects` count
+  doesn't match the dashboard's member list; not a security concern.
+
+---
+
 ## Pending decisions
 
 ### Auth: stay on Firebase, or move to Neon Auth?
