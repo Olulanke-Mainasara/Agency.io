@@ -211,6 +211,85 @@ currently-live bugs, all fixed:
 
 ---
 
+## Vercel deployment failures (fixed) + site-wide link/button audit
+Every deployment since the reviews feature landed (12 in a row, including
+pure-doc commits) failed at Vercel's "Collecting page data" build step with
+`No database connection string was provided to neon()`. Root cause:
+`lib/db/index.ts` constructed the Neon client eagerly at module load time,
+so importing it anywhere (even in a route never hit) crashed the whole
+build, and `DATABASE_URL` isn't set in Vercel's env yet. **Fixed**: the
+client is now lazily constructed behind a Proxy — a missing/misconfigured
+DB now only fails that one route at request time, not the entire site's
+build. Reproduced the original crash locally and confirmed the fix.
+**Still needed**: add `DATABASE_URL` to the Vercel project's environment
+variables (Settings → Environment Variables) so the reviews feature
+actually works at runtime, not just stops crashing the build.
+
+Full button/link audit (homepage first, then site-wide via a sweep agent).
+**Fixed:**
+- `/profile` didn't exist at all despite being the default post-login
+  redirect target in `middleware.ts` and referenced by both nav
+  account-menu variants — built a real page.
+- Nav account-menu dropdown items (Profile/Wallet/Booking/Saved) had no
+  `href` or `onClick` — clicked and did nothing. Mobile drawer linked to
+  `/wallet`, `/booking-and-trips`, `/saved`, `/cart` — none exist. Wired
+  Profile to the real page; removed the rest (unbuilt features, no
+  destination to send them to).
+- Footer "Plan Your Trip" links pointed at service slugs that don't exist
+  and were missing their leading slash — now sourced from the same
+  `static-data/services.js` used elsewhere. `/blog`, `/about-us`, `/faq`
+  corrected to `/company/*`. Privacy/Terms links removed (no such pages,
+  didn't want to fake them).
+- `not-found.tsx` and `BadRequest.tsx` (shown on every Sanity fetch
+  failure) linked "Contact us" to `/contact-us` instead of
+  `/company/contact-us`; `BadRequest`'s Home button was also missing
+  `asChild`, producing invalid `<button><a>` nesting.
+- Career "Apply Now" pointed at a nonexistent per-job page — now anchors
+  to the real enquiry form instead.
+- `NotificationCard`: "Mark all as read" had no handler; "View all"
+  linked to a nonexistent `/notifications` page — wired mark-as-read to
+  real state, removed the dead link.
+- `middleware.ts` / `AddReviewModal.tsx`: the `previous` redirect query
+  param was set without a leading slash, which `router.push()` can't
+  resolve as an absolute path.
+- `app/company/blog/page.tsx`: dead `!blog` empty-state check (blog is
+  always an array) — fixed to `blog.length === 0`.
+
+**Flagged, not fixed — real product decisions, not quick fixes:**
+- **Homepage destination showcase cards always 404.** `TopFeaturedDestinations`,
+  `RecommendedDestinations`, `PopularDestinationsByMonth/BySeason` link to
+  `/city/<slug>` for ~12 hardcoded placeholder destinations (Maldives,
+  Santorini, Machu Picchu, Italy, Japan, Greece, New Zealand, Thailand,
+  Iceland, Australia, Spain, Bora Bora) — none of which are Sanity `place`
+  documents (only "lagos" exists), and none overlap with the 10 flagship
+  destinations from step 7. Options: (a) swap these to the 10 flagship
+  slugs once seeded — but the bundled stock photos won't match the new
+  captions for 7 of 10; (b) seed real data for these 12 too, on top of the
+  flagship 10; (c) leave as aspirational/non-clickable inspiration cards.
+  Needs your call.
+- **No establishment detail page exists at all.** `FullPageEstablishmentCarousel`
+  links to `/citys/${continent}/${country}/${place}/${slug}` (typo'd
+  route, and even fixed to `/places/...` the existing city-page route
+  doesn't accept a 4th segment) — there was never a real
+  route/page built for viewing a single establishment. Building one is a
+  real feature (route design + page), not a typo fix, and there's no
+  establishment data yet to test it against.
+- **Several forms don't submit anywhere**: `app/company/contact-us`,
+  `HiringAndEnquiries` (career enquiries) have no `onSubmit`/`action` at
+  all. `RecoverForm` (password reset), `BuildTripForm`, `ExploreTheWorldForm`
+  simulate success/failure with `setTimeout`/`console.log` and never call
+  anything real. (`AIGeneratedTripForm` is the same but already covered by
+  roadmap steps 11-12.)
+- **Apple sign-in** (login + signup) is fake — always fails after a 3s
+  fake delay. Either wire up real Apple OAuth or remove the button.
+- **Social links** (`SocialLinks.tsx`) are `href="#"` placeholders for
+  Instagram/YouTube — didn't want to guess real URLs.
+- **Privacy Policy / Terms of Service** — removed the dead footer links;
+  need either real pages or an honest "coming soon" placeholder if you
+  want them back.
+
+---
+
 ## Pending decisions
 
 ### Auth: stay on Firebase, or move to Neon Auth?
