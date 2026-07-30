@@ -34,6 +34,8 @@ const footerData = [
     links: [
       { text: "About Us", url: "/company/about-us" },
       { text: "FAQ", url: "/company/faq" },
+      { text: "Privacy Policy", url: "/company/privacy" },
+      { text: "Terms and Conditions", url: "/company/terms" },
     ],
   },
 ];
