@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { services } from "@/static-data/services";
 import { motion } from "framer-motion";
 import { FaPlane } from "react-icons/fa";
 
@@ -13,12 +14,9 @@ const footerData = [
   {
     id: 1,
     category: "Plan Your Trip",
-    links: [
-      { text: "Book Flights", url: "services/flights" },
-      { text: "Accommodations", url: "services/accommodations" },
-      { text: "Transportation", url: "services/transport" },
-      { text: "Travel Insurance", url: "services/travel-insurance" },
-    ],
+    links: services
+      .slice(0, 4)
+      .map((service) => ({ text: service.title, url: service.href })),
   },
   {
     id: 2,
@@ -27,17 +25,15 @@ const footerData = [
       { text: "Destinations", url: "/places" },
       { text: "Services", url: "/services" },
       { text: "Experiences", url: "/experiences" },
-      { text: "Travel Blog", url: "/blog" },
+      { text: "Travel Blog", url: "/company/blog" },
     ],
   },
   {
     id: 3,
     category: "Connect",
     links: [
-      { text: "About Us", url: "/about-us" },
-      { text: "FAQ", url: "/faq" },
-      { text: "Privacy Policy", url: "/privacy" },
-      { text: "Terms and Conditions", url: "/terms" },
+      { text: "About Us", url: "/company/about-us" },
+      { text: "FAQ", url: "/company/faq" },
     ],
   },
 ];

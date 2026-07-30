@@ -75,6 +75,21 @@ export const establishment = {
       description: "The overall rating of the establishment",
     },
     {
+      name: "priceLevel",
+      type: "number",
+      title: "Price Level",
+      description:
+        "Roughly how expensive this establishment is, 1 (budget) to 4 (luxury) — used to filter recommendations by budget.",
+      options: {
+        list: [
+          { title: "$ (Budget)", value: 1 },
+          { title: "$$ (Moderate)", value: 2 },
+          { title: "$$$ (Expensive)", value: 3 },
+          { title: "$$$$ (Luxury)", value: 4 },
+        ],
+      },
+    },
+    {
       name: "address",
       type: "string",
       title: "Address",
@@ -94,7 +109,7 @@ export const establishment = {
         {
           title: "Phone Number",
           name: "telephone",
-          type: "number",
+          type: "string",
         },
         {
           title: "Email",

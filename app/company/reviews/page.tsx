@@ -1,6 +1,7 @@
 import React from "react";
-import { staticReview } from "@/static-data/services";
 
+import { Review } from "@/types/EstablishmentInfo";
+import { getApprovedReviews } from "@/lib/db/reviews";
 import ReviewCard from "@/components/UI/Cards/ReviewCard";
 import { AddReviewModal } from "@/components/UI/Modals/AddReviewModal";
 
@@ -10,7 +11,20 @@ export const metadata = {
     "Discover travel tips, reviews, and deals. Plan your stay, find activities, and dine at the finest restaurants.",
 };
 
-const page = () => {
+export const dynamic = "force-dynamic";
+
+const page = async () => {
+  const approvedReviews = await getApprovedReviews();
+
+  const reviews: Review[] = approvedReviews.map((review) => ({
+    _key: review.id,
+    name: `${review.firstName} ${review.lastName}`,
+    title: review.title,
+    description: review.description,
+    rating: review.rating,
+    date: review.createdAt.toISOString(),
+  }));
+
   return (
     <main className="mx-auto max-w-[1440px] space-y-8 px-6 pt-24 xl:px-8">
       <div className="space-y-3 text-center">
@@ -24,7 +38,7 @@ const page = () => {
 
       <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-12 xl:grid-cols-3">
         <AddReviewModal />
-        {staticReview.map((review) => (
+        {reviews.map((review) => (
           <ReviewCard review={review} key={review._key} />
         ))}
       </div>

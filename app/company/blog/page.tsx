@@ -25,7 +25,7 @@ export default async function BlogPage() {
         Inspiration <span className="text-brandDark">awaits</span> here!
       </h1>
 
-      {!blog ? (
+      {blog.length === 0 ? (
         <div className="flex h-[300px] w-full items-center justify-center gap-4 rounded-xl border border-black dark:border-white">
           <p className="text-xl">No posts are available</p>
         </div>
