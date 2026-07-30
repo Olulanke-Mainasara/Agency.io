@@ -255,38 +255,48 @@ Full button/link audit (homepage first, then site-wide via a sweep agent).
 - `app/company/blog/page.tsx`: dead `!blog` empty-state check (blog is
   always an array) — fixed to `blog.length === 0`.
 
-**Flagged, not fixed — real product decisions, not quick fixes:**
-- **Homepage destination showcase cards always 404.** `TopFeaturedDestinations`,
-  `RecommendedDestinations`, `PopularDestinationsByMonth/BySeason` link to
-  `/city/<slug>` for ~12 hardcoded placeholder destinations (Maldives,
-  Santorini, Machu Picchu, Italy, Japan, Greece, New Zealand, Thailand,
-  Iceland, Australia, Spain, Bora Bora) — none of which are Sanity `place`
-  documents (only "lagos" exists), and none overlap with the 10 flagship
-  destinations from step 7. Options: (a) swap these to the 10 flagship
-  slugs once seeded — but the bundled stock photos won't match the new
-  captions for 7 of 10; (b) seed real data for these 12 too, on top of the
-  flagship 10; (c) leave as aspirational/non-clickable inspiration cards.
-  Needs your call.
-- **No establishment detail page exists at all.** `FullPageEstablishmentCarousel`
-  links to `/citys/${continent}/${country}/${place}/${slug}` (typo'd
-  route, and even fixed to `/places/...` the existing city-page route
-  doesn't accept a 4th segment) — there was never a real
-  route/page built for viewing a single establishment. Building one is a
-  real feature (route design + page), not a typo fix, and there's no
-  establishment data yet to test it against.
-- **Several forms don't submit anywhere**: `app/company/contact-us`,
-  `HiringAndEnquiries` (career enquiries) have no `onSubmit`/`action` at
-  all. `RecoverForm` (password reset), `BuildTripForm`, `ExploreTheWorldForm`
-  simulate success/failure with `setTimeout`/`console.log` and never call
-  anything real. (`AIGeneratedTripForm` is the same but already covered by
-  roadmap steps 11-12.)
-- **Apple sign-in** (login + signup) is fake — always fails after a 3s
-  fake delay. Either wire up real Apple OAuth or remove the button.
-- **Social links** (`SocialLinks.tsx`) are `href="#"` placeholders for
-  Instagram/YouTube — didn't want to guess real URLs.
-- **Privacy Policy / Terms of Service** — removed the dead footer links;
-  need either real pages or an honest "coming soon" placeholder if you
-  want them back.
+**Resolved in a follow-up pass:**
+- **Establishment detail page built** — `app/establishments/[slug]`, using
+  the existing `getEstablishment()` query (which itself had two more real
+  bugs fixed along the way: never selected `_id`/`slug`, and its
+  `faqs[]{_id, ...}` sub-query was wrong — nested array objects use `_key`,
+  not `_id`). Renders rating, price level, contact, an OpenStreetMap link,
+  FAQs, and reviews pulled from Postgres via the establishment's Sanity
+  `_id`. `FullPageEstablishmentCarousel`'s typo'd `/citys/...` link and
+  `SharedPageEstablishmentCarousel`'s entirely non-clickable cards both
+  now point here.
+- **Contact form, career enquiry form** — real `messages` table + `POST
+  /api/messages`, both forms wired up.
+- **Password recovery** — real `sendPasswordResetEmail`, replacing a fake
+  `setTimeout`.
+- **BuildTripForm** — persists real trips to an extended `itineraries`
+  table (`source`, `tripName`, `dateFrom`/`dateTo`, `adults`/`children`/
+  `rooms`), gated on sign-in like `AddReviewModal`. Along the way, fixed a
+  real type bug: it declared its date-range state as `DateRange |
+  undefined` but actually received a formatted string from
+  `DatePickerWithRange` (its sibling `AIGeneratedTripForm` had this typed
+  correctly) — silent because `DatePickerWithRange`'s prop type is loosely
+  `Function`.
+- **ExploreTheWorldForm** — no real search backend exists; now navigates
+  to `/places` instead of `console.log`-ing.
+- **AIGeneratedTripForm** — left un-wired on purpose (still needs an LLM
+  API key and real establishment data to ground recommendations in,
+  neither of which exist yet — that's roadmap steps 11-14, not a quick
+  fix). Submitting now shows an honest "coming soon" toast instead of a
+  silent `console.log`.
+- **Apple sign-in** — commented out (not deleted) in both login and
+  signup, since it always failed after a fake delay.
+- **Social links** — Instagram/YouTube `href="#"` placeholders commented
+  out; Twitter and GitHub (both real) untouched.
+- **Privacy Policy / Terms of Service** — real pages with real content
+  describing what the app actually does (not boilerplate), footer links
+  restored.
+- **Homepage destination showcase 404s** — resolved by extending the seed
+  script (`scripts/seed/destinations.ts`) with all 22 non-flagship
+  destination slugs the homepage's static cards link to, so every one of
+  them will resolve once you run the seed pipeline. Chose this over
+  swapping the cards to flagship-only slugs so the original content
+  choices didn't need second-guessing.
 
 ---
 
