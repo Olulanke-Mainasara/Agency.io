@@ -90,3 +90,173 @@ export const destinations: DestinationConfig[] = [
     continent: "South America",
   },
 ];
+
+// Every other destination slug the homepage's static showcase sections
+// (static-data/destinations.ts: locationsByMonth, locationsBySeason,
+// recommendedDes, destinations) link to but that isn't one of the 10
+// flagship picks above — without these, every one of those cards 404s,
+// since there's no matching Sanity `place` document for them. A few of
+// these (italy, japan, greece, iceland, australia, spain, thailand) are
+// really country names used as "city" card labels in that static data;
+// sourced from the country's own Wikipedia article for both the country
+// and place doc rather than picking a representative city on their
+// behalf.
+export const additionalHomepageDestinations: DestinationConfig[] = [
+  {
+    citySlug: "bora-bora",
+    cityWikiTitle: "Bora Bora",
+    countrySlug: "french-polynesia",
+    countryWikiTitle: "French Polynesia",
+    continent: "Australia",
+  },
+  {
+    citySlug: "venice",
+    cityWikiTitle: "Venice",
+    countrySlug: "italy",
+    countryWikiTitle: "Italy",
+    continent: "Europe",
+  },
+  {
+    citySlug: "cancun",
+    cityWikiTitle: "Cancún",
+    countrySlug: "mexico",
+    countryWikiTitle: "Mexico",
+    continent: "North America",
+  },
+  {
+    citySlug: "kyoto",
+    cityWikiTitle: "Kyoto",
+    countrySlug: "japan",
+    countryWikiTitle: "Japan",
+    continent: "Asia",
+  },
+  {
+    citySlug: "barcelona",
+    cityWikiTitle: "Barcelona",
+    countrySlug: "spain",
+    countryWikiTitle: "Spain",
+    continent: "Europe",
+  },
+  {
+    citySlug: "santorini",
+    cityWikiTitle: "Santorini",
+    countrySlug: "greece",
+    countryWikiTitle: "Greece",
+    continent: "Europe",
+  },
+  {
+    citySlug: "maui",
+    cityWikiTitle: "Maui",
+    countrySlug: "united-states",
+    countryWikiTitle: "United States",
+    continent: "North America",
+  },
+  {
+    citySlug: "machu-picchu",
+    cityWikiTitle: "Machu Picchu",
+    countrySlug: "peru",
+    countryWikiTitle: "Peru",
+    continent: "South America",
+  },
+  {
+    // Self-referential: no single city stands in for "the Maldives" in
+    // the static data, so both the country and place docs are sourced
+    // from the same "Maldives" article.
+    citySlug: "maldives",
+    cityWikiTitle: "Maldives",
+    countrySlug: "maldives",
+    countryWikiTitle: "Maldives",
+    continent: "Asia",
+  },
+  {
+    citySlug: "new-zealand",
+    cityWikiTitle: "New Zealand",
+    countrySlug: "new-zealand",
+    countryWikiTitle: "New Zealand",
+    continent: "Australia",
+  },
+  {
+    citySlug: "thailand",
+    cityWikiTitle: "Thailand",
+    countrySlug: "thailand",
+    countryWikiTitle: "Thailand",
+    continent: "Asia",
+  },
+  {
+    citySlug: "amsterdam",
+    cityWikiTitle: "Amsterdam",
+    countrySlug: "netherlands",
+    countryWikiTitle: "Netherlands",
+    continent: "Europe",
+  },
+  {
+    citySlug: "bali",
+    cityWikiTitle: "Bali",
+    countrySlug: "indonesia",
+    countryWikiTitle: "Indonesia",
+    continent: "Asia",
+  },
+  {
+    citySlug: "new-england",
+    cityWikiTitle: "New England",
+    countrySlug: "united-states",
+    countryWikiTitle: "United States",
+    continent: "North America",
+  },
+  {
+    citySlug: "reykjavik",
+    cityWikiTitle: "Reykjavík",
+    countrySlug: "iceland",
+    countryWikiTitle: "Iceland",
+    continent: "Europe",
+  },
+  {
+    citySlug: "zermatt",
+    cityWikiTitle: "Zermatt",
+    countrySlug: "switzerland",
+    countryWikiTitle: "Switzerland",
+    continent: "Europe",
+  },
+  {
+    citySlug: "italy",
+    cityWikiTitle: "Italy",
+    countrySlug: "italy",
+    countryWikiTitle: "Italy",
+    continent: "Europe",
+  },
+  {
+    citySlug: "japan",
+    cityWikiTitle: "Japan",
+    countrySlug: "japan",
+    countryWikiTitle: "Japan",
+    continent: "Asia",
+  },
+  {
+    citySlug: "greece",
+    cityWikiTitle: "Greece",
+    countrySlug: "greece",
+    countryWikiTitle: "Greece",
+    continent: "Europe",
+  },
+  {
+    citySlug: "iceland",
+    cityWikiTitle: "Iceland",
+    countrySlug: "iceland",
+    countryWikiTitle: "Iceland",
+    continent: "Europe",
+  },
+  {
+    citySlug: "australia",
+    cityWikiTitle: "Australia",
+    countrySlug: "australia",
+    countryWikiTitle: "Australia",
+    continent: "Australia",
+  },
+  {
+    citySlug: "spain",
+    cityWikiTitle: "Spain",
+    countrySlug: "spain",
+    countryWikiTitle: "Spain",
+    continent: "Europe",
+  },
+];
