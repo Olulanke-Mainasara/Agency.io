@@ -1,10 +1,12 @@
 import React from "react";
 import Link from "next/link";
-import { FaGithub, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
+import { FaGithub, FaTwitter } from "react-icons/fa";
 
 const SocialLinks = () => {
   return (
     <div className="flex gap-7 text-2xl dark:text-white xs:text-xl">
+      {/* No real Instagram account linked yet — was a href="#" placeholder.
+      Re-enable once there's a real URL.
       <Link
         href={"#"}
         aria-label="Instagram"
@@ -13,6 +15,7 @@ const SocialLinks = () => {
       >
         <FaInstagram />
       </Link>
+      */}
       <Link
         href={"https://twitter.com/Grim_redd"}
         target="_blank"
@@ -31,6 +34,8 @@ const SocialLinks = () => {
       >
         <FaGithub />
       </Link>
+      {/* No real YouTube channel linked yet — was a href="#" placeholder.
+      Re-enable once there's a real URL.
       <Link
         href={"#"}
         aria-label="Youtube"
@@ -39,6 +44,7 @@ const SocialLinks = () => {
       >
         <FaYoutube />
       </Link>
+      */}
     </div>
   );
 };
