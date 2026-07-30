@@ -121,7 +121,7 @@ export function AddReviewModal() {
             </CardHeader>
             <CardFooter className="px-0">
               <Button asChild>
-                <Link href="/login?previous=company/reviews">Sign in</Link>
+                <Link href="/login?previous=/company/reviews">Sign in</Link>
               </Button>
             </CardFooter>
           </Card>

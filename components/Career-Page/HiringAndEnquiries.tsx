@@ -8,7 +8,10 @@ import { FaPaperPlane } from "react-icons/fa";
 const HiringAndEnquiries = () => {
   const [cardsVisible, setCardsVisible] = React.useState(false);
   return (
-    <section className="flex flex-col px-6 lg:flex-row xl:min-h-screen xl:px-8">
+    <section
+      id="hiringAndEnquiries"
+      className="flex scroll-mt-24 flex-col px-6 lg:flex-row xl:min-h-screen xl:px-8"
+    >
       <div className="w-full space-y-8">
         <h1 className="text-4xl md:text-5xl">
           Hiring <span className="text-brandDark">process</span>

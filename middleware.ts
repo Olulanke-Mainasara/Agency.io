@@ -13,7 +13,7 @@ export async function middleware(request: NextRequest) {
   ) {
     const url = request.nextUrl.clone();
     url.pathname = "/login";
-    url.searchParams.set("previous", "profile");
+    url.searchParams.set("previous", "/profile");
     return NextResponse.redirect(url);
   }
 

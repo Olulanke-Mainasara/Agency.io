@@ -79,7 +79,7 @@ const AvailablePositions = () => {
               </div>
 
               <Link
-                href={`/company/career/${position.slug}`}
+                href="/company/career#hiringAndEnquiries"
                 className="rounded-full bg-brandDark px-5 py-3 text-center text-white transition-colors hover:bg-[#195854]"
               >
                 Apply Now
