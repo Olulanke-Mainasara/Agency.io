@@ -1,41 +1,113 @@
+"use client";
+
 import React from "react";
+import Link from "next/link";
+import { parse } from "date-fns";
 import { Home, User } from "lucide-react";
-import { DateRange } from "react-day-picker";
 import { FaChild } from "react-icons/fa";
 
 import { Icons } from "@/components/Icons";
+import { authContext } from "@/components/Providers/Providers";
 import { Button } from "@/components/UI/ShadUI/button";
 import { Input } from "@/components/UI/ShadUI/input";
 import { Label } from "@/components/UI/ShadUI/label";
+import { useToast } from "@/components/UI/ShadUI/toast/use-toast";
 
 import { DatePickerWithRange } from "../Modals/DataPickerWithRange";
 import { LocationComboBox } from "../Modals/LocationComboBox";
 
+function parseDateRange(range: string): { from: Date | null; to: Date | null } {
+  const [fromText, toText] = range.split(" - ").map((part) => part.trim());
+  const from = fromText ? parse(fromText, "LLL dd, y", new Date()) : null;
+  const to = toText ? parse(toText, "LLL dd, y", new Date()) : null;
+
+  return {
+    from: from && !isNaN(from.getTime()) ? from : null,
+    to: to && !isNaN(to.getTime()) ? to : null,
+  };
+}
+
 export default function BuildTripForm() {
+  const user = React.useContext(authContext);
+  const { toast } = useToast();
+
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
-  const [error, setError] = React.useState<boolean>(false);
-  const [errorMessage, setErrorMessage] = React.useState<string>("");
   const [tripName, setTripName] = React.useState<string>("");
   const [location, setLocation] = React.useState("");
-  const [dateRange, setDateRange] = React.useState<DateRange | undefined>();
+  const [dateRange, setDateRange] = React.useState("");
   const [noOfAdults, setNoOfAdults] = React.useState("1");
   const [noOfChildren, setNoOfChildren] = React.useState("0");
   const [noOfRooms, setNoOfRooms] = React.useState("1");
 
-  const handleTripBuild = (event: React.SyntheticEvent) => {
+  const handleTripBuild = async (event: React.SyntheticEvent) => {
     event.preventDefault();
-    console.log(
-      `${tripName}, ${location}, ${dateRange}, ${noOfAdults}, ${noOfChildren}, ${noOfRooms}`
-    );
+
+    if (!user) {
+      return;
+    }
+
+    setIsLoading(true);
+
+    try {
+      const { from, to } = parseDateRange(dateRange);
+
+      const response = await fetch("/api/itineraries", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          firebaseUid: user.uid,
+          tripName,
+          destination: location,
+          dateFrom: from,
+          dateTo: to,
+          adults: Number(noOfAdults),
+          children: Number(noOfChildren),
+          rooms: Number(noOfRooms),
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to build trip");
+      }
+
+      toast({
+        title: "Trip saved.",
+        description: `${tripName || "Your trip"} has been added to your profile.`,
+      });
+      setTripName("");
+      setLocation("");
+      setDateRange("");
+      setNoOfAdults("1");
+      setNoOfChildren("0");
+      setNoOfRooms("1");
+    } catch (error) {
+      toast({
+        title: "Uh oh! Something went wrong.",
+        description: "There was a problem saving your trip.",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleLocation = (location: string) => {
     setLocation(location);
   };
 
-  const handleDateRange = (dateRange: DateRange | undefined) => {
+  const handleDateRange = (dateRange: string) => {
     setDateRange(dateRange);
   };
+
+  if (!user) {
+    return (
+      <div className="flex flex-col items-center gap-4 py-6 text-center">
+        <p className="opacity-70">Sign in to build and save a trip.</p>
+        <Button asChild>
+          <Link href="/login?previous=/">Sign in</Link>
+        </Button>
+      </div>
+    );
+  }
 
   return (
     <form
@@ -47,6 +119,7 @@ export default function BuildTripForm() {
           type="text"
           value={tripName}
           disabled={isLoading}
+          required
           placeholder="Trip name e.g Summer vacation in Paris"
           onChange={(e) => setTripName(e.target.value)}
           className="h-14 w-full rounded-xl border border-black bg-transparent px-3 text-xl placeholder:text-base placeholder:text-gray-400 dark:border-gray-400 dark:text-white md:col-span-2"
@@ -123,12 +196,9 @@ export default function BuildTripForm() {
           className="rounded-xl py-3 text-lg md:text-xl"
         >
           {isLoading && <Icons.spinner className="mr-2 h-5 w-5 animate-spin" />}
-
-          {error ? "Retry" : "Build trip"}
+          Build trip
         </Button>
       </div>
-
-      {error && <div className="text-center">{errorMessage}</div>}
     </form>
   );
 }
