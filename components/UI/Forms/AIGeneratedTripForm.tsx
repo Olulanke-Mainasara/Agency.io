@@ -7,15 +7,15 @@ import { Icons } from "@/components/Icons";
 import { Button } from "@/components/UI/ShadUI/button";
 import { Input } from "@/components/UI/ShadUI/input";
 import { Label } from "@/components/UI/ShadUI/label";
+import { useToast } from "@/components/UI/ShadUI/toast/use-toast";
 
 import { DatePickerWithRange } from "../Modals/DataPickerWithRange";
 import { LocationComboBox } from "../Modals/LocationComboBox";
 import { SelectOption } from "./Select";
 
 export default function AIGeneratedTripForm() {
+  const { toast } = useToast();
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
-  const [error, setError] = React.useState<boolean>(false);
-  const [errorMessage, setErrorMessage] = React.useState<string>("");
   const [noOfDays, setNoOfDays] = React.useState("1");
   const [location, setLocation] = React.useState("");
   const [dateRange, setDateRange] = React.useState("");
@@ -25,9 +25,11 @@ export default function AIGeneratedTripForm() {
 
   const handleTripGenerate = (event: React.SyntheticEvent) => {
     event.preventDefault();
-    console.log(
-      `${location}, ${dateRange}, ${noOfDays}, ${departureTime}, ${month}, ${companion}`
-    );
+    toast({
+      title: "AI trip generation is coming soon",
+      description:
+        "We're still building this out — check back soon for AI-generated itineraries.",
+    });
   };
 
   const handleLocation = React.useCallback((location: string) => {
@@ -111,12 +113,9 @@ export default function AIGeneratedTripForm() {
           className="rounded-xl py-3 text-lg md:text-xl"
         >
           {isLoading && <Icons.spinner className="mr-2 h-5 w-5 animate-spin" />}
-
-          {error ? "Retry" : "Generate"}
+          Generate
         </Button>
       </div>
-
-      {error && <div className="text-center">{errorMessage}</div>}
     </form>
   );
 }

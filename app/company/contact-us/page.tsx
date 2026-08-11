@@ -1,5 +1,6 @@
 import React from "react";
-import { FaPaperPlane } from "react-icons/fa";
+
+import { ContactForm } from "./ContactForm";
 
 export const metadata = {
   title: "Contact us | Agency.io",
@@ -42,54 +43,7 @@ const Contactus = () => {
         </div>
 
         <div className="flex min-h-screen w-full items-center justify-center py-6 xl:min-h-full xl:basis-2/5">
-          <form className="w-[90%] max-w-lg text-black dark:text-white xl:w-4/5">
-            <h1 className="mb-2 text-center text-6xl">
-              What&apos;s <span className="text-brandDark">Up?</span>
-            </h1>
-            <p className="mb-2 text-center dark:text-gray-400">
-              Post-ironic portland shabby chic echo park, banjo.
-            </p>
-            <div className="relative mb-4">
-              <label htmlFor="name" className="text-lg leading-10">
-                Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                className="w-full rounded border border-black bg-transparent px-3 py-2 text-base leading-8 outline-none transition-colors duration-200 ease-in-out focus:border-brandLight dark:border-gray-400"
-              />
-            </div>
-            <div className="relative mb-4">
-              <label htmlFor="email" className="text-lg leading-10">
-                Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                className="w-full rounded border border-black bg-transparent px-3 py-2 text-base leading-8 outline-none transition-colors duration-200 ease-in-out focus:border-brandLight dark:border-gray-400"
-              />
-            </div>
-            <div className="relative mb-4">
-              <label htmlFor="message" className="text-lg leading-10">
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                className="h-32 w-full resize-none rounded border border-black bg-transparent p-3 text-base leading-6 outline-none transition-colors duration-200 ease-in-out focus:border-brandLight dark:border-gray-400"
-                data-gramm="false"
-                wt-ignore-input="true"
-              ></textarea>
-            </div>
-            <button className="mx-auto flex items-center gap-2 rounded border-0 bg-brandDark px-6 py-2 text-lg text-white hover:bg-opacity-80 focus:outline-none">
-              Send message <FaPaperPlane />
-            </button>
-            <p className="mt-4 text-center text-sm dark:text-gray-400">
-              We will endeavour to get back to you within 48 hours!
-            </p>
-          </form>
+          <ContactForm />
         </div>
       </div>
     </main>

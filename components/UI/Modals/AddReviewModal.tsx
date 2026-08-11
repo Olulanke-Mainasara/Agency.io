@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
 import { PlusCircle } from "lucide-react";
 import { FaStar } from "react-icons/fa";
@@ -24,9 +24,14 @@ import { Textarea } from "../ShadUI/textarea";
 import { ToastAction } from "../ShadUI/toast/toast";
 import { useToast } from "../ShadUI/toast/use-toast";
 
-export function AddReviewModal() {
+export function AddReviewModal({
+  establishmentId,
+}: {
+  establishmentId?: string;
+}) {
   const user = React.useContext(authContext);
   const router = useRouter();
+  const pathname = usePathname();
   const { toast } = useToast();
 
   const [open, setOpen] = React.useState(false);
@@ -73,6 +78,7 @@ export function AddReviewModal() {
           title,
           description,
           rating,
+          establishmentId,
         }),
       });
 
@@ -121,7 +127,7 @@ export function AddReviewModal() {
             </CardHeader>
             <CardFooter className="px-0">
               <Button asChild>
-                <Link href="/login?previous=/company/reviews">Sign in</Link>
+                <Link href={`/login?previous=${pathname}`}>Sign in</Link>
               </Button>
             </CardFooter>
           </Card>

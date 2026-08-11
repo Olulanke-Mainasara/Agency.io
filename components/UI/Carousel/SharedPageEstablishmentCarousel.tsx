@@ -2,11 +2,14 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import { EstablishmentInfo } from "@/types/EstablishmentInfo";
 
+import { Button } from "../ShadUI/button";
 import LeftArrow from "./LeftArrow";
 import RightArrow from "./RightArrow";
 
@@ -75,8 +78,16 @@ const BareBonesEstablishmentCarousel = ({
                 alt={item.displayImage.alt ? item.displayImage.alt : ""}
               />
             </div>
-            <div className="absolute bottom-0 w-full rounded-b-xl p-4 text-white backdrop-blur-sm backdrop-brightness-[25%]">
+            <div className="absolute bottom-0 flex w-full items-center justify-between rounded-b-xl p-4 text-white backdrop-blur-sm backdrop-brightness-[25%]">
               <p className="text-2xl">{item.name}</p>
+              <Button className="gap-1 rounded-full" asChild>
+                <Link href={`/establishments/${item.slug}`} prefetch={false}>
+                  view{" "}
+                  <span>
+                    <ArrowRight size={20} />
+                  </span>
+                </Link>
+              </Button>
             </div>
           </SwiperSlide>
         );

@@ -1,7 +1,7 @@
 import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 
-import { destinations } from "./destinations";
+import { additionalHomepageDestinations, destinations } from "./destinations";
 import { fetchNearbyEstablishments } from "./lib/overpass";
 import { fetchUnsplashPhoto } from "./lib/unsplash";
 import { fetchWikipediaSummary } from "./lib/wikipedia";
@@ -82,7 +82,9 @@ async function sourceDestination(destination: (typeof destinations)[number]) {
 async function main() {
   await mkdir(OUTPUT_DIR, { recursive: true });
 
-  for (const destination of destinations) {
+  const allDestinations = [...destinations, ...additionalHomepageDestinations];
+
+  for (const destination of allDestinations) {
     process.stdout.write(`Sourcing ${destination.cityWikiTitle}... `);
 
     try {

@@ -1,4 +1,7 @@
+"use client";
+
 import React from "react";
+import { useRouter } from "next/navigation";
 
 import { Icons } from "@/components/Icons";
 
@@ -6,14 +9,14 @@ import { LocationComboBox } from "../Modals/LocationComboBox";
 import { Button } from "../ShadUI/button";
 
 const ExploreTheWorldForm = () => {
+  const router = useRouter();
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
-  const [error, setError] = React.useState<boolean>(false);
-  const [errorMessage, setErrorMessage] = React.useState<string>("");
   const [location, setLocation] = React.useState("");
 
   const handleExploreTheWorld = (event: React.SyntheticEvent) => {
     event.preventDefault();
-    console.log(`${location}`);
+    setIsLoading(true);
+    router.push("/places");
   };
 
   const handleLocation = (location: string) => {
@@ -35,11 +38,8 @@ const ExploreTheWorldForm = () => {
         className="w-full rounded-xl px-10 py-3 text-lg md:w-fit md:text-xl"
       >
         {isLoading && <Icons.spinner className="mr-2 h-5 w-5 animate-spin" />}
-
-        {error ? "Retry" : "Search"}
+        Search
       </Button>
-
-      {error && <div className="text-center">{errorMessage}</div>}
     </form>
   );
 };

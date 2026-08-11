@@ -45,6 +45,9 @@ const AltAuthLinks = ({
           Google
         </Button>
 
+        {/* Apple sign-in isn't implemented yet — was a fake button that
+        always failed after a timed delay. Re-enable once real Apple OAuth
+        is wired up.
         <Button
           variant="plain"
           type="button"
@@ -59,6 +62,7 @@ const AltAuthLinks = ({
           )}
           Apple
         </Button>
+        */}
       </div>
     </>
   );

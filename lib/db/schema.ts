@@ -23,14 +23,32 @@ export const reviews = pgTable("reviews", {
     .defaultNow(),
 });
 
+export const messages = pgTable("messages", {
+  id: uuid("id").defaultRandom().primaryKey(),
+  type: text("type").notNull(),
+  name: text("name").notNull(),
+  email: text("email").notNull(),
+  message: text("message").notNull(),
+  createdAt: timestamp("created_at", { withTimezone: true })
+    .notNull()
+    .defaultNow(),
+});
+
 export const itineraries = pgTable("itineraries", {
   id: uuid("id").defaultRandom().primaryKey(),
   firebaseUid: text("firebase_uid").notNull(),
+  source: text("source").notNull(), // "manual" | "ai"
+  tripName: text("trip_name"),
   destination: text("destination").notNull(),
-  currency: text("currency").notNull(),
+  currency: text("currency"),
   budget: integer("budget"),
   totalEstimatedCost: integer("total_estimated_cost"),
-  days: jsonb("days").notNull(),
+  dateFrom: timestamp("date_from", { withTimezone: true }),
+  dateTo: timestamp("date_to", { withTimezone: true }),
+  adults: integer("adults"),
+  children: integer("children"),
+  rooms: integer("rooms"),
+  days: jsonb("days"),
   createdAt: timestamp("created_at", { withTimezone: true })
     .notNull()
     .defaultNow(),

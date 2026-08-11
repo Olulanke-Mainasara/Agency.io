@@ -1,6 +1,8 @@
 "use client";
 
 import React from "react";
+import { auth } from "@/firebase/client.config";
+import { sendPasswordResetEmail } from "firebase/auth";
 
 import { Icons } from "@/components/Icons";
 import { Button } from "@/components/UI/ShadUI/button";
@@ -9,14 +11,48 @@ import { Label } from "@/components/UI/ShadUI/label";
 
 export function RecoverForm({ previous }: { previous: string }) {
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
+  const [error, setError] = React.useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = React.useState<string>("");
+  const [sent, setSent] = React.useState<boolean>(false);
+  const [email, setEmail] = React.useState<string>("");
 
   async function onSubmit(event: React.SyntheticEvent) {
     event.preventDefault();
+    setError(false);
     setIsLoading(true);
 
-    setTimeout(() => {
+    try {
+      await sendPasswordResetEmail(auth, email);
+      setSent(true);
+    } catch (error) {
+      setError(true);
+      if (error instanceof Error) {
+        switch (error.message) {
+          case "Firebase: Error (auth/user-not-found).":
+            setErrorMessage("No user exists with this email address");
+            break;
+          case "Firebase: Error (auth/invalid-email).":
+            setErrorMessage("Invalid email address provided");
+            break;
+          default:
+            setErrorMessage("Couldn't send reset email, please retry");
+            break;
+        }
+      } else {
+        setErrorMessage("Couldn't send reset email, please contact support");
+      }
+    } finally {
       setIsLoading(false);
-    }, 3000);
+    }
+  }
+
+  if (sent) {
+    return (
+      <p className="text-center">
+        Check <span className="font-medium">{email}</span> for a link to
+        reset your password.
+      </p>
+    );
   }
 
   return (
@@ -33,13 +69,20 @@ export function RecoverForm({ previous }: { previous: string }) {
               autoComplete="email"
               autoCorrect="off"
               disabled={isLoading}
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
 
           <Button disabled={isLoading}>
             {isLoading && <Icons.spinner className="h-5 w-5 animate-spin" />}
-            Reset
+            {error ? "Retry" : "Reset"}
           </Button>
+
+          {error && (
+            <div className="text-center text-red-500">{errorMessage}</div>
+          )}
         </div>
       </form>
     </div>

@@ -20,20 +20,19 @@ export type EstablishmentInfo = {
   country: string;
   place: string;
   category: string;
-  picture: Image[];
-  rating: number;
+  pictures?: Image[];
+  rating?: number;
   priceLevel?: number;
-  address: string;
-  contact: {
-    website: string;
-    telephone: string;
-    email: string;
+  address?: string;
+  contact?: {
+    website?: string;
+    telephone?: string;
+    email?: string;
   };
-  coordinates: {
-    altitude: number;
-    latitude: number;
-    longitude: number;
+  coordinates?: {
+    lat: number;
+    lng: number;
+    alt?: number;
   };
-  reviews: Review[];
   faqs: Faq[];
 };
