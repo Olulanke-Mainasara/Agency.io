@@ -24,6 +24,10 @@ feature.
   `Routing-and-Dynamic-Page-Rendering`,
   `vercel/react-server-components-cve-vu-sfv01b`) — verified nothing unique
   is in them.
+- **Status: done.** Deleted the 4 local branches (5th was already gone) and
+  pruned the stale `origin/*` tracking refs, including
+  `claude/repo-branch-count-u8qdhr`. Only `main` remains, locally and on
+  GitHub.
 
 ## 4. Add `.env.example`
 - Document every required `NEXT_PUBLIC_*`/Sanity/Firebase var so a new dev
