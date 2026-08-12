@@ -5,11 +5,17 @@ import firstLetterToUpperCase from "@/lib/firstLetterToUpperCase";
 import CountryImageCard from "@/components/UI/Cards/CountryImageCard";
 import BadRequest from "@/components/UI/Sections/BadRequest";
 
-export default async function Continent({
-  params: { continent },
-}: {
-  params: { continent: string };
-}) {
+export default async function Continent(
+  props: {
+    params: Promise<{ continent: string }>;
+  }
+) {
+  const params = await props.params;
+
+  const {
+    continent
+  } = params;
+
   let countries: Country[];
 
   try {
@@ -20,7 +26,7 @@ export default async function Continent({
 
   return (
     <main className="mx-auto max-w-[1440px] px-6 pt-20 lg:pt-24 xl:px-8">
-      <h1 className="text-center text-4xl dark:text-white md:text-7xl">
+      <h1 className="text-center text-4xl dark:text-white md:text-7xl xl:text-8xl">
         {firstLetterToUpperCase(continent, "-")}
       </h1>
 

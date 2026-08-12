@@ -7,8 +7,8 @@ import NBgLink from "../UI/Links/NBgLink";
 const Hero = () => {
   return (
     <section className="relative h-screen xl:flex">
-      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-4 px-6 backdrop-brightness-[25%] xl:relative xl:basis-2/5 xl:items-start xl:px-8 xl:backdrop-brightness-100">
-        <h1 className="text-8xl">
+      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-4 px-6 backdrop-brightness-25 xl:relative xl:basis-2/5 xl:items-start xl:px-8 xl:backdrop-brightness-100">
+        <h1 className="text-5xl md:text-7xl xl:text-8xl">
           Join <span className="text-brandDark">Us!</span>
         </h1>
         <p className="max-w-xl text-center md:text-xl xl:text-left">

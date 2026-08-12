@@ -37,7 +37,7 @@ const QuickInfo = ({ weatherInfo }: { weatherInfo: any }) => {
           <h1 className="flex items-center gap-2 text-xl">
             <FaSun /> - -
           </h1>
-          <h1 id="uvIndex" className="text-7xl sm:text-5xl">
+          <h1 id="uvIndex" className="text-5xl sm:text-7xl">
             - -
           </h1>
           <h1 id="exposureLevel" className="text-xl">

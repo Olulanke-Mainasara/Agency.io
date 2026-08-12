@@ -50,7 +50,7 @@ export function ContactForm() {
       onSubmit={handleSubmit}
       className="w-[90%] max-w-lg text-black dark:text-white xl:w-4/5"
     >
-      <h1 className="mb-2 text-center text-6xl">
+      <h1 className="mb-2 text-center text-4xl md:text-6xl">
         What&apos;s <span className="text-brandDark">Up?</span>
       </h1>
       <p className="mb-2 text-center dark:text-gray-400">
@@ -105,7 +105,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={isLoading}
-        className="mx-auto flex items-center gap-2 rounded border-0 bg-brandDark px-6 py-2 text-lg text-white hover:bg-opacity-80 focus:outline-none disabled:opacity-50"
+        className="mx-auto flex items-center gap-2 rounded border-0 bg-brandDark px-6 py-2 text-lg text-white hover:bg-brandDark/80 focus:outline-none disabled:opacity-50"
       >
         {isLoading && <Icons.spinner className="h-4 w-4 animate-spin" />}
         Send message <FaPaperPlane />
