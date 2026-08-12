@@ -7,7 +7,6 @@ import Blog from "../Blog";
 import BrowseByExperience from "../BrowseByExperience";
 import BuildTripCTA from "../BuildTripCTA";
 import ExperienceYourLocal from "../ExperienceYourLocal";
-import GetAppCTA from "../GetAppCTA";
 import PopularDestinations from "../PopularDestinations";
 import PropertyCarousel from "../PropertyCarousel";
 import RecommendedCitySpots from "../RecommendedCitySpots";
@@ -51,8 +50,6 @@ const Main = async () => {
           <BuildTripCTA />
 
           <RecommendedDestinations />
-
-          <GetAppCTA />
         </div>
       </Body>
 
