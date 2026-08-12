@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const GeoNotActive = () => {
   return (
-    <div className="absolute left-0 top-0 z-20 flex h-full w-full flex-col items-center justify-center gap-6 text-white backdrop-brightness-[10%]">
+    <div className="absolute left-0 top-0 z-20 flex h-full w-full flex-col items-center justify-center gap-6 text-white backdrop-brightness-10">
       <h1 className="text-center text-2xl md:text-4xl">
         Geolocation is not active / supported
       </h1>

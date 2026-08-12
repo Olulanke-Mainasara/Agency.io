@@ -27,6 +27,7 @@ const NearbyLocations = ({
 
   React.useEffect(() => {
     if (permission) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- kicks off geolocation lookup once permission is granted
       setIsLoading(true);
       navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -125,7 +126,7 @@ const NearbyLocations = ({
                     alt={item.displayImage.alt ? item.displayImage.alt : ""}
                   />
                 </div>
-                <div className="absolute bottom-0 w-full rounded-b-xl p-4 text-white backdrop-blur-sm backdrop-brightness-[25%]">
+                <div className="absolute bottom-0 w-full rounded-b-xl p-4 text-white backdrop-blur-sm backdrop-brightness-25">
                   <p className="text-2xl">{item.name}</p>
                 </div>
               </SwiperSlide>

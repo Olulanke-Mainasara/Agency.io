@@ -26,11 +26,17 @@ function PriceLevel({ level }: { level?: number }) {
   );
 }
 
-export default async function EstablishmentPage({
-  params: { slug },
-}: {
-  params: { slug: string };
-}) {
+export default async function EstablishmentPage(
+  props: {
+    params: Promise<{ slug: string }>;
+  }
+) {
+  const params = await props.params;
+
+  const {
+    slug
+  } = params;
+
   let establishmentInfo;
 
   try {
@@ -82,7 +88,7 @@ export default async function EstablishmentPage({
           />
         )}
 
-        <div className="absolute inset-0 flex flex-col justify-end gap-2 p-6 text-white backdrop-brightness-[40%] xl:p-8">
+        <div className="absolute inset-0 flex flex-col justify-end gap-2 p-6 text-white backdrop-brightness-40 xl:p-8">
           {category && <p className="text-brandLight">{category}</p>}
           <h1 className="text-5xl md:text-7xl">{name}</h1>
           <p className="text-lg opacity-80">

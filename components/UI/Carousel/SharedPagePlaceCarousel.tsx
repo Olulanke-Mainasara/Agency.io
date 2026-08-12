@@ -77,7 +77,7 @@ const SharedPagePlaceCarousel = ({
                   alt={item.displayImage.alt ? item.displayImage.alt : ""}
                 />
               </div>
-              <div className="absolute bottom-0 flex w-full items-center justify-between rounded-b-xl p-4 text-white backdrop-blur-sm backdrop-brightness-[25%]">
+              <div className="absolute bottom-0 flex w-full items-center justify-between rounded-b-xl p-4 text-white backdrop-blur-sm backdrop-brightness-25">
                 <div>
                   <p className="text-2xl">{item.name}</p>
                   {extra && <p className="xl:text-sm">{item.extra}</p>}

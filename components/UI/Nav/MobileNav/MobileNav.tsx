@@ -21,6 +21,7 @@ const MobileNav = ({
   const [clicked, setClicked] = React.useState(false);
 
   React.useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- deliberate reset on route change
     setClicked(false);
   }, [pathname]);
 
@@ -66,7 +67,7 @@ const MobileNav = ({
         }}
         className={`absolute inset-0 overflow-hidden bg-white dark:bg-background`}
       >
-        <div className="relative flex min-h-[100dvh] flex-col items-center justify-center gap-8">
+        <div className="relative flex min-h-dvh flex-col items-center justify-center gap-8">
           <MobileNavLinks />
 
           <div className="flex items-center gap-2 xs:w-full xs:flex-col xs:gap-5">

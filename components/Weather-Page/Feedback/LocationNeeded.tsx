@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const LocationNeeded = ({ handleLocationClick }: any) => {
   return (
-    <div className="absolute left-0 top-0 z-20 flex h-full w-full flex-col items-center justify-center gap-6 text-white backdrop-brightness-[10%]">
+    <div className="absolute left-0 top-0 z-20 flex h-full w-full flex-col items-center justify-center gap-6 text-white backdrop-brightness-10">
       <h1 className="w-[90%] text-center text-2xl md:text-4xl">
         We need your location 👉👈
       </h1>

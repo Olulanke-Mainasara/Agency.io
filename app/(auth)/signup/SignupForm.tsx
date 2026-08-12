@@ -112,6 +112,7 @@ export function SignupForm({ previous }: { previous: string }) {
 
   React.useEffect(() => {
     if (user) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- shows a loading state while redirecting an already-signed-in user
       setIsLoading(true);
       previous === "/" || !previous
         ? router.push(`/?splashed=true`)

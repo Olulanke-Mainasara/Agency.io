@@ -9,11 +9,17 @@ import NearbyLocations from "@/components/UI/Sections/NearbyLocations";
 
 export const dynamic = "force-dynamic";
 
-export default async function Category({
-  params: { category },
-}: {
-  params: { category: string };
-}) {
+export default async function Category(
+  props: {
+    params: Promise<{ category: string }>;
+  }
+) {
+  const params = await props.params;
+
+  const {
+    category
+  } = params;
+
   let experienceData: Experience[];
 
   try {
@@ -38,7 +44,7 @@ export default async function Category({
           className="object-cover"
         />
 
-        <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 p-6 text-white backdrop-brightness-[30%] md:flex-row md:gap-6 xl:p-8">
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 p-6 text-white backdrop-brightness-30 md:flex-row md:gap-6 xl:p-8">
           <h1 className="text-6xl md:text-9xl">{experience.name}</h1>
           <div className="hidden h-full max-h-[200px] w-1 bg-white md:block"></div>
           <p className="w-96 text-center text-xl md:text-left md:text-2xl">

@@ -11,11 +11,18 @@ import BadRequest from "@/components/UI/Sections/BadRequest";
 
 export const dynamic = "force-dynamic";
 
-export default async function CountryPage({
-  params: { country, continent },
-}: {
-  params: { country: string; continent: string };
-}) {
+export default async function CountryPage(
+  props: {
+    params: Promise<{ country: string; continent: string }>;
+  }
+) {
+  const params = await props.params;
+
+  const {
+    country,
+    continent
+  } = params;
+
   let countryInfo: Country[];
 
   try {
@@ -47,9 +54,9 @@ export default async function CountryPage({
       <section className="pt-20 lg:pt-24 xl:pt-0">
         <section className="flex max-h-[900px] flex-col gap-8 px-6 lg:h-screen lg:flex-row lg:items-center xl:px-8">
           <div className="hidden h-[550px] basis-1/2 grid-cols-2 gap-10 lg:grid">
-            {pictures?.map((picture) => (
+            {pictures?.map((picture, index) => (
               <div
-                key={Math.floor(Math.random() * Date.now())}
+                key={typeof picture.url === "string" ? picture.url : index}
                 className="relative h-full w-full overflow-hidden rounded-lg"
               >
                 <Image

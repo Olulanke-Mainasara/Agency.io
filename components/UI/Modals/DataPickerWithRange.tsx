@@ -64,7 +64,7 @@ export function DatePickerWithRange({
           </VisuallyHidden.Root>
 
           <Calendar
-            initialFocus
+            autoFocus
             mode="range"
             selected={date}
             onSelect={(dateRange) => setDate(dateRange)}

@@ -53,6 +53,7 @@ export function useLocation() {
 
   useEffect(() => {
     if (locationData) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- fetches location-derived data when locationData changes
       fetchLocationData(locationData);
       return;
     }

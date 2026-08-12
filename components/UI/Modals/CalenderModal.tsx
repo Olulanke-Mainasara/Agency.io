@@ -29,7 +29,7 @@ export function CalendarModal({ handleDate }: { handleDate: Function }) {
         </Button>
       </PopoverTrigger>
       <PopoverContent>
-        <Calendar initialFocus mode="single" selected={date} />
+        <Calendar autoFocus mode="single" selected={date} />
       </PopoverContent>
     </Popover>
   );

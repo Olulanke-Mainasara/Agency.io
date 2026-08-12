@@ -46,7 +46,7 @@ const LocationImageCard = ({
           />
         </div>
 
-        <div className="absolute inset-0 pl-5 pt-5 backdrop-brightness-[60%]">
+        <div className="absolute inset-0 pl-5 pt-5 backdrop-brightness-60">
           <h1>{continent.label}</h1>
         </div>
 

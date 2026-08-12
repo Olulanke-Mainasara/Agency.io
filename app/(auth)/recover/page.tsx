@@ -14,16 +14,15 @@ export const metadata = {
   description: "Let's help you get it.",
 };
 
-export const runtime = "edge";
-
-export default function Page({ searchParams }: { searchParams: any }) {
+export default async function Page(props: { searchParams: Promise<any> }) {
+  const searchParams = await props.searchParams;
   const previous = searchParams.previous;
 
   return (
     <>
       <div className="flex h-screen flex-col items-center justify-center lg:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
         <div className="relative hidden h-full text-white lg:block">
-          <div className="absolute inset-0 z-10 flex flex-col p-10 backdrop-brightness-[60%]">
+          <div className="absolute inset-0 z-10 flex flex-col p-10 backdrop-brightness-60">
             <Link
               href={`/?splashed=true`}
               className="relative z-20 flex items-center text-3xl"

@@ -78,7 +78,7 @@ const BareBonesEstablishmentCarousel = ({
                 alt={item.displayImage.alt ? item.displayImage.alt : ""}
               />
             </div>
-            <div className="absolute bottom-0 flex w-full items-center justify-between rounded-b-xl p-4 text-white backdrop-blur-sm backdrop-brightness-[25%]">
+            <div className="absolute bottom-0 flex w-full items-center justify-between rounded-b-xl p-4 text-white backdrop-blur-sm backdrop-brightness-25">
               <p className="text-2xl">{item.name}</p>
               <Button className="gap-1 rounded-full" asChild>
                 <Link href={`/establishments/${item.slug}`} prefetch={false}>

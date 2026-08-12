@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const ErrorOccurred = () => {
   return (
-    <div className="absolute left-0 top-0 z-20 flex h-full w-full flex-col items-center justify-center gap-6 text-white backdrop-brightness-[10%]">
+    <div className="absolute left-0 top-0 z-20 flex h-full w-full flex-col items-center justify-center gap-6 text-white backdrop-brightness-10">
       <h1 className="text-center text-2xl md:text-3xl">An error occurred</h1>
       <p className="w-[93%] max-w-lg text-center">
         A server error occurred, try reloading the browser and check to make

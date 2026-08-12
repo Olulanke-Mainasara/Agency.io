@@ -65,8 +65,8 @@ const TopFeaturedDestinations = () => {
               <div
                 className={`${
                   card !== index
-                    ? "backdrop-brightness-[80%] xl:backdrop-brightness-50"
-                    : "backdrop-brightness-[80%]"
+                    ? "backdrop-brightness-80 xl:backdrop-brightness-50"
+                    : "backdrop-brightness-80"
                 } absolute inset-0 pl-5 pt-5 duration-500`}
               >
                 <p

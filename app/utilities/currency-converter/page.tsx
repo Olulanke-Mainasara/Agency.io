@@ -40,6 +40,7 @@ const Currency = () => {
   };
 
   React.useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- kicks off the initial conversion on mount
     convertCurrency();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

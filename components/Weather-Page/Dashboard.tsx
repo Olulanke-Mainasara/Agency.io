@@ -44,6 +44,7 @@ const Dashboard = () => {
 
   React.useEffect(() => {
     const confirmedValue = localStorage.getItem("confirmed");
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- reads client-only localStorage on mount
     setConfirmed(confirmedValue ? confirmedValue : "false");
 
     if (!navigator.geolocation) {
@@ -65,13 +66,14 @@ const Dashboard = () => {
   }, [confirmed]);
 
   React.useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- refetches weather whenever locationData changes
     fetchWeatherInfo();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [locationData]);
 
   return (
     <>
-      <main className="flex min-h-[100dvh] w-full flex-col gap-12 p-4 pt-20 xl:h-screen xl:flex-row xl:gap-8 xl:pt-20">
+      <main className="flex min-h-dvh w-full flex-col gap-12 p-4 pt-20 xl:h-screen xl:flex-row xl:gap-8 xl:pt-20">
         <MainInfo weatherInfo={weatherInfo} />
         <DayForecast weatherInfo={weatherInfo} />
       </main>

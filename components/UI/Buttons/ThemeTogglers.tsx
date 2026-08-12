@@ -9,6 +9,7 @@ export const DesktopThemeToggler = () => {
   const { systemTheme, theme, setTheme } = useTheme();
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- hydration mount-guard, deliberately sync
     setMounted(true);
   }, []);
 
@@ -59,6 +60,7 @@ export const MobileThemeToggler = ({
   const { systemTheme, theme, setTheme } = useTheme();
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- hydration mount-guard, deliberately sync
     setMounted(true);
   }, []);
 
